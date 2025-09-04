@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import App from "./App";
+// import App from "./App";
 import DashboardLayout from "./pages/dashboard/layout";
 import NotFound from "./components/not-found";
 import Home from "./pages/dashboard/home";
@@ -14,10 +14,10 @@ import SignUp from "./pages/auth/sign-up";
 import Otp from "./pages/auth/otp";
 
 export const Routes = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />
-    },
+    // {
+        // path: "/",
+        // element: <App />
+    // },
     {
         path: "/auth",
         element: <AuthLayout />,
@@ -35,7 +35,7 @@ export const Routes = createBrowserRouter([
                 element: <Otp />
             },
             {
-                path: "*",
+                path: "/auth",
                 element: <NotFound />
             }
         ]
@@ -69,7 +69,7 @@ export const Routes = createBrowserRouter([
                 element: <Settings />
             },
             {
-                path: "*",
+                path: "/home",
                 element: <NotFound />
             }
         ]
