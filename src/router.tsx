@@ -5,7 +5,7 @@ import NotFound from "./components/not-found";
 import Home from "./pages/dashboard/home";
 import MyCourses from "./pages/dashboard/my-courses";
 import Explore from "./pages/dashboard/explore";
-import Community from "./pages/dashboard/community";
+// import Community from "./pages/dashboard/community";
 import MyProfile from "./pages/dashboard/my-profile";
 import Settings from "./pages/dashboard/settings";
 import AuthLayout from "./pages/auth/layout";
@@ -56,10 +56,10 @@ export const Routes = createBrowserRouter([
                 path: "my-courses",
                 element: <MyCourses />
             },
-            {
-                path: "community",
-                element: <Community />
-            },
+            // {
+            //     path: "community",
+            //     element: <Community />
+            // },
             {
                 path: "my-profile",
                 element: <MyProfile />
