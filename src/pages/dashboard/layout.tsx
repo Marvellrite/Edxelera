@@ -4,9 +4,9 @@ import Header from "./components/header"
 
 const DashboardLayout: React.FC = () => {
   return (
-    <main className="grid grid-cols-12">
+    <main className="grid grid-cols-12 h-screen">
       <Sidebar />
-      <section className="col-span-10">
+      <section className="col-span-10 h-full">
         <Header />
         <Outlet />
       </section>
