@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
       <div className='flex gap-2 items-center w-full md:w-auto'>
         <div className='flex flex-row-reverse md:flex-row justify-between md:justify-normal gap-3 items-center w-full'>
-          <ReactSVG src="/icons/notification.svg" width={25} height={25} />
+          <ReactSVG src="/icons/notification.svg" width={25} height={25} className='hover:cursor-pointer' />
           <div className='flex flex-row-reverse md:flex-row gap-3 items-center md:border-l-2 border-neutral-100 md:px-3'>
             <div>
               <p className='flex md:hidden text-sm text-neutral-600'>Good Morning</p>
@@ -52,8 +52,8 @@ const Header: React.FC = () => {
         </div>
 
         <div className='hidden md:flex gap-2 border border-neutral-500 rounded-full p-1'>
-          <ReactSVG src="/icons/sun.svg" width={5} height={5} className='bg-primary rounded-full p-1' onClick={() => toggleTheme("light")} />
-          <ReactSVG src="/icons/moon-outline.svg" width={5} height={5} className='bg-primary rounded-full p-1' onClick={() => toggleTheme("dark")} />
+          <ReactSVG src="/icons/sun.svg" width={5} height={5} className='bg-primary rounded-full p-1 hover:cursor-pointer' onClick={() => toggleTheme("light")} />
+          <ReactSVG src="/icons/moon-outline.svg" width={5} height={5} className='bg-primary rounded-full p-1 hover:cursor-pointer' onClick={() => toggleTheme("dark")} />
         </div>
       </div>
     </header>

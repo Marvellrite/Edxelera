@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROJECT GUIDE
 
-## Getting Started
+1. run `npm install` or `npm i` to install all the packages in the project set-up.
 
-First, run the development server:
+2. check the depentencies in [package.json](package.json) to know which dependencies are installed.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. use [react-hook-form](https://react-hook-form.com) which i've already installed to build the form plus client-side form validation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. the [hooks](/app//hooks) folder is where you have to define custom hooks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+PS: All layout files should not be edited, without permission.(if for any reason you might need to edit the layout file, please let me know.)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## API END POINTS
+### AUTH
 
-To learn more about Next.js, take a look at the following resources:
+POST /auth/signin
+POST /auth/signup
+POST /auth/signout
+POST /auth/forgotten-password
+POST /auth/otp
+POST /auth/resend-otp
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### USERS
+GET /USERS
+GET /users/me  (protected)
+PATCH /users/:_id/edit  (protected)
+DELETE /users/:_id/delete  (protected)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### PAYMENT
+POST /payment
+POST /payment/:_id/
