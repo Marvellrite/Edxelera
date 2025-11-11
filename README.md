@@ -1,7 +1,0 @@
-# FRONTEND GUIDE
-
-
-
-```js
-
-```
