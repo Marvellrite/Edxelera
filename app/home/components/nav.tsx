@@ -68,7 +68,7 @@ export const Tabs: React.FC = () => {
     const myProfile = pathname === '/home/my-profile'
     
     return (
-        <aside className='grid md:hidden grid-cols-5 h-16 pt-3 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100'>
+        <aside className='grid md:hidden grid-cols-5 h-20 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100'>
           <Link href="/home" className={`flex gap-1 hover:cursor-pointer ${home ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/home${home ? '' : '-outline'}.svg`} width={25} height={25} />
             <span className='text-nowrap'>Home</span>
