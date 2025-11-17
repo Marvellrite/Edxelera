@@ -59,7 +59,7 @@ export const Sidebar: React.FC = () => {
 export const Tabs: React.FC = () => {
     const pathname = usePathname()
 
-    const activeLink = 'text-primary font-bold'
+    const activeLink = '*:text-primary *:font-bold'
 
     const home = pathname === '/home'
     const explore = pathname === '/home/explore'
@@ -68,24 +68,24 @@ export const Tabs: React.FC = () => {
     const myProfile = pathname === '/home/my-profile'
     
     return (
-        <aside className='grid md:hidden grid-cols-5 h-16 pt-3 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-xs border-t border-neutral-100'>
-          <Link href="/home" className={`flex gap-1 hover:cursor-pointer ${home ? activeLink : ''}`}>
+        <aside className='grid md:hidden grid-cols-5 h-16 pt-3 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100'>
+          <Link href="/home" className={`flex gap-1 hover:cursor-pointer ${home ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/home${home ? '' : '-outline'}.svg`} width={25} height={25} />
             <span className='text-nowrap'>Home</span>
           </Link>
-          <Link href="/home/explore" className={`flex gap-1 hover:cursor-pointer ${explore ? activeLink : ''}`}>
+          <Link href="/home/explore" className={`flex gap-1 hover:cursor-pointer ${explore ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/search${explore ? '' : '-outline'}.svg`} width={25} height={25} />
             <span className='text-nowrap'>Explore</span>
           </Link>
-          <Link href="/home/my-courses" className={`flex gap-1 hover:cursor-pointer ${myCourses ? activeLink : ''}`}>
+          <Link href="/home/my-courses" className={`flex gap-1 hover:cursor-pointer ${myCourses ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/book${myCourses ? '' : '-outline'}.svg`} width={25} height={25} />
             <span className='text-nowrap'>My Courses</span>
           </Link>
-          <Link href="/home/community" className={`flex gap-1 hover:cursor-pointer ${community ? activeLink : ''}`}>
+          <Link href="/home/community" className={`flex gap-1 hover:cursor-pointer ${community ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/people${community ? '' : '-outline'}.svg`} width={25} height={25} />
             <span className='text-nowrap'>Community</span>
           </Link>
-          <Link href="/home/my-profile" className={`flex gap-1 hover:cursor-pointer ${myProfile ? activeLink : ''}`}>
+          <Link href="/home/my-profile" className={`flex gap-1 hover:cursor-pointer ${myProfile ? activeLink : '*:text-neutral-700'}`}>
             <ReactSVG src={`/icons/user${myProfile ? '' : '-outline'}.svg`} width={25} height={25}/>
             <span className='text-nowrap'>Profile</span>
           </Link>
