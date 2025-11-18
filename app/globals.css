@@ -28,6 +28,10 @@
   --color-neutral-200: var(--neutral-200);
   --color-neutral-100: var(--neutral-100);
   --color-neutral-50: var(--neutral-50);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
 
   /* FONT SIZES */
   --text-*: initial;
