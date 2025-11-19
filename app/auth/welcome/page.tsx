@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { ReactSVG } from 'react-svg';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { WelcomeSchema, welcomeSchema } from '@/schemas/welcome';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import FormError from '@/components/auth/form-error';
+import DatePicker from '@/components/data/date-picker';
 
 const Page: React.FC = () => {
    const {
@@ -15,6 +16,7 @@ const Page: React.FC = () => {
       register,
       handleSubmit,
       formState: { errors },
+      control,
    } = useForm<WelcomeSchema>({
       resolver: zodResolver(welcomeSchema),
    });
@@ -30,8 +32,9 @@ const Page: React.FC = () => {
    const onSubmit = async (data: WelcomeSchema) => {
       data.profileImage = data.profileImage[0] as File;
       // console.log(data);
+      console.log(data.DOB.toDateString());
       const formData = new FormData();
-      formData.append('DOB', data.DOB);
+      formData.append('DOB', data.DOB.toDateString());
       formData.append('location', data.location);
       formData.append('bio', data.bio);
       formData.append('profileImage', data.profileImage);
@@ -85,7 +88,7 @@ const Page: React.FC = () => {
                         <ReactSVG src="/icons/gallery-add.svg" />
                         <input
                            title="Profile Image"
-                           className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0"
+                           className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0 hover:ring-2 hover:ring-primary rounded-lg"
                            type="file"
                            accept="image/*"
                            {...register('profileImage')}
@@ -114,11 +117,22 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div className="">
-                  <input
+                  {/* <input
                      {...register('DOB')}
-                     className=" w-full h-[53px] rounded-md px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
+                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
                      type="date"
                      placeholder="Date of Birth"
+                  />
+                  {errors.DOB && <FormError>{errors.DOB.message}</FormError>} */}
+                  <Controller
+                     control={control}
+                     name="DOB"
+                     render={({ field }) => (
+                        <DatePicker
+                           fieldValueState={field.value}
+                           fieldOnChangeHandler={field.onChange}
+                        />
+                     )}
                   />
                   {errors.DOB && <FormError>{errors.DOB.message}</FormError>}
                </div>

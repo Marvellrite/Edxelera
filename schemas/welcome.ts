@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const welcomeSchema = z.object({
-   DOB: z.string().min(3, 'DOB must be at least 3 characters long'), // adjust min length if needed
+   DOB: z.date(), // adjust min length if needed
    location: z.string().min(3, 'Location must be at least 3 characters long'), // assuming Location is a string, not email
    bio: z
       .string()
