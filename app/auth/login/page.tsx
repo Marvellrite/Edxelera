@@ -3,18 +3,23 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 import { useForm } from 'react-hook-form';
-import { SigninSchema, signinSchema } from '@/schemas/sign-in';
+import { loginSchema, LoginSchema } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+
+type LoginFormInputs = {
+   email: string;
+   password: string;
+};
 
 const Page: React.FC = () => {
    const {
       register,
       handleSubmit,
       formState: { errors },
-   } = useForm<SigninSchema>({
-      resolver: zodResolver(signinSchema),
+   } = useForm<LoginSchema>({
+      resolver: zodResolver(loginSchema),
    });
 
    const ServerURL = process.env.NEXT_PUBLIC_SERVER_URL;
@@ -25,7 +30,7 @@ const Page: React.FC = () => {
       console.log(data);
       console.log(data.email);
 
-      const response = await fetch(`${ServerURL}/auth/signup`, {
+      const response = await fetch(`${ServerURL}/auth/signin`, {
          method: 'POST',
          body: JSON.stringify(data),
       });
@@ -46,27 +51,14 @@ const Page: React.FC = () => {
                   alt="Tecbridge Logo"
                />
             </div>{' '}
-            <h1 className="text-5xl font-medium mt-10">Sign Up</h1>
-            <p className=" my-6 mt-4 font-normal">Create an account</p>
-            <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
-               <div className="">
-                  <input
-                     {...register('full_name')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
-                     placeholder="Full Name"
-                  />
-                  {errors.full_name && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.full_name.message}
-                     </div>
-                  )}
-               </div>
-               <div>
+            <h1 className="text-5xl font-medium mt-10">Login</h1>
+            <p className=" my-6 mt-4 font-normal">Login to your account</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+               <div className=" mb-4">
                   <input
                      {...register('email')}
                      className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Password"
+                     type="text"
                      placeholder="Email"
                   />
                   {errors.email && (
@@ -77,10 +69,10 @@ const Page: React.FC = () => {
                </div>
                <div>
                   <input
-                     {...register('password')}
+                     {...register('password', { required: true })}
                      className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
                      type="Password"
-                     placeholder="Create Password"
+                     placeholder="Password"
                   />
                   {errors.password && (
                      <div className=" text-sm text- mt-1">
@@ -89,34 +81,27 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <input
-                     {...register('confirm_password')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Confirm Password"
-                     placeholder="Password"
-                  />
-                  {errors.confirm_password && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.confirm_password.message}
-                     </div>
-                  )}
-               </div>
-               <div>
                   <button
                      type="submit"
                      className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
                   >
-                     <span>Create account</span>
+                     <span>Login</span>
                   </button>
                </div>
             </form>
-            <div className=" flex justify-center">
+            <div className=" flex justify-between">
                <Link
-                  className=" hover:underline underline-offset-2 text-md"
-                  href={'/auth/login'}
+                  className=" hover:underline underline-offset-2"
+                  href={'/auth/forgot-password'}
                >
-                  Login to Your Account
+                  Forgot Password?
                </Link>{' '}
+               <Link
+                  className=" hover:underline underline-offset-2"
+                  href={'/auth/sign-up'}
+               >
+                  Create an Account
+               </Link>
             </div>
             <div className=" relative mt-13 mb-7.5">
                <hr className="border-neutral-500 border-2" />
@@ -124,32 +109,22 @@ const Page: React.FC = () => {
                   Or
                </span>
             </div>
-            <div className="flex justify-stretch gap-2 w-full mb-6">
+            <div className="flex justify-stretch gap-2 w-full mb-5">
                <button
                   className=" text-neutral-600 flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4"
-                  title="Sign in with Apple"
+                  title="Login with Apple"
                >
                   <ReactSVG src="/icons/apple.svg" />
                </button>
                <button
                   className=" flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4"
-                  title="Log in with Google"
+                  title="Login with Google"
                >
                   <ReactSVG
                      src="/icons/google.svg"
                      className=" text-neutral-600 "
                   />
                </button>
-            </div>
-            <div className=" text-center font-normal">
-               By creating an account, you agree to SkillBridge&rsquo;s{' '}
-               <Link href="#" className=" text-primary">
-                  terms of service{' '}
-               </Link>{' '}
-               and{' '}
-               <Link href="#" className=" text-primary">
-                  privacy policy
-               </Link>
             </div>
          </div>
       </section>

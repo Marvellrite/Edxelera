@@ -1,55 +1,59 @@
-@import "tailwindcss";
-@import "./root.css";
+@import 'tailwindcss';
+@import './root.css';
 
 @theme inline {
-  /* COLORS */
-  --color-*: initial;
-  --color-black: var(--black);
-  --color-white: var(--white);
-  --color-primary: var(--primary);
-  --color-primary-900: var(--primary-900);
-  --color-primary-800: var(--primary-800);
-  --color-primary-700: var(--primary-700);
-  --color-primary-600: var(--primary-600);
-  --color-primary-500: var(--primary-500);
-  --color-primary-400: var(--primary-400);
-  --color-primary-300: var(--primary-300);
-  --color-primary-200: var(--primary-200);
-  --color-primary-100: var(--primary-100);
-  --color-primary-50: var(--primary-50);
-  --color-neutral: var(--neutral);
-  --color-neutral-900: var(--neutral-900);
-  --color-neutral-800: var(--neutral-800);
-  --color-neutral-700: var(--neutral-700);
-  --color-neutral-600: var(--neutral-600);
-  --color-neutral-500: var(--neutral-500);
-  --color-neutral-400: var(--neutral-400);
-  --color-neutral-300: var(--neutral-300);
-  --color-neutral-200: var(--neutral-200);
-  --color-neutral-100: var(--neutral-100);
-  --color-neutral-50: var(--neutral-50);
+   /* COLORS */
+   --color-*: initial;
+   --color-black: var(--black);
+   --color-white: var(--white);
+   --color-primary: var(--primary);
+   --color-primary-900: var(--primary-900);
+   --color-primary-800: var(--primary-800);
+   --color-primary-700: var(--primary-700);
+   --color-primary-600: var(--primary-600);
+   --color-primary-500: var(--primary-500);
+   --color-primary-400: var(--primary-400);
+   --color-primary-300: var(--primary-300);
+   --color-primary-200: var(--primary-200);
+   --color-primary-100: var(--primary-100);
+   --color-primary-50: var(--primary-50);
+   --color-neutral: var(--neutral);
+   --color-neutral-900: var(--neutral-900);
+   --color-neutral-800: var(--neutral-800);
+   --color-neutral-700: var(--neutral-700);
+   --color-neutral-600: var(--neutral-600);
+   --color-neutral-500: var(--neutral-500);
+   --color-neutral-400: var(--neutral-400);
+   --color-neutral-300: var(--neutral-300);
+   --color-neutral-200: var(--neutral-200);
+   --color-neutral-100: var(--neutral-100);
+   --color-neutral-50: var(--neutral-50);
+   --color-green: var(--green);
+   --color-green-light: var(--green-light);
+   --color-red: var(--red);
+   --color-red-light: var(--red-light);
 
-  /* FONT SIZES */
-  --text-*: initial;
-  --text-tab: 10px;
-  --text-xs: 12px;
-  --text-sm: 16px;
-  --text-md: 18px;
-  --text-lg: 20px;
-  --text-xl: 24px;
-  --text-2xl: 28px;
-  --text-3xl: 32px;
-  --text-4xl: 36px;
-  --text-5xl: 40px;
+   /* FONT SIZES */
+   --text-*: initial;
+   --text-tab: 10px;
+   --text-xs: 12px;
+   --text-sm: 16px;
+   --text-md: 18px;
+   --text-lg: 20px;
+   --text-xl: 24px;
+   --text-2xl: 28px;
+   --text-3xl: 32px;
+   --text-4xl: 36px;
+   --text-5xl: 40px;
 
-  /* FONT FAMILY */
-  --font-hervertica: ;
+   /* FONT FAMILY */
+   --font-hervertica: ;
 
-  /* FONT-WEIGHT */
+   /* FONT-WEIGHT */
 }
 
 body {
-  background: var(--color-white);
-  color: var(--color-black);
-  font-family: Arial, Helvetica, sans-serif;
+   background: var(--color-white);
+   color: var(--color-black);
+   font-family: Arial, Helvetica, sans-serif;
 }
