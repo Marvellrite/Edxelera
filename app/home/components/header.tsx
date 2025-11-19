@@ -24,22 +24,22 @@ const Header: React.FC = () => {
 
   return (
     <header className='flex items-center justify-between px-5 pt-5 h-fit w-full text-neutral-700'>
-      <div className={`${ myCourses || community || myProfile || settings ? 'md:hidden' : 'md:flex'} hidden md:flex items-center gap-3 border-2 border-neutral-500 w-1/3 h-12 p-2 rounded-full`}>
+      <div className={`${ myCourses || community || myProfile || settings ? 'md:hidden' : 'md:flex'} hidden md:flex items-center gap-3 border-2 border-neutral-500 w-1/3 h-14 p-2 rounded-full`}>
         <ReactSVG src="/icons/search-outline.svg" width={25} height={25} />
         <input type="search" placeholder='Search for Courses' className='w-full border-none outline-none' />
       </div>
       
-      <p className='hidden md:flex text-5xl font-bold text-neutral-900'>{
+      <p className='flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0'>{
         home ? '' :
         explore ? '':
         myCourses ? 'My Courses':
         community ? 'Community':
         myProfile ? 'My Profile':
         settings ? 'Settings' : ''
-      } {theme}</p>
+      }</p>
 
-      <div className='grid lg:flex gap-2 items-center w-full md:w-auto'>
-        <div className={`${explore ? 'hidden md:flex' : ''} flex flex-row-reverse md:flex-row justify-between md:justify-normal gap-3 items-center w-full`}>
+      <div className={`${!home && !explore ? 'hidden' : ''} grid lg:flex gap-2 items-center w-full md:w-auto`}>
+        <div className={`${!home ? 'hidden md:flex' : ''} flex flex-row-reverse md:flex-row justify-between md:justify-normal gap-3 items-center w-full`}>
           <ReactSVG src="/icons/notification.svg" width={25} height={25} className='hover:cursor-pointer' />
           <div className='flex flex-row-reverse md:flex-row gap-3 items-center md:border-l-2 border-neutral-100 md:px-3'>
             <div>
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
 
         <div className={`${explore || home ? 'flex md:hidden' : 'hidden'} items-center gap-3 border-2 border-neutral-500 w-full h-12 p-2 rounded-full`}>
           <ReactSVG src="/icons/search-outline.svg" width={25} height={25} />
-          <input type="search" placeholder='Search for Courses' className='w-full border-none outline-none' />
+          <input type="search" placeholder='Search for courses' className='w-full border-none outline-none' />
         </div>
 
         <div className='hidden md:flex gap-2 border border-neutral-500 rounded-full p-1'>
