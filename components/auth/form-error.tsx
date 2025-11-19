@@ -6,7 +6,7 @@ type FormError = {
 };
 
 const FormError: React.FC<FormError> = ({ children }) => {
-   return <div className=" text-sm text- mt-1">{children}</div>;
+   return <div className=" text-sm text-red-light mt-1">{children}</div>;
 };
 
 export default FormError;

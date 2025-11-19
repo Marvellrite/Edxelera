@@ -7,6 +7,7 @@ import { loginSchema, LoginSchema } from '@/schemas/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import FormError from '@/components/auth/form-error';
 
 type LoginFormInputs = {
    email: string;
@@ -62,9 +63,7 @@ const Page: React.FC = () => {
                      placeholder="Email"
                   />
                   {errors.email && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.email.message}
-                     </div>
+                     <FormError>{errors.email.message}</FormError>
                   )}
                </div>
                <div>
@@ -75,9 +74,7 @@ const Page: React.FC = () => {
                      placeholder="Password"
                   />
                   {errors.password && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.password.message}
-                     </div>
+                     <FormError>{errors.password.message}</FormError>
                   )}
                </div>
                <div>

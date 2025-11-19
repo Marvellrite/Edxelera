@@ -7,6 +7,7 @@ import { SigninSchema, signinSchema } from '@/schemas/sign-in';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import FormError from '@/components/auth/form-error';
 
 const Page: React.FC = () => {
    const {
@@ -57,9 +58,7 @@ const Page: React.FC = () => {
                      placeholder="Full Name"
                   />
                   {errors.full_name && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.full_name.message}
-                     </div>
+                     <FormError>{errors.full_name.message}</FormError>
                   )}
                </div>
                <div>
@@ -70,9 +69,7 @@ const Page: React.FC = () => {
                      placeholder="Email"
                   />
                   {errors.email && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.email.message}
-                     </div>
+                     <FormError>{errors.email.message}</FormError>
                   )}
                </div>
                <div>
@@ -83,9 +80,7 @@ const Page: React.FC = () => {
                      placeholder="Create Password"
                   />
                   {errors.password && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.password.message}
-                     </div>
+                     <FormError>{errors.password.message}</FormError>
                   )}
                </div>
                <div>
@@ -96,9 +91,7 @@ const Page: React.FC = () => {
                      placeholder="Password"
                   />
                   {errors.confirm_password && (
-                     <div className=" text-sm text- mt-1">
-                        {errors.confirm_password.message}
-                     </div>
+                     <FormError>{errors.confirm_password.message}</FormError>
                   )}
                </div>
                <div>
