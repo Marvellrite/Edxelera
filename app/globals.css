@@ -32,10 +32,12 @@
    --color-green-light: var(--green-light);
    --color-red: var(--red);
    --color-red-light: var(--red-light);
+
    /* This Section Added my Marvel */
    --color-primary-foreground: white;
    --color-accent: var(--primary);
    --color-accent-foreground: white;
+   
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
    --text-tab: 10px;
    --text-xs: 12px;

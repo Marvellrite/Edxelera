@@ -1,14 +1,14 @@
 import React from 'react';
-import VideoPoster from './_components/video_poster';
+import VideoPoster from './components/video_poster';
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
 import { Button } from '@/components/ui/button';
-import Ratings from './_components/ratings';
-import Video_card from './_components/video_card';
+import Ratings from './components/ratings';
+import Video_card from './components/video_card';
 
 const Page: React.FC = () => {
    return (
-      <section className="p-6 py-12">
+      <section className="p-6 py-12 overflow-y-scroll h-4/5">
          <div className=" space-y-9">
             <div>
                <p className=" text-md font-normal mb-3">Continue learning</p>
