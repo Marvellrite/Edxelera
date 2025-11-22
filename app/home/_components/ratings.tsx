@@ -26,7 +26,7 @@ export default function MyRating() {
                width="11"
                height="11"
                viewBox="0 0 11 11"
-               fill="currentColor"
+               fill="#E37E02"
                xmlns="http://www.w3.org/2000/svg"
             >
                <path
@@ -37,6 +37,9 @@ export default function MyRating() {
          }
          onClick={function noRefCheck() {}}
          transition
+         className=" flex"
+         SVGclassName=" "
+         size={16}
       />
    );
 }

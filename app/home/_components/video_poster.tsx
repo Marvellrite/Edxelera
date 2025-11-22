@@ -7,16 +7,16 @@ import { Button } from '@/components/ui/button';
 type VideoPosterProps = {
    posterSrc: string;
    title: string;
-   week: number;
+   duration: string;
 };
 
 const VideoPoster: React.FC<VideoPosterProps> = ({
    posterSrc,
    title,
-   week,
+   duration,
 }) => {
    return (
-      <div className=" relative max-w-[374px] grow aspect-video rounded-lg overflow-hidden">
+      <div className="  relative max-md:flex-none max-md:basis-full max-md:max-w-none max-w-[374px] grow  rounded-lg ">
          <img
             src={posterSrc}
             className="h-full w-full object-cover "
@@ -27,7 +27,7 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
                <p className=" text-white text-xl font-medium leading-[150%]">
                   {title}
                </p>
-               <p className=" font-normal text-md text-white">Week {week}</p>
+               <p className=" font-normal text-md text-white">{duration}</p>
             </div>
          </div>
 

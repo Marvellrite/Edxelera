@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import formatMoney from '@/utils/formatMoney';
+import Ratings from './ratings';
 
 interface VideoCardProps {
    // Define any props if needed in the future
@@ -19,7 +20,7 @@ const Video_card: React.FC<VideoCardProps> = ({
    rating,
 }) => {
    return (
-      <div className=" grow  border border-neutral-400 rounded-lg p-3.5 shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      <div className=" grow  border border-neutral-400 rounded-lg p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
          {/* The Video Info Card */}
          <div className=" h-[150px]">
             <img
@@ -34,13 +35,15 @@ const Video_card: React.FC<VideoCardProps> = ({
                &#8358;{formatMoney(price)}
             </span>
             <span>{duration}</span>
-            <div className="  mt-2 flex">
+            <div className="  mt-2 flex items-center">
                <span className="font-normal text-[14px]">{rating}</span>
-               <span className=" grow">{/* <Ratings></Ratings> */}</span>
+               <span className=" grow">
+                  <Ratings></Ratings>
+               </span>
             </div>
          </div>
-         <div>
-            <Button className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium">
+         <div className=" hidden md:block">
+            <Button className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium ">
                Get Course
             </Button>
          </div>

@@ -2,11 +2,11 @@ export const mock_data = [
    {
       posterSrc: '/assets/poster1.jpg',
       title: 'Social Media Marketing',
-      week: 2,
+      duration: '2 weeks',
    },
    {
       posterSrc: '/assets/poster2.jpg',
       title: 'Corporate Branding & Design',
-      week: 4,
+      duration: '4 weeks',
    },
 ];

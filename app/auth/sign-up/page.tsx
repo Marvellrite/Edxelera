@@ -65,7 +65,7 @@ const Page: React.FC = () => {
                   <input
                      {...register('email')}
                      className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Password"
+                     type="text"
                      placeholder="Email"
                   />
                   {errors.email && (
