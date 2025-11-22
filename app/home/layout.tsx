@@ -1,6 +1,6 @@
 // import '../globals.css';
-import { Sidebar, Tabs } from './_components/nav';
-import Header from './_components/header';
+import { Sidebar, Tabs } from './components/nav';
+import Header from './components/header';
 import ContextProvider from '../context';
 
 export default function HomeLayout({
