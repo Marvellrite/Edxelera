@@ -2,14 +2,26 @@
 import { ReactSVG } from 'react-svg';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import Badge from '../_components/my-profile/badge';
+import Badge from '../components/my-profile/badge';
+import Certificates from '../components/my-profile/certificates';
+import EditProfileDialogue from './components/edit_profile_dialog';
+import {
+   Dialog,
+   DialogClose,
+   DialogContent,
+   DialogDescription,
+   DialogFooter,
+   DialogHeader,
+   DialogTitle,
+   DialogTrigger,
+} from '@/components/ui/dialog';
 
 const Page = () => {
    const [profileImg, setProfileImg] = useState<string>('/icons/user.svg');
 
    return (
-      <section className="pt-10 px-8">
-         <div className=" grid md:grid-cols-1 gap-y-10">
+      <section className="pt-10 px-8 w-full">
+         <div className=" grid grid-cols-1 gap-y-10 ">
             <div className="  space-y-3 ">
                <p className=" font-normal text-md">Personal Information</p>
                <div className=" flex flex-col gap-y-5 md:flex-row items-start gap-x-3 md:items-center justify-between ">
@@ -71,24 +83,33 @@ const Page = () => {
                   </p>
                </div>
                <div>
-                  <Button
-                     variant={'outline'}
-                     className=" rounded-[500px] text-[14px] py-3 px-6 h-[45px] w-[119px] border-primary text-primary font-medium"
-                  >
-                     Edit Profile
-                  </Button>
+                  <EditProfileDialogue />
                </div>
             </div>
 
-            <div className=" space-y-3">
+            <div className=" space-y-3 ">
                <p className="font-normal text-md">Achievements & Badges</p>
 
-               <div className=" overflow-x-scroll ">
-                  <div className=" flex  gap-3 snap-proximity snap-x scroll-smooth">
-                     <Badge />
-                     <Badge />
-                     <Badge />
-                  </div>
+               <div className=" flex  gap-3 overflow-x-auto ">
+                  <Badge />
+                  <Badge />
+                  <Badge />
+               </div>
+            </div>
+
+            <div className=" space-y-3 ">
+               <p className="font-normal text-md">Certificates</p>
+               <div className=" flex  gap-3 overflow-x-auto smooth snap-proximity ">
+                  <Certificates
+                     title="Product Design (UI/UX)"
+                     reception_date="2nd August, 2025"
+                     posterSrc="/assets/certificate_adjusted.jpg"
+                  />
+                  <Certificates
+                     title="Product Design (UI/UX)"
+                     reception_date="2nd August, 2025"
+                     posterSrc="/assets/certificate_adjusted.jpg"
+                  />
                </div>
             </div>
          </div>

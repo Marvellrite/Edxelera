@@ -1,45 +1,77 @@
 'use client';
 
-import { Rating } from 'react-simple-star-rating';
 import React from 'react';
+import { FullStar, EmptyStar, HalfStar } from './Stars';
 
-export default function MyRating() {
-   const [rating, setRating] = React.useState(0);
-   return (
-      <Rating
-         emptyIcon={
-            <svg
-               width="11"
-               height="11"
-               viewBox="0 0 11 11"
-               fill="currentColor"
-               xmlns="http://www.w3.org/2000/svg"
-            >
-               <path
-                  d="M6.2463 0.765L7.18629 2.64499C7.31295 2.90499 7.65296 3.15166 7.93962 3.20499L9.63964 3.48499C10.7263 3.66499 10.9796 4.45166 10.1996 5.23833L8.87295 6.565C8.65295 6.785 8.5263 7.21833 8.59964 7.53166L8.97962 9.17167C9.27962 10.465 8.5863 10.9717 7.4463 10.2917L5.85295 9.345C5.56629 9.17166 5.0863 9.17166 4.79963 9.345L3.20629 10.2917C2.06629 10.965 1.37296 10.465 1.67296 9.17167L2.05297 7.53166C2.1263 7.225 1.99963 6.79167 1.77963 6.565L0.45297 5.23833C-0.32703 4.45833 -0.0736992 3.67166 1.01297 3.48499L2.71296 3.20499C2.99963 3.15833 3.33963 2.90499 3.4663 2.64499L4.4063 0.765C4.9063 -0.255 5.73297 -0.255 6.2463 0.765Z"
-                  fill="#DCDCDC"
-               />
-            </svg>
-         }
-         fillIcon={
-            <svg
-               width="11"
-               height="11"
-               viewBox="0 0 11 11"
-               fill="#E37E02"
-               xmlns="http://www.w3.org/2000/svg"
-            >
-               <path
-                  d="M6.2463 0.765L7.18629 2.64499C7.31295 2.90499 7.65296 3.15166 7.93962 3.20499L9.63964 3.48499C10.7263 3.66499 10.9796 4.45166 10.1996 5.23833L8.87295 6.565C8.65295 6.785 8.5263 7.21833 8.59964 7.53166L8.97962 9.17167C9.27962 10.465 8.5863 10.9717 7.4463 10.2917L5.85295 9.345C5.56629 9.17166 5.0863 9.17166 4.79963 9.345L3.20629 10.2917C2.06629 10.965 1.37296 10.465 1.67296 9.17167L2.05297 7.53166C2.1263 7.225 1.99963 6.79167 1.77963 6.565L0.45297 5.23833C-0.32703 4.45833 -0.0736992 3.67166 1.01297 3.48499L2.71296 3.20499C2.99963 3.15833 3.33963 2.90499 3.4663 2.64499L4.4063 0.765C4.9063 -0.255 5.73297 -0.255 6.2463 0.765Z"
-                  fill="#E37E02"
-               />
-            </svg>
-         }
-         onClick={function noRefCheck() {}}
-         transition
-         className=" flex"
-         SVGclassName=" "
-         size={16}
-      />
-   );
+interface StarRatingProps {
+   value: number; // e.g. 3.5
+   onChange?: (value: number) => void;
+   max?: number;
+   readOnly?: boolean;
 }
+
+export const StarRating: React.FC<StarRatingProps> = ({
+   value,
+   onChange,
+   max = 5,
+   readOnly = false,
+}) => {
+   const [hoverValue, setHoverValue] = React.useState<number | null>(null);
+
+   const displayValue = hoverValue ?? value;
+
+   const handleClick = (index: number, half: boolean) => {
+      if (readOnly || !onChange) return;
+      const newValue = half ? index + 0.5 : index + 1;
+      onChange(newValue);
+   };
+
+   return (
+      <div className="flex gap-1">
+         {Array.from({ length: max }).map((_, index) => {
+            const starNumber = index + 1;
+            const starValue = displayValue;
+
+            const isFull = starValue >= starNumber;
+            const isHalf = !isFull && starValue >= starNumber - 0.5;
+
+            return (
+               <div
+                  key={index}
+                  className="relative flex items-center cursor-pointer select-none"
+                  onMouseLeave={() => setHoverValue(null)}
+               >
+                  {/* Left half (0.5) */}
+                  {!readOnly && (
+                     <div
+                        className="absolute left-0 top-0 h-full w-1/2 z-20"
+                        onMouseEnter={() => setHoverValue(index + 0.5)}
+                        onClick={() => handleClick(index, true)}
+                     />
+                  )}
+
+                  {/* Right half (1.0) */}
+                  {!readOnly && (
+                     <div
+                        className="absolute right-0 top-0 h-full w-1/2 z-20"
+                        onMouseEnter={() => setHoverValue(index + 1)}
+                        onClick={() => handleClick(index, false)}
+                     />
+                  )}
+
+                  {/* Actual star */}
+                  {isFull ? (
+                     <FullStar />
+                  ) : isHalf ? (
+                     <HalfStar />
+                  ) : (
+                     <EmptyStar />
+                  )}
+               </div>
+            );
+         })}
+      </div>
+   );
+};
+
+export default StarRating;

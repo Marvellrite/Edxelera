@@ -3,10 +3,15 @@ import { FieldError } from 'react-hook-form';
 
 type FormError = {
    children: React.ReactNode;
+   className?: string;
 };
 
-const FormError: React.FC<FormError> = ({ children }) => {
-   return <div className=" text-sm text-red-light mt-1">{children}</div>;
+const FormError: React.FC<FormError> = ({ children, className }) => {
+   return (
+      <div className={` text-sm text-red-light mt-2 ${className}`}>
+         {children}
+      </div>
+   );
 };
 
 export default FormError;

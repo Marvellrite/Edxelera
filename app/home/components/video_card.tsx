@@ -1,7 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import formatMoney from '@/utils/formatMoney';
-import Ratings from './ratings';
+import Rating from './ratings';
 
 interface VideoCardProps {
    // Define any props if needed in the future
@@ -19,6 +19,8 @@ const Video_card: React.FC<VideoCardProps> = ({
    duration,
    rating,
 }) => {
+   const [ratingVal, setRatingVal] = useState<number>(rating);
+
    return (
       <div className=" grow  border border-neutral-400 rounded-lg p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
          {/* The Video Info Card */}
@@ -35,10 +37,10 @@ const Video_card: React.FC<VideoCardProps> = ({
                &#8358;{formatMoney(price)}
             </span>
             <span>{duration}</span>
-            <div className="  mt-2 flex items-center">
-               <span className="font-normal text-[14px]">{rating}</span>
+            <div className="  mt-2 flex items-center gap-1">
+               <span className="font-normal text-[14px]">{ratingVal}</span>
                <span className=" grow">
-                  <Ratings></Ratings>
+                  <Rating onChange={setRatingVal} value={ratingVal} />
                </span>
             </div>
          </div>

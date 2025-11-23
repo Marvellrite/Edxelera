@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { mock_data as mock_data_al } from './mock_data';
-import Video_card from '../_components/video_card';
+import Video_card from '../components/video_card';
 
 const Page: React.FC = () => {
    const [data, setData] = useState(mock_data_al);

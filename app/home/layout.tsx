@@ -10,10 +10,11 @@ export default function HomeLayout({
 }>) {
    return (
       <ContextProvider>
-         <main className="flex flex-col md:grid md:grid-cols-12 h-screen">
+         <main className="flex flex-col md:grid md:grid-cols-12 h-screen overflow-y-auto  w-full">
             <Sidebar />
-            <section className="col-span-10 h-full">
+            <section className="col-span-10 ">
                <Header />
+
                {children}
             </section>
             <Tabs />

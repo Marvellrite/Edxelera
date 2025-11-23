@@ -5,18 +5,19 @@ import { Button } from '@/components/ui/button';
 import { ReactSVG } from 'react-svg';
 import completed_course_mockdata from './completed_course_mock_data';
 import Ongoing_courses_mock_data from './ongoing_courses_mock_data';
-import My_course from '../_components/my-courses/my_course';
+import My_course from '../components/my-courses/my_course';
 import All_courses_mock_data from './all_courses';
 import { Course_status } from './types';
 
 const Page = () => {
    const [activeTab, setActiveTab] = useState<Course_status>(Course_status.all);
    return (
-      <section className="p-5">
+      <section className="p-5 py-8">
          <div className="flex justify-between h-12 items-center">
             <div className=" flex gap-3 items-center">
                {['All', 'Ongoing', 'Completed'].map((_, index) => (
                   <Button
+                     key={index}
                      className={` border  rounded-[500px] h-full  py-3 px-4 font-normal  ${activeTab === _ ? 'border-primary text-primary' : 'border-neutral-500 text-neutral-600'}`}
                      variant={'outline'}
                      onClick={() => setActiveTab(_ as Course_status)}
