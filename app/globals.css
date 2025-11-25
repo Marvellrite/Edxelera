@@ -69,3 +69,7 @@ body {
 button:hover {
    cursor: pointer;
 }
+
+html {
+   overflow: hidden;
+}
