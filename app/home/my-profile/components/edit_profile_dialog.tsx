@@ -183,6 +183,7 @@ const Edit_profile_dialog = () => {
                         name="bio"
                         textarea_id="bio"
                         placeholder="Bio"
+                        spellCheck
                      />
                      {errors.location && (
                         <FormError>{errors.location.message}</FormError>

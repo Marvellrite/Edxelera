@@ -24,10 +24,7 @@ const Page: React.FC = () => {
    const router = useRouter();
 
    const onSubmit = async (data: any) => {
-      console.log(data);
-      console.log(data.email);
-
-      const response = await fetch(`${ServerURL}/auth/signup`, {
+      const response = await fetch(`${ServerURL}/auth/sign-up`, {
          method: 'POST',
          body: JSON.stringify(data),
       });
@@ -39,8 +36,8 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="p-5 flex justify-center items-center min-h-screen">
-         <div className=" w-full md:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
+      <section className="p-5 max-md:py-0 px-0 max-sm:p-0 flex justify-center items-center min-h-screen">
+         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 max-sm:px-4 py-6 sm:w-[75%]">
             <div className=" w-[154px] mx-auto">
                <img
                   // className=" h-[65px]"
@@ -100,7 +97,7 @@ const Page: React.FC = () => {
                <div>
                   <button
                      type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
+                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] text-white"
                   >
                      <span>Create account</span>
                   </button>
@@ -115,7 +112,7 @@ const Page: React.FC = () => {
                </Link>{' '}
             </div>
             <div className=" relative mt-13 mb-7.5">
-               <hr className="border-neutral-500 border-2" />
+               <hr className="border-neutral-500 border" />
                <span className=" px-3 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white">
                   Or
                </span>

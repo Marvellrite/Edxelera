@@ -43,8 +43,8 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="p-5 flex justify-center items-center min-h-screen">
-         <div className=" w-full max-w-[500px] md:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
+      <section className="py-5 max-md:py-0 flex justify-center items-center min-h-screen">
+         <div className=" w-full max-w-[500px] sm:border border-neutral-400 rounded-[20px] px-5  max-sm:px-4 sm:w-[75%]">
             <div className=" w-[154px] mx-auto">
                <img
                   // className=" h-[65px]"
@@ -63,7 +63,7 @@ const Page: React.FC = () => {
                <div>
                   <button
                      onClick={onSubmit}
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
+                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] "
                   >
                      <span>Verify</span>
                   </button>

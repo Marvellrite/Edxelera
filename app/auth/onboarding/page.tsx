@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import FormError from '@/components/auth/form-error';
 import DatePicker from '@/components/data/date-picker';
 import Input from '@/components/data/input';
+import Textarea from '@/components/data/textarea';
 
 const Page: React.FC = () => {
    const {
@@ -66,8 +67,8 @@ const Page: React.FC = () => {
    }, [profileImage]);
 
    return (
-      <section className="p-5 flex justify-center items-center min-h-screen">
-         <div className=" w-full md:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
+      <section className="py-5 max-sm:py-0 flex justify-center items-center min-h-screen">
+         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
             <div className=" w-[154px] mx-auto">
                <img
                   // className=" h-[65px]"
@@ -149,16 +150,17 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <Input
+                  <Textarea
                      register={register}
                      name="bio"
                      input_id="bio"
                      placeholder="Bio"
+                     spellCheck
                   />
                   {errors.bio && (
-                     <div className=" text-sm text- mt-1">
+                     <FormError className=" text-sm text- mt-1">
                         {errors.bio.message}
-                     </div>
+                     </FormError>
                   )}
                </div>
                <div>
