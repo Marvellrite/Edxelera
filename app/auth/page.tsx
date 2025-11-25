@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
+import Input from '@/components/data/input';
 
 type LoginFormInputs = {
    email: string;
@@ -56,10 +57,10 @@ const Page: React.FC = () => {
             <p className=" my-6 mt-4 font-normal">Login to your account</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className=" mb-4">
-                  <input
-                     {...register('email')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
+                  <Input
+                     register={register}
+                     input_id="register"
+                     name="email"
                      placeholder="Email"
                   />
                   {errors.email && (
@@ -67,11 +68,12 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <input
-                     {...register('password', { required: true })}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Password"
+                  <Input
+                     register={register}
+                     input_id="password"
+                     name="password"
                      placeholder="Password"
+                     type="password"
                   />
                   {errors.password && (
                      <FormError>{errors.password.message}</FormError>

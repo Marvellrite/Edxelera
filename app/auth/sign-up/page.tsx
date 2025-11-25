@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
+import Input from '@/components/data/input';
 
 const Page: React.FC = () => {
    const {
@@ -50,22 +51,23 @@ const Page: React.FC = () => {
             <h1 className="text-5xl font-medium mt-10">Sign Up</h1>
             <p className=" my-6 mt-4 font-normal">Create an account</p>
             <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
-               <div className="">
-                  <input
-                     {...register('full_name')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
+               <div>
+                  <Input
+                     input_id="field_name"
+                     name="full_name"
+                     register={register}
                      placeholder="Full Name"
                   />
                   {errors.full_name && (
                      <FormError>{errors.full_name.message}</FormError>
                   )}
                </div>
+
                <div>
-                  <input
-                     {...register('email')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
+                  <Input
+                     register={register}
+                     name="email"
+                     input_id="email"
                      placeholder="Email"
                   />
                   {errors.email && (
@@ -73,22 +75,23 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <input
-                     {...register('password')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Password"
+                  <Input
+                     register={register}
+                     name="password"
+                     input_id="password"
                      placeholder="Create Password"
+                     type="password"
                   />
                   {errors.password && (
                      <FormError>{errors.password.message}</FormError>
                   )}
                </div>
                <div>
-                  <input
-                     {...register('confirm_password')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="Confirm Password"
-                     placeholder="Password"
+                  <Input
+                     placeholder="Confirm Password"
+                     register={register}
+                     name="confirm_password"
+                     input_id="confirm_password"
                   />
                   {errors.confirm_password && (
                      <FormError>{errors.confirm_password.message}</FormError>
@@ -106,7 +109,7 @@ const Page: React.FC = () => {
             <div className=" flex justify-center">
                <Link
                   className=" hover:underline underline-offset-2 text-md"
-                  href={'/auth/login'}
+                  href={'/auth'}
                >
                   Login to Your Account
                </Link>{' '}

@@ -18,6 +18,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import FormError from '@/components/auth/form-error';
 import { ReactSVG } from 'react-svg';
+import Input from '@/components/data/input';
+import Textarea from '@/components/data/textarea';
 
 const Edit_profile_dialog = () => {
    const [profileImagePreview, setProfileImagePreview] = useState('');
@@ -134,10 +136,10 @@ const Edit_profile_dialog = () => {
 
                <div className="grid grid-cols-1 md:grid-cols-2 mt-6 gap-3">
                   <div>
-                     <input
-                        {...register('location')}
-                        className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                        type="text"
+                     <Input
+                        register={register}
+                        name="location"
+                        input_id="location"
                         placeholder="Location"
                      />
                      {errors.location && (
@@ -175,10 +177,11 @@ const Edit_profile_dialog = () => {
                      {errors.DOB && <FormError>{errors.DOB.message}</FormError>}
                   </div>
                   <div className=" md:col-span-2 ">
-                     <textarea
-                        {...register('bio')}
-                        rows={5}
-                        className=" w-full h-[100px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
+                     <Textarea
+                        register={register}
+                        rows={2}
+                        name="bio"
+                        textarea_id="bio"
                         placeholder="Bio"
                      />
                      {errors.location && (

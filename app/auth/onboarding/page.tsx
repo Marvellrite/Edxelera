@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import FormError from '@/components/auth/form-error';
 import DatePicker from '@/components/data/date-picker';
+import Input from '@/components/data/input';
 
 const Page: React.FC = () => {
    const {
@@ -137,10 +138,10 @@ const Page: React.FC = () => {
                   {errors.DOB && <FormError>{errors.DOB.message}</FormError>}
                </div>
                <div>
-                  <input
-                     {...register('location')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
+                  <Input
+                     register={register}
+                     input_id="location"
+                     name="location"
                      placeholder="Location"
                   />
                   {errors.location && (
@@ -148,10 +149,10 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <input
-                     {...register('bio')}
-                     className=" w-full h-[53px] rounded-lg px-3 py-4 border border-neutral-400 ring-neutral-400 focus-visible:outline-none "
-                     type="text"
+                  <Input
+                     register={register}
+                     name="bio"
+                     input_id="bio"
                      placeholder="Bio"
                   />
                   {errors.bio && (

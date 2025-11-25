@@ -33,7 +33,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                {fieldValueState ? (
                   <span>{fieldValueState.toDateString()}</span>
                ) : (
-                  <span className="  text-neutral-600">Date of Birth</span>
+                  <span className="  text-neutral-500">Date of Birth</span>
                )}
             </Button>
          </PopoverTrigger>

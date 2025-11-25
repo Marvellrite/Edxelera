@@ -1,24 +1,10 @@
 'use client';
 import { ReactSVG } from 'react-svg';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
 import Badge from '../components/my-profile/badge';
 import Certificates from '../components/my-profile/certificates';
 import EditProfileDialogue from './components/edit_profile_dialog';
-import {
-   Dialog,
-   DialogClose,
-   DialogContent,
-   DialogDescription,
-   DialogFooter,
-   DialogHeader,
-   DialogTitle,
-   DialogTrigger,
-} from '@/components/ui/dialog';
 
 const Page = () => {
-   const [profileImg, setProfileImg] = useState<string>('/icons/user.svg');
-
    return (
       <section className="pt-10 px-8 w-full">
          <div className=" grid grid-cols-1 gap-y-10 ">
