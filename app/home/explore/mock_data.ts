@@ -5,6 +5,7 @@ export const mock_data = [
       price: '150000000',
       duration: '8 Weeks',
       rating: 5.0,
+      _id: '345',
    },
    {
       posterSrc: '/assets/poster1.jpg',
@@ -12,6 +13,7 @@ export const mock_data = [
       price: '150000000',
       duration: '6 Weeks',
       rating: 4.5,
+      _id: '345',
    },
    {
       posterSrc: '/assets/poster3.jpg',
@@ -19,6 +21,7 @@ export const mock_data = [
       price: '150000000',
       duration: '8 Weeks',
       rating: 3.5,
+      _id: '345',
    },
    {
       posterSrc: '/assets/poster4.png',
@@ -26,6 +29,7 @@ export const mock_data = [
       price: '150000000',
       duration: '6 Weeks',
       rating: 2.5,
+      _id: '345',
    },
    {
       posterSrc: '/assets/poster3.jpg',
@@ -33,6 +37,7 @@ export const mock_data = [
       price: '150000000',
       duration: '8 Weeks',
       rating: 6,
+      _id: '345',
    },
    {
       posterSrc: '/assets/poster4.png',
@@ -40,5 +45,6 @@ export const mock_data = [
       price: '150000000',
       duration: '6 Weeks',
       rating: 4.5,
+      _id: '345',
    },
 ];

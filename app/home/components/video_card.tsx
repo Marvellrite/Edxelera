@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import formatMoney from '@/utils/formatMoney';
 import Rating from './ratings';
+import Link from 'next/link';
 
 interface VideoCardProps {
    // Define any props if needed in the future
@@ -10,6 +11,7 @@ interface VideoCardProps {
    price: string;
    duration: string;
    rating: number;
+   _id: string;
 }
 
 const Video_card: React.FC<VideoCardProps> = ({
@@ -18,6 +20,7 @@ const Video_card: React.FC<VideoCardProps> = ({
    price,
    duration,
    rating,
+   _id = '3',
 }) => {
    const [ratingVal, setRatingVal] = useState<number>(rating);
 
@@ -45,9 +48,12 @@ const Video_card: React.FC<VideoCardProps> = ({
             </div>
          </div>
          <div className=" hidden md:block">
-            <Button className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium ">
-               Get Course
-            </Button>
+            <Link
+               href={`/home/explore/overview/${_id}`}
+               className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium text-center bg-primary text-accent-foreground flex items-center justify-center"
+            >
+               <span>Get Course</span>
+            </Link>
          </div>
       </div>
    );
