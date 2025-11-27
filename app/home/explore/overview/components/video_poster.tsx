@@ -51,7 +51,7 @@ const Video_poster = () => {
             <img
                src="/assets/poster3.jpg"
                alt="Course Poster"
-               className="  max-md:aspect-430/198  max-[1050]:aspect-560/500 aspect-560/371 object-cover w-full rounded-lg "
+               className="  max-md:aspect-430/198  max-[1050]:aspect-560/500 aspect-560/371 object-cover w-full rounded-lg max-md:rounded-none"
             />
          </div>
       </div>
