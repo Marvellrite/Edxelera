@@ -7,7 +7,9 @@ import formatMoney from '@/utils/formatMoney';
 
 const Video_poster = () => {
    return (
-      <div className="flex gap-x-5 gap-y-4 py-10 md:h-[371px]  grow items-center max-md:flex-col max-md:pt-0">
+      <div className="flex gap-x-5 gap-y-4 py-10  grow items-center max-md:flex-col max-md:pt-0 pt-0">
+
+         {/* This Component is for when the course is yet to be bought */}
          <div className=" w-full grow max-md:px-5 md:basis-1/2 ">
             <h1 className=" text-[40px] font-medium mb-2.5 max-sm:text-[24px] leading-[120%]">
                Product Design (UI/UX)
@@ -51,7 +53,7 @@ const Video_poster = () => {
             <img
                src="/assets/poster3.jpg"
                alt="Course Poster"
-               className="  max-md:aspect-430/198  max-[1050]:aspect-560/500 aspect-560/371 object-cover w-full rounded-lg max-md:rounded-none"
+               className="  max-md:aspect-430/198  h-full md:aspect-560/371 object-cover w-full rounded-lg max-md:rounded-none"
             />
          </div>
       </div>

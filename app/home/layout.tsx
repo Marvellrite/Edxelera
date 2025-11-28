@@ -13,8 +13,6 @@ export default function HomeLayout({
          <main className="flex flex-1 h-screen overflow-y-auto  w-full max-md:flex-col">
             <Sidebar />
             <section className="col-span-10 grow overflow-y-auto flex-1">
-               <Header />
-
                {children}
             </section>
             <Tabs />

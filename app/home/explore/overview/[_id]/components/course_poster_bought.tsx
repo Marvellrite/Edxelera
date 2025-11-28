@@ -1,0 +1,59 @@
+'use client';
+
+import StarRating from '@/app/home/components/ratings';
+import { ReactSVG } from 'react-svg';
+import formatMoney from '@/utils/formatMoney';
+import { Button } from '@/components/ui/button';
+
+const Course_poster_bought = () => {
+   return (
+      <div className="flex gap-x-5 gap-y-4 py-10  grow items-center max-md:flex-col max-md:pt-0 pt-0">
+        {/* This Component is for when the course has been bought but yet to start */}
+         <div className=" w-full grow max-md:px-5 md:basis-1/2 ">
+            <h1 className=" text-[40px] font-medium mb-2.5 max-sm:text-[24px] leading-[120%]">
+               Product Design (UI/UX)
+            </h1>
+            <div className=" text-[28px] font-medium mb-1">
+               &#8358;{formatMoney(150000)}
+            </div>
+            <div className=" mb-1 flex items-center gap-1">
+               <span>5.0</span>
+               <span>
+                  <StarRating value={3} max={5} readOnly />
+               </span>
+            </div>
+            <div className="grid grid-cols-[repeat(2,auto)] grid-rows-2 gap-x-5 gap-y-3">
+               <div className=" flex">
+                  <ReactSVG src="/icons/user-tag.svg" />{' '}
+                  <span>Utange Kevin</span>
+               </div>
+               <div className=" flex ">
+                  <ReactSVG src="/icons/video-square.svg" />{' '}
+                  <span>Starts August 15th</span>
+               </div>
+               <div className=" flex">
+                  <ReactSVG src="/icons/video-square.svg" />{' '}
+                  <span>8 Weeks</span>
+               </div>
+
+               <div className=" flex">
+                  <ReactSVG src="/icons/students-enrolled.svg" />{' '}
+                  <span>137 students enrolled</span>
+               </div>
+            </div>
+            <Button
+              
+               className="  mt-7 bg-neutral-100 hover:bg-neutral-100 text-neutral font-medium flex items-center justify-center rounded-[500px] px-2.5 py-3 w-[292px] h-[45px] max-md:hidden"
+            >
+               <span>Course Starts in <span>36:48:32</span></span>
+            </Button>
+         </div>
+         <div className="grow max-md:order-first basis-1/2 ">
+         <div className=' flex justify-between h-[30px] max-md:mb-[11px] items-center'><ReactSVG src='/icons/back-arrow.svg'/><div className=' text-[24px] font-medium'>Product Design (UI/UX)</div><ReactSVG src='/icons/message.svg'/></div>
+            <video className=' ' src={"/videos/video_1.mp4"} controls></video>
+         </div>
+      </div>
+   );
+};
+
+export default Course_poster_bought;

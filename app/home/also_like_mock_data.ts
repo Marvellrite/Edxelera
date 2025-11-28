@@ -1,5 +1,6 @@
 export const mock_data = [
    {
+      _id: "5366",
       posterSrc: '/assets/poster3.jpg',
       title: 'Engaging UI/UX Design',
       price: '150000000',
@@ -7,6 +8,7 @@ export const mock_data = [
       rating: 5,
    },
    {
+      _id: "5366",
       posterSrc: '/assets/poster4.png',
       title: 'Social Media Marketing',
       price: '150000000',
@@ -14,6 +16,7 @@ export const mock_data = [
       rating: 4,
    },
    {
+      _id: "5366",
       posterSrc: '/assets/poster3.jpg',
       title: 'Engaging UI/UX Design',
       price: '150000000',
