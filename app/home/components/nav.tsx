@@ -119,9 +119,13 @@ export const Tabs: React.FC = () => {
    const myCourses = pathname === '/home/my-courses';
    const community = pathname === '/home/community';
    const myProfile = pathname === '/home/my-profile';
+   const isCourseOverviewPage = /^\/home\/explore\/overview\/\d+$/.test(pathname)
+
+
+
 
    return (
-      <footer className="grid md:hidden grid-cols-5 h-20 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100 ">
+      <footer className={` ${isCourseOverviewPage && "hidden"} grid md:hidden grid-cols-5 h-20 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100 `}>
          <Link
             href="/home"
             className={`flex gap-1 hover:cursor-pointer ${home ? activeLink : '*:text-neutral-700'}`}

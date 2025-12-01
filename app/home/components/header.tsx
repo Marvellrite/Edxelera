@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                      <p className="flex md:hidden text-sm text-neutral-600">
                         Good Morning
                      </p>
-                     <p className="font-semibold text-neutral-900">
+                     <p className="font-medium text-neutral-900">
                         Nkechi Johnson
                      </p>
                      <p className="hidden md:flex text-neutral-600">

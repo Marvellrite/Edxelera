@@ -23,10 +23,13 @@ const Page: React.FC = () => {
 
    const router = useRouter();
 
-   const onSubmit = async (data: any) => {
+   const onSubmit = async (data:Omit<SigninSchema, "confirm_password">) => {
       const response = await fetch(`${ServerURL}/auth/sign-up`, {
          method: 'POST',
          body: JSON.stringify(data),
+         headers: {
+            "Content-Type": "application/json"
+         }
       });
 
       if (response.ok) {
@@ -51,7 +54,7 @@ const Page: React.FC = () => {
                <div>
                   <Input
                      input_id="field_name"
-                     name="full_name"
+                     name="fullname"
                      register={register}
                      placeholder="Full Name"
                   />

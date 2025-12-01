@@ -28,24 +28,6 @@ const Course_arrangement = () => {
       });
    };
 
-   const Btn = ({
-      isActive = false,
-      text,
-      ...rest
-   }: {
-      isActive?: boolean;
-      text: string;
-   } & React.ComponentProps<'button'>) => (
-      <button
-         className={`rounded-[20px] flex items-center justify-center py-1.5 px-5  ${isActive ? 'bg-primary text-primary-foreground' : 'bg-initial text-black'}`}
-         onClick={() =>
-            onBtnClick(text.toLowerCase() as keyof typeof isBtnActive)
-         }
-         {...rest}
-      >
-         <span>{text}</span>
-      </button>
-   );
 
    useEffect(() => {
       const responsiveLineClamper = () => {
@@ -681,3 +663,24 @@ const Course_arrangement = () => {
 };
 
 export default Course_arrangement;
+
+
+
+   const Btn = ({
+      isActive = false,
+      text,
+      ...rest
+   }: {
+      isActive?: boolean;
+      text: string;
+   } & React.ComponentProps<'button'>) => (
+      <button
+         className={`rounded-[20px] flex items-center justify-center py-1.5 px-5  ${isActive ? 'bg-primary text-primary-foreground' : 'bg-initial text-black'}`}
+         // onClick={() =>
+         //    onBtnClick(text.toLowerCase() as keyof typeof isBtnActive)
+         // }
+         {...rest}
+      >
+         <span>{text}</span>
+      </button>
+   );

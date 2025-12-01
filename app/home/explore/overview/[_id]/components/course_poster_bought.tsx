@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 
 const Course_poster_bought = () => {
    return (
-      <div className="flex gap-x-5 gap-y-4 py-10  grow items-center max-md:flex-col max-md:pt-0 pt-0">
+      <div className="flex gap-x-5 gap-y-4 py-10  grow items-center max-md:flex-col max-md:pt-0 pt-0 ">
         {/* This Component is for when the course has been bought but yet to start */}
          <div className=" w-full grow max-md:px-5 md:basis-1/2 ">
-            <h1 className=" text-[40px] font-medium mb-2.5 max-sm:text-[24px] leading-[120%]">
+            <h1 className=" text-[40px] font-medium mb-2.5 max-sm:text-[24px] leading-[120%] ">
                Product Design (UI/UX)
             </h1>
             <div className=" text-[28px] font-medium mb-1">
@@ -48,9 +48,9 @@ const Course_poster_bought = () => {
                <span>Course Starts in <span>36:48:32</span></span>
             </Button>
          </div>
-         <div className="grow max-md:order-first basis-1/2 ">
-         <div className=' flex justify-between h-[30px] max-md:mb-[11px] items-center'><ReactSVG src='/icons/back-arrow.svg'/><div className=' text-[24px] font-medium'>Product Design (UI/UX)</div><ReactSVG src='/icons/message.svg'/></div>
-            <video className=' ' src={"/videos/video_1.mp4"} controls></video>
+         <div className="grow max-md:order-first basis-1/2 max-md:px-4 max-md:py-5">
+         <div className=' flex justify-between md:hidden h-[30px] max-md:mb-[11px] items-center'><ReactSVG src='/icons/back-arrow.svg'/><div className=' text-[24px] font-medium'>Product Design (UI/UX)</div><ReactSVG src='/icons/message.svg'/></div>
+            <video className=' ' src={"/videos/video1.mp4"} controls></video>
          </div>
       </div>
    );

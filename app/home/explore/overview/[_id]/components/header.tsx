@@ -26,13 +26,13 @@ const Header = ({ children }: HeaderPropsType) => {
 
    return (
       <header className="flex items-center justify-between px-5 pt-5 h-fit w-full text-neutral-700">
-         <p className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0 gap-x-5">
+         <div className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0 gap-x-5">
             <button className=" hover:bg-neutral-300 rounded-[500px]">
                <ReactSVG src="/icons/back-arrow.svg" />
             </button>
 
             {children}
-         </p>
+         </div>
 
          <div
             className={`${!home && !explore ? 'hidden' : ''} grid lg:flex gap-2 items-center w-full md:w-auto`}
@@ -51,7 +51,7 @@ const Header = ({ children }: HeaderPropsType) => {
                      <p className="flex md:hidden text-sm text-neutral-600">
                         Good Morning
                      </p>
-                     <p className="font-semibold text-neutral-900">
+                     <p className="font-medium text-neutral-900">
                         Nkechi Johnson
                      </p>
                      <p className="hidden md:flex text-neutral-600">
