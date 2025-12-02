@@ -18,7 +18,7 @@ export const Sidebar: React.FC = () => {
    const settings = pathname === '/home/settings';
 
    return (
-      <aside className="col-span-2 hidden md:block border-r-2 border-neutral-100 h-screen px-5 text-neutral-700 shrink-0 w-[200px]">
+      <aside className="col-span-2 hidden md:block border-r-2 border-neutral-100 h-screen px-5 text-neutral-700  min-w-[200px] max-w-[291px] grow">
          <Image
             src="/assets/logo.png"
             loading="eager"

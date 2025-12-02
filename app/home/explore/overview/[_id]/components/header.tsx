@@ -25,8 +25,8 @@ const Header = ({ children }: HeaderPropsType) => {
    const { theme, toggleTheme } = useTheme();
 
    return (
-      <header className="flex items-center justify-between px-5 pt-5 h-fit w-full text-neutral-700">
-         <div className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0 gap-x-5">
+      <header className="flex items-center justify-between max-md:px-4 px-5 pt-5 h-fit w-full text-neutral-700">
+         <div className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0 gap-x-5 grow shrink">
             <button className=" hover:bg-neutral-300 rounded-[500px]">
                <ReactSVG src="/icons/back-arrow.svg" />
             </button>

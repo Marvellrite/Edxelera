@@ -17,7 +17,7 @@ import {
 
 const CourseStartedLearn = () => {
   return (
-<div className=" max-[890px]:flex-col  flex gap-x-3 h-full">
+<div className=" max-[890px]:flex-col  flex gap-x-3 h-full ">
                      <div className=" flex flex-col basis-[65%] grow gap-y-4.5">
                         <div className=" max-sm:border-none border border-border rounded-lg p-4 min-[890px]:pb-4 max-[890px]:pb-11 max-[890px]:mb-4">
                            <div>
@@ -64,7 +64,7 @@ const CourseStartedLearn = () => {
 
                         </div>
                      </div>
-                     <div className="  max-sm:border-none border border-neutral-100 rounded-lg border-t-border basis-[35%]  min-h-full">
+                     <div className=" max-md:pb-6 max-sm:border-none border border-neutral-100 rounded-lg border-t-border basis-[35%]  min-h-full">
                         {/* TODO: Insert the detailed module section here */}
 
                         <div className="">
@@ -642,6 +642,12 @@ const CourseStartedLearn = () => {
                         </div>
                         </div>
                      </div>
+
+                     {/* <div className=' flex justify-between px-4 md:hidden bottom-0 w-full '>
+
+                        <Button className=" bg-neutral-900 rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Previous</Button>
+                        <Button className="  rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Next</Button>
+                     </div> */}
                   </div>
   )
 }

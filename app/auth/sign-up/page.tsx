@@ -58,8 +58,8 @@ const Page: React.FC = () => {
                      register={register}
                      placeholder="Full Name"
                   />
-                  {errors.full_name && (
-                     <FormError>{errors.full_name.message}</FormError>
+                  {errors.fullname && (
+                     <FormError>{errors.fullname.message}</FormError>
                   )}
                </div>
 

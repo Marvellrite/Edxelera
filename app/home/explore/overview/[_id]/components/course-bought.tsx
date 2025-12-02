@@ -12,9 +12,12 @@ const CourseBought = () => {
             <Course_arrangement />
 
             <div className=" flex justify-center mt-10">
-               <Button className=" mx-auto py-3 px-2.5 w-[292px] h-[42px] rounded-[500px]">
-                  Purchase Course
-               </Button>
+            <Button
+              
+               className="  mt-7 bg-neutral-100 hover:bg-neutral-100 text-neutral font-medium flex items-center justify-center rounded-[500px] px-2.5 py-3 w-[292px] h-[45px] md:hidden"
+            >
+               <span>Course Starts in <span>36:48:32</span></span>
+            </Button>
             </div>
          </div>
       </section>

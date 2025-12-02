@@ -3,7 +3,7 @@
 import React from "react"
 import { ReactSVG } from "react-svg"
 
-const Comment = ({children, isChild=true}:{children?:React.ReactNode, isChild?:boolean})=>{
+const Comment = ({children, isChild=true, forMobile=false}:{children?:React.ReactNode, isChild?:boolean, forMobile?:boolean})=>{
 
     return (
     <div className="">
@@ -22,6 +22,8 @@ const Comment = ({children, isChild=true}:{children?:React.ReactNode, isChild?:b
                 Welcome to the Product Design forum. You can discuss all things product design here and ask questions and you will get answers fro either the instructor, your fellow students, or past TBC students of product Design. Kindly be respectful in the chat. Cheers.
 
             </div>
+            {
+            !forMobile?
             <div className="flex justify-between mt-4 p-3">
                 <div className=" flex gap-4.5 text-[14px] font-normal text-neutral-700">
                     {/* TODO: To Insert like and reply icons and text here  */}
@@ -50,7 +52,32 @@ const Comment = ({children, isChild=true}:{children?:React.ReactNode, isChild?:b
                     </div> 
 
                 </div>
+            </div>:
+            <div className="flex justify-between mt-4 py-3 px-2">
+                <div className=" flex gap-4.5 text-[14px] font-normal text-neutral-700">
+                    {/* TODO: To Insert like and reply icons and text here  */}
+                    <button className=" flex gap-1.5 p-0 hover:cursor-pointer">
+                        {/* Like Icon and text will be here */}
+                        <span><ReactSVG src="/icons/reply.svg"/></span>
+                        <span>Reply</span>
+                    </button> 
+                </div>
+                <div className=" flex gap-x-5 font-normal text-[14px] text-neutral-600 items-center">
+                    {/* TODO: To Insert number of replies and point down angle Icon here   */}
+                    <div className=" flex gap-1">
+                        {/* Number of replies and text will be here */}
+                        <span>30</span>
+                        <span>replies</span>
+                    </div>
+
+                    <button className=" p-0">
+
+                    <ReactSVG src="/icons/angle-down.svg"/> 
+                    </button>
+
+                </div>
             </div>
+            }
         </div>
         <div className=' mt-5 px-4'>{children}</div>
     </div>)
