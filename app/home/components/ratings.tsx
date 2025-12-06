@@ -8,6 +8,8 @@ interface StarRatingProps {
    onChange?: (value: number) => void;
    max?: number;
    readOnly?: boolean;
+   size?: number
+   gap?: number
 }
 
 export const StarRating: React.FC<StarRatingProps> = ({
@@ -15,6 +17,8 @@ export const StarRating: React.FC<StarRatingProps> = ({
    onChange,
    max = 5,
    readOnly = false,
+   size=11,
+   gap=4
 }) => {
    const [hoverValue, setHoverValue] = React.useState<number | null>(null);
 
@@ -27,7 +31,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
    };
 
    return (
-      <div className="flex gap-1">
+      <div className="flex justify-between" style={{gap:gap}}>
          {Array.from({ length: max }).map((_, index) => {
             const starNumber = index + 1;
             const starValue = displayValue;
@@ -61,11 +65,11 @@ export const StarRating: React.FC<StarRatingProps> = ({
 
                   {/* Actual star */}
                   {isFull ? (
-                     <FullStar />
+                     <FullStar size={size}/>
                   ) : isHalf ? (
-                     <HalfStar />
+                     <HalfStar size={size} />
                   ) : (
-                     <EmptyStar />
+                     <EmptyStar size={size}/>
                   )}
                </div>
             );

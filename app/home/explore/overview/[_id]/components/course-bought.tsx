@@ -1,5 +1,6 @@
 import Course_poster_bought from "./course_poster_bought"
 import Course_arrangement from "./course_arrangement"
+import CohortStartedModal from "./cohort-started-modal"
 import { Button } from "@/components/ui/button"
 
 const CourseBought = () => {
@@ -20,6 +21,7 @@ const CourseBought = () => {
             </Button>
             </div>
          </div>
+         <CohortStartedModal/>
       </section>
   )
 }

@@ -1,7 +1,7 @@
-export const EmptyStar = () => (
+export const EmptyStar = ({size=11}:{size?:number}) => (
    <svg
-      width="11"
-      height="11"
+      width={size}
+      height={size}
       viewBox="0 0 11 11"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
@@ -13,10 +13,10 @@ export const EmptyStar = () => (
    </svg>
 );
 
-export const FullStar = () => (
+export const FullStar = ({size=11}:{size?:number}) => (
    <svg
-      width="11"
-      height="11"
+      width={size}
+      height={size}
       viewBox="0 0 11 11"
       fill="#E37E02"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,13 +28,17 @@ export const FullStar = () => (
    </svg>
 );
 
-export const HalfStar = () => (
-   <div className="relative w-[11px] h-[11px]">
-      <div className="absolute inset-0 overflow-hidden w-[5.5px]">
-         <FullStar />
-      </div>
-      <div className=" w-[11px] h-[11px]">
-         <EmptyStar />
-      </div>
-   </div>
+export const HalfStar = ({ size = 11 }: { size?: number }) => (
+  <div className="relative" style={{ width: size, height: size }}>
+    <div
+      className="absolute inset-0 overflow-hidden"
+      style={{ width: size / 2 }}
+    >
+      <FullStar size={size} />
+    </div>
+
+    <div style={{ width: size, height: size }}>
+      <EmptyStar size={size} />
+    </div>
+  </div>
 );

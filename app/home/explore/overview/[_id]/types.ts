@@ -4,6 +4,11 @@ export interface QuizType {
     answered: boolean,
 }
 
+export interface QuizResult extends Omit<QuizType, "answered"> {
+    correctAnswers: QuizAnswers,
+    submittedAnswers: QuizAnswers
+}
+
 export type QuizAnswers = {
     [key:PropertyKey]: string
 }

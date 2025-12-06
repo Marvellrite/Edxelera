@@ -38,6 +38,9 @@ export default function Course_started() {
       }, [isMobile]
    )
 
+      const [isModuleLocked, setIsModuleLocked ] = useState(true)
+
+
    return (
 
 
@@ -80,8 +83,17 @@ export default function Course_started() {
                
                <div className=' flex justify-between px-4 md:hidden bottom-0 w-full '>
                
-                  <Button className=" bg-neutral-900 rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Previous</Button>
-                  <Button className="  rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Next</Button>
+               { isModuleLocked?
+                     <Button className="  rounded-full py-2.5 px-[27px] w-full h-11 ">Go to previous modules</Button>
+               
+                  :
+                  <div>
+
+                     <Button className=" bg-neutral-900 rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Previous</Button>
+                     <Button className="  rounded-full py-2.5 px-[27px] w-[89px] h-11 ">Next</Button>
+                  </div>
+               }
+
                </div>
 
                {isCourseForumMobileOpen && <CourseForumMobile setShowCourseForum={setIsCourseForumMobileOpen}/>}

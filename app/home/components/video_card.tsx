@@ -42,7 +42,7 @@ const Video_card: React.FC<VideoCardProps> = ({
             <span>{duration}</span>
             <div className="  mt-2 flex items-center gap-1">
                <span className="font-normal text-[14px]">{ratingVal}</span>
-               <span className=" grow">
+               <span className=" ">
                   <Rating onChange={setRatingVal} value={ratingVal} />
                </span>
             </div>

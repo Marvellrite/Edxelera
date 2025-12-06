@@ -14,15 +14,31 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/components/ui/radio-group"
+import { useState } from 'react';
 
 const CourseStartedLearn = () => {
+
+      const [isModuleLocked, setIsModuleLocked ] = useState(true)
+
   return (
 <div className=" max-[890px]:flex-col  flex gap-x-3 h-full ">
                      <div className=" flex flex-col basis-[65%] grow gap-y-4.5">
                         <div className=" max-sm:border-none border border-border rounded-lg p-4 min-[890px]:pb-4 max-[890px]:pb-11 max-[890px]:mb-4">
-                           <div>
+                           <div className=' relative'>
                               {/* TODO: Insert the video here */}
                               <video src={'/videos/video1.mp4'} controls/>
+                               {
+                                 isModuleLocked &&   
+                                 <div className=' absolute w-full h-full bg-white/65 top-0 left-0 flex justify-center items-center'>
+                                    <div className='w-[75%] max-w:[278px] bg-white rounded-2xl p-4 font-medium text-center text-[14px]'>
+                                       <div className=' flex w-full items-center justify-center'>
+                                       <ReactSVG src="/icons/lock.svg" className=' mb-2 text-center'/>
+
+                                       </div>
+                                       <p>This module is still locked and will be available in 3 days, 23 hours, 40 minutes and 40 seconds</p>
+                                    </div>
+                                 </div>
+                                 }
                            </div>
                            <div className=" flex justify-between pt-5 px-2 max-[890px]:hidden">
                               {/* TODO: Contains the prev and next buttons */}

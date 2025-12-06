@@ -24,10 +24,10 @@
    --neutral-200: #e8e8e8;
    --neutral-100: #ededed;
    --neutral-50: #f3f3f3;
-   --green: #046e1b;
-   --green-light: #d7ffdf;
-   --red: #960000;
-   --red-light: #f9b3b3;
+   --green: #005827;
+   --green-light: #CDFFE3;
+   --red: #6C0507;
+   --red-light: #FFCDCE;
 }
 
 /* .dark :root {

@@ -6,6 +6,8 @@ import formatMoney from '@/utils/formatMoney';
 import { Button } from '@/components/ui/button';
 
 const Course_poster_bought = () => {
+
+
    return (
       <div className="flex gap-x-5 gap-y-4 py-10  grow items-center max-md:flex-col max-md:pt-0 pt-0 ">
         {/* This Component is for when the course has been bought but yet to start */}
@@ -18,7 +20,7 @@ const Course_poster_bought = () => {
             </div>
             <div className=" mb-1 flex items-center gap-1">
                <span>5.0</span>
-               <span>
+               <span className='-mt-0.5'>
                   <StarRating value={3} max={5} readOnly />
                </span>
             </div>
@@ -49,8 +51,16 @@ const Course_poster_bought = () => {
             </Button>
          </div>
          <div className="grow max-md:order-first basis-1/2 max-md:px-4 max-md:py-5">
-         <div className=' flex justify-between md:hidden h-[30px] max-md:mb-[11px] items-center'><ReactSVG src='/icons/back-arrow.svg'/><div className=' text-[24px] font-medium'>Product Design (UI/UX)</div><ReactSVG src='/icons/message.svg'/></div>
-            <video className=' ' src={"/videos/video1.mp4"} controls></video>
+         <div className=' flex justify-between md:hidden h-[30px] max-md:mb-[11px] items-center'>
+            <ReactSVG src='/icons/back-arrow.svg'/>
+            <div className=' text-[24px] font-medium'>Product Design (UI/UX)</div>
+            <ReactSVG src='/icons/message.svg'/>
+         </div>
+         <div className=' relative'>
+            <video className=' ' src={"/videos/video1.mp4"} ></video>
+
+           
+         </div>
          </div>
       </div>
    );
