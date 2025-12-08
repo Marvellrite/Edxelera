@@ -10,10 +10,10 @@ import { Button } from '@/components/ui/button';
 
 const page = () => {
    return (
-   //   <CourseBought/>
+     <CourseBought/>
    // <CourseNotBought/>
       // <Course_started />
-      <ModuleAssessment/>
+      // <ModuleAssessment/>
    );
 };
 

@@ -1,7 +1,7 @@
 :root {
    /* COLORS */
    --black: #040506;
-   --white: #ffffff;
+   --white: rgb(255, 255, 255);
    --primary: #d62829;
    --primary-900: #800002;
    --primary-800: #9f0010;
@@ -28,6 +28,15 @@
    --green-light: #CDFFE3;
    --red: #6C0507;
    --red-light: #FFCDCE;
+
+   --white-rgb: 255, 255, 255;
+   --black-rgb: 4, 5, 6;
+
+   --gradient-red: rgb(214, 40, 41);
+   --gradient-red-light: rgb(169, 29, 30);
+
+   --scrollbar-color: #0000001a;
+   --scrollbar-color-hover: #0003;
 }
 
 /* .dark :root {
@@ -83,5 +92,9 @@
       --neutral-700: #e8e8e8;
       --neutral-800: #ededed;
       --neutral-900: #f3f3f3;
+
+      --black-rgb: 255, 255, 255;
+      --white-rgb: 4, 5, 6;
    }
 }
+

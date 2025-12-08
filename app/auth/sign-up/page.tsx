@@ -139,7 +139,7 @@ const Page: React.FC = () => {
             </div>
             <div className=" text-center font-normal">
                By creating an account, you agree to SkillBridge&rsquo;s{' '}
-               <Link href="#" className=" text-primary">
+               <Link href="/terms-and-services" className=" text-primary">
                   terms of service{' '}
                </Link>{' '}
                and{' '}

@@ -7,6 +7,7 @@ import { SigninSchema, signinSchema } from '@/schemas/sign-in';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import OTPInputs from '@/components/auth/input-otp';
+import Link from 'next/link';
 
 const Page: React.FC = () => {
    const {
@@ -52,9 +53,9 @@ const Page: React.FC = () => {
                   alt="Tecbridge Logo"
                />
             </div>{' '}
-            <h1 className="text-5xl font-medium mt-10">OTP Verification</h1>
+            <h1 className="text-5xl font-medium mt-10">Reset Password</h1>
             <p className=" my-6 mb-7 mt-4 font-normal">
-               Enter the 6 digit OPT sent to your email
+               Enter the 6 digit OTP sent to your email to reset your password
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
                <div className=" flex justify-center ">
@@ -68,6 +69,7 @@ const Page: React.FC = () => {
                      <span>Verify</span>
                   </button>
                </div>
+               <div className=' flex justify-between font-normal text-md'><button className="p-0">Resend code</button> <Link href={'/auth/'}>Use password</Link></div>
             </form>
          </div>
       </section>

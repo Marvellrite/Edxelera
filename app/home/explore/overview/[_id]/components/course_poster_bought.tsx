@@ -4,8 +4,10 @@ import StarRating from '@/app/home/components/ratings';
 import { ReactSVG } from 'react-svg';
 import formatMoney from '@/utils/formatMoney';
 import { Button } from '@/components/ui/button';
+import VideoPlayer from './video-player';
 
 const Course_poster_bought = () => {
+
 
 
    return (
@@ -57,13 +59,14 @@ const Course_poster_bought = () => {
             <ReactSVG src='/icons/message.svg'/>
          </div>
          <div className=' relative'>
-            <video className=' ' src={"/videos/video1.mp4"} ></video>
-
+         <VideoPlayer src='/videos/video1.mp4'/>
            
          </div>
          </div>
       </div>
    );
 };
+
+
 
 export default Course_poster_bought;

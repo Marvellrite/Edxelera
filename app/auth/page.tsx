@@ -28,7 +28,7 @@ const Page: React.FC = () => {
 
    const router = useRouter();
 
-   const onSubmit = async (data: any) => {
+   const onSubmit = async (data: LoginSchema) => {
       console.log(data);
       console.log(data.email);
 
@@ -91,7 +91,7 @@ const Page: React.FC = () => {
             <div className=" flex justify-between">
                <Link
                   className=" hover:underline underline-offset-2"
-                  href={'/auth/forgot-password'}
+                  href={'/auth/reset-password'}
                >
                   Forgot Password?
                </Link>{' '}

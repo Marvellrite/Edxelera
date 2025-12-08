@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const CohortStartedModal = () => {
 
-  const [isModalOpen, setIsModalOpen ] = useState(true);
+  const [isModalOpen, setIsModalOpen ] = useState(false);
 
   return (
     <div className={` backdrop-blur-xs fixed bg-transparent w-full h-full top-0 left-0 flex items-center justify-center ${!isModalOpen && "hidden"} md:px-6`}>
