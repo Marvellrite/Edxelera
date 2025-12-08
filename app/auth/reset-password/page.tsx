@@ -1,25 +1,35 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ReactSVG } from 'react-svg';
 import { useForm } from 'react-hook-form';
-import { SigninSchema, signinSchema } from '@/schemas/sign-in';
+import { SendPassResetSchema, sendPassResetSchema  } from '@/schemas/send-password-reset.schema';
+import { ResetPassSchema, resetPassSchema } from '@/schemas/reset-password.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import OTPInputs from '@/components/auth/input-otp';
 import Link from 'next/link';
+import Input from '@/components/data/input';
+import FormError from '@/components/auth/form-error';
+import OTPInputs from '@/components/auth/input-otp';
 
 const Page: React.FC = () => {
-   const {
-      register,
-      handleSubmit,
-      formState: { errors },
-   } = useForm<SigninSchema>({
-      resolver: zodResolver(signinSchema),
-   });
+ 
 
    const [otp, setOtp] = useState<undefined | string>(undefined);
    const [tempOtp, setTempOtp] = useState<undefined | string>(undefined);
+   const [otpSent, setOtpSent] = useState(true)
+   const [otpVerified, setOtpVerified] = useState(true)
+
+     const {
+      register:sendRegister,
+      handleSubmit:sendHandleSubmit,
+      formState: { errors: sendErrors },
+   } = useForm<SendPassResetSchema>({resolver: zodResolver(sendPassResetSchema)})
+
+     const {
+      register: resetRegister,
+      handleSubmit: resetHandleSubmit,
+      formState: { errors: resetErrorrs },
+   } = useForm<ResetPassSchema>({resolver: zodResolver(resetPassSchema)})
 
    useEffect(() => {
       setOtp(tempOtp);
@@ -29,7 +39,15 @@ const Page: React.FC = () => {
 
    const router = useRouter();
 
-   const onSubmit = async () => {
+   const sendOnSubmit = async () => {
+     
+   };
+
+   const resetOnSubmit = async () => {
+      
+   };
+
+   const otpOnSubmit = async () => {
       console.log(otp);
 
       const response = await fetch(`${ServerURL}/auth/otp`, {
@@ -55,20 +73,47 @@ const Page: React.FC = () => {
             </div>{' '}
             <h1 className="text-5xl font-medium mt-10">Reset Password</h1>
             <p className=" my-6 mb-7 mt-4 font-normal">
-               Enter the 6 digit OTP sent to your email to reset your password
+               {
+                  !otpSent?
+                  "Enter your email to receive OTP":
+                  (otpSent && !otpVerified)?
+                  "Enter the 6 digit OTP sent to your email to reset your password":
+                  "Change your password"
+               }
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
-               <div className=" flex justify-center ">
-                  <OTPInputs OTP={otp} setOTP={setTempOtp} />
+            <form onSubmit={!otpSent?sendHandleSubmit(sendOnSubmit):resetHandleSubmit(resetOnSubmit)} className=" space-y-4">
+               <div className=" flex justify-center flex-col gap-y-4">
+                {!otpSent?   
+                    <>
+                        <Input input_id="email" register={sendRegister} placeholder='Email' name='email'/>
+                        {sendErrors.email && <FormError>{sendErrors.email.message}</FormError>}
+                    </> :
+                        !otpVerified?
+                    <OTPInputs OTP={otp} setOTP={setTempOtp}/>:
+                    <>
+                        <div>
+                            <Input register={resetRegister} name="password" input_id='password' placeholder='Create Password'/>
+                             
+                        </div>
+                        <div>
+
+                            <Input register={resetRegister} name="confirm_password"  placeholder='Confirm Password'/>
+                        </div>
+                    </>
+
+                }
                </div>
+               
                <div>
                   <button
-                     onClick={onSubmit}
+                     type={(!otpSent || (otpSent && !otpVerified)) ? 'submit': "button"}
+                     onClick={(otpSent && !otpVerified)?otpOnSubmit:undefined}
                      className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] "
                   >
-                     <span>Verify</span>
+                     <span>{  !otpSent?"Send OTP":!otpVerified?"Verify":"Change Password"}</span>
                   </button>
                </div>
+            
                <div className=' flex justify-between font-normal text-md'><button className="p-0">Resend code</button> <Link href={'/auth/'}>Use password</Link></div>
             </form>
          </div>
