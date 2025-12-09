@@ -10,14 +10,18 @@ import Link from 'next/link';
 import Input from '@/components/data/input';
 import FormError from '@/components/auth/form-error';
 import OTPInputs from '@/components/auth/input-otp';
+import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
+import { toast } from "react-toastify";
+import Image from 'next/image';
+
 
 const Page: React.FC = () => {
  
 
    const [otp, setOtp] = useState<undefined | string>(undefined);
    const [tempOtp, setTempOtp] = useState<undefined | string>(undefined);
-   const [otpSent, setOtpSent] = useState(true)
-   const [otpVerified, setOtpVerified] = useState(true)
+   const [otpSent, setOtpSent] = useState(false)
+   const [otpVerified, setOtpVerified] = useState(false)
 
      const {
       register:sendRegister,
@@ -28,7 +32,7 @@ const Page: React.FC = () => {
      const {
       register: resetRegister,
       handleSubmit: resetHandleSubmit,
-      formState: { errors: resetErrorrs },
+      formState: { errors: resetErrors },
    } = useForm<ResetPassSchema>({resolver: zodResolver(resetPassSchema)})
 
    useEffect(() => {
@@ -40,7 +44,10 @@ const Page: React.FC = () => {
    const router = useRouter();
 
    const sendOnSubmit = async () => {
-     
+      toast.success(SuccessToast, {closeButton:false,});
+      // toast.error(ErrorToast, {closeButton: false});
+   
+
    };
 
    const resetOnSubmit = async () => {
@@ -62,15 +69,17 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="py-5 max-md:py-0 flex justify-center items-center min-h-screen">
+      <section className="py-5 max-md:py-0 flex justify-center items-center max-sm:items-start min-h-screen">
          <div className=" w-full max-w-[500px] sm:border border-neutral-400 rounded-[20px] p-5  max-sm:px-4 sm:w-[75%]">
-            <div className=" w-[154px] mx-auto">
-               <img
-                  // className=" h-[65px]"
+           <div className=" w-[154px] mx-auto max-sm:w-[87px]">
+               <Image
+                  className=" w-full h-auto"
                   src="/assets/logo1.png"
                   alt="Tecbridge Logo"
+                  width={256}
+                  height={108}
                />
-            </div>{' '}
+            </div>
             <h1 className="text-5xl font-medium mt-10">Reset Password</h1>
             <p className=" my-6 mb-7 mt-4 font-normal">
                {
@@ -93,11 +102,12 @@ const Page: React.FC = () => {
                     <>
                         <div>
                             <Input register={resetRegister} name="password" input_id='password' placeholder='Create Password'/>
-                             
+                             {resetErrors.password && <FormError>{resetErrors.password.message}</FormError>}
                         </div>
                         <div>
 
                             <Input register={resetRegister} name="confirm_password"  placeholder='Confirm Password'/>
+                             {resetErrors.confirm_password && <FormError>{resetErrors.confirm_password.message}</FormError>}
                         </div>
                     </>
 
@@ -106,7 +116,7 @@ const Page: React.FC = () => {
                
                <div>
                   <button
-                     type={(!otpSent || (otpSent && !otpVerified)) ? 'submit': "button"}
+                     type={(!otpSent || (otpSent && otpVerified)) ? 'submit': "button"}
                      onClick={(otpSent && !otpVerified)?otpOnSubmit:undefined}
                      className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] "
                   >

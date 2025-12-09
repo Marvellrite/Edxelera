@@ -10,6 +10,7 @@ import FormError from '@/components/auth/form-error';
 import DatePicker from '@/components/data/date-picker';
 import Input from '@/components/data/input';
 import Textarea from '@/components/data/textarea';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
    const {
@@ -67,15 +68,17 @@ const Page: React.FC = () => {
    }, [profileImage]);
 
    return (
-      <section className="py-5 max-sm:py-0 flex justify-center items-center min-h-screen">
+      <section className="py-5 max-sm:py-0 flex justify-center max-sm:items-start items-center min-h-screen">
          <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
-            <div className=" w-[154px] mx-auto">
-               <img
-                  // className=" h-[65px]"
+              <div className=" w-[154px] mx-auto max-sm:w-[87px]">
+               <Image
+                  className=" w-full h-auto"
                   src="/assets/logo1.png"
                   alt="Tecbridge Logo"
+                  width={256}
+                  height={108}
                />
-            </div>{' '}
+            </div>
             <h1 className="text-lg font-medium mt-10">
                Welcome to Tech Bridge-City Academy!
             </h1>
@@ -98,10 +101,11 @@ const Page: React.FC = () => {
                      </div>
                   ) : (
                      <div className=" relative mx-auto w-22 h-22 bg-neutral-200 rounded-[500px] flex justify-center items-center">
-                        <img
+                        <Image
                            src={profileImagePreview}
                            className="  block absolute object-cover w-full h-full rounded-[500px]"
                            alt="Profile Image"
+                           fill
                         />
                         <input
                            title="Profile Image"

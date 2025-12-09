@@ -9,11 +9,8 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
 import Input from '@/components/data/input';
+import Image from 'next/image';
 
-type LoginFormInputs = {
-   email: string;
-   password: string;
-};
 
 const Page: React.FC = () => {
    const {
@@ -46,11 +43,13 @@ const Page: React.FC = () => {
    return (
       <section className="py-5  max-sm:py-0 flex justify-center  min-h-screen items-center">
          <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 max-sm:px-4 pt-6 max-sm:pt-0 sm:w-[75%] ">
-            <div className=" w-[154px] mx-auto">
-               <img
-                  // className=" h-[65px]"
+            <div className=" w-[154px] mx-auto aspect-154/65 max-sm:w-[87px]">
+               <Image
+                  className=" w-full h-auto"
                   src="/assets/logo1.png"
                   alt="Tecbridge Logo"
+                  width={256}
+                  height={108}
                />
             </div>{' '}
             <h1 className="text-5xl font-medium mt-10">Login</h1>

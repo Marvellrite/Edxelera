@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
 import Input from '@/components/data/input';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
    const {
@@ -42,10 +43,12 @@ const Page: React.FC = () => {
       <section className="p-5 max-md:py-0 px-0 max-sm:p-0 flex justify-center items-center min-h-screen">
          <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 max-sm:px-4 py-6 sm:w-[75%]">
             <div className=" w-[154px] mx-auto">
-               <img
+               <Image
                   // className=" h-[65px]"
                   src="/assets/logo1.png"
                   alt="Tecbridge Logo"
+                  width={256}
+                  height={108}
                />
             </div>{' '}
             <h1 className="text-5xl font-medium mt-10">Sign Up</h1>
