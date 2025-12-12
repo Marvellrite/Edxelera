@@ -41,4 +41,4 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
    );
 };
 
-export default VideoPoster;
+export default VideoPoster
