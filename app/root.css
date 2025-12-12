@@ -35,8 +35,8 @@
    --gradient-red: rgb(214, 40, 41);
    --gradient-red-light: rgb(169, 29, 30);
 
-   --scrollbar-color: #0000001a;
-   --scrollbar-color-hover: #0003;
+   --scrollbar-color: #00000044;
+   --scrollbar-color-hover: rgba(0, 0, 0, 0.381);
 }
 
 /* .dark :root {

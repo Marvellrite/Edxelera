@@ -1,0 +1,70 @@
+import { features } from '@/lib/landing-data';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+
+export function FeaturesSection() {
+  return (
+    <section className="py-16 lg:py-20 bg-white">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
+        <div className="text-center mb-12 space-y-4">
+          <h2 className="text-neutral-900 text-5xl font-semibold">
+            Why Learners Choose <span className="text-primary">Edxelera</span>
+          </h2>
+          <p className="text-neutral-800 text-lg max-w-[700px] mx-auto">
+            Experience high-quality, structured and immersive learning designed to help you grow faster and achieve more
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_372px] gap-6">
+          {/* Left Column - 3 Feature Cards */}
+          <div className="space-y-3">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-neutral-50 rounded-[10px] p-6 space-y-5"
+              >
+                <Image
+                  src={feature.icon}
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <div className="space-y-2.5">
+                  <h3 className="text-neutral-900 text-[28px] font-medium">{feature.title}</h3>
+                  <p className="text-neutral-800 text-base leading-6">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column - Dark Card */}
+          <div className="bg-[#040506] rounded-[10px] p-8 flex flex-col justify-between space-y-10">
+            <div className="space-y-5">
+              <Image
+                src="/icons/landing/lock.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />
+              <div className="space-y-2.5">
+                <h3 className="text-white text-[28px] font-medium leading-[42px]">
+                  A Real Classroom Experience Online
+                </h3>
+                <p className="text-neutral-50 text-base leading-6">
+                  Edxelera delivers a structured, university-style learning environment—complete with guided lessons, discussions, assignments, and instructor presence.
+                  <br /><br />
+                  You learn alongside peers, engage in conversations, and follow a clear path that feels like a real classroom, but with the flexibility of being online
+                </p>
+              </div>
+            </div>
+            <Button className="bg-primary hover:bg-primary-700 text-white h-12 rounded-full w-fit px-8">
+              Start Learning
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

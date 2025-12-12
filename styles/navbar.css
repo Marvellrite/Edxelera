@@ -1,0 +1,19 @@
+@keyframes navbar-scroll {
+     from {
+        background-color: transparent;
+        height: 108px;
+        color: white;
+    }
+
+    to {
+        background-color: rgba(255, 255, 255, 0.9);
+        height: 100px;
+        color: var(--color-black);
+    }
+}
+
+nav>div.desktop{
+    animation: navbar-scroll linear both ;
+    animation-timeline: scroll(root);
+     animation-range: 0px 200px;
+}
