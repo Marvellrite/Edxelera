@@ -4,7 +4,7 @@ import { ComponentProps } from 'react';
 interface InputPropsType<T extends FieldValues>
    extends ComponentProps<'input'> {
    name: Path<T>;
-   input_id: string;
+   input_id?: string;
    register: UseFormRegister<T>;
    placeholder: string;
 }
@@ -12,7 +12,7 @@ interface InputPropsType<T extends FieldValues>
 const Input = <T extends FieldValues>({
    placeholder,
    name,
-   input_id,
+   input_id="",
    register,
    ...rest
 }: InputPropsType<T>) => {

@@ -7,6 +7,7 @@ import { SigninSchema, signinSchema } from '@/schemas/sign-in';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import OTPInputs from '@/components/auth/input-otp';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
    const {
@@ -43,15 +44,17 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="py-5 max-md:py-0 flex justify-center items-center min-h-screen">
+      <section className="py-5 max-md:py-0 flex justify-center items-center max-sm:items-start min-h-screen">
          <div className=" w-full max-w-[500px] sm:border border-neutral-400 rounded-[20px] p-5  max-sm:px-4 sm:w-[75%]">
-            <div className=" w-[154px] mx-auto">
-               <img
-                  // className=" h-[65px]"
+              <div className=" w-[154px] mx-auto max-sm:w-[87px]">
+               <Image
+                  className=" w-full h-auto"
                   src="/assets/logo1.png"
                   alt="Tecbridge Logo"
+                  width={256}
+                  height={108}
                />
-            </div>{' '}
+            </div>
             <h1 className="text-5xl font-medium mt-10">OTP Verification</h1>
             <p className=" my-6 mb-7 mt-4 font-normal">
                Enter the 6 digit OPT sent to your email

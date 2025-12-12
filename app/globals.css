@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 @plugin "tailwindcss-animate";
 
+@import "./toaster.css";
 @import './root.css';
 
 @theme inline {
@@ -42,9 +43,13 @@
    --color-accent-foreground: white;
    --color-border: var(--color-neutral-100);
    --color-input: var(--color-neutral-900);
-
-
+   --color-green: var(--green);
+   --color-green-light: var(--green-light);
+   --color-red: var(--red);
+   --color-red-light: var(--red-light);
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
+
+
    --text-tab: 10px;
    --text-xs: 12px;
    --text-sm: 16px;

@@ -1,0 +1,20 @@
+const SuccessToastIcon =()=>{
+
+    return(
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#005827"/>
+    <g clip-path="url(#clip0_2029_8693)">
+    <path d="M17.1796 8.19847L10.4474 14.9828L7.39822 11.4468L6.65286 12.0898L10.3969 16.4318L17.8787 8.89187L17.1796 8.19847Z" fill="white"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_2029_8693">
+    <rect width="10.5" height="10.5" fill="white" transform="translate(7.7417 5.91797) rotate(10)"/>
+    </clipPath>
+    </defs>
+    </svg>
+    )
+}
+
+
+export default SuccessToastIcon;

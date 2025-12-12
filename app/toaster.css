@@ -1,0 +1,12 @@
+.Toastify__toast {
+    padding: 0;
+    border-radius: 6px;
+}
+
+@media(width<=480px){
+    .Toastify__toast-container {
+    width: 90vw;
+    left: 50%;
+    translate: -50% -50%;
+}
+}
