@@ -61,75 +61,96 @@ export const benefits: BenefitItem[] = [
 
 export const courses: Course[] = [
   {
-    id: '1',
+    _id: '1',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   },
   {
-    id: '2',
+    _id: '2',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   },
   {
-    id: '3',
+    _id: '3',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   },
   {
-    id: '4',
+    _id: '4',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   },
   {
-    id: '5',
+    _id: '5',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   },
   {
-    id: '6',
+    _id: '6',
     title: 'Product Design (UI/UX)',
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    thumbnail: '/images/landing/course-thumbnail.jpg'
+    posterSrc: '/images/landing/course-thumbnail.jpg'
   }
 ];
 
 export const testimonials: Testimonial[] = [
   {
-    id: '1',
+    _id: '1',
     name: 'Wali Beauty',
     role: 'Product Designer',
     avatar: '/images/landing/avatar.jpg',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },
   {
-    id: '2',
+    _id: '2',
     name: 'Wali Beauty',
     role: 'Product Designer',
     avatar: '/images/landing/avatar.jpg',
-    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et'
+    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup_idatat non pro_ident, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et'
   },
   {
-    id: '3',
+    _id: '3',
     name: 'Wali Beauty',
     role: 'Product Designer',
     avatar: '/images/landing/avatar.jpg',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    _id: '1',
+    name: 'Wali Beauty',
+    role: 'Product Designer',
+    avatar: '/images/landing/avatar.jpg',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    _id: '2',
+    name: 'Wali James',
+    role: 'Product Designer',
+    avatar: '/images/landing/avatar.jpg',
+    content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup_idatat non pro_ident, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et'
+  },
+  {
+    _id: '3',
+    name: 'Wali Saiye',
+    role: 'Product Designer',
+    avatar: '/images/landing/avatar.jpg',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   }
 ];

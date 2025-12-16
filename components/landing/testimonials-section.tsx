@@ -21,14 +21,14 @@ export function TestimonialsSection() {
   const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
-    <section className="bg-neutral-50 py-16 lg:py-20">
+    <section className="bg-primary-100 py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-neutral-900 text-5xl font-semibold">
             Success Stories From Our Community
           </h2>
           <p className="text-neutral-800 text-lg max-w-[787px] mx-auto">
-            See how guided learning, peer support, and hands-on practice are transforming learners' careers.
+            See how guided learning, peer support, and hands-on practice are transforming learners&apos; careers.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {visibleTestimonials.map((testimonial) => (
             <div
-              key={testimonial.id}
+              key={testimonial._id}
               className="bg-white rounded-lg border border-neutral-300 p-6 space-y-5"
             >
               <div className="flex items-center gap-3">

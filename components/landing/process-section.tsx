@@ -1,12 +1,11 @@
 "use client"
 
 import { steps } from '@/lib/landing-data';
-import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 
 export function ProcessSection() {
   return (
-    <section className="relative bg-gradient-to-r from-[#D62829] to-[#701515] py-12 lg:py-16 overflow-hidden">
+    <section className="relative bg-linear-to-r from-primary to-secondary py-12 lg:py-16 overflow-hidden">
       {/* Decorative Elements */}
  
       {/* <ReactSVG
@@ -25,7 +24,7 @@ export function ProcessSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-14">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div key={step.number} className="space-y-5">
               {/* Number with dashed lines */}
               <div className="flex items-center gap-4">
@@ -46,27 +45,7 @@ export function ProcessSection() {
         </div>
       </div>
 
-      <div className=' absolute bottom-0 left-0 -translate-x-1/2 translate-y-[60%]'>
-        <div className='size-[279px] rounded-full  bg-primary-700'></div>
-      <ReactSVG
-        src="/images/landing/dashed-circle.svg"
-        width={92}
-        height={110}
-        className="absolute top-0 right-0 translate-x-[18%] -translate-y-[86%] hidden lg:block"
-      />
-      </div>
 
-    <div className=' absolute top-0 right-0 translate-x-[50%]  -translate-y-[30%]  rounded-full '>
-      <div className=' blur-[60px] bg-primary size-[279px]  '>
-      </div>
-        <ReactSVG
-        src="/images/landing/dashed-circle.svg"
-        width={92}
-        height={110}
-        className="absolute bottom-0 left-0 z-20 rotate-180 -translate-y-[18%]"
-      />
-
-    </div>
     </section>
   );
 }

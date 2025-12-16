@@ -1,58 +1,29 @@
 'use client';
 
-import { useState, useEffect, useRef} from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navLinks } from '@/lib/landing-data';
-import { cn, throttle } from '@/lib/utils';
-import { useNavScrollStore } from '@/stores/scroll-observer-store';
+import { cn } from '@/lib/utils';
+import SearchInput from '../common/search_input';
+import { ReactSVG } from 'react-svg';
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navScrolled = useNavScrollStore((state)=>state.isNavScrolled);
-  const navContainer = useRef<HTMLDivElement|null>(null)
-  const navDiv = useRef<HTMLDivElement|null>(null)
-
-  useEffect(()=>{
-    const handleWindowScroll = ()=>{
-      if(!navContainer || !navDiv) return;
-      const distance = window.scrollY;
-      if(distance>100){
-        navContainer.current?.classList.add("bg-white")
-        navContainer.current?.classList.remove("bg-transparent")
-
-        navDiv.current?.classList.add("text-black", "navHeight2")
-        navDiv.current?.classList.remove("text-white", "navHeight1")
-      }
-      else{
-        navContainer.current?.classList.remove("bg-white")
-        navContainer.current?.classList.add("bg-transparent")
-  
-        navDiv.current?.classList.remove("text-black", "navHeight2")
-        navDiv.current?.classList.add("text-white", "navHeight1")
-
-      }
-    }
-
-    window.addEventListener("scroll", throttle(handleWindowScroll, 0.3))
-
-    return ()=>window.removeEventListener("scroll", handleWindowScroll)
-  })
 
 
   return (
     <nav
-    ref={navContainer}
-  className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-transparent")}
+  className={cn(" top-0 left-0 right-0 z-50 text-base text-neutral-900 font-medium sticky bg-white")}
 >
-      <div ref={navDiv} className={cn("max-w-[1440px] mx-auto px-6 lg:px-[150px] container flex items-center justify-center transitionall duration-700 text-white navHeight1")}>
-        <div className="flex items-center justify-between w-full">
+      <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  navHeight1")}>
+        <div className="flex justify-between w-full items-center">
           {/* Logo */}
           <Link href="/" className=" w-[197px] ">
             <Image
-              src="/images/landing/edx-logo.png"
+              src="/images/edx_logo.png"
               alt="Edxelera"
               width={197}
               height={50}
@@ -60,23 +31,22 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-base font-medium  hover:text-primary transition-colors p-2.5"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className=' flex gap-6 items-center'>
+            <Link href={'/explore'}>Explore</Link>
+            <SearchInput className='text-normal placeholder:text-neutral-800' placeholder='Search'/>
+            <Link className=' pl-6 whitespace-nowrap' href={"Teach"}>Teach on Edxelera</Link>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button className="bg-primary hover:bg-primary-700 text-white px-6 h-12 rounded-full">
-              Start Learning
+          <div className="hidden lg:flex gap-2">
+            <button className="p-0 mr-4">
+              <ReactSVG src="/icons/landing/shopping-cart.svg"/>
+            </button>
+            <Button variant={"outline"} className=" hover:bg-primary-700 px-6 h-12 w-[138px] rounded-full">
+              Login
+            </Button>
+            <Button className="bg-primary hover:bg-primary-700 text-white px-6 h-12 w-[138px] rounded-full">
+              Sign Up
             </Button>
           </div>
 

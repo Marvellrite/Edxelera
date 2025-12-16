@@ -15,7 +15,7 @@ interface StarRatingProps {
 export const StarRating: React.FC<StarRatingProps> = ({
    value,
    onChange,
-   max = 5,
+   max = 5.0,
    readOnly = false,
    size=11,
    gap=4

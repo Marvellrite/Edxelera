@@ -1,10 +1,13 @@
+"use client"
+
 import { benefits } from '@/lib/landing-data';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { ReactSVG } from 'react-svg';
 
 export function LearnersSection() {
   return (
-    <section className="bg-black py-16 lg:py-20">
+    <section className="bg-primary py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left - Image Collage */}
@@ -33,21 +36,20 @@ export function LearnersSection() {
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-neutral-900 rounded-xl p-6 flex items-center gap-6"
+                  className="bg-primary-400 rounded-xl p-6 flex items-center gap-6"
                 >
-                  <Image
+                  <ReactSVG
                     src={benefit.icon}
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 flex-shrink-0"
+                    width={24}
+                    height={24}
+                    className="w-5 h-5 shrink-0 text-secondary"
                   />
                   <p className="text-white text-base">{benefit.text}</p>
                 </div>
               ))}
             </div>
 
-            <Button className="bg-primary hover:bg-primary-700 text-white h-12 rounded-full px-8 mt-4">
+            <Button variant="secondary" className="hover:bg-secondary-700 text-white rounded-full mt-4 w-[188px] h-14">
               Start Learning
             </Button>
           </div>

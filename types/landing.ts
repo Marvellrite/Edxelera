@@ -1,16 +1,16 @@
 // Types for landing page data
 
 export interface Course {
-  id: string;
+  _id: string;
   title: string;
   price: string;
   duration: string;
   rating: number;
-  thumbnail: string;
+  posterSrc: string;
 }
 
 export interface Testimonial {
-  id: string;
+  _id: string;
   name: string;
   role: string;
   avatar: string;

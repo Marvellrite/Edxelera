@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 export function AppSection() {
   return (
-    <section className="bg-white py-16 lg:py-20">
+    <section className="bg-white py-16 lg:py-12">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           {/* Left - Content */}
           <div className="space-y-6">
             <h2 className="text-neutral-900 text-5xl font-semibold leading-[72px]">
@@ -17,8 +17,8 @@ export function AppSection() {
               <Image
                 src="/images/landing/app-badges.svg"
                 alt="Download on App Store and Google Play"
-                width={330}
-                height={48}
+                width={640}
+                height={524}
                 className="h-12 w-auto"
               />
             </div>
@@ -29,9 +29,9 @@ export function AppSection() {
             <Image
               src="/images/landing/iphone-mockup.png"
               alt="Edxelera mobile app"
-              width={567}
-              height={457}
-              className="w-full max-w-[567px] h-auto"
+              width={640}
+              height={480}
+              className="w-full max-w-[640px] h-auto"
             />
           </div>
         </div>

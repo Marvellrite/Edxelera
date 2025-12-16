@@ -8,23 +8,23 @@ import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { AppSection } from '@/components/landing/app-section';
 import { CTASection } from '@/components/landing/cta-section';
 import { Footer } from '@/components/landing/footer';
-import NavbarWatcher from '@/components/landing/navbar-watcher';
+import AnnouncementBar from '@/components/landing/announcement-bar';
 
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen overflow-y-auto theLanding">
+    <div className="min-h-screen overflow-y-visible theLanding relative">
+      <AnnouncementBar/>
       <Navbar />
       <main className="relative">
-        <NavbarWatcher/>
         <HeroSection />
         <ProcessSection />
         <FeaturesSection />
         <LearnersSection />
+        <CTASection />
         <CoursesSection />
         <TestimonialsSection />
         <AppSection />
-        <CTASection />
       </main>
       <Footer />
     </div>

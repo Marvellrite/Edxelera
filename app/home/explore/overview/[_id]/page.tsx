@@ -10,8 +10,8 @@ import { Button } from '@/components/ui/button';
 
 const page = () => {
    return (
-     <CourseBought/>
-   // <CourseNotBought/>
+   //   <CourseBought/>
+   <CourseNotBought/>
       // <Course_started />
       // <ModuleAssessment/>
    );
