@@ -1,11 +1,10 @@
 "use client"
 
 import { steps } from '@/lib/landing-data';
-import { ReactSVG } from 'react-svg';
 
 export function ProcessSection() {
   return (
-    <section className="relative bg-linear-to-r from-primary to-secondary py-12 lg:py-16 overflow-hidden">
+    <section className="relative from-20% t0-20% bg-linear-to-r from-primary to-secondary py-12 lg:py-16 overflow-hidden">
       {/* Decorative Elements */}
  
       {/* <ReactSVG

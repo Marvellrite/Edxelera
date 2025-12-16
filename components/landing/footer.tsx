@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { ReactSVG } from 'react-svg';
 
 export function Footer() {
@@ -17,12 +16,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#0F0F0F] text-white py-20">
+    <footer className="bg-primary text-white py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-9 mb-20">
           {/* Left - Brand & Newsletter */}
           <div className="space-y-6 max-w-[389px]">
-            <h3 className="text-[46.87px] font-medium">Edxelera</h3>
+            <Image width={288} height={57} src={"/images/edxelera-white-logo.png"} alt='Edxlera logo' />
             <p className="text-base font-medium leading-6">
               Subscribe to our newsletter to get the latest updates and offers from us
             </p>
@@ -37,7 +36,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity rounded-full size-8 bg-primary flex p-0 items-center justify-center"
+                className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity rounded-full size-8 bg-secondary flex p-0 items-center justify-center"
                 aria-label="Subscribe"
               >
                 <ReactSVG src='/icons/landing/chevron-right.svg' className="w-4 h-4 text-white" />
@@ -52,16 +51,25 @@ export function Footer() {
               <h4 className="text-lg font-semibold text-neutral-100">Quick Links</h4>
               <nav className="space-y-3">
                 <Link href="#courses" className="block text-base text-neutral-100 hover:text-white transition-colors">
-                  Courses
+                  Explore Courses
                 </Link>
                 <Link href="#about" className="block text-base text-neutral-100 hover:text-white transition-colors">
-                  About Us
+                  Teach on Edxelera
                 </Link>
                 <Link href="#contact" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                  About Us
+                </Link>
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
                   Contact Us
                 </Link>
                 <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
                   FAQs
+                </Link>
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                  Login
+                </Link>
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                  Sign Up
                 </Link>
               </nav>
             </div>
@@ -99,6 +107,18 @@ export function Footer() {
                   />
                   <p className="text-base text-neutral-100">info@edxelera.com</p>
                 </div>
+                <button className="p-0">
+                  <ReactSVG src="/icons/social-links/facebook.svg"/>
+                </button>
+                <button>
+                  <ReactSVG src="/icons/social-links/linkedin.svg"/>
+                </button>
+                <button>
+                  <ReactSVG src="/icons/social-links/instagram.svg"/>
+                </button>
+                <button>
+                  <ReactSVG src="/icons/social-links/twitter-x.svg"/>
+                </button>
               </div>
             </div>
 
