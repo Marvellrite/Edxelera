@@ -1,12 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function Footer() {
   const [email, setEmail] = useState('');
+  const footerSection = useRef(null)
+  useGSAP( ()=>{
+    gsap.from(
+      ".social-links > *", {
+        scale: 0.5,
+        opacity: 0.4,
+        ease: "elastic.out",
+        stagger: 0.4,
+        scrollTrigger:{
+          start: "top 60%",
+          trigger: footerSection.current
+        }
+      }
+    )
+}, {scope: footerSection}
+  )
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,8 +38,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-primary text-white py-20">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
+    <footer ref={footerSection} className="bg-primary text-white py-10">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-[150px]">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-9 mb-20">
           {/* Left - Brand & Newsletter */}
           <div className="space-y-6 max-w-[389px]">
@@ -48,27 +70,27 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-[repeat(3,auto)] gap-12 items-start justify-content-start">
             {/* Quick Links */}
             <div className="space-y-3">
-              <h4 className="text-lg font-semibold text-neutral-100">Quick Links</h4>
+              <h4 className="text-lg font-semibold text-neutral-100 text-md">Quick Links</h4>
               <nav className="space-y-3">
-                <Link href="#courses" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#courses" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Explore Courses
                 </Link>
-                <Link href="#about" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#about" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Teach on Edxelera
                 </Link>
-                <Link href="#contact" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#contact" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   About Us
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Contact Us
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   FAQs
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Login
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors">
+                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Sign Up
                 </Link>
               </nav>
@@ -76,7 +98,7 @@ export function Footer() {
 
             {/* Contact Us */}
             <div className="space-y-3 max-w-[282px]">
-              <h4 className="text-lg font-semibold text-neutral-100">Contact Us</h4>
+              <h4 className="text-lg font-semibold text-neutral-100 text-md">Contact Us</h4>
               <div className="space-y-3">
                 <div className="flex gap-3">
                   <ReactSVG
@@ -107,24 +129,27 @@ export function Footer() {
                   />
                   <p className="text-base text-neutral-100">info@edxelera.com</p>
                 </div>
-                <button className="p-0">
+                <div className='flex gap-1.5 social-links'>
+                <Link target='_blank' className="p-0 text-primary" href='https://www.facebook.com/profile.php?id=61584359654837'>
                   <ReactSVG src="/icons/social-links/facebook.svg"/>
-                </button>
-                <button>
+                </Link>
+                <Link target='_blank' href='https://www.linkedin.com/company/edxelera/about/' className=' text-primary'>
                   <ReactSVG src="/icons/social-links/linkedin.svg"/>
-                </button>
-                <button>
+                </Link>
+                <Link target='_blank' href='https://www.instagram.com/edxelera/'>
                   <ReactSVG src="/icons/social-links/instagram.svg"/>
-                </button>
-                <button>
+                </Link>
+                <Link target='_blank' href={''}>
                   <ReactSVG src="/icons/social-links/twitter-x.svg"/>
-                </button>
+                </Link>
+
+                </div>
               </div>
             </div>
 
             {/* Download App */}
-            <div className="space-y-3">
-              <h4 className="text-lg font-semibold text-neutral-100">Download App</h4>
+            <div className="space-y-3 max-sm-md:w-[161px]">
+              <h4 className="text-lg font-semibold text-neutral-100 text-md ">Download App</h4>
               <Image
                 src="/images/landing/app-badges-footer.svg"
                 alt="Download on App Store and Google Play"

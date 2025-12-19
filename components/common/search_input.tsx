@@ -10,7 +10,7 @@ const SearchInput = ({ wrapperClassNames = "", ...rest}:Props & InputHTMLAttribu
 
 return (
             <div
-               className={cn("flex items-center gap-3 border-2 border-neutral-900 w-full h-12 p-4 rounded-full focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 ", wrapperClassNames)}
+               className={cn("flex items-center gap-3 border-2 border-neutral-900 w-full h-12 p-4 rounded-full focus-within:ring-2 focus-within:ring-primary  transition-all duration-300 ", wrapperClassNames)}
             >
                <ReactSVG
                   src="/icons/search-outline.svg"

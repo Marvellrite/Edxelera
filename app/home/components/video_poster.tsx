@@ -3,6 +3,7 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 type VideoPosterProps = {
    posterSrc: string;
@@ -17,10 +18,11 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
 }) => {
    return (
       <div className="  relative max-md:flex-none max-md:basis-full max-md:max-w-none max-w-[374px] grow  rounded-lg ">
-         <img
+         <Image
             src={posterSrc}
-            className="h-full w-full object-cover "
+            className=" object-cover "
             alt="Video Poster"
+            fill
          />
          <div className=" absolute bg-black/30 w-full h-full left-0 top-0 flex flex-col justify-end p-4 px-3 ">
             <div className=" flex flex-col -space-y-1">

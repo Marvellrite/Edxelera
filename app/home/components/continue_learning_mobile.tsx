@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 import { useState, useEffect, FC } from 'react';
 import VideoPoster from './video_poster';
-import { mock_data } from '../continue_learning_mock_data';
+import { mock_data } from '../(home)/continue_learning_mock_data';
 import { Button } from '@/components/ui/button';
 import { useDotButtons } from './continue_learning_carousel/carousel_hook';
 
@@ -31,7 +31,7 @@ const Continue_learning_desktop: FC<ContinueLearningProps> = ({ data }) => {
                {scrollSnaps.map((_, index) => (
                   <Button
                      key={index}
-                     className={` hover:cursor-pointer p-0 rounded-[4px] h-[8px]   ${index === selectedIndex ? 'bg-primary w-4' : 'bg-neutral-400 w-[8px]'}`}
+                     className={` hover:cursor-pointer p-0 rounded-sm h-2   ${index === selectedIndex ? 'bg-primary w-4' : 'bg-neutral-400 w-2'}`}
                      onClick={() => scrollTo(index)}
                   />
                ))}

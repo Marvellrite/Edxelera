@@ -13,9 +13,13 @@ import AnnouncementBar from '@/components/landing/announcement-bar';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen overflow-y-visible theLanding relative">
+    <div className="min-h-screen overflow-y-visible theLanding relative flex flex-col">
+
+      {/* <div className="flex flex-col-reverse sm:flex-col"> */}
       <AnnouncementBar/>
-      <Navbar />
+        <Navbar />
+      {/* </div> */}
+      
       <main className="relative">
         <HeroSection />
         <ProcessSection />

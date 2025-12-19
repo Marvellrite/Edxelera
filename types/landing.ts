@@ -1,5 +1,11 @@
 // Types for landing page data
 
+export interface Hero_slides {
+  _id: number;
+  title: string;
+  paragraph: string;
+  imageSrc: string;
+}
 export interface Course {
   _id: string;
   title: string;

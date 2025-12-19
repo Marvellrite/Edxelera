@@ -1,17 +1,42 @@
+"use client"
+
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function AppSection() {
+
+  const appSection = useRef(null)
+
+  useGSAP(()=>{
+    const t1 = gsap.timeline({scrollTrigger:{
+      trigger: appSection.current,
+      start: "top 50%",
+    }})
+
+    t1.from(".leftText", {
+      opacity: 0,
+      scale: 0,
+      duration: 1.2,
+      ease: "elastic.out",
+    })
+  }, {scope: appSection})
+
   return (
-    <section className="bg-white py-16 lg:py-12">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
+    <section ref={appSection} className="bg-white py-16 lg:py-12">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-[150px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           {/* Left - Content */}
-          <div className="space-y-6">
-            <h2 className="text-neutral-900 text-5xl font-semibold leading-[72px]">
+          <div className="space-y-6 leftText">
+            <h2 className="text-neutral-900  max-lg:text-[32px] lg:text-[48px] font-semibold leading-[150%]">
               Learn Anywhere with the Edxelera App
             </h2>
             <div className="space-y-6">
-              <p className="text-neutral-800 text-lg">
+              <p className="text-neutral-800 max-lg:text-base lg:text-lg">
                 Stay connected to your classes, track your progress, and continue learning on the go — anytime, anywhere
               </p>
               <Image

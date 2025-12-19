@@ -2,7 +2,7 @@
 
 import { useState, useEffect, FC } from 'react';
 import VideoPoster from './video_poster';
-import { mock_data } from '../continue_learning_mock_data';
+import { mock_data } from '../(home)/continue_learning_mock_data';
 
 interface ContinueLearningProps {
    data: {

@@ -17,7 +17,7 @@ export const useDotButtons = (emblApi: EmblaCarouselType) => {
 
    useEffect(() => {
       if (!emblApi) return;
-      onInit(emblApi);
+      onInit();
       emblApi.on('reInit', onInit).on('reInit', onSelect).on('select', onSelect);
 
    }, [emblApi, onInit, onSelect]);
