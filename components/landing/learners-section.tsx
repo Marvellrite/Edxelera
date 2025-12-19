@@ -63,9 +63,9 @@ export function LearnersSection() {
   )
 
   return (
-    <section ref={learnersSec} className="bg-primary py-16 lg:py-20">
-      <div className="max-w-[1440px] mx-auto px-6 max-sm-md:px-4 sm-md:px-[50px] lg:px-[150px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+    <section ref={learnersSec} className="bg-primary py-16 lg:py-20 ">
+      <div className="max-w-[1440px] mx-auto px-6 max-sm-md:px-4 sm-md:px-[50px] lg:px-[150px] ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center ">
           {/* Left - Image Collage */}
           <div className="relative leftImage">
             <Image
@@ -78,9 +78,9 @@ export function LearnersSection() {
           </div>
 
           {/* Right - Content */}
-          <div className="space-y-6">
-            <div className="space-y-6">
-              <h2 className="text-white sm-md:text-[32px] lg:text-[48px] font-semibold leading-[150%] text-animate1 ">
+          <div className="space-y-6 ">
+            <div className="space-y-6 ">
+              <h2 className="text-white max-lg:text-[32px] lg:text-[48px] font-semibold leading-[150%] text-animate1 ">
                 Built for Learners Who Want More
               </h2>
               <p className="text-neutral-50 text-base experience">
@@ -88,7 +88,7 @@ export function LearnersSection() {
               </p>
             </div>
 
-            <div className=" benefits flex flex-col sm-md:gap-3 sm-md:flex-row lg:flex-col lg:gap-6 gap-6">
+            <div className=" benefits flex flex-col sm-md:gap-3 sm-md:flex-row lg:flex-col lg:gap-6 gap-6 ">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}

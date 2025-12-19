@@ -5,13 +5,14 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { navLinks } from '@/lib/landing-data';
+
 import { cn } from '@/lib/utils';
 import SearchInput from '../common/search_input';
 import { ReactSVG } from 'react-svg';
+import Sidebar from './sidebar';
 
 export function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarMenuOpen, setSidebarMenuOpen] = useState(false);
 
 
   return (
@@ -19,16 +20,26 @@ export function Navbar() {
   className={cn(" top-0 left-0 right-0 z-50 text-base text-neutral-900 font-medium sticky bg-white sm-md:order-0 max-sm-md:-order-1")}
 >
       {/* Nav For Tablet Size */}
-      <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  max-sm-md:h-13 sm:h-16 lg:h-[108px] max-sm-md:hidden lg:hidden")}>
+      <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  sm-md:h-16 lg:h-[108px] max-sm-md:hidden lg:hidden")}>
         <div className="flex justify-between w-full items-center">
 
-          <Menu className="w-6 h-6 text-neutral-900" />
+           <button
+            className="lg:hidden p-2"
+            onClick={() => setSidebarMenuOpen(!sidebarMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {sidebarMenuOpen ? (
+              <X className="w-6 h-6 text-neutral-900" />
+            ) : (
+              <Menu className="w-6 h-6 text-neutral-900" />
+            )}
+          </button>
 
           {/* Logo */}
           <Link href="/" className=" w-[197px] ">
             <Image
               src="/images/edx_logo_1.png"
-              alt="Edxelera"
+              alt="Edxelera's Logo"
               width={148}
               height={32}
               className=" h-auto max-sm-md:hidden"
@@ -90,10 +101,10 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setSidebarMenuOpen(!sidebarMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
+            {sidebarMenuOpen ? (
               <X className="w-6 h-6 text-neutral-900" />
             ) : (
               <Menu className="w-6 h-6 text-neutral-900" />
@@ -102,26 +113,8 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-neutral-100">
-          <div className="px-6 py-4 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="block text-base font-medium hover:text-primary transition-colors py-2 text-inherit"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button className="w-full bg-primary hover:bg-primary-700 text-white h-12 rounded-full">
-              Start Learning
-            </Button>
-          </div>
-        </div>
-      )}
+      {/* Mobile amd Tablet Sidebar Menu */}
+      <Sidebar isOpen={sidebarMenuOpen} setIsOpen={setSidebarMenuOpen}/>
     </nav>
   );
 }

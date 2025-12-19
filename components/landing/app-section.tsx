@@ -28,8 +28,8 @@ export function AppSection() {
 
   return (
     <section ref={appSection} className="bg-white py-16 lg:py-12">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-[150px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-[50px] lg:px-[150px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           {/* Left - Content */}
           <div className="space-y-6 leftText">
             <h2 className="text-neutral-900  max-lg:text-[32px] lg:text-[48px] font-semibold leading-[150%]">

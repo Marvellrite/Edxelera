@@ -7,20 +7,13 @@ import { CoursesSection } from '@/components/landing/courses-section';
 import { TestimonialsSection } from '@/components/landing/testimonials-section';
 import { AppSection } from '@/components/landing/app-section';
 import { CTASection } from '@/components/landing/cta-section';
-import { Footer } from '@/components/landing/footer';
 import AnnouncementBar from '@/components/landing/announcement-bar';
 
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen overflow-y-visible theLanding relative flex flex-col">
-
-      {/* <div className="flex flex-col-reverse sm:flex-col"> */}
-      <AnnouncementBar/>
-        <Navbar />
-      {/* </div> */}
-      
-      <main className="relative">
+      <>
+        <AnnouncementBar/>
         <HeroSection />
         <ProcessSection />
         <FeaturesSection />
@@ -29,8 +22,6 @@ export default function LandingPage() {
         <CoursesSection />
         <TestimonialsSection />
         <AppSection />
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -85,7 +85,7 @@ export function FeaturesSection() {
 
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-20 bg-white featuresSection"  >
+    <section ref={sectionRef} className="py-16 lg:py-20 bg-white overflow-hidden featuresSection "  >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-neutral-900 text-5xl font-semibold">

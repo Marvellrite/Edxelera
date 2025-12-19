@@ -5,6 +5,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import { useRef } from "react"
+import ScrollToTop from "./scroll-to-top"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -82,6 +83,7 @@ useGSAP(
           ))}
         </div>
       </div>
+      <ScrollToTop observed={sectionRef}/>
     </section>
   )
 }
