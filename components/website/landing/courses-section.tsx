@@ -36,7 +36,7 @@ export function CoursesSection() {
 
       <div className="max-w-[1440px] mx-auto max-sm:px-4 sm:px-6 lg:px-[150px]">
         <div className="text-center mb-12 space-y-4">
-          <h2 className="text-neutral-900 text-5xl font-semibold">
+          <h2 className="text-neutral-900 max-sm-md:text-[32px] max-sm-md:leading-[120%] text-5xl font-semibold">
             Explore Our Variety of Courses
           </h2>
           <p className="text-neutral-800 text-lg max-w-[689px] mx-auto">

@@ -62,7 +62,7 @@ export function Navbar() {
       <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  max-sm-md:h-13 sm:h-16 lg:h-[108px] sm-md:hidden lg:flex")}>
         <div className="flex justify-between w-full items-center">
           {/* Logo */}
-          <Link href="/" className=" w-[197px] ">
+          <Link href="/" className=" w-[147px] ">
             <Image
               src="/images/edx_logo_1.png"
               alt="Edxelera"
@@ -73,8 +73,8 @@ export function Navbar() {
             <Image
               src="/images/edx_logo-1-submark.png"
               alt="Edxelera"
-              width={197}
-              height={50}
+              width={382}
+              height={340}
               className=" h-auto sm-md:hidden w-9"
             />
           </Link>

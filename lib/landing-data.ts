@@ -1,4 +1,5 @@
-import type { Course, Testimonial, NavLink, StepItem, FeatureItem, BenefitItem, Hero_slides } from '@/types/landing';
+import type { Course, Testimonial, NavLink, StepItem, FeatureItem, BenefitItem,  } from '@/types/landing';
+import { HeroSlides } from '@/types/website.types';
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '#' },
@@ -8,16 +9,16 @@ export const navLinks: NavLink[] = [
   { label: 'FAQs', href: '#faqs' }
 ];
 
-export const hero_slides: Hero_slides[] = [
+export const hero_slides: HeroSlides[] = [
   { 
-    _id: 1, 
+    id: 1, 
     title: "Learn Tech Skills. Build Real Projects. Become Job-Ready", paragraph: "Edxelera is a cohort-based learning platform helping beginners gain practical, employable tech skills with weekly modules, peer reviews, and hands-on projects",
-    imageSrc: "/images/landing/hero-bg-1.png"
+    imgSrc: "/images/landing/hero-bg-1.png"
   },
   { 
-    _id: 2, 
+    id: 2, 
     title: "Professional Courses Across Business, Creative, STEM & More", paragraph: "From business strategy to creative skills, engineering basics to personal development—learn with structured, instructor-led content built to match the quality of traditional learning institutions.",
-    imageSrc: "/images/landing/hero-bg-2.jpg"
+    imgSrc: "/images/landing/hero-bg-2.jpg"
   },
 ]
 

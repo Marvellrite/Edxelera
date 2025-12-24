@@ -7,13 +7,14 @@ import { TestimonialsSection } from '@/components/website/landing/testimonials-s
 import { AppSection } from '@/components/website/landing/app-section';
 import { CTASection } from '@/components/website/landing/cta-section';
 import AnnouncementBar from '@/components/website/landing/announcement-bar';
+import { hero_slides } from '@/lib/landing-data';
 
 
 export default function LandingPage() {
   return (
       <>
         <AnnouncementBar/>
-        <HeroSection />
+        <HeroSection slides={hero_slides} />
         <ProcessSection />
         <FeaturesSection />
         <LearnersSection />

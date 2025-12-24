@@ -32,7 +32,7 @@ export function AppSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           {/* Left - Content */}
           <div className="space-y-6 leftText">
-            <h2 className="text-neutral-900  max-lg:text-[32px] lg:text-[48px] font-semibold leading-[150%]">
+            <h2 className="text-neutral-900  max-lg:text-[32px] lg:text-[48px] font-semibold leading-[150%] max-sm-md:text-[32px] max-sm-md:leading-[120%]">
               Learn Anywhere with the Edxelera App
             </h2>
             <div className="space-y-6">

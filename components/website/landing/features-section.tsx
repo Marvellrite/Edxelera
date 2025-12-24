@@ -88,7 +88,7 @@ export function FeaturesSection() {
     <section ref={sectionRef} className="py-16 lg:py-20 bg-white overflow-hidden featuresSection "  >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="text-center mb-12 space-y-4">
-          <h2 className="text-neutral-900 text-5xl font-semibold">
+          <h2 className="text-neutral-900 text-5xl font-semibold max-sm-md:text-[32px] max-sm-md:leading-[120%]">
             Why Learners Choose <span className="text-secondary name inline-block">Edxelera</span>
           </h2>
           <p className="text-neutral-800 text-lg max-w-[700px] mx-auto">
@@ -104,14 +104,16 @@ export function FeaturesSection() {
                 key={index}
                 className={cn("bg-neutral-50 rounded-[10px] p-6 space-y-5 feature", index==2&&" col-span-2 py-9 max-sm:col-span-1")}
               >
-                <ReactSVG
-                  src={feature.icon}
-                  width={20}
-                  height={20}
-                  className="w-5 h-5"
-                />
+                <div className=' rounded-full border flex justify-center items-center p-3 border-neutral-900 w-fit'>
+                  <ReactSVG
+                    src={feature.icon}
+                    width={20}
+                    height={20}
+                    className="w-5 h-5"
+                  />
+                </div>
                 <div className="space-y-2.5">
-                  <h3 className="text-neutral-900 text-[28px] font-medium">{feature.title}</h3>
+                  <h3 className="text-neutral-900 text-[20px] sm-md:text-[28px] font-medium">{feature.title}</h3>
                   <p className="text-neutral-800 text-base leading-6">{feature.description}</p>
                 </div>
               </div>
@@ -131,7 +133,7 @@ export function FeaturesSection() {
                 />
               </div>
               <div className="space-y-2.5 ">
-                <h3 className="text-white text-[28px] font-medium leading-[42px]">
+                <h3 className="text-white text-[28px] font-medium leading-[42px] max-sm-md:text-[20px] max-sm-md:leading-[120%]">
                   A Real Classroom Experience Online
                 </h3>
                 <p className="text-neutral-50 text-base leading-6">

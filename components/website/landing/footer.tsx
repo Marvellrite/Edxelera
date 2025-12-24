@@ -43,7 +43,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-9 mb-20">
           {/* Left - Brand & Newsletter */}
           <div className="space-y-6 ">
-            <Image width={288} height={57} src={"/images/edxelera-white-logo.png"} alt='Edxlera logo' />
+            <Image width={288} height={57} src={"/images/edxelera-white-logo.png"} alt='Edxlera logo' className='max-lg:w-[219px] ' />
             <p className="text-base font-medium leading-6">
               Subscribe to our newsletter to get the latest updates and offers from us
             </p>

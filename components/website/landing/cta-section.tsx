@@ -28,7 +28,7 @@ export function CTASection() {
   return (
     <section ref={ctaRef} className="bg-white py-16 lg:py-14 cta">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px] text-center space-y-3">
-        <h2 className="text-black text-[48px] leading-[150%] font-semibold">Teach on Edxelera</h2>
+        <h2 className="text-black max-sm-md:text-[32px] max-sm-md:leading-[120%] text-[48px] leading-[150%] font-semibold">Teach on Edxelera</h2>
         <div className="space-y-6">
           <p className="text-neutral-800 text-md max-w-[646px] mx-auto">
             Share your expertise, inspire thousands of learners, and earn by creating high-quality courses that make a real impact

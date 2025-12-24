@@ -60,10 +60,10 @@ export function TestimonialsSection() {
     <section ref={TestimonialsSec} className="bg-primary-100 py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto max-sm-md:ps-4 sm-md:ps-6 lg:ps-[150px] lg:pe-[21px]">
         <div className=" mb-12 space-y-4">
-          <h2 className="text-neutral-900 text-5xl font-semibold">
+          <h2 className="text-neutral-900 text-5xl font-semibold max-sm-md:text-[32px] max-sm-md:leading-[120%]">
             Success Stories From Our Community
           </h2>
-          <p className="text-neutral-800 text-lg mx-auto">
+          <p className="text-neutral-800 text-lg mx-auto ">
             See how guided learning, peer support, and hands-on practice are transforming learners&apos; careers.
           </p>
         </div>
@@ -85,7 +85,7 @@ export function TestimonialsSection() {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <h3 className="text-neutral-900 text-xl font-medium">{testimonial.name}</h3>
+                    <h3 className="text-neutral-900 text-xl font-medium max-sm-md:text-[20px] ">{testimonial.name}</h3>
                     <p className="text-neutral-700 text-sm font-light">{testimonial.role}</p>
                   </div>
                 </div>
