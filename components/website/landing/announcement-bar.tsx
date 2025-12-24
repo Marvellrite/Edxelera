@@ -1,12 +1,17 @@
 "use client"
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { ReactSVG } from 'react-svg'
-import { Button } from '../ui/button'
 import Link from "next/link"
 
 const AnnouncementBar = () => {
+  useEffect(() => {
+  console.log('scrollY:', window.scrollY);
+}, []);
+
     const [isVisible, setIsVisible] = useState(true)
+
+    
   return (
     isVisible && 
     <div className='bg-primary text-white h-[94px] flex items-center  justify-between px-4 sm-md:px-12.5 lg:px-10 gap-5 sm-md:-order-1 max-sm-md:order-0'>

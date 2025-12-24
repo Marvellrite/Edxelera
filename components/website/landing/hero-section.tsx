@@ -8,22 +8,23 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 
 interface Props {
-    slides: HeroSlides[]
+    slides: HeroSlides[],
+    mode?: 'landing' | 'about'
 }
 
 
-export function HeroSection({slides}:Props) {
+export function HeroSection({slides, mode='landing'}:Props) {
 
   const heroSec = useRef<HTMLElement|null>(null)
 
   useGSAP(()=>{
+    if (slides.length==1) return ;
+
+      gsap.delayedCall(0.1, () => {
     const t1 = gsap.timeline({defaults:{ duration: 1.5}, repeat: -1})
     slides.forEach((_, i)=>{
 
       const next = i==slides.length-1? 0 : i+1 ;
-      console.log("prsent valu:", i)
-      console.log("next valu:", next)
-
       // Scale only the image excluding the text content
       t1.to(`.hero-slide-${i} img`, {
         scale: 1.3,
@@ -49,6 +50,9 @@ export function HeroSection({slides}:Props) {
       })
 
     })
+  });
+
+    
   }, {scope:heroSec})
 
   return (
@@ -62,7 +66,7 @@ export function HeroSection({slides}:Props) {
       <Image src={slides[i].imgSrc}
         alt="Students learning together"
         fill
-        className="object-cover w-fit "
+        className={`object-cover w-fit ${i==1 && "transform-[rotateY(180deg)]"}`}
         priority
         style={{transformOrigin: "center center"}}
       />
@@ -72,7 +76,7 @@ export function HeroSection({slides}:Props) {
       <div className="absolute inset-0 bg-linear-to-r from-black/69 to-transparent" />
 
       {/* Content */}
-      <div className="relative max-w-[562px] mx-6 sm-md:mx-[52px] lg:mx-[150px] w-full">
+      <div className="relative max-w-[658px] mx-6 sm-md:mx-[52px] lg:mx-[150px] w-full">
         <div className=" space-y-6 max-sm-md:text-center">
           <h1 className="text-white text-[40px] leading-[120%] sm-md:text-[48px]  sm-md:leading-[120%] lg:text-[56px] sm-md:font-semibold font-bold">
             {slides[i].title}
@@ -82,7 +86,26 @@ export function HeroSection({slides}:Props) {
             {slides[i].paragraph}
           </p>
 
-          <div className="flex flex-wrap flex-col sm-md:flex-row gap-4 pt-4">
+        </div>
+        
+        
+        {
+          (()=>{switch(mode){
+            case 'about':
+          return (<div className="flex flex-wrap flex-col sm-md:flex-row gap-4 pt-4 mt-6">
+            <Button 
+              variant="outline" 
+              className="bg-white hover:bg-neutral-50 text-neutral-900 border-white px-8 h-14 rounded-full text-base font-medium"
+            >
+              Explore our Courses
+            </Button>
+            <Button variant={"secondary"} className=" hover:bg-primary px-8 h-14 rounded-full text-base font-medium">
+              Start Learning
+            </Button>
+          </div>)
+
+          default:
+            return (<div className="flex flex-wrap flex-col sm-md:flex-row gap-4 pt-4 mt-6">
             <Button 
               variant="outline" 
               className="bg-white hover:bg-neutral-50 text-neutral-900 border-white px-8 h-14 rounded-full text-base font-medium"
@@ -92,8 +115,10 @@ export function HeroSection({slides}:Props) {
             <Button className="bg-primary hover:bg-primary-700 text-white px-8 h-14 rounded-full text-base font-medium">
               Start Learning
             </Button>
-          </div>
-        </div>
+          </div>)
+
+          }})()
+        }
       </div>
       </div>
 
