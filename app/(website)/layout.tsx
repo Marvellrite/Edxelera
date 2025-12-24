@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/landing/navbar';
-import { Footer } from '@/components/landing/footer';
+import { Navbar } from '@/components/website/landing/navbar';
+import { Footer } from '@/components/website/landing/footer';
 import { ReactNode } from 'react';
 
 
@@ -11,7 +11,7 @@ export default function WebsiteLayout({children}:Props) {
   return (
       <>
       
-        <main className="relative min-h-screen overflow-y-visible theLanding flex flex-col ">
+        <main className="relative overflow-y-visible theLanding flex flex-col ">
             
             <Navbar />
             {children}

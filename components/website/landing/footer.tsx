@@ -42,7 +42,7 @@ export function Footer() {
       <div className="max-w-[1440px] mx-auto px-4 lg:px-[150px]">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-9 mb-20">
           {/* Left - Brand & Newsletter */}
-          <div className="space-y-6 max-w-[389px]">
+          <div className="space-y-6 ">
             <Image width={288} height={57} src={"/images/edxelera-white-logo.png"} alt='Edxlera logo' />
             <p className="text-base font-medium leading-6">
               Subscribe to our newsletter to get the latest updates and offers from us
@@ -81,10 +81,10 @@ export function Footer() {
                 <Link href="#contact" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   About Us
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
+                <Link href="/contact-us" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Contact Us
                 </Link>
-                <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
+                <Link href="/faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   FAQs
                 </Link>
                 <Link href="#faqs" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">

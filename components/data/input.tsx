@@ -17,7 +17,10 @@ const Input = <T extends FieldValues>({
    ...rest
 }: InputPropsType<T>) => {
    return (
-      <div className=" size-full relative h-[53px] px-3 py-4 pb-0 rounded-lg border border-neutral-400 ring-neutral-400 flex focus-within:ring-2 focus-within:ring-neutral-300">
+      <div onClick={(e)=>{
+         const input = e.currentTarget.querySelector("input");
+         input?.focus()
+      }} className=" size-full relative h-[53px] px-3 py-4 pb-0 rounded-lg border border-neutral-500 ring-neutral-500 flex focus-within:ring-2 focus-within:ring-neutral-500 text-neutral-600 hover:cursor-text">
          <input
             {...register<Path<T>>(name)}
             className="peer  basis-full h-[85%]  self-end focus-visible:outline-none "
@@ -33,8 +36,7 @@ const Input = <T extends FieldValues>({
                                  peer-placeholder-shown:-translate-y-1/2
                                  peer-focus:top-[25%]
                                  peer-focus:text-[14px]
-                                 peer-focus:text-neutral-500
-                                 peer-focus:text-blue-600"
+                                 peer-focus:text-neutral-600"
             htmlFor={input_id}
          >
             {placeholder}
