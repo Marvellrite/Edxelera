@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { useForm } from 'react-hook-form';
 import { loginSchema, LoginSchema } from '@/schemas/login';
@@ -8,11 +8,16 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
-import Input from '@/components/data/input';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { InputIconned } from '@/components/data/input-iconned';
+import { LockOutline, Sms } from '@/components/icons';
 
 
 const Page: React.FC = () => {
+
+   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
    const {
       register,
       handleSubmit,
@@ -41,88 +46,97 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="py-5  max-sm:py-0 flex justify-center  min-h-screen items-center">
-         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 max-sm:px-4 pt-6 max-sm:pt-0 sm:w-[75%] ">
-            <div className=" w-[154px] mx-auto aspect-154/65 max-sm:w-[87px]">
+      <section className="py-3  max-sm:py-0 flex justify-center  min-h-screen items-center md:bg-[url('/assets/auth.png')] bg-cover bg-no-repeat lg:bg-none ">
+         <div className=" w-full rounded-[20px] px-5 max-sm:px-4 pt-6 max-sm:pt-0  bg-neutral-50 max-w-117">
+            <div className=" w-53.5 mx-auto ">
                <Image
                   className=" w-full h-auto"
-                  src="/assets/logo1.png"
-                  alt="Tecbridge Logo"
+                  src="/images/edx_logo_1.png"
+                  alt="Edxelera Logo"
                   width={256}
                   height={108}
                />
             </div>{' '}
-            <h1 className="text-5xl font-medium mt-10">Login</h1>
-            <p className=" my-6 mt-4 font-normal">Login to your account</p>
+            <h1 className="text-5xl font-medium mt-10 mb-6">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-               <div className=" mb-4">
-                  <Input
+               <div className=" mb-4 space-y-2">
+                  <label className=' font-medium text-black block' htmlFor="email">Email</label>
+                  <InputIconned
+                     LeftIcon={Sms}
                      register={register}
-                     input_id="register"
+                     input_id="email"
                      name="email"
-                     placeholder="Email"
+                     placeholder="Enter your meail"
                   />
                   {errors.email && (
                      <FormError>{errors.email.message}</FormError>
                   )}
                </div>
-               <div>
-                  <Input
+               <div className=' mb-6 space-y-2'>
+                  <label className=' font-medium text-black block' htmlFor="password">Password</label>
+                  <InputIconned
+                     LeftIcon={LockOutline}
+                     RightIcon={<span className='cursor-pointer' onClick={()=>setIsPasswordVisible((visible)=>!visible)}>{isPasswordVisible?<LockOutline/>:<Sms/>}</span>}
                      register={register}
                      input_id="password"
                      name="password"
                      placeholder="Password"
-                     type="password"
+                     type={isPasswordVisible?"text":"password"}
                   />
                   {errors.password && (
                      <FormError>{errors.password.message}</FormError>
                   )}
                </div>
-               <div>
-                  <button
-                     type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
-                  >
-                     <span>Login</span>
-                  </button>
-               </div>
-            </form>
-            <div className=" flex justify-between">
+               <div className=" flex justify-between mt mb-5">
+               <Link
+                  className=" hover:underline underline-offset-2"
+                  href={'/auth/reset-password'}
+               >
+                  Remember me
+               </Link>{' '}
                <Link
                   className=" hover:underline underline-offset-2"
                   href={'/auth/reset-password'}
                >
                   Forgot Password?
-               </Link>{' '}
-               <Link
-                  className=" hover:underline underline-offset-2"
-                  href={'/auth/sign-up'}
-               >
-                  Create an Account
                </Link>
             </div>
-            <div className=" relative mt-13 mb-7.5">
-               <hr className="border-neutral-500 border" />
-               <span className=" px-3 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white">
-                  Or
-               </span>
-            </div>
-            <div className="flex justify-stretch gap-2 w-full mb-5">
-               <button
-                  className=" text-neutral-600 flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4"
-                  title="Login with Apple"
-               >
-                  <ReactSVG src="/icons/apple.svg" />
-               </button>
-               <button
-                  className=" flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4 text-white"
-                  title="Login with Google"
-               >
-                  <ReactSVG
-                     src="/icons/google.svg"
-                     className=" text-neutral-600 "
-                  />
-               </button>
+
+               <div>
+                  <button
+                     type="submit"
+                     className=" font-medium flex items-center justify-center hover:bg-primary  hover:cursor-pointer mt-5.5 h-12.5 w-full bg-primary text-white px-2.5 py-4.25 rounded-[500px]"
+                  >
+                     <span>Login</span>
+                  </button>
+               </div>
+            </form>
+            
+            <div className=' mt-10 flex flex-col justify-between gap-5'>
+               <div className=" relative ">
+                  <hr className="border-neutral-500 border" />
+                  <span className=" px-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-neutral-50">
+                     Or continue with
+                  </span>
+               </div>
+               <div className="flex justify-stretch gap-3 w-fit self-center">
+                  <button
+                     className=" text-neutral-600 flex justify-center items-center text-center grow border-neutral-600  size-16 rounded-full bg-white"
+                     title="Login with Apple"
+                  >
+                     <ReactSVG src="/icons/apple.svg" />
+                  </button>
+                  <button
+                     className=" flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white"
+                     title="Login with Google"
+                  >
+                     <ReactSVG
+                        src="/icons/google.svg"
+                        className=" text-neutral-600 "
+                     />
+                  </button>
+               </div>
+               <div className=' text-md basis-full text-center'>Don’t have an account? <Button variant={'link'} className=' font-medium text-primary p-0'><Link href="/auth/sign-up">Sign Up</Link></Button></div>
             </div>
          </div>
       </section>

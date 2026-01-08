@@ -103,7 +103,7 @@ const Page: React.FC = () => {
                <div>
                   <button
                      type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] text-white"
+                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
                   >
                      <span>Create account</span>
                   </button>

@@ -7,8 +7,8 @@ export default function AuthLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <section className="grid grid-cols-1 min-[850px]:grid-cols-10 grid-rows-1 h-screen w-full relative">
-         <div className="relative hidden min-[850px]:block col-span-5">
+      <section className="grid grid-cols-1 lg:grid-cols-10 grid-rows-1 h-screen w-full relative">
+         <div className="relative hidden lg:block col-span-5">
             <Image
                
                src="/assets/auth.png"

@@ -6,7 +6,8 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
-      "lint": "eslint"
+      "lint": "eslint",
+      "icons:build": "svgr public/icons/ --out-dir components/icons/ --typescript"
    },
    "dependencies": {
       "@gsap/react": "^2.1.2",
@@ -44,6 +45,7 @@
       "zustand": "^5.0.9"
    },
    "devDependencies": {
+      "@svgr/cli": "^8.1.0",
       "@svgr/webpack": "^8.1.0",
       "@tailwindcss/postcss": "^4",
       "@types/node": "^20",

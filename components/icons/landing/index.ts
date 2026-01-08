@@ -1,0 +1,16 @@
+export { default as ArrowRight } from './ArrowRight';
+export { default as ChevronLeft } from './ChevronLeft';
+export { default as ChevronRight } from './ChevronRight';
+export { default as Email } from './Email';
+export { default as HeartNote } from './HeartNote';
+export { default as Lightning } from './Lightning';
+export { default as Location } from './Location';
+export { default as Lock } from './Lock';
+export { default as Messages } from './Messages';
+export { default as People } from './People';
+export { default as Phone } from './Phone';
+export { default as RulerPen } from './RulerPen';
+export { default as Search } from './Search';
+export { default as ShoppingCart } from './ShoppingCart';
+export { default as StarRating } from './StarRating';
+export { default as Trophy } from './Trophy';
