@@ -21,10 +21,10 @@ const TermsOfServicePage = () => {
       <section className="flex  flex-col bg-white overflow-y-auto h-screen">
          {/* Header Section */}
          <div
-            className="flex flex-col gap-6 px-4 pb-6 pt-20 md:px-[150px] md:pb-8 md:pt-16"
+            className="flex flex-col gap-6 px-4 pb-6 pt-20 md:px-37.5 md:pb-8 md:pt-16"
             style={{
                background:
-                  'linear-gradient(262.15deg, var(--gradient-red-light) 19.56%, var(--gradient-red) 74.16%)',
+                  'linear-gradient(262.15deg, var(--secondary) 20%, var(--primary) 80%)',
             }}
          >
             <button
@@ -47,12 +47,12 @@ const TermsOfServicePage = () => {
          </div>
 
          {/* Content Section */}
-         <div className="flex-1  px-4 pb-32 pt-6 md:px-[150px] md:pb-[158px] ">
+         <div className="flex-1  px-4 pb-32 pt-6 md:px-37.5 md:pb-39.5 ">
             <div className="flex flex-col gap-6">
                {/* Title Section */}
                <div className="flex flex-col gap-1">
                   <h1
-                     className="text-[40px] font-medium leading-[47px] text-black"
+                     className="text-[40px] font-medium leading-11.75 text-black"
                      style={{ fontFamily: 'var(--font-helvetica)' }}
                   >
                      Terms of Service
@@ -128,7 +128,7 @@ const TermsOfServicePage = () => {
             </div>
 
              <div
-            className=" max-md:hidden left-0 right-0 flex items-center gap-2.5 h-[110px] mt-10 bg-[linear-gradient(180deg,rgba(var(--white-rgb),0.07)_30.53%,rgba(var(--white-rgb),1)_78.42%)]
+            className=" max-md:hidden left-0 right-0 flex items-center gap-2.5 h-27.5 mt-10 bg-[linear-gradient(180deg,rgba(var(--white-rgb),0.07)_30.53%,rgba(var(--white-rgb),1)_78.42%)]
 "
             // style={{
             //    background:
@@ -136,19 +136,17 @@ const TermsOfServicePage = () => {
             // }}
          >
             <Button
-               variant="outline"
-               size="lg"
+               variant={'secondary'}   
                onClick={handleDecline}
-               className="min-w-[150px] rounded-full border-primary text-base font-normal text-primary hover:bg-primary/10"
+               className=" md:flex-1 lg:basis-42.5 lg:grow-0"
                style={{ fontFamily: 'var(--font-helvetica)' }}
             >
                Decline
             </Button>
             <Button
                variant="default"
-               size="lg"
                onClick={handleAccept}
-               className="min-w-[150px] rounded-full bg-primary text-base font-normal text-white hover:bg-primary/90"
+               className="md:flex-1 lg:basis-42.5 lg:grow-0"
                style={{ fontFamily: 'var(--font-helvetica)' }}
             >
                Accept
@@ -158,26 +156,24 @@ const TermsOfServicePage = () => {
 
          {/* Footer Section with Buttons */}
          <div
-            className=" fixed md:hidden bottom-0 left-0 right-0 flex items-center justify-center gap-2.5 px-4 pb-8 pt-12 md:px-[150px]"
+            className=" fixed md:hidden bottom-0 left-0 right-0 flex items-center justify-center gap-2.5 px-4 pb-8 pt-12 md:px-37.5"
             style={{
                background:
                   'linear-gradient(180deg, rgba(255,255,255,0.07) 30.53%, rgba(255,255,255,1) 78.42%)',
             }}
          >
             <Button
-               variant="outline"
-               size="lg"
+               variant={'secondary'}
                onClick={handleDecline}
-               className="min-w-[150px] rounded-full border-primary text-base font-normal text-primary hover:bg-primary/10"
+               className=" flex-1 "
                style={{ fontFamily: 'var(--font-helvetica)' }}
             >
                Decline
             </Button>
             <Button
                variant="default"
-               size="lg"
                onClick={handleAccept}
-               className="min-w-[150px] rounded-full bg-primary text-base font-normal text-white hover:bg-primary/90"
+               className="flex-1"
                style={{ fontFamily: 'var(--font-helvetica)' }}
             >
                Accept

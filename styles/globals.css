@@ -59,6 +59,8 @@
    --color-green-light: var(--green-light);
    --color-red: var(--red);
    --color-red-light: var(--red-light);
+   --color-hover-primary: var(--hover-primary);
+   --color-hover-secondary: var(--hover-secondary);
 
    --breakpoint-sm-md: 620px;
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */

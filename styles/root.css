@@ -13,7 +13,7 @@
    --primary-200: #ff9681;
    --primary-100: #DAEFFF;
    --primary-50: #ffccb7;
-   --secondary: #BC141D;
+   --secondary: #ED1C24;
    --secondary-900: #800002;
    --secondary-800: #9f0010;
    --secondary-700: #bc141d;
@@ -40,7 +40,8 @@
    --red: #6C0507;
    --red-light: #FFCDCE;
 
-   --hover:#C20A0B
+   --hover-primary:#C20A0B;
+   --hover-secondary:#BE2324;
 
    --white-rgb: 255, 255, 255;
    --black-rgb: 4, 5, 6;

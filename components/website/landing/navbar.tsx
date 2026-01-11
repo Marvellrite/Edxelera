@@ -20,7 +20,7 @@ export function Navbar() {
   className={cn(" top-0 left-0 right-0 z-50 text-base text-neutral-900 font-medium sticky bg-white sm-md:order-0 max-sm-md:-order-1")}
 >
       {/* Nav For Tablet Size */}
-      <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  sm-md:h-16 lg:h-[108px] max-sm-md:hidden lg:hidden")}>
+      <div  className={cn("max-w-360 mx-auto px-6 lg:px-10 container flex items-center justify-center  sm-md:h-16 lg:h-22 max-sm-md:hidden lg:hidden")}>
         <div className="flex justify-between w-full items-center">
 
            <button
@@ -36,7 +36,7 @@ export function Navbar() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className=" w-[197px] ">
+          <Link href="/" className=" w-49.25 ">
             <Image
               src="/images/edx_logo_1.png"
               alt="Edxelera's Logo"
@@ -59,10 +59,10 @@ export function Navbar() {
       </div>
 
       {/* Nav for Phone and Laptop Scren Size */}
-      <div  className={cn("max-w-[1440px] mx-auto px-6 lg:px-10 container flex items-center justify-center  max-sm-md:h-13 sm:h-16 lg:h-[108px] sm-md:hidden lg:flex")}>
+      <div  className={cn("max-w-360 mx-auto px-6 lg:px-10 container flex items-center justify-center  max-sm-md:h-13 sm:h-16 lg:h-27 sm-md:hidden lg:flex")}>
         <div className="flex justify-between w-full items-center">
           {/* Logo */}
-          <Link href="/" className=" w-[147px] ">
+          <Link href="/" className=" w-36.75 ">
             <Image
               src="/images/edx_logo_1.png"
               alt="Edxelera"
@@ -90,10 +90,10 @@ export function Navbar() {
             <button className="p-0 mr-4">
               <ReactSVG src="/icons/landing/shopping-cart.svg"/>
             </button>
-            <Button variant={"outline"} className=" hover:bg-primary-700 px-6 h-12 w-[138px] rounded-full">
+            <Button variant={"outline"} className=" hover:bg-hover px-6 h-12 w-34.5 rounded-full">
               Login
             </Button>
-            <Button className="bg-primary hover:bg-primary-700 text-white px-6 h-12 w-[138px] rounded-full">
+            <Button className="bg-primary hover:bg-hover text-white px-6 h-12 w-34.5 rounded-full">
               Sign Up
             </Button>
           </div>
