@@ -1,4 +1,4 @@
-import './globals.css';
+import '../styles/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ToastContainer } from "react-toastify";

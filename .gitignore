@@ -44,3 +44,5 @@ next-env.d.ts
 globals2.css
 
 /public/videos/
+
+/components/icons/generated

@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import {useState} from 'react'
+
 import { ReactSVG } from 'react-svg';
 import { useForm } from 'react-hook-form';
 import { SigninSchema, signinSchema } from '@/schemas/sign-in';
@@ -10,6 +11,9 @@ import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
 import Input from '@/components/data/input';
 import Image from 'next/image';
+import { InputIconned } from '@/components/data/input-iconned';
+import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons/modified';
+import { Button } from '@/components/ui/button';
 
 const Page: React.FC = () => {
    const {
@@ -19,6 +23,9 @@ const Page: React.FC = () => {
    } = useForm<SigninSchema>({
       resolver: zodResolver(signinSchema),
    });
+
+      const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+      const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false)
 
    const ServerURL = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -40,115 +47,118 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="p-5 max-md:py-0 px-0 max-sm:p-0 flex justify-center items-center min-h-screen">
-         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 max-sm:px-4 py-6 sm:w-[75%]">
-            <div className=" w-[154px] mx-auto">
+      <section className=" max-sm:py-0 flex justify-center  min-h-screen  h-screen md:h-auto lg:py-16.25 md:w-auto">
+         <div className=" w-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 py-7.5   bg-neutral-50 md:max-w-117   md:h-auto md:w-auto ">
+            <div className=" w-53.5 mx-auto">
                <Image
-                  // className=" h-[65px]"
-                  src="/assets/logo1.png"
-                  alt="Tecbridge Logo"
+                  className=" w-full h-auto"
+                  src="/images/edx_logo_1.png"
+                  alt="Edxelera Logo"
                   width={256}
                   height={108}
                />
             </div>{' '}
-            <h1 className="text-5xl font-medium mt-10">Sign Up</h1>
-            <p className=" my-6 mt-4 font-normal">Create an account</p>
-            <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
-               <div>
-                  <Input
-                     input_id="field_name"
-                     name="fullname"
-                     register={register}
-                     placeholder="Full Name"
-                  />
-                  {errors.fullname && (
-                     <FormError>{errors.fullname.message}</FormError>
-                  )}
-               </div>
+            <h1 className="text-5xl font-medium mt-10 mb-6">Sign Up</h1>
+            <form onSubmit={handleSubmit(onSubmit)} >
+              
+                  <div className=' mb-4 space-y-2'>
+                     <label className=' font-medium text-black block' htmlFor="full_name">Full Name</label>
+                     <InputIconned
+                        LeftIcon={UserOutline}
+                        input_id="full_name"
+                        name="fullname"
+                        register={register}
+                        placeholder="Full Name"
+                     />
+                     {errors.fullname && (
+                        <FormError>{errors.fullname.message}</FormError>
+                     )}
+                  </div>
 
-               <div>
-                  <Input
-                     register={register}
-                     name="email"
-                     input_id="email"
-                     placeholder="Email"
-                  />
-                  {errors.email && (
-                     <FormError>{errors.email.message}</FormError>
-                  )}
+                  <div className=' mb-4 space-y-2'>
+                     <label className=' font-medium text-black block' htmlFor="email">Email</label>
+                     <InputIconned
+                        LeftIcon={Sms}
+                        register={register}
+                        name="email"
+                        input_id="email"
+                        placeholder="Email"
+                     />
+                     {errors.email && (
+                        <FormError>{errors.email.message}</FormError>
+                     )}
+                  </div>
+                  <div className=' mb-4 space-y-2'>
+                  <label className=' font-medium text-black block' htmlFor="email">Create Password</label>
+                     <InputIconned
+                        LeftIcon={LockOutline}
+                        register={register}
+                        name="password"
+                        input_id="password"
+                        placeholder="Create Password"
+                        type={isPasswordVisible?"text":"password"}
+                        RightIcon={<span className='cursor-pointer' onClick={()=>setIsPasswordVisible((visible)=>!visible)}>{isPasswordVisible?<EyeSlash/>:<Eye/>}</span>}
+                     />
+                     {errors.password && (
+                        <FormError>{errors.password.message}</FormError>
+                     )}
+                  </div>
+                  <div className=' mb-6 space-y-2'>
+                     <label className=' font-medium text-black block' htmlFor="confirm_pasword">Confirm Password</label>
+                     <InputIconned
+                        LeftIcon={LockOutline}
+                        placeholder="Confirm Password"
+                        register={register}
+                        name="confirm_password"
+                        input_id="confirm_password"
+                        RightIcon={<span className='cursor-pointer' onClick={()=>setIsConfirmPasswordVisible((visible)=>!visible)}>{isConfirmPasswordVisible?<EyeSlash/>:<Eye/>}</span>}
+                        type={isConfirmPasswordVisible?"text":"password"}
+                     />
+                     {errors.confirm_password && (
+                        <FormError>{errors.confirm_password.message}</FormError>
+                     )}
+                  </div>
+
+                  <div className=' mb-5 text-md text-center'>Already have an account? <Button className='p-0 font-medium h-fit' variant="link" asChild><Link href={"/auth"}>Login</Link></Button> </div>
+
+                  <div>
+                     <Button
+                        type="submit"
+                        className=' w-full'
+                     >
+                        Sign Up
+                     </Button>
+                  </div>
+               
+            </form>
+             <div className=' mt-6 flex flex-col justify-between gap-5 text-center'>
+               <div className=' text-medium'>
+               By creating an account, you agree to Edxelera’s  <Button className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">terms of service</Link></Button>  and <Button className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">privacy policy</Link></Button>
                </div>
-               <div>
-                  <Input
-                     register={register}
-                     name="password"
-                     input_id="password"
-                     placeholder="Create Password"
-                     type="password"
-                  />
-                  {errors.password && (
-                     <FormError>{errors.password.message}</FormError>
-                  )}
+               <div className=" relative mt-4">
+                  <hr className="border-neutral-500 border" />
+                  <span className=" px-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-neutral-50">
+                     Or continue with
+                  </span>
                </div>
-               <div>
-                  <Input
-                     placeholder="Confirm Password"
-                     register={register}
-                     name="confirm_password"
-                     input_id="confirm_password"
-                  />
-                  {errors.confirm_password && (
-                     <FormError>{errors.confirm_password.message}</FormError>
-                  )}
-               </div>
-               <div>
+               <div className="flex justify-stretch gap-3 w-fit self-center">
                   <button
-                     type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
+                     className=" text-neutral-600 flex justify-center items-center text-center grow border-neutral-600  size-16 rounded-full bg-white"
+                     title="Login with Apple"
                   >
-                     <span>Create account</span>
+                     <ReactSVG src="/icons/apple.svg" />
+                  </button>
+                  <button
+                     className=" flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white"
+                     title="Login with Google"
+                  >
+                     <ReactSVG
+                        src="/icons/google.svg"
+                        className=" text-neutral-600 "
+                     />
                   </button>
                </div>
-            </form>
-            <div className=" flex justify-center">
-               <Link
-                  className=" hover:underline underline-offset-2 text-md"
-                  href={'/auth'}
-               >
-                  Login to Your Account
-               </Link>{' '}
-            </div>
-            <div className=" relative mt-13 mb-7.5">
-               <hr className="border-neutral-500 border" />
-               <span className=" px-3 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white">
-                  Or
-               </span>
-            </div>
-            <div className="flex justify-stretch gap-2 w-full mb-6">
-               <button
-                  className=" text-neutral-600 flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4"
-                  title="Sign in with Apple"
-               >
-                  <ReactSVG src="/icons/apple.svg" />
-               </button>
-               <button
-                  className=" flex justify-center items-center text-center grow border border-neutral-600 rounded-xl px-3 py-4"
-                  title="Log in with Google"
-               >
-                  <ReactSVG
-                     src="/icons/google.svg"
-                     className=" text-neutral-600 "
-                  />
-               </button>
-            </div>
-            <div className=" text-center font-normal">
-               By creating an account, you agree to SkillBridge&rsquo;s{' '}
-               <Link href="/terms-and-services" className=" text-primary">
-                  terms of service{' '}
-               </Link>{' '}
-               and{' '}
-               <Link href="#" className=" text-primary">
-                  privacy policy
-               </Link>
+
             </div>
          </div>
       </section>

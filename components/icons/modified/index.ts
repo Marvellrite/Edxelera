@@ -8,6 +8,8 @@ export { default as ConfettiDesktop } from './ConfettiDesktop';
 export { default as ConfettiMobile } from './ConfettiMobile';
 export { default as Dropdown } from './Dropdown';
 export { default as ErrorToaster } from './ErrorToaster';
+export { default as EyeSlash } from './EyeSlash';
+export { default as Eye } from './Eye';
 export { default as GalleryAdd } from './GalleryAdd';
 export { default as Google } from './Google';
 export { default as HomeOutline } from './HomeOutline';

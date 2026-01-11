@@ -24,7 +24,7 @@ const Page: React.FC = () => {
    return (
       <section className="p-6 py-12 ">
          {/* For Users that have started learning a course */}
-          <div className=" space-y-9">
+          {/* <div className=" space-y-9">
             <Continue_learning_desktop data={data} />
             <Continue_learning_mobile data={data} />
             <div>
@@ -55,11 +55,11 @@ const Page: React.FC = () => {
                   ))}
                </div>
             </div>
-         </div>
+         </div> */}
 
          {/* For Users that have not started learning a course yet */}
 
-         {/* <div className=" space-y-9">
+          <div className=" space-y-9">
             <div className=" h-[252px] bg-primary rounded-xl flex items-end">
                <div className=" mt-auto flex justify-between items-end text-white p-6 pb-7 basis-full max-md:flex-col max-md:items-start max-md:gap-4 max-md:px-4 max-md:py-3.5">
                   <div className=" space-y-2">
@@ -94,7 +94,7 @@ const Page: React.FC = () => {
                   ))}
                </div>
             </div>
-         </div> */}
+         </div> 
       </section>
    );
 };

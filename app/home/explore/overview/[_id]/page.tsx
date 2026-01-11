@@ -11,8 +11,8 @@ import { Button } from '@/components/ui/button';
 const page = () => {
    return (
    //   <CourseBought/>
-   <CourseNotBought/>
-      // <Course_started />
+   // <CourseNotBought/>
+      <Course_started />
       // <ModuleAssessment/>
    );
 };

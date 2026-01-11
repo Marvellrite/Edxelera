@@ -7,7 +7,7 @@
       "build": "next build",
       "start": "next start",
       "lint": "eslint",
-      "icons:build": "svgr public/icons/ --out-dir components/icons/ --typescript"
+      "icons:build": "svgr public/icons/ --out-dir components/icons/generated --typescript"
    },
    "dependencies": {
       "@gsap/react": "^2.1.2",
@@ -20,6 +20,7 @@
       "@radix-ui/react-separator": "^1.1.8",
       "@radix-ui/react-slot": "^1.2.4",
       "@smastrom/react-rating": "^1.5.0",
+      "@svgr/core": "^8.1.0",
       "@tailwindcss/line-clamp": "^0.4.4",
       "class-variance-authority": "^0.7.1",
       "clsx": "^2.1.1",
@@ -41,6 +42,7 @@
       "react-toastify": "^11.0.5",
       "tailwind-merge": "^3.4.0",
       "tailwindcss-animate": "^1.0.7",
+      "tsx": "^4.21.0",
       "zod": "^4.1.12",
       "zustand": "^5.0.9"
    },

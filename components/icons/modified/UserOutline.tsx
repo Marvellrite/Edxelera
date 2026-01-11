@@ -1,15 +1,14 @@
-import * as React from 'react';
-import type { SVGProps } from 'react';
-const SvgUserOutline = (props: SVGProps<SVGSVGElement>) => (
+import IconProp from './IconType';
+const SvgUserOutline = ({ size=24, ...props}: IconProp) => (
    <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={24}
-      height={24}
+      width={size}
+      height={size}
       fill="none"
       {...props}
    >
       <path
-         stroke="#6E6E6E"
+         stroke="currentColor"
          strokeLinecap="round"
          strokeLinejoin="round"
          strokeWidth={1.5}

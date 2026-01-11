@@ -1,6 +1,6 @@
 import { UseFormRegister, FieldValues, Path } from 'react-hook-form';
 import { ComponentProps, ComponentType, JSX } from 'react';
-import IconProp from '@/components/icons/IconType';
+import IconProp from '@/components/icons/generated/IconType';
 
 interface InputPropsType<T extends FieldValues>
    extends ComponentProps<'input'> {

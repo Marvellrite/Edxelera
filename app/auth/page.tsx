@@ -11,7 +11,8 @@ import FormError from '@/components/auth/form-error';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { InputIconned } from '@/components/data/input-iconned';
-import { LockOutline, Sms } from '@/components/icons';
+import { LockOutline, Sms } from '@/components/icons/modified';
+import { Eye, EyeSlash } from '@/components/icons/modified';
 
 
 const Page: React.FC = () => {
@@ -46,20 +47,20 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="py-3  max-sm:py-0 flex justify-center  min-h-screen items-center md:bg-[url('/assets/auth.png')] bg-cover bg-no-repeat lg:bg-none ">
-         <div className=" w-full rounded-[20px] px-5 max-sm:px-4 pt-6 max-sm:pt-0  bg-neutral-50 max-w-117">
+      <section className="  max-sm:py-0 flex justify-center  min-h-screen items-center h-screen md:h-auto md:w-auto md:items-center lg:py-16.25">
+         <div className=" basis-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 pt-6  bg-neutral-50 md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full">
             <div className=" w-53.5 mx-auto ">
                <Image
                   className=" w-full h-auto"
                   src="/images/edx_logo_1.png"
                   alt="Edxelera Logo"
                   width={256}
-                  height={108}
+                  height={63}
                />
             </div>{' '}
             <h1 className="text-5xl font-medium mt-10 mb-6">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-               <div className=" mb-4 space-y-2">
+               <div className=" mb-4 space-y-2 ">
                   <label className=' font-medium text-black block' htmlFor="email">Email</label>
                   <InputIconned
                      LeftIcon={Sms}
@@ -72,11 +73,11 @@ const Page: React.FC = () => {
                      <FormError>{errors.email.message}</FormError>
                   )}
                </div>
-               <div className=' mb-6 space-y-2'>
+               <div className=' mb-6 space-y-2 '>
                   <label className=' font-medium text-black block' htmlFor="password">Password</label>
                   <InputIconned
                      LeftIcon={LockOutline}
-                     RightIcon={<span className='cursor-pointer' onClick={()=>setIsPasswordVisible((visible)=>!visible)}>{isPasswordVisible?<LockOutline/>:<Sms/>}</span>}
+                     RightIcon={<span className='cursor-pointer' onClick={()=>setIsPasswordVisible((visible)=>!visible)}>{isPasswordVisible?<EyeSlash/>:<Eye/>}</span>}
                      register={register}
                      input_id="password"
                      name="password"
