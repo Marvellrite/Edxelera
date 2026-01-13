@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ReactSVG } from 'react-svg';
 import { useForm } from 'react-hook-form';
 import { SigninSchema, signinSchema } from '@/schemas/sign-in';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import OTPInputs from '@/components/auth/input-otp';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { OtpInputGroup } from './components/OtpInputGroup';
 
 const Page: React.FC = () => {
    const {
@@ -44,33 +45,35 @@ const Page: React.FC = () => {
    };
 
    return (
-      <section className="py-5 max-md:py-0 flex justify-center items-center max-sm:items-start min-h-screen">
-         <div className=" w-full max-w-[500px] sm:border border-neutral-400 rounded-[20px] p-5  max-sm:px-4 sm:w-[75%]">
-              <div className=" w-[154px] mx-auto max-sm:w-[87px]">
+      <section className=" max-sm:py-0 flex justify-center  min-h-screen items-center h-screen md:h-auto md:w-auto md:items-center lg:py-16.25">
+         <div className="  basis-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 pt-6  bg-neutral-50 md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full">
+              <div className=" w-53.5 mx-auto">
                <Image
                   className=" w-full h-auto"
-                  src="/assets/logo1.png"
-                  alt="Tecbridge Logo"
+                  src="/images/edx_logo_1.png"
+                  alt="Edxelera Logo"
                   width={256}
-                  height={108}
+                  height={63}
                />
             </div>
-            <h1 className="text-5xl font-medium mt-10">OTP Verification</h1>
-            <p className=" my-6 mb-7 mt-4 font-normal">
-               Enter the 6 digit OPT sent to your email
+            <h1 className="text-5xl font-medium mt-10 mb-6 text-black">OTP Verification</h1>
+                        <p className=" my-6 mb-7 mt-4 font-medium">
+               Enter the 6 digit OTP sent to your email
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4">
-               <div className=" flex justify-center ">
-                  <OTPInputs OTP={otp} setOTP={setTempOtp} />
+            <form onSubmit={handleSubmit(onSubmit)} className=" ">
+               <div className=" flex justify-center mb-10">
+                  <OtpInputGroup length={6} inputMode='alphanumeric'/>
                </div>
-               <div>
-                  <button
+               <div className=' mb-6 '>
+                  <Button variant={'default'}
                      onClick={onSubmit}
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] "
+                     className=" font-medium w-full  text-white px-2.5 "
                   >
                      <span>Verify</span>
-                  </button>
+                  </Button>
                </div>
+
+               <div className=' text-md text-center'>Didn&apos;t see code? <span className=' text-primary font-medium'>Resend Code</span> </div>
             </form>
          </div>
       </section>

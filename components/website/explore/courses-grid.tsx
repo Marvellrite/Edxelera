@@ -1,7 +1,7 @@
 import React from 'react'
 import Video_card from '@/app/home/components/video_card'
 import { courses } from '@/lib/landing-data'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils/utils'
 import { ClassValue } from 'clsx'
 
 interface Props {

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button';
 import { navLinks } from '@/lib/landing-data';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 

@@ -4,6 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ReactSVG } from 'react-svg';
+import { BackArrow } from '@/components/icons/modified';
 
 const TermsOfServicePage = () => {
    const router = useRouter();
@@ -21,7 +22,7 @@ const TermsOfServicePage = () => {
       <section className="flex  flex-col bg-white overflow-y-auto h-screen">
          {/* Header Section */}
          <div
-            className="flex flex-col gap-6 px-4 pb-6 pt-20 md:px-37.5 md:pb-8 md:pt-16"
+            className="flex flex-col gap-6 px-4 pb-7 pt-7 md:px-37.5 md:pb-8 md:pt-16 lg:py-12 lg:gap-12"
             style={{
                background:
                   'linear-gradient(262.15deg, var(--secondary) 20%, var(--primary) 80%)',
@@ -29,13 +30,10 @@ const TermsOfServicePage = () => {
          >
             <button
                onClick={() => router.back()}
-               className="flex items-center justify-center p-0 w-fit "
+               className="flex items-center justify-center p-0 w-fit text-white"
                aria-label="Go back"
             >
-               <ReactSVG src='/icons/back-arrow.svg' beforeInjection={(svg)=>{
-                const paths = svg.querySelectorAll("path");
-                paths.forEach((_)=>_.setAttribute('fill', "white"))
-               }}  />
+               <BackArrow size={30}/>
             </button>
             <p
                className="text-base font-medium leading-6 text-white"
@@ -47,12 +45,12 @@ const TermsOfServicePage = () => {
          </div>
 
          {/* Content Section */}
-         <div className="flex-1  px-4 pb-32 pt-6 md:px-37.5 md:pb-39.5 ">
+         <div className="flex-1  px-4 pb-32 pt-6 md:max-w-183.5 lg:max-w-285 md:pb-39.5 mx-auto">
             <div className="flex flex-col gap-6">
                {/* Title Section */}
                <div className="flex flex-col gap-1">
                   <h1
-                     className="text-[40px] font-medium leading-11.75 text-black"
+                     className="text-[32px] font-medium leading-11.75 text-black"
                      style={{ fontFamily: 'var(--font-helvetica)' }}
                   >
                      Terms of Service

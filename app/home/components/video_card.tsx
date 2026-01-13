@@ -5,7 +5,7 @@ import formatMoney from '@/utils/formatMoney';
 import Rating from './ratings';
 import Link from 'next/link';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 
 interface VideoCardProps {
    // Define any props if needed in the future

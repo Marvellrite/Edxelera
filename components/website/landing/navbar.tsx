@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 import SearchInput from '@/components/common/search_input';
 import { ReactSVG } from 'react-svg';
 import Sidebar from './sidebar';

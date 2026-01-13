@@ -3,7 +3,7 @@
 import { useState, useEffect, RefObject } from "react"
 
 import { ChevronUp } from "lucide-react"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface Prop {
   observed: RefObject<HTMLDivElement | null>

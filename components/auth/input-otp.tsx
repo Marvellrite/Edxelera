@@ -28,7 +28,7 @@ export default function OTPInputs({
             {[0, 1, 2, 3, 4, 5].map((_, index) => (
                <InputOTPSlot
                   key={index}
-                  className=" border border-neutral-600 rounded-lg! grow aspect-square h-[50px] data-[active=true]:ring-[2px] data-[active=true]:ring-neutral-300"
+                  className=" border border-neutral-600 rounded-lg! grow aspect-square h-12.5 data-[active=true]:ring-[2px] data-[active=true]:ring-black bg-white"
                   index={index}
                />
             ))}

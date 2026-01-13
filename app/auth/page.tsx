@@ -58,7 +58,7 @@ const Page: React.FC = () => {
                   height={63}
                />
             </div>{' '}
-            <h1 className="text-5xl font-medium mt-10 mb-6">Login</h1>
+            <h1 className="text-5xl font-medium mt-10 mb-6 text-black">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className=" mb-4 space-y-2 ">
                   <label className=' font-medium text-black block' htmlFor="email">Email</label>

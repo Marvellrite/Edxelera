@@ -3,7 +3,7 @@
 import { features } from '@/lib/landing-data';
 import { Button } from '@/components/ui/button';
 import { ReactSVG } from 'react-svg';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/utils';
 
 export default function FeaturesSection() {
 
