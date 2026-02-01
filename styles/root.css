@@ -51,6 +51,8 @@
 
    --scrollbar-color: rgba(58, 58, 58, 0.267)
    --scrollbar-color-hover: rgba(0, 0, 0, 0.381);
+
+   --surface: #F8F9FF;
 }
 
 /* .dark :root {
@@ -100,7 +102,7 @@
       --neutral-100: #494949;
       --neutral-200: #6e6e6e;
       --neutral-300: #939393;
-      --neutral-400: #b7b7b7;
+      --neutral-400: #DCDCDC;
       --neutral-500: #dcdcdc;
       --neutral-600: #e2e2e2;
       --neutral-700: #e8e8e8;

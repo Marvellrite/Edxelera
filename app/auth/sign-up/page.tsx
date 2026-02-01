@@ -9,7 +9,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
-import Input from '@/components/data/input';
 import Image from 'next/image';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons/modified';
@@ -48,7 +47,7 @@ const Page: React.FC = () => {
 
    return (
       <section className=" max-sm:py-0 flex justify-center  min-h-screen  h-screen md:h-auto lg:py-16.25 md:w-auto">
-         <div className=" w-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 py-7.5   bg-neutral-50 md:max-w-117   md:h-auto md:w-auto ">
+         <div className=" w-full md:rounded-[20px] px-5 max-sm:px-4 py-7.5 md:max-w-117   md:h-auto md:w-auto  sm:border border-neutral-400 rounded-[20px]">
             <div className=" w-53.5 mx-auto">
                <Image
                   className=" w-full h-auto"
@@ -124,7 +123,7 @@ const Page: React.FC = () => {
                   <div>
                      <Button
                         type="submit"
-                        className=' w-full'
+                        className=' w-full h-14.25'
                      >
                         Sign Up
                      </Button>

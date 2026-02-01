@@ -55,11 +55,11 @@ export function CoursesSection() {
         <div className="flex flex-wrap justify-center gap-4">
           <Button 
             variant="outline" 
-            className="border-primary text-primary hover:bg-primary hover:text-white h-12 rounded-full px-8"
+            className=" h-12  px-8"
           >
             More Courses
           </Button>
-          <Button className="bg-primary hover:bg-primary-700 text-white h-12 rounded-full px-8">
+          <Button className=" h-12  px-8">
             Start Learning
           </Button>
         </div>

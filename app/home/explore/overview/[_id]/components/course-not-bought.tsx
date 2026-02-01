@@ -11,7 +11,7 @@ const CourseNotBought = () => {
             <Course_arrangement />
 
             <div className=" flex justify-center mt-10">
-               <Button className=" mx-auto py-3 px-2.5 w-[292px] h-[42px] rounded-[500px]">
+               <Button className=" mx-auto py-3 px-2.5 w-73 h-10.5 rounded-[500px]">
                   Purchase Course
                </Button>
             </div>

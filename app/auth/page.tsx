@@ -48,7 +48,7 @@ const Page: React.FC = () => {
 
    return (
       <section className="  max-sm:py-0 flex justify-center  min-h-screen items-center h-screen md:h-auto md:w-auto md:items-center lg:py-16.25">
-         <div className=" basis-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 pt-6  bg-neutral-50 md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full">
+         <div className=" basis-full  md:rounded-[20px] px-5 max-sm:px-4 pt-6 md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full sm:border border-neutral-400 rounded-[20px]">
             <div className=" w-53.5 mx-auto ">
                <Image
                   className=" w-full h-auto"
@@ -67,7 +67,7 @@ const Page: React.FC = () => {
                      register={register}
                      input_id="email"
                      name="email"
-                     placeholder="Enter your meail"
+                     placeholder="Enter your mail"
                   />
                   {errors.email && (
                      <FormError>{errors.email.message}</FormError>
@@ -104,12 +104,12 @@ const Page: React.FC = () => {
             </div>
 
                <div>
-                  <button
+                  <Button
                      type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary  hover:cursor-pointer mt-5.5 h-12.5 w-full bg-primary text-white px-2.5 py-4.25 rounded-[500px]"
+                     className=" w-full h-14.25"
                   >
-                     <span>Login</span>
-                  </button>
+                     Login
+                  </Button>
                </div>
             </form>
             

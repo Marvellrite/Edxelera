@@ -90,10 +90,10 @@ export function Navbar() {
             <button className="p-0 mr-4">
               <ReactSVG src="/icons/landing/shopping-cart.svg"/>
             </button>
-            <Button variant={"outline"} className=" hover:bg-hover px-6 h-12 w-34.5 rounded-full">
+            <Button variant={"outline"} className="  px-6 h-12 w-34.5">
               Login
             </Button>
-            <Button className="bg-primary hover:bg-hover text-white px-6 h-12 w-34.5 rounded-full">
+            <Button className=" px-6 h-12 w-34.5 ">
               Sign Up
             </Button>
           </div>

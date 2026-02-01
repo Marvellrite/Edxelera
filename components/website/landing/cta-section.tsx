@@ -34,7 +34,7 @@ export function CTASection() {
             Share your expertise, inspire thousands of learners, and earn by creating high-quality courses that make a real impact
           </p>
           <Button  
-            className=" hover:bg-neutral-50 text-white border-white h-14 rounded-full px-10 font-medium"
+            className="  h-14  px-10 "
           >
             Learn More
           </Button>

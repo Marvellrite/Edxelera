@@ -18,7 +18,7 @@ export default function AuthLayout({
             />
             <div className="absolute w-full h-full bg-linear-to-b from-text/75 to-text/40"></div>
          </div>
-         <div className="col-span-5 w-full overflow-y-auto  md:bg-[url('/assets/auth.png')] bg-cover bg-no-repeat lg:bg-none">{children}</div>
+         <div className="col-span-5 w-full overflow-y-auto  md:bg-[url('/assets/auth.png')] bg-cover bg-no-repeat lg:bg-none bg-surface">{children}</div>
       </section>
    );
 }

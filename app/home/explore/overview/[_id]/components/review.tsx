@@ -4,7 +4,7 @@ import React from 'react';
 
 const Review = () => {
    return (
-      <div className=" min-w-[312px] p-4 rounded-sm border border-neutral-50 flex-0">
+      <div className=" min-w-78 p-4 rounded-sm border border-neutral-50 flex-0">
          <div className="flex gap-2">
             <img
                className=" size-10 rounded-full"

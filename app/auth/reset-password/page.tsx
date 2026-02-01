@@ -9,10 +9,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Input from '@/components/data/input';
 import FormError from '@/components/auth/form-error';
-import OTPInputs from '@/components/auth/input-otp';
+// import OTPInputs from '@/components/auth/input-otp';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import { toast } from "react-toastify";
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { InputIconned } from '@/components/data/input-iconned';
+import { Sms } from '@/components/icons/modified';
 
 
 const Page: React.FC = () => {
@@ -70,17 +73,16 @@ const Page: React.FC = () => {
 
    return (
       <section className="py-5 max-md:py-0 flex justify-center items-center max-sm:items-start min-h-screen">
-         <div className=" w-full max-w-[500px] sm:border border-neutral-400 rounded-[20px] p-5  max-sm:px-4 sm:w-[75%]">
-           <div className=" w-[154px] mx-auto max-sm:w-[87px]">
-               <Image
-                  className=" w-full h-auto"
-                  src="/assets/logo1.png"
-                  alt="Tecbridge Logo"
-                  width={256}
-                  height={108}
-               />
-            </div>
-            <h1 className="text-5xl font-medium mt-10">Reset Password</h1>
+         <div className=" w-full max-w-125 p-5  max-sm:px-4 sm:w-[75%]  sm:border border-neutral-400 rounded-[20px]">
+           <div className=" w-53.5 mx-auto">
+                          <Image
+                             className=" w-full h-auto"
+                             src="/images/edx_logo_1.png"
+                             alt="Edxelera Logo"
+                             width={256}
+                             height={108}
+                          /></div>
+            <h1 className="text-5xl font-medium mt-10 mb-6 text-black">Reset Password</h1>
             <p className=" my-6 mb-7 mt-4 font-normal">
                {
                   !otpSent?
@@ -92,7 +94,7 @@ const Page: React.FC = () => {
             </p>
             <form onSubmit={!otpSent?sendHandleSubmit(sendOnSubmit):resetHandleSubmit(resetOnSubmit)} className=" space-y-4">
                <div className=" flex justify-center flex-col gap-y-4">
-                {!otpSent?   
+                {/* {!otpSent?   
                     <>
                         <Input input_id="email" register={sendRegister} placeholder='Email' name='email'/>
                         {sendErrors.email && <FormError>{sendErrors.email.message}</FormError>}
@@ -111,17 +113,33 @@ const Page: React.FC = () => {
                         </div>
                     </>
 
-                }
+                } */}
+                {/* To do add otp here  */}
+
+                 <div className=' mb-4 space-y-2'>
+                  <label className=' font-medium text-black block' htmlFor="full_name">Email</label>
+                  <InputIconned
+                     LeftIcon={Sms}
+                     input_id="full_name"
+                     name="email"
+                     register={sendRegister}
+                     placeholder="Enter your email"
+                  />
+                  {sendErrors.email && (
+                     <FormError>{sendErrors.email.message}</FormError>
+                  )}
+               </div>
+                
                </div>
                
                <div>
-                  <button
+                  <Button
                      type={(!otpSent || (otpSent && otpVerified)) ? 'submit': "button"}
                      onClick={(otpSent && !otpVerified)?otpOnSubmit:undefined}
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px] "
+                     className=" w-full h-14.25"
                   >
                      <span>{  !otpSent?"Send OTP":!otpVerified?"Verify":"Change Password"}</span>
-                  </button>
+                  </Button>
                </div>
             
                <div className=' flex justify-between font-normal text-md'><button className="p-0">Resend code</button> <Link href={'/auth/'}>Use password</Link></div>

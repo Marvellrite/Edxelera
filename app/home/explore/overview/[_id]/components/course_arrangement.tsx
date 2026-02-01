@@ -10,6 +10,7 @@ import {
 import { ReactSVG } from 'react-svg';
 import { Button } from '@/components/ui/button';
 import Review from './review';
+import { Note } from '@/components/icons/modified';
 
 const Course_arrangement = () => {
    const [expandText, setExpandText] = useState(false);
@@ -117,7 +118,7 @@ const Course_arrangement = () => {
                   >
                      <AccordionTrigger className=" hover:no-underline hover:bg-neutral-400/30 px-2.5">
                         <div className=" flex gap-x-1.5 items-center">
-                           <ReactSVG src="/icons/note.svg" />
+                           <Note className="size-6"/>
                            <span>WEEK 1 - Introduction & Foundations</span>
                         </div>
                      </AccordionTrigger>
