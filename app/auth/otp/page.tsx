@@ -1,30 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { SigninSchema, signinSchema } from '@/schemas/sign-in';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import OTPInputs from '@/components/auth/input-otp';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { OtpInputGroup } from './components/OtpInputGroup';
+import { OtpInputGroup } from '@/components/auth/OtpInputGroup';
 
 const Page: React.FC = () => {
-   const {
-      register,
-      handleSubmit,
-      formState: { errors },
-   } = useForm<SigninSchema>({
-      resolver: zodResolver(signinSchema),
-   });
 
    const [otp, setOtp] = useState<undefined | string>(undefined);
-   const [tempOtp, setTempOtp] = useState<undefined | string>(undefined);
 
-   useEffect(() => {
-      setOtp(tempOtp);
-   }, [tempOtp]);
 
    const ServerURL = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -46,7 +31,7 @@ const Page: React.FC = () => {
 
    return (
       <section className=" max-sm:py-0 flex justify-center  min-h-screen items-center h-screen md:h-auto md:w-auto md:items-center lg:py-16.25">
-         <div className="  basis-full rounded-none md:rounded-[20px] px-5 max-sm:px-4 pt-6  bg-neutral-50 md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full">
+         <div className="  basis-full md:rounded-[20px] px-5 max-sm:px-4 pt-6  md:max-w-117  md:h-auto py-7.5 w-screen md:w-auto h-full sm:border border-neutral-400 rounded-[20px] bg-surface">
               <div className=" w-53.5 mx-auto">
                <Image
                   className=" w-full h-auto"
@@ -60,14 +45,14 @@ const Page: React.FC = () => {
                         <p className=" my-6 mb-7 mt-4 font-medium">
                Enter the 6 digit OTP sent to your email
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className=" ">
+            <form  className=" ">
                <div className=" flex justify-center mb-10">
                   <OtpInputGroup length={6} inputMode='alphanumeric'/>
                </div>
                <div className=' mb-6 '>
                   <Button variant={'default'}
                      onClick={onSubmit}
-                     className=" font-medium w-full  text-white px-2.5 "
+                     className=" font-medium w-full  text-white px-2.5 h-14.25"
                   >
                      <span>Verify</span>
                   </Button>

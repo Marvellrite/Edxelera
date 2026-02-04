@@ -3,7 +3,7 @@
 import {useState} from 'react'
 
 import { ReactSVG } from 'react-svg';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { SigninSchema, signinSchema } from '@/schemas/sign-in';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -13,14 +13,23 @@ import Image from 'next/image';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons/modified';
 import { Button } from '@/components/ui/button';
+import { toast } from "react-toastify";
+import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 
 const Page: React.FC = () => {
    const {
       register,
       handleSubmit,
       formState: { errors },
+      control
    } = useForm<SigninSchema>({
       resolver: zodResolver(signinSchema),
+         defaultValues: {
+         fullname: '',
+         email: '',
+         password: '',
+         confirm_password: ''
+  }
    });
 
       const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -40,14 +49,17 @@ const Page: React.FC = () => {
       });
 
       if (response.ok) {
+         //  toast.success(() => <SuccessToast msg={{ title: 'Success', body: 'Login successful' }} />, {closeButton:false,});
          return router.push('/home');
       }
       return;
    };
 
+   const [ fullname, email, password, confirm_password ] = useWatch({control, name:['fullname', 'email', 'password', 'confirm_password']})
+
    return (
       <section className=" max-sm:py-0 flex justify-center  min-h-screen  h-screen md:h-auto lg:py-16.25 md:w-auto">
-         <div className=" w-full md:rounded-[20px] px-5 max-sm:px-4 py-7.5 md:max-w-117   md:h-auto md:w-auto  sm:border border-neutral-400 rounded-[20px]">
+         <div className=" w-full md:rounded-[20px] px-5 max-sm:px-4 py-7.5 md:max-w-117   md:h-auto md:w-auto  sm:border border-neutral-400 rounded-[20px] bg-surface">
             <div className=" w-53.5 mx-auto">
                <Image
                   className=" w-full h-auto"
@@ -90,6 +102,7 @@ const Page: React.FC = () => {
                   <div className=' mb-4 space-y-2'>
                   <label className=' font-medium text-black block' htmlFor="email">Create Password</label>
                      <InputIconned
+                        autoComplete='off'
                         LeftIcon={LockOutline}
                         register={register}
                         name="password"
@@ -105,6 +118,7 @@ const Page: React.FC = () => {
                   <div className=' mb-6 space-y-2'>
                      <label className=' font-medium text-black block' htmlFor="confirm_pasword">Confirm Password</label>
                      <InputIconned
+                        autoComplete='off'
                         LeftIcon={LockOutline}
                         placeholder="Confirm Password"
                         register={register}
@@ -121,7 +135,7 @@ const Page: React.FC = () => {
                   <div className=' mb-5 text-md text-center'>Already have an account? <Button className='p-0 font-medium h-fit' variant="link" asChild><Link href={"/auth"}>Login</Link></Button> </div>
 
                   <div>
-                     <Button
+                     <Button disabled={!fullname || !email || !password || !confirm_password}
                         type="submit"
                         className=' w-full h-14.25'
                      >
@@ -132,23 +146,23 @@ const Page: React.FC = () => {
             </form>
              <div className=' mt-6 flex flex-col justify-between gap-5 text-center'>
                <div className=' text-medium'>
-               By creating an account, you agree to Edxelera’s  <Button className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">terms of service</Link></Button>  and <Button className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">privacy policy</Link></Button>
+               By creating an account, you agree to Edxelera’s  <Button className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">terms of service</Link></Button>  and <Button  className='p-0 h-fit' variant={"link"} asChild><Link href="/terms-and-services">privacy policy</Link></Button>
                </div>
                <div className=" relative mt-4">
                   <hr className="border-neutral-500 border" />
-                  <span className=" px-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-neutral-50">
+                  <span className=" px-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-surface">
                      Or continue with
                   </span>
                </div>
                <div className="flex justify-stretch gap-3 w-fit self-center">
                   <button
-                     className=" text-neutral-600 flex justify-center items-center text-center grow border-neutral-600  size-16 rounded-full bg-white"
+                     className=" text-neutral-600 flex justify-center items-center text-center grow border-neutral-600  size-16 rounded-full bg-white hover:bg-neutral-50/70"
                      title="Login with Apple"
                   >
                      <ReactSVG src="/icons/apple.svg" />
                   </button>
                   <button
-                     className=" flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white"
+                     className=" flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white hover:bg-neutral-50/70"
                      title="Login with Google"
                   >
                      <ReactSVG

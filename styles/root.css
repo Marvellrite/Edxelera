@@ -2,7 +2,8 @@
    /* COLORS */
    --black: #040506;
    --white: rgb(255, 255, 255);
-   --primary: #001146;
+   --primary-bare: 0, 17, 70;
+   --primary: rgb(0, 17, 70);
    --primary-900: #800002;
    --primary-800: #9f0010;
    --primary-700: #bc141d;
@@ -37,8 +38,9 @@
    --neutral-50: #f3f3f3;
    --green: #005827;
    --green-light: #CDFFE3;
-   --red: #6C0507;
-   --red-light: #FFCDCE;
+   --red-600: #DC2626;
+   --red-500: #EF4444;
+   --red-400: #F87171;
 
    --hover-primary:#C20A0B;
    --hover-secondary:#BE2324;
@@ -53,6 +55,7 @@
    --scrollbar-color-hover: rgba(0, 0, 0, 0.381);
 
    --surface: #F8F9FF;
+   --surface-foreground: #FFFFFF; 
 }
 
 /* .dark :root {
@@ -86,7 +89,7 @@
    :root {
       --white: #040506;
       --black: #ffffff;
-      --primary: #001146;
+      --primary: rgb(0, 17, 70);
       --primary-50: #800002;
       --primary-100: #9f0010;
       --primary-200: #bc141d;

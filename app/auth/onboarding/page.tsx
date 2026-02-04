@@ -2,20 +2,19 @@
 
 import React from 'react';
 import { ReactSVG } from 'react-svg';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, useWatch } from 'react-hook-form';
 import { WelcomeSchema, welcomeSchema } from '@/schemas/welcome';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import FormError from '@/components/auth/form-error';
 import DatePicker from '@/components/data/date-picker';
-import Input from '@/components/data/input';
-import Textarea from '@/components/data/textarea';
+import Textarea from '@/components/data/textarea-iconned';
 import Image from 'next/image';
-
+import { InputIconned } from '@/components/data/input-iconned';
+import { Sms } from '@/components/icons/modified';
+import { Button } from '@/components/ui/button';
 const Page: React.FC = () => {
    const {
-      watch,
-      setValue,
       register,
       handleSubmit,
       formState: { errors },
@@ -39,7 +38,7 @@ const Page: React.FC = () => {
       const formData = new FormData();
       formData.append('DOB', data.DOB.toDateString());
       formData.append('location', data.location);
-      formData.append('bio', data.bio);
+      formData.append('bio', data.bio || '');
       formData.append('profileImage', data.profileImage);
 
       const response = await fetch(`${ServerURL}/auth/signup`, {
@@ -53,36 +52,40 @@ const Page: React.FC = () => {
       return;
    };
 
-   const profileImage = watch('profileImage');
+      const [ DOB, location, bio, profileImage,] = useWatch({
+         control,
+         name: ['DOB', 'location', 'bio', 'profileImage'],
+      });
+
 
    React.useEffect(() => {
       if (profileImage && profileImage.length > 0) {
          const preview = URL.createObjectURL(profileImage[0]);
          setProfileImagePreview(preview);
+         return () => {
+            if (profileImagePreview) {
+               URL.revokeObjectURL(preview);
+            }
+         };
       }
-      return () => {
-         if (profileImagePreview) {
-            URL.revokeObjectURL(profileImagePreview);
-         }
-      };
    }, [profileImage]);
 
    return (
       <section className="py-5 max-sm:py-0 flex justify-center max-sm:items-start items-center min-h-screen">
-         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]">
-              <div className=" w-[154px] mx-auto max-sm:w-[87px]">
-               <Image
-                  className=" w-full h-auto"
-                  src="/assets/logo1.png"
-                  alt="Tecbridge Logo"
-                  width={256}
-                  height={108}
-               />
-            </div>
-            <h1 className="text-lg font-medium mt-10">
-               Welcome to Tech Bridge-City Academy!
-            </h1>
-            <p className=" my-6 mt-4 font-normal leading-[150%]">
+         <div className=" w-full sm:border border-neutral-400 rounded-[20px] px-5 pt-6 sm:w-[75%]  ">
+               <div className=" w-53.5 mx-auto">
+                  <Image
+                     className=" w-full h-auto"
+                     src="/images/edx_logo_1.png"
+                     alt="Edxelera Logo"
+                     width={256}
+                     height={108}
+                  />
+               </div>
+              
+         <h1 className="text-5xl font-medium mt-10 mb-6 text-black">Welcome to Edxelera</h1>
+
+            <p className=" my-6 mt-4 font-medium leading-[150%]">
                Let’s set things up so your learning experience feels just right
                for you{' '}
             </p>
@@ -107,6 +110,8 @@ const Page: React.FC = () => {
                            alt="Profile Image"
                            fill
                         />
+                        <ReactSVG src="/icons/gallery-add.svg" className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
+                      
                         <input
                            title="Profile Image"
                            className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0"
@@ -143,23 +148,27 @@ const Page: React.FC = () => {
                   {errors.DOB && <FormError>{errors.DOB.message}</FormError>}
                </div>
                <div>
-                  <Input
+                  <InputIconned
                      register={register}
                      input_id="location"
                      name="location"
                      placeholder="Location"
+                     LeftIcon={Sms}
                   />
                   {errors.location && (
                      <FormError>{errors.location.message}</FormError>
                   )}
                </div>
                <div>
-                  <Textarea
+                  <Textarea<WelcomeSchema>
                      register={register}
                      name="bio"
-                     input_id="bio"
-                     placeholder="Bio"
+                     placeholder="Write Bio"
                      spellCheck
+                     textarea_id='bio'
+                     rows={3}
+                     LeftIcon={Sms}
+                     className='rounded-[20px]'
                   />
                   {errors.bio && (
                      <FormError className=" text-sm text- mt-1">
@@ -168,12 +177,12 @@ const Page: React.FC = () => {
                   )}
                </div>
                <div>
-                  <button
+                  <Button disabled={!profileImage || !DOB || !location}
                      type="submit"
-                     className=" font-medium flex items-center justify-center hover:bg-primary-500  hover:cursor-pointer my-5.5 h-[50px] w-full bg-primary text-white px-2.5 py-[17px] rounded-[500px]"
+                     className=" my-5.5 h-14.25 w-full "
                   >
-                     <span>Continue</span>
-                  </button>
+                     Continue
+                  </Button>
                </div>
             </form>
          </div>

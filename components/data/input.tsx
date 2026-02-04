@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 
 interface InputPropsType<T extends FieldValues>
    extends ComponentProps<'input'> {
-   name: Path<T>;
+   name: Path<T>;  // the Path utility simply creates a union of alh the fields
    input_id?: string;
    register: UseFormRegister<T>;
    placeholder: string;

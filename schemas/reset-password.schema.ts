@@ -1,7 +1,8 @@
 import { z } from 'zod';
 
 export const resetPassSchema = z
-   .object({        password: z
+   .object({        
+      password: z
          .string()
          .min(6, 'Password must be at least 6 characters long')
          .max(100, 'Password is too long'),

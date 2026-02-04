@@ -1,6 +1,6 @@
 "use client"
 
-import {ClipboardEvent, useRef, useState} from 'react'
+import React, {ClipboardEvent, useRef, useState} from 'react'
 import { isOtpvalid } from '@/lib/utils/is-otp-valid'
 
 interface Props {
@@ -87,10 +87,14 @@ export const OtpInputGroup = ({length, onChange, inputMode='alphanumeric', onCom
     inputsRef.current[targetIndex]?.focus()
   }
 
+  const handleMouseDown =(e:React.MouseEvent)=>{
+    e.preventDefault()
+  }
+
   return (
-    <div className=' flex gap-2 *:rounded-full *:bg-white *:py-4 *:px-5 w-full  *:aspect-59/53 justify-between *:w-12 flex-1' onClick={handleOtpClick}>
+    <div className=' flex gap-2 *:rounded-full *:bg-white *:py-4 *:px-5 w-full  *:aspect-59/53 justify-between *:w-12 flex-1' onClick={handleOtpClick} onMouseDown={handleMouseDown}>
         {
-          otp.map((_, index)=><input key={index} type='text' value={otp[index]} style={{flexBasis:`${1/length*100-3}%`}} onChange={(e)=>handleChange(e.target.value, index)} ref={(el:null|HTMLInputElement)=>{inputsRef.current[index]=el}} onPaste={handlePaste} maxLength={1} onKeyDown={(e)=>handleKeyDown(e, index)} autoComplete='one-time-code' className="text-center pointer-events-none px-0!"  />)
+          otp.map((_, index)=><input key={index} type='text' value={otp[index]} style={{flexBasis:`${1/length*100-3}%`}} onChange={(e)=>handleChange(e.target.value, index)} ref={(el:null|HTMLInputElement)=>{inputsRef.current[index]=el}} onPaste={handlePaste} maxLength={1} onKeyDown={(e)=>handleKeyDown(e, index)} autoComplete='one-time-code' className="text-center  px-0! hover:bg-neutral-50/70"  />)
         }
     </div>
   )

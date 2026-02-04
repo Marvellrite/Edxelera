@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ToastContainer } from "react-toastify";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 const geistSans = Geist({
@@ -34,6 +35,9 @@ export default function RootLayout({
 }: Readonly<{
    children: React.ReactNode;
 }>) {
+
+   // const queryClient = new QueryClient(); 
+
    return (
       <html lang="en">
          <head>
@@ -55,9 +59,11 @@ export default function RootLayout({
          <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased `}
          >
-
+            {/* <QueryClientProvider client={queryClient}> */}
             {children}
             <ToastContainer icon={false} toastClassName='p-0' position='bottom-right'/>
+
+            {/* </QueryClientProvider> */}
          </body>
       </html>
    );

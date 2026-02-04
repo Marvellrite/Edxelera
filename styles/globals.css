@@ -47,6 +47,7 @@
    --color-green-light: var(--green-light);
    --color-red: var(--red);
    --color-red-light: var(--red-light);
+   --color-error: var(--red-400);
 
    /* This Section Added my Marvel */
    --color-primary-foreground: white;
@@ -62,6 +63,8 @@
    --color-hover-primary: var(--hover-primary);
    --color-hover-secondary: var(--hover-secondary);
    --color-surface: var(--surface);
+   --color-surface-foreground: var(--surface-foreground);
+   --color-ring: rgba(var(--primary-bare), 0.4);
 
    --breakpoint-sm-md: 620px;
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
@@ -98,6 +101,13 @@ body {
 button:hover {
    cursor: pointer;
 }
+
+button:disabled{
+   opacity: 0.5;
+   cursor: not-allowed;
+   pointer-events: auto;
+}
+
 
 html {
    /* overflow: hidden; */

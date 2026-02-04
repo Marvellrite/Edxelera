@@ -18,7 +18,7 @@ const Textarea = <T extends FieldValues>({
    rows = 2,
 }: TextareaPropsType<T>) => {
    return (
-      <div className=" size-full relative  pb-0 rounded-lg border border-neutral-500 ring-neutral-500 flex focus-within:ring-2 focus-within:ring-neutral-500 text-neutral-600">
+      <div className=" size-full relative  pb-0 bg-white hover:bg-neutral-50/70 ring-neutral-500 flex focus-within:ring-2 focus-within:ring-primary/60 text-neutral-600 focus-within:bg-surface-foreground! rounded-xl">
          <textarea
             {...register<Path<T>>(name)}
             className="peer  basis-full h-[85%]  self-end focus-visible:outline-none px-3 py-7"
