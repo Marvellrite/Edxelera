@@ -52,6 +52,13 @@ function Button({
    }) {
    const Comp = asChild ? Slot : 'button';
 
+   const content = (
+      <>
+         {loading && <Loader2 className="animate-spin" />}
+         {children}
+      </>
+   );
+
    return (
       <Comp
          data-slot="button"
@@ -59,8 +66,7 @@ function Button({
          disabled={disabled || loading}
          {...props}
       >
-         {loading && <Loader2 className="animate-spin" />}
-         {children}
+         {asChild ? children : content}
       </Comp>
    );
 }

@@ -65,6 +65,7 @@
    --color-surface: var(--surface);
    --color-surface-foreground: var(--surface-foreground);
    --color-ring: rgba(var(--primary-bare), 0.4);
+   --color-surface-home: var(--surface-home);
 
    --breakpoint-sm-md: 620px;
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
