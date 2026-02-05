@@ -58,8 +58,8 @@ const Page: React.FC = () => {
    const [ fullname, email, password, confirm_password ] = useWatch({control, name:['fullname', 'email', 'password', 'confirm_password']})
 
    return (
-      <section className=" max-sm:py-0 flex justify-center  min-h-screen  h-screen md:h-auto lg:py-16.25 md:w-auto">
-         <div className=" w-full md:rounded-[20px] px-5 max-sm:px-4 py-7.5 md:max-w-117   md:h-auto md:w-auto  sm:border border-neutral-400 rounded-[20px] bg-surface">
+      <section className=" max-sm:py-0 flex justify-center  min-h-screen md:h-auto lg:py-16.25 md:w-auto items-center">
+         <div className=" w-full md:rounded-[20px] px-5 max-sm:px-4 py-7.5 md:max-w-117   md:h-fit md:w-auto  sm:border border-neutral-400 rounded-[20px] bg-surface">
             <div className=" w-53.5 mx-auto">
                <Image
                   className=" w-full h-auto"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { SendPassResetSchema, sendPassResetSchema  } from '@/schemas/send-password-reset.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -21,19 +21,20 @@ export default function ResetPassEmailForm () {
       register:sendRegister,
       handleSubmit,
       formState: { errors: sendErrors },
+      control
    } = useForm<SendPassResetSchema>({resolver: zodResolver(sendPassResetSchema)})
 
 
    const router = useRouter();
 
 
+   const email = useWatch({
 
+      control,
+      name: 'email'
+   }
 
-   // const { data, isPending, error, mutate} = useMutation({
-   //  mutationFn: getOtp,
-   //  mutationKey: ['getOtp'],
-    
-   // })
+   )
 
 
 const sendOnSubmit = async (data: {email:string}) => {
@@ -52,7 +53,7 @@ const sendOnSubmit = async (data: {email:string}) => {
 
          <h1 className="text-5xl font-medium mt-10 mb-6 text-black">Reset Password</h1>
           
-                <form  className=" space-y-4" onSubmit={()=>handleSubmit(sendOnSubmit)}>
+                <form  className=" space-y-4" onSubmit={handleSubmit(sendOnSubmit)}>
                <div className=" flex justify-center flex-col gap-y-4">
              
                 {/* To-do: add otp here  */}
@@ -75,6 +76,7 @@ const sendOnSubmit = async (data: {email:string}) => {
                
                <div>
                   <Button
+                     disabled={!email}
                      type='submit'
                      className=" w-full h-14.25"
                   >

@@ -81,12 +81,11 @@ const ResetPassChangeForm: React.FC = () => {
                      type='submit'
                      className=" w-full h-14.25"
                      disabled={!password||!confirmPassword}
+                     // loading={true}
                   >
                      Change Password
                   </Button>
                </div>
-            
-               <div className=' flex justify-between font-normal text-md'><button className="p-0">Resend code</button> <Link href={'/auth/'}>Use password</Link></div>
             </form>
          </>
    );
