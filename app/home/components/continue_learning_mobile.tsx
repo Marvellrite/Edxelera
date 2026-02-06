@@ -22,9 +22,9 @@ const Continue_learning_desktop: FC<ContinueLearningProps> = ({ data }) => {
    const { selectedIndex, scrollSnaps, scrollTo } = useDotButtons(emblaApi!);
 
    return (
-      <div className="block md:hidden w-full">
+      <div className=" basis-1/2 grow ">
          <div className=" text-md font-normal mb-3 flex justify-between items-center">
-            <div>Continue learning</div>{' '}
+            <div className='text-base text-primary'>Continue learning</div>{' '}
             <div className=" space-x-2">
                {/* <Button className=" p-0 bg-primary w-4 h-[8px] rounded-[4px]" active/>{' '}
                <Button className=" p-0 bg-neutral-400 h-[8px] w-[8px] rounded-[4px]" /> */}
@@ -37,8 +37,8 @@ const Continue_learning_desktop: FC<ContinueLearningProps> = ({ data }) => {
                ))}
             </div>
          </div>
-         <div ref={emblaRef} className=" overflow-x-hidden">
-            <div className=" flex h-[252px] flex-nowrap w-full  gap-0 ">
+         <div ref={emblaRef} className=" overflow-x-hidden rounded-lg overflow-hidden">
+            <div className=" flex h-63 flex-nowrap w-full  gap-0 ">
                {data.map((data, index) => (
                   <VideoPoster key={index} {...data} />
                ))}

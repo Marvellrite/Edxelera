@@ -17,7 +17,8 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
    duration,
 }) => {
    return (
-      <div className="  relative max-md:flex-none max-md:basis-full max-md:max-w-none max-w-[374px] grow  rounded-lg ">
+      // <div className="  relative max-md:flex-none max-md:basis-full max-md:max-w-none max-w-[374px] grow  rounded-lg ">
+      <div className="  relative flex-none basis-full max-w-none grow  rounded-lg ">
          <Image
             src={posterSrc}
             className=" object-cover "

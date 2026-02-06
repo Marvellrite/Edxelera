@@ -67,6 +67,12 @@
    --color-ring: rgba(var(--primary-bare), 0.4);
    --color-surface-home: var(--surface-home);
 
+   /* Streak Colors */
+   --color-streak-surface: var(--streak-surface);
+   --color-streak-fg-active: var(--streak-fg-active);
+   --color-streak-fg-inactive: var(--streak-fg-inactive);
+   --color-streak-active-marker: var(--streak-active-marker);
+
    --breakpoint-sm-md: 620px;
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
 
@@ -91,7 +97,7 @@
 
 body {
    background: var(--color-white);
-   color: var(--color-black);
+   color: var(--text-default);
    font-family: var(--font-google-sans);
 }
 

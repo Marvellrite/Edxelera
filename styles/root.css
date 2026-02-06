@@ -1,6 +1,7 @@
 :root {
    /* COLORS */
    --black: #040506;
+   --text-default: #040506;
    --white: rgb(255, 255, 255);
    --primary-bare: 0, 17, 70;
    --primary: rgb(0, 17, 70);
@@ -57,6 +58,12 @@
    --surface: #F3F3F3;
    --surface-foreground: #FFFFFF; 
    --surface-home: #F8F9FF;
+
+   --streak-surface: #EFF8FF;
+   --streak-fg-active: #D9EEFF;
+   --streak-fg-inactive: var(--neutral-400);
+   --streak-active-marker: #001146;
+
 }
 
 /* .dark :root {

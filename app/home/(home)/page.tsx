@@ -9,6 +9,7 @@ import Ratings from '../components/ratings';
 import Video_card from '../components/video_card';
 import Continue_learning_desktop from '../components/continue_learning_desktop';
 import Continue_learning_mobile from '../components/continue_learning_mobile';
+import StreakDisplay from '@/components/features/streak-display'
 
 const Page: React.FC = () => {
    const [data, setData] = useState(mock_data);
@@ -23,10 +24,17 @@ const Page: React.FC = () => {
 
    return (
       <section className="p-6 py-12 ">
+
+         <>
          {/* For Users that have started learning a course */}
-          {/* <div className=" space-y-9">
-            <Continue_learning_desktop data={data} />
-            <Continue_learning_mobile data={data} />
+
+          <div className=" space-y-9">
+            {/* <Continue_learning_desktop data={data} /> */}
+            <div className=' flex gap-3'>
+
+               <StreakDisplay/>
+               <Continue_learning_mobile data={data} />
+            </div>
             <div>
                <div className=" text-md font-normal mb-3 flex justify-between">
                   <span>You may also like</span>
@@ -55,11 +63,16 @@ const Page: React.FC = () => {
                   ))}
                </div>
             </div>
-         </div> */}
+         </div>
 
+         
+         </>
+          
+
+         <>
          {/* For Users that have not started learning a course yet */}
-
-          <div className=" space-y-9">
+         
+          {/* <div className=" space-y-9">
             <div className=" h-[252px] bg-primary rounded-xl flex items-end">
                <div className=" mt-auto flex justify-between items-end text-white p-6 pb-7 basis-full max-md:flex-col max-md:items-start max-md:gap-4 max-md:px-4 max-md:py-3.5">
                   <div className=" space-y-2">
@@ -94,7 +107,10 @@ const Page: React.FC = () => {
                   ))}
                </div>
             </div>
-         </div> 
+         </div>  */}
+         
+         </>
+
       </section>
    );
 };

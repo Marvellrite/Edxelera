@@ -24,15 +24,24 @@ const Header: React.FC = () => {
 
    return (
       <header className="flex items-center justify-between px-5 pt-5 h-fit w-full text-neutral-700">
-         <div
-            className={`${myCourses || community || myProfile || settings ? 'md:hidden' : 'md:flex'} hidden md:flex items-center gap-3 border-2 border-neutral-500 w-1/3 h-14 p-2 rounded-full focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 `}
-         >
-            <ReactSVG src="/icons/search-outline.svg" width={25} height={25} />
-            <input
-               type="search"
-               placeholder="Search for Courses"
-               className="w-full border-none outline-none"
+
+            <div className=' flex gap-2 items-center'>  
+            <Image
+               src="/icons/photo.png"
+               alt="user image"
+               className="h-10 w-10 rounded-full"
+               width={25}
+               height={25}
             />
+
+            <div>
+               <p className="hidden md:flex text-neutral-600">
+                  Good Morning
+               </p>
+               <p className="font-medium text-neutral-900">
+                  Nkechi Johnson
+               </p>
+            </div>
          </div>
 
          <p className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0">
@@ -57,6 +66,18 @@ const Header: React.FC = () => {
             <div
                className={`${!home ? 'hidden md:flex' : ''} flex flex-row-reverse md:flex-row justify-between md:justify-normal gap-3 items-center w-full`}
             >
+
+                <div
+            className={`${myCourses || community || myProfile || settings ? 'md:hidden' : 'md:flex'} hidden md:flex items-center gap-3 bg-white w-1/3 h-14 p-2 rounded-full focus-within:ring-primary/60 ring-2 ring-transparent `}
+         >
+            <ReactSVG src="/icons/search-outline.svg" width={25} height={25} />
+            <input
+               type="search"
+               placeholder="Search for Courses"
+               className="w-full border-none outline-none"
+            />
+         </div>
+
                <ReactSVG
                   src="/icons/notification.svg"
                   width={25}
@@ -64,30 +85,13 @@ const Header: React.FC = () => {
                   className="hover:cursor-pointer"
                />
                <div className="flex flex-row-reverse md:flex-row gap-3 items-center md:border-l-2 border-neutral-100 md:px-3">
-                  <div>
-                     <p className="flex md:hidden text-sm text-neutral-600">
-                        Good Morning
-                     </p>
-                     <p className="font-medium text-neutral-900">
-                        Nkechi Johnson
-                     </p>
-                     <p className="hidden md:flex text-neutral-600">
-                        nkechij112@gmail.com
-                     </p>
-                  </div>
-                  <Image
-                     src="/icons/photo.png"
-                     alt="user image"
-                     className="h-10 w-10 rounded-full"
-                     width={25}
-                     height={25}
-                  />
-                  <ReactSVG
+                 
+                  {/* <ReactSVG
                      src="/icons/dropdown.svg"
                      width={25}
                      height={25}
                      className="hidden md:flex"
-                  />
+                  /> */}
                   <div className="hidden md:flex gap-2 border border-neutral-500 rounded-full p-1 focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 ">
                      <ReactSVG
                         src="/icons/sun.svg"
