@@ -22,9 +22,9 @@ const streakData:StreakProps[] = [{
 
 const StreakDisplay = () => {
   return (
-    <div className=' grow basis-1/2'>
+    <div className=' grow basis-1/2 h-66'>
         <p className=' pb-3 pt-1 text-primary '>Your Streak</p>
-        <div className=' rounded-lg bg-streak-surface h-full px-4.5 py-13.5'>
+        <div className=' rounded-lg bg-streak-surface h-full px-4.5 pt-13.5 pb-4'>
             <div className='space-y-6'>
             <div className=' flex gap-2.5 items-center'>
                 <Flash/>

@@ -3,8 +3,9 @@ import type { SVGProps } from 'react';
 const SvgFireNone = (props: SVGProps<SVGSVGElement>) => (
    <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={28}
-      height={36}
+      viewBox="0 0 28 36"
+      width={props.width ?? 24}
+      height={props.height ?? 24}
       fill="none"
       {...props}
    >

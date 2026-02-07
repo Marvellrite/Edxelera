@@ -113,7 +113,7 @@ export const Sidebar: React.FC = () => {
                   type="button"
                   aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
                   onClick={toggleSidebar}
-                  className={cn("hover:cursor-pointer bg-transparent border-none p-0 transition-all duration-600", isOpen?'opacity-100 w-[25px]':'opacity-0 w-0 pointer-events-none')}
+                  className={cn("hover:cursor-pointer bg-transparent border-none p-0 transition-all duration-600", isOpen?'opacity-100 w-6.25':'opacity-0 w-0 pointer-events-none')}
                >
                   {React.createElement(IconsMap['Toggle'], { width: 25, height: 25 })}
                </button>
@@ -130,7 +130,7 @@ export const Sidebar: React.FC = () => {
                      IconsMap[pathname === links[0].href ? links[0].icon : links[0].outline],
                      { width: 25, height: 25, className: ' translate-x-0.5 duration-0 ' }
                   )}
-                  <span className={cn('duration-600 transition-all', isOpen?' opacity-100':' opacity-0 ')}>{links[0].label}</span>
+                  <span className={cn('duration-600 transition-all', isOpen?' opacity-100 delay-250':' opacity-0 delay-0')}>{links[0].label}</span>
                </Link>
 
              
@@ -145,7 +145,7 @@ export const Sidebar: React.FC = () => {
                      IconsMap[pathname === link.href ? link.icon : link.outline],
                      { width: 25, height: 25, className: ' translate-x-0.5 duration-0 ' }
                   )}
-                   <span className={cn('duration-600 transition-all text-nowrap', isOpen?' opacity-100':' opacity-0 ')}>{link.label}</span>
+                   <span className={cn('duration-600 transition-all text-nowrap', isOpen?' opacity-100 delay-250':' opacity-0 delay-0')}>{link.label}</span>
                </Link>
             ))}
          </nav>

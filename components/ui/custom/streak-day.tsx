@@ -12,7 +12,7 @@ const StreakDay = ({status, day, isCurrentDay=false}:StreakProps) => {
     <div style={{flexBasis:'11.7%'}} className=' flex flex-col justify-center gap-1.5 relative'>
         <p className=' text-md font-medium w-fit self-center'>{day}</p>
         <div  className={cn(' relative flex items-center justify-center aspect-square rounded-full ', status==='active'?'bg-streak-fg-active': status==='inactive'?'bg-streak-fg-inactive':'bg-neutral-400')}>{
-            status==='active'?<FireHot width={28} height={36}/>: status==='inactive'?<FireCold/>:<FireNone/>
+            status==='active'?<FireHot className='aspect-[21/28] h-fit' width={'50%'} height={'auto'}/>: status==='inactive'?<FireCold className='aspect-[21/28] h-fit' width={'50%'} height={'auto'}/>:<FireNone className='aspect-[21/28] h-fit' width={'50%'} height={'auto'}/>
         }
            {
             isCurrentDay &&

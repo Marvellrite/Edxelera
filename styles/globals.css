@@ -52,6 +52,7 @@
    /* This Section Added my Marvel */
    --color-primary-foreground: white;
    --color-secondary-foreground: white;
+   --color-surface-foreground: white;
    --color-accent: var(--primary);
    --color-accent-foreground: white;
    --color-border: var(--color-neutral-100);

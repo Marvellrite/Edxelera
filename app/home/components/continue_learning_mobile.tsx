@@ -38,7 +38,7 @@ const Continue_learning_desktop: FC<ContinueLearningProps> = ({ data }) => {
             </div>
          </div>
          <div ref={emblaRef} className=" overflow-x-hidden rounded-lg overflow-hidden">
-            <div className=" flex h-63 flex-nowrap w-full  gap-0 ">
+            <div className=" flex h-66 flex-nowrap w-full  gap-0 ">
                {data.map((data, index) => (
                   <VideoPoster key={index} {...data} />
                ))}

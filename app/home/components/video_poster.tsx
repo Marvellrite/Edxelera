@@ -25,21 +25,26 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
             alt="Video Poster"
             fill
          />
-         <div className=" absolute bg-black/30 w-full h-full left-0 top-0 flex flex-col justify-end p-4 px-3 ">
-            <div className=" flex flex-col -space-y-1">
-               <p className=" text-white text-xl font-medium leading-[150%]">
-                  {title}
-               </p>
-               <p className=" font-normal text-md text-white">{duration}</p>
+         <div className=" absolute bg-black/30 w-full h-full left-0 top-0 flex justify-end flex-col p-4 px-3 ">
+            <div className='flex justify-between'>
+               <div className=" flex flex-col -space-y-1">
+                  <p className=" text-white text-md font-medium leading-[150%]">
+                     {title}
+                  </p>
+                  <p className=" font-normal text-[14px] text-white">{duration}</p>
+               </div>
+
+               <div><Button className=' h-9 text-xs font-medium px-3.5 py-2.5'>Go to Course</Button></div>
+
             </div>
          </div>
 
-         <Button
+         {/* <Button
             className=" hover:cursor-pointer rounded-[500px] size-[58px] bg-white absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center hover:bg-white"
             variant="ghost"
          >
             <ReactSVG src="/icons/play.svg" />
-         </Button>
+         </Button> */}
       </div>
    );
 };

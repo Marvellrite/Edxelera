@@ -30,17 +30,17 @@ const Page: React.FC = () => {
 
           <div className=" space-y-9">
             {/* <Continue_learning_desktop data={data} /> */}
-            <div className=' flex gap-3'>
+            <div className=' flex gap-3 lg:flex-row flex-col'>
 
                <StreakDisplay/>
                <Continue_learning_mobile data={data} />
             </div>
             <div>
-               <div className=" text-md font-normal mb-3 flex justify-between">
-                  <span>You may also like</span>
+               <div className=" text-md font-normal mb-3 flex justify-between h-6 text-center">
+                  <span className='flex items-center text-base text-primary'>You may also like</span>
                   <Button
-                     className=" rounded-[500px] text-accent"
-                     variant={'ghost'}
+                     className=" text-center rounded-[500px] text-primary text-base p-0 size-fit"
+                     variant={'link'}
                   >
                      See all
                   </Button>
@@ -48,7 +48,7 @@ const Page: React.FC = () => {
 
                <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
                   {mock_data_al.map((data, index) => (
-                     <Video_card key={index} {...data} />
+                     <Video_card hideCta key={index} {...data} />
                   ))}
                </div>
             </div>
@@ -59,7 +59,7 @@ const Page: React.FC = () => {
 
                <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
                   {mock_data_al.map((data, index) => (
-                     <Video_card key={index} {...data} />
+                     <Video_card hideCta key={index} {...data} />
                   ))}
                </div>
             </div>
