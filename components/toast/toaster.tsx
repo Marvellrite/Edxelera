@@ -14,7 +14,7 @@ interface Props {
 
 export const SuccessToast = ({msg:{title, body}}: Props)=>{
     return(
-    <div className=" space-y-1 bg-green-light text-green p-4">
+    <div className="w-full space-y-1 bg-green-light text-green p-4">
 
         <div className="flex gap-2 items-center ">
             <ReactSVG src="/icons/success.toaster.svg"/>
@@ -29,17 +29,17 @@ export const SuccessToast = ({msg:{title, body}}: Props)=>{
 }
 
 
-export const ErrorToast = ()=>{
+export const ErrorToast = ({msg:{title, body}}: Props)=>{
     return(
-    <div className=" space-y-1 bg-red-light text-red p-4">
+    <div className="w-full space-y-1 bg-red-light text-red p-4">
 
         <div className="flex gap-2 items-center ">
             <ReactSVG src="/icons/error.toaster.svg"/>
-            <div className=" text-[16px] font-medium">Password reset successfully</div>
+            <div className=" text-[16px] font-medium">{title}</div>
         </div>
 
         <div className=" text-[14px] font-normal mt-2">
-            You have successfully reset your password. You can now proceed to login
+            {body}
         </div>
     </div>
     )

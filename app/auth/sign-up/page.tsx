@@ -15,6 +15,10 @@ import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons
 import { Button } from '@/components/ui/button';
 import { toast } from "react-toastify";
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
+import { useSignUp } from '@/api/auth';
+
+const SUCCESS_TOAST_DURATION_MS = 1800;
+const ERROR_TOAST_DURATION_MS = 2500;
 
 const Page: React.FC = () => {
    const {
@@ -35,24 +39,22 @@ const Page: React.FC = () => {
       const [isPasswordVisible, setIsPasswordVisible] = useState(false)
       const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false)
 
-   const ServerURL = process.env.NEXT_PUBLIC_SERVER_URL;
-
    const router = useRouter();
-
-   const onSubmit = async (data:Omit<SigninSchema, "confirm_password">) => {
-      const response = await fetch(`${ServerURL}/auth/sign-up`, {
-         method: 'POST',
-         body: JSON.stringify(data),
-         headers: {
-            "Content-Type": "application/json"
-         }
-      });
-
-      if (response.ok) {
-         //  toast.success(() => <SuccessToast msg={{ title: 'Success', body: 'Login successful' }} />, {closeButton:false,});
-         return router.push('/home');
+   const { mutate: signUp, isPending } = useSignUp({
+      onSuccess: (data) => {
+         toast.success(() => <SuccessToast msg={{ title: 'Success', body: data.message || 'Account created successfully' }} />, {closeButton:false, autoClose: SUCCESS_TOAST_DURATION_MS, onClose: ()=>router.push('/auth/verify-email') });
+         
+         // First save email to the pendingEmail cookie before routiong to the verify-email page
+         document.cookie = `pendingEmail=${email}; path=/; max-age=600`; 
+         
+      },
+      onError: (error) => {
+         toast.error(() => <ErrorToast msg={{ title: 'Error', body: error.message || 'Failed to create account' }} />, {closeButton:false, autoClose: ERROR_TOAST_DURATION_MS});
       }
-      return;
+   });
+
+   const onSubmit = (data:Omit<SigninSchema, "confirm_password">) => {
+      signUp(data);
    };
 
    const [ fullname, email, password, confirm_password ] = useWatch({control, name:['fullname', 'email', 'password', 'confirm_password']})
@@ -135,11 +137,12 @@ const Page: React.FC = () => {
                   <div className=' mb-5 text-md text-center'>Already have an account? <Button className='p-0 font-medium h-fit' variant="link" asChild><Link href={"/auth"}>Login</Link></Button> </div>
 
                   <div>
-                     <Button disabled={!fullname || !email || !password || !confirm_password}
+                     <Button disabled={!fullname || !email || !password || !confirm_password || isPending}
                         type="submit"
                         className=' w-full h-14.25'
+                        loading={isPending}
                      >
-                        Sign Up
+                        {isPending ? 'Creating Account...' : 'Sign Up'}
                      </Button>
                   </div>
                

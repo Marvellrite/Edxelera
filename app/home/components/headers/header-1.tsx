@@ -1,13 +1,20 @@
+'use client'
+
 import SearchBar from "../search-bar";
 import Image from "next/image";
 import { Notification } from "@/components/icons/modified";
 import { useTheme } from "@/app/hooks/useTheme";
 import { Sun, MoonOutline } from "@/components/icons/modified";
-
+import { useStudentSession } from "@/app/hooks/useStudentSession";
 
 const Header = () => {
+    const { user } = useStudentSession();
+    const { toggleTheme } = useTheme();
 
-       const { theme, toggleTheme } = useTheme();
+    const displayName = user?.fullname || 'Student';
+
+    const hour = new Date().getHours();
+    const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
 
   return (
       <header className=" px-4 pt-5 h-fit w-full text-neutral-700 flex flex-col gap-6 lg:gap-0">
@@ -28,10 +35,10 @@ const Header = () => {
 
             <div>
                <p className="hidden md:flex text-neutral-600">
-                  Good Morning
+                  {greeting.toUpperCase()}
                </p>
                <p className="font-medium text-neutral-900">
-                  Nkechi Johnson
+                  {displayName.toUpperCase()}
                </p>
             </div>
          </div>

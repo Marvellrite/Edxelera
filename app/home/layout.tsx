@@ -1,37 +1,26 @@
-'use client'
-
-// import '../globals.css';
-import { Sidebar, Tabs } from './components/nav';
-// import Header from './components/header';
 import ContextProvider from '../context';
-import { SidebarProvider, useSidebar } from './context/sidebar-context';
+import { SidebarProvider } from './context/sidebar-context';
+import HomeLayoutContent from './components/layout/homeLayout';
+import { getQueryClient } from '../lib/query-client';
+import UserFetchOptions from '@/api/user/fetchOptions';
+import ClearPendingEmailOnLoad from './components/clear-pending-email-on-load';
+import { getAuthenticatedUserId } from '../lib/server/get-authenticated-user-id';
 
-function HomeLayoutContent({
+export default async function HomeLayout({
    children,
 }: Readonly<{
    children: React.ReactNode;
 }>) {
-   const { isOpen } = useSidebar();
+      const queryClient = getQueryClient();
+      const userId = await getAuthenticatedUserId();
+      console.log(userId)
 
-   return (
-      <main className="flex flex-1 h-screen overflow-y-auto  w-full max-md:flex-col bg-surface-home">
-         <Sidebar />
-         <section className={`grow overflow-y-auto flex-1 duration-600 transition-all ${isOpen ? 'md:ml-0' : 'md:ml-0'}`}>
-            {children}
-         </section>
-         <Tabs />
-      </main>
-   );
-}
+      await queryClient.prefetchQuery(UserFetchOptions.getUserDetails(userId));
 
-export default function HomeLayout({
-   children,
-}: Readonly<{
-   children: React.ReactNode;
-}>) {
    return (
       <ContextProvider>
          <SidebarProvider>
+            <ClearPendingEmailOnLoad />
             <HomeLayoutContent>{children}</HomeLayoutContent>
          </SidebarProvider>
       </ContextProvider>

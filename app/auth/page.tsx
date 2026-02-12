@@ -15,6 +15,7 @@ import { LockOutline, Sms } from '@/components/icons/modified';
 import { Eye, EyeSlash } from '@/components/icons/modified';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import { toast } from "react-toastify";
+import { useSignIn } from '@/api/auth';
 
 
 const Page: React.FC = () => {
@@ -30,27 +31,25 @@ const Page: React.FC = () => {
       resolver: zodResolver(loginSchema),
    });
 
-   const ServerURL = process.env.NEXT_PUBLIC_SERVER_URL;
-
    const router = useRouter();
 
-   const onSubmit = async (data: LoginSchema) => {
-      // console.log(data);
-      // console.log(data.email);
+   const { mutate: signIn, isPending } = useSignIn({
+      onSuccess: (data) => {
+         toast.success(
+            () => <SuccessToast msg={{ title: 'Success', body: data.message || 'Login successful' }} />,
+            { closeButton: false, onClose: () => router.push('/home') }
+         );
+      },
+      onError: (error) => {
+         toast.error(
+            () => <ErrorToast msg={{ title: 'Error', body: error.message || 'Login failed' }} />,
+            { closeButton: false }
+         );
+      },
+   });
 
-     
-      // toast.error(() => <ErrorToast msg={{ title: 'Error', body: 'Login failed' }} />, {closeButton: false});
-      
-      const response = await fetch(`${ServerURL}/auth/signin`, {
-         method: 'POST',
-         body: JSON.stringify(data),
-      });
-      
-      if (response.ok) {
-         //  toast.success(() => <SuccessToast msg={{ title: 'Success', body: 'Login successful' }} />, {closeButton:false,});
-         return router.push('/home');
-      }
-      return;
+   const onSubmit = (data: LoginSchema) => {
+      signIn(data);
    };
 
    const [email, password] = useWatch({control, name:['email', 'password']})
@@ -118,9 +117,10 @@ const Page: React.FC = () => {
                      <Button
                         type="submit"
                         className=" w-full h-14.25"
-                        disabled={!email || !password}
+                        disabled={!email || !password || isPending}
+                        loading={isPending}
                      >
-                        Login
+                        {isPending ? 'Logging in...' : 'Login'}
                      </Button>
                   </div>
                </form>
