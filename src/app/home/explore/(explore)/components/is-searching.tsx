@@ -3,7 +3,7 @@ import { Clock, X } from '@/components/icons/modified'
 
 const IsSearching = () => {
   return (
-    <div className=' h-full px-6 pt-6'>
+    <div className=' h-full pt-6'>
         <div className=' mb-4 text-neutral-800'>Recent Searches</div>
         <div className=' flex flex-col text-md text-neutral-700'>
             <div className='flex justify-between h-14.75'>

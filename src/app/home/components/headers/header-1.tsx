@@ -1,12 +1,13 @@
 'use client'
 
-import SearchBar from "../search-bar";
+import SearchBar from "../nav-search-bar";
 import Image from "next/image";
 import { Notification } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
 import { Sun, MoonOutline } from "@/components/icons/modified";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
+import ThemeTogglerComponent from "@/components/common/theme-toggler";
 
 const Header = () => {
     const { user } = useStudentSession();
@@ -69,23 +70,13 @@ const Header = () => {
             <div className=' flex items-center md:gap-0 lg:gap-2'>
 
                {/* Notification + theme toggler component */}
+         
+               <button>
 
                <Notification className='text-primary' />
+               </button>
 
-               <div className="flex  gap-3 items-center md:border-l-2 border-neutral-100 md:px-3 md:hidden lg:flex">
-                 
-                  
-                  <div className="hidden md:flex gap-2 border border-neutral-500 rounded-full p-1 focus-within:ring-2 focus-within:text-neutral-100 transition-all duration-300 ">
-                     {/* Theme toggler component */}
-                     <button className="bg-primary rounded-full p-1 hover:cursor-pointer"
-                            onClick={() => toggleTheme('light')}>
-                        <Sun/>
-                     </button>
-                     <button className=" rounded-full p-1 hover:cursor-pointer" onClick={() => toggleTheme('dark')}>
-                     <MoonOutline/>       
-                     </button>
-                  </div>
-               </div>
+                  <ThemeTogglerComponent/>
 
             </div>
             </div>

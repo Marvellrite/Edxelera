@@ -4,7 +4,7 @@ import { mock_data as mock_data_al } from '../../mock_data';
 
 const CourseList = () => {
    return (
-      <section className="p-6 py-12">
+      <section className="">
          {/* For Users that have started learning a course */}
 
          <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">

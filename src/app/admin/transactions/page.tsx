@@ -3,7 +3,7 @@ import Overview from '@/components/admin_and_instructors/features/transaction/ov
 import Transactions from '@/components/admin_and_instructors/features/transaction/transactions'
 // import { useSidebar } from '../_context/sidebar'
 import { useSidebar } from '@/context/sidebar'
-import Pagination from '@/components/admin_and_instructors/ui/pagination'
+import Pagination from '@/components/common/pagination'
 
 const Page = () => {
   const { toggle } = useSidebar();

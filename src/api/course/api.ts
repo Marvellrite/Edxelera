@@ -108,9 +108,9 @@ const buildQueryString = (params?: CourseListQueryParams) => {
   return query ? `?${query}` : "";
 };
 
-const request = async <T>(path: string, options?: RequestInit): Promise<T> => {
+const request = async <T>(path: string, options?: RequestInit, useProxy: boolean = false): Promise<T> => {
   const token = getBearerToken();
-  const response = await fetch(`/api/proxy/${path}`, {
+  const response = await fetch(`${useProxy?`/api/proxy/${path}`:`${path}`}`, {
     credentials: "include",
     ...options,
     headers: {
@@ -146,7 +146,7 @@ export const courseAPI = {
       method: "POST",
       body: JSON.stringify(data),
       credentials: 'include'
-    }),
+    }, true),
 
   editCourse: ({ courseId, data }: EditCoursePayload) =>
     request<CourseAPIResponse<Course>>(`/courses/${courseId}/edit`, {

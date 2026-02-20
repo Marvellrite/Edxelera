@@ -8,7 +8,7 @@ import { users } from '@/mockdata/user-management'
 import { Badge } from '@/components/admin_and_instructors/ui/badge'
 import { ArrowDownLinear, X } from '@/components/admin_and_instructors/icons/modified'
 import { Button } from '@/components/ui/button'
-import Pagination from '@/components/admin_and_instructors/ui/pagination'
+import Pagination from '@/components/common/pagination'
 import { useState } from 'react'
 import { Dialog } from '@/components/admin_and_instructors/ui/custom/dialog'
 
