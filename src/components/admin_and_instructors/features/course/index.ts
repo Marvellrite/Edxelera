@@ -1,0 +1,1 @@
+export { default as SuspendCourseModal } from '@/components/features/course/modals/custom-modal'
