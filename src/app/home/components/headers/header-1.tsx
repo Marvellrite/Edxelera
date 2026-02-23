@@ -2,7 +2,7 @@
 
 import SearchBar from "../nav-search-bar";
 import Image from "next/image";
-import { Notification } from "@/components/icons/modified";
+import { Bell } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
 import { Sun, MoonOutline } from "@/components/icons/modified";
 import { useStudentSession } from "@/hooks/useStudentSession";
@@ -69,11 +69,11 @@ const Header = () => {
 
             <div className=' flex items-center md:gap-0 lg:gap-2'>
 
-               {/* Notification + theme toggler component */}
+               {/* Bell + theme toggler component */}
          
                <button>
 
-               <Notification className='text-primary' />
+               <Bell className='text-primary' />
                </button>
 
                   <ThemeTogglerComponent/>

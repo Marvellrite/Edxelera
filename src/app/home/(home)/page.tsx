@@ -5,7 +5,7 @@ import VideoPoster from '../components/video_poster';
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
 import { Button } from '@/components/ui/button';
-import Ratings from '../components/ratings';
+import Ratings from '../../../components/common/rating';
 import Video_card from '../components/video_card';
 import Continue_learning_desktop from '../components/continue_learning_desktop';
 import Continue_learning_mobile from '../components/continue_learning_mobile';

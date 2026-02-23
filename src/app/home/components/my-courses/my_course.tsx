@@ -60,12 +60,13 @@ const My_course: React.FC<VideoCardProps> = ({
          ) : (
             <div className=" flex gap-2">
                <Button
-                  variant={'outline'}
-                  className=" hover:cursor-pointer grow rounded-[500] h-[45px] text-[14px] font-medium text-primary border-primary"
-               >
+                  className=' grow'
+                  variant={'secondary'}
+                  >
                   Revisit Course
                </Button>
-               <Button className=" hover:cursor-pointer grow rounded-[500] h-[45px] text-[14px] font-medium ">
+               <Button
+                  className=' grow'>
                   Get Certificate
                </Button>
             </div>

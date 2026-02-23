@@ -6,6 +6,7 @@ const SvgBackArrow = ({size=24, ...props}: IconProp)=> (
       width={size}
       height={size}
       fill="none"
+      viewBox="5.5 6.5 20 17"
       {...props}
    >
       <path

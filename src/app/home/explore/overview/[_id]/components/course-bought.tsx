@@ -1,5 +1,5 @@
 import Course_poster_bought from "./course_poster_bought"
-import Course_arrangement from "./course_arrangement"
+import CourseDetailsSections from "../../../../../../components/features/courses/course_arrangement"
 import CohortStartedModal from "./cohort-started-modal"
 import { Button } from "@/components/ui/button"
 
@@ -10,7 +10,7 @@ const CourseBought = () => {
          <div className="  py-10 max-md:pt-0 pt-5  mx-auto">
          
             <Course_poster_bought />
-            <Course_arrangement />
+            <CourseDetailsSections />
 
             <div className=" flex justify-center mt-10">
             <Button

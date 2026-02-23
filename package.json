@@ -7,7 +7,8 @@
       "build": "next build",
       "start": "next start",
       "lint": "eslint",
-      "icons:build": "svgr public/icons/ --out-dir components/icons/generated --typescript"
+      "icons:build": "svgr public/icons/ --out-dir components/icons/generated --typescript",
+      "svg:viewbox": "node scripts/svg-viewbox-from-path.mjs"
    },
    "dependencies": {
       "@gsap/react": "^2.1.2",

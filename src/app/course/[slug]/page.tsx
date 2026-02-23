@@ -1,11 +1,11 @@
-import CourseHeroSection from '../../../../../../components/features/courses/course_poster';
-import CourseDetailsSections from '../../../../../../components/features/courses/course_arrangement';
+import CourseHeroSection from '@/components/features/courses/course_poster';
+import CourseDetailsSections from '@/components/features/courses/course_arrangement';
 
 import { Button } from '@/components/ui/button';
 
-const CourseNotBought = () => {
+const CoursePage = () => {
    return (
-      <section className="px-8 xl:px-15 py-10 max-md:px-0 max-md:py-0 max-md:-mt-5 ">
+      <section className="">
          <div className="  py-10 max-md:pt-0 pt-5  mx-auto">
             <CourseHeroSection />
             <CourseDetailsSections />
@@ -20,4 +20,4 @@ const CourseNotBought = () => {
    );
 };
 
-export default CourseNotBought;
+export default CoursePage;

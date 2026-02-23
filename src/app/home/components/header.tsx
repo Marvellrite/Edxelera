@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { Header1, Header2 } from './headers';
+import { Header1, Header2, Header3 } from './headers';
 
 // Header mapping object - maps pathname segment to header component
 const headerMap: Record<string, React.ComponentType> = {
    home: Header1,
    explore: Header2,
-   'my-courses': Header1,
+   'my-courses': Header3,
    community: Header1,
    'my-profile': Header1,
    settings: Header1,

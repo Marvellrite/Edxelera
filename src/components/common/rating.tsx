@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FullStar, EmptyStar, HalfStar } from './Stars';
+import { FullStar, EmptyStar, HalfStar } from '../../app/home/components/Stars';
 
 interface StarRatingProps {
    value: number; // e.g. 3.5

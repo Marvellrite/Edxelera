@@ -1,4 +1,4 @@
-import { Course_status } from './types';
+import { Course_status } from "@/types/my-courses/course-status";
 
 const mock_data = [
    {

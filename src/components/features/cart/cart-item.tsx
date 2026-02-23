@@ -6,8 +6,9 @@ import Rating from '@/components/common/rating';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { MinusCircle } from '@/components/icons/modified';
 
-interface VideoCardProps {
+interface CartItemProps {
    // Define any props if needed in the future
    posterSrc: string;
    title: string;
@@ -15,22 +16,20 @@ interface VideoCardProps {
    duration: string;
    rating: number;
    _id: string;
-   hideCta?: boolean
 }
 
-const Video_card: React.FC<VideoCardProps> = ({
+const CartItem: React.FC<CartItemProps> = ({
    posterSrc,
    title,
    price,
    duration,
    rating,
-   hideCta=false,
    _id = '3',
 }) => {
    const [ratingVal, setRatingVal] = useState<number>(rating);
 
    return (
-      <div className=" grow  border border-neutral-400 rounded-xl p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+      <div key={_id} className=" grow  border border-neutral-400 rounded-xl p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
          {/* The Video Info Card */}
          <div className=" h-[150px] relative">
             <Image
@@ -40,7 +39,7 @@ const Video_card: React.FC<VideoCardProps> = ({
                fill
             />
          </div>
-         <div className={cn(" flex flex-col  mt-2 ", !hideCta && "mb-3")}>
+         <div className={cn(" flex flex-col mb-3")}>
             <span className=" text-lg">{title}</span>
             <span className=" font-bold text-md">
                &#8358;{formatMoney(price)}
@@ -53,20 +52,9 @@ const Video_card: React.FC<VideoCardProps> = ({
                </span>
             </div>
          </div>
-
-         {
-         !hideCta &&
-         <div className=" hidden md:block">
-            <Link
-               href={`/home/explore/overview/${_id}`}
-               className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium text-center bg-primary text-accent-foreground flex items-center justify-center"
-            >
-               <span>Get Course</span>
-            </Link>
-         </div>
-         }
+         <button className='p-0'><MinusCircle/></button>
       </div>
    );
 };
 
-export default Video_card;
+export default CartItem;

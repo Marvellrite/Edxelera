@@ -8,7 +8,7 @@ import { QuizAnswers } from '../types'
 import SubmitQuizDialog from './submit_dialogue'
 import { ReactSVG } from 'react-svg'
 import Textarea from '@/components/data/textarea-noHook'
-import StarRating from '@/app/home/components/ratings'
+import StarRating from '@/components/common/rating'
 
 const ModuleAssessment = () => {
      const refinedQuizData = QuizData.map((q) => ({

@@ -1,23 +1,27 @@
-import SearchBar from "../nav-search-bar";
+'use client';
+
 import Image from "next/image";
-import { Bell, ArrowDown, Sort,  } from "@/components/icons/modified";
-import { useTheme } from "@/hooks/useTheme";
-import { } from "@/components/icons/modified";
+import { Bell, SearchOutline } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import { Button } from "@/components/ui/button";
+import { Course_status } from "@/types/my-courses/course-status";
+import { useMyCoursesActiveCategoryStore } from "@/stores/my-courses-active-category";
+import SearchBar from "../nav-search-bar";
 
 
 const Header = () => {
 
            const { user } = useStudentSession();
-           const { toggleTheme } = useTheme();
            console.log(user)
        
            const displayName = user?.fullname || 'Student';
        
            const hour = new Date().getHours();
            const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+           const activeTab = useMyCoursesActiveCategoryStore((state) => state.activeCategory);
+           const setActiveTab = useMyCoursesActiveCategoryStore((state) => state.setActiveCategory);
 
   return (
       <header className=" pt-5 h-fit w-full text-neutral-700 ">
@@ -25,13 +29,13 @@ const Header = () => {
         <div className=" space-y-7.5">
 
 
-            <div className='hidden md:flex justify-between'>
+            <div className='hidden md:flex '>
 
                     {/* Top half of the navbar */}
 
-                    <h1 className=' font-medium text-[40px] text-neutral-900'>Explore</h1>
+                    <h1 className=' font-medium text-[40px] text-neutral-900 grow basis-1/2'>My Courses</h1>
 
-                    <div className=" flex justify-end w-full gap-x-5">
+                    <div className=" flex justify-end w-full gap-x-5 grow basis-1/2">
                         
                         <div className=' flex gap-3 items-center ms-3'>  
                             <Image
@@ -53,7 +57,7 @@ const Header = () => {
                         </div>
                 
                 
-                        {/* Bell + theme toggler component */}
+                        {/* Notification + theme toggler component */}
                         <button className="p-0">
                         <Bell className='text-primary' />
                         </button>   
@@ -69,28 +73,37 @@ const Header = () => {
             <div className='flex items-center justify-between'>
             {/* Bottom Half of the navbar */}
 
-            <div className=' basis-1/2 grow'>
-            {/* First half of the bottom of the header */}
-
-            <SearchBar/>
-
+            <div className="flex justify-between h-12 items-center w-full">
+            <div className=" flex gap-3 items-center">
+               {['All', 'Ongoing', 'Completed'].map((tab, index) => (
+                  <Button
+                     key={index}
+                     className={` border  rounded-[500px] h-full  py-3 px-4 font-normal  ${activeTab === tab ? 'border-primary text-primary' : 'border-neutral-500 text-neutral-600'}`}
+                     variant={'outline'}
+                     onClick={() => setActiveTab(tab as Course_status)}
+                  >
+                     {tab}
+                  </Button>
+               ))}
             </div>
-
-
-            
-            <div
-                className={`basis-1/2 grow lg:justify-between justify-end hidden lg:block`}
-            >
-                {/* 2nd Half of the header */}
-                <div className=" flex justify-end gap-2 w-full">
-                    <button className=" bg-surface-foreground h-[56px] px-4 gap-1 flex items-center rounded-full">
-                        <span>Category</span> <ArrowDown/>
-                    </button>
-                    <button className=" bg-surface-foreground h-[56px] px-4 gap-1 flex items-center rounded-full">
-                        <span>Filter</span> <Sort/>
-                    </button>
-                </div>
+            <div className=" basis-[50%] max-w-[463px]">
+               {' '}
+               <Button
+                  className=" md:hidden hover:text-white float-right"
+                  variant={'ghost'}
+               >
+                  <SearchOutline
+                     width={25}
+                     height={25}
+                  />
+               </Button>
+               <div
+                  className='hidden md:block'
+               >
+                  <SearchBar/>
+               </div>
             </div>
+         </div>
             </div>
         </div>
 
