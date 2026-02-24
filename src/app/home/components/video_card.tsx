@@ -30,25 +30,25 @@ const Video_card: React.FC<VideoCardProps> = ({
    const [ratingVal, setRatingVal] = useState<number>(rating);
 
    return (
-      <div className=" grow  border border-neutral-400 rounded-xl p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+      <div className="grow border border-neutral-200 rounded-xl p-4 shadow-premium-sm hover:shadow-premium-md hover:-translate-y-1 transition-all duration-200 ease-out">
          {/* The Video Info Card */}
-         <div className=" h-[150px] relative">
+         <div className="h-[150px] relative rounded-lg overflow-hidden">
             <Image
-               className=" object-cover rounded-lg "
+               className="object-cover"
                src={posterSrc}
                alt="Video Poster Image"
                fill
             />
          </div>
-         <div className={cn(" flex flex-col  mt-2 ", !hideCta && "mb-3")}>
-            <span className=" text-lg">{title}</span>
-            <span className=" font-bold text-md">
+         <div className={cn("flex flex-col mt-4 gap-1", !hideCta && "mb-3")}>
+            <span className="text-lg font-semibold text-neutral-900 line-clamp-2">{title}</span>
+            <span className="font-bold text-base text-primary">
                &#8358;{formatMoney(price)}
             </span>
-            <span>{duration}</span>
-            <div className="  mt-2 flex items-center gap-1">
-               <span className="font-normal text-[14px]">{ratingVal.toFixed(1)}</span>
-               <span className=" -mt-0.5">
+            <span className="text-sm text-neutral-600">{duration}</span>
+            <div className="mt-2 flex items-center gap-1">
+               <span className="font-semibold text-sm text-neutral-700">{ratingVal.toFixed(1)}</span>
+               <span className="-mt-0.5">
                   <Rating onChange={setRatingVal} value={ratingVal} />
                </span>
             </div>
@@ -56,12 +56,12 @@ const Video_card: React.FC<VideoCardProps> = ({
 
          {
          !hideCta &&
-         <div className=" hidden md:block">
+         <div className="hidden md:block pt-2">
             <Link
                href={`/home/explore/overview/${_id}`}
-               className=" hover:cursor-pointer w-full rounded-[500] h-[45px] text-[14px] font-medium text-center bg-primary text-accent-foreground flex items-center justify-center"
+               className="hover:cursor-pointer w-full rounded-lg h-11 text-sm font-medium text-center bg-primary text-white flex items-center justify-center shadow-premium-sm hover:shadow-premium-md hover:bg-primary-700 transition-all duration-200"
             >
-               <span>Get Course</span>
+               Get Course
             </Link>
          </div>
          }

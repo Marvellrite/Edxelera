@@ -5,12 +5,12 @@ import formatMoney from '@/lib/utils/formatMoney'
 
 const Performance = () => {
   return (
-    <section className='bg-white rounded-2xl p-3.5 h-fit space-y-5'>
-        <p className='text-lg'>Transactions</p>
+    <section className='bg-white rounded-xl border border-neutral-200 p-6 h-fit space-y-5 shadow-premium-sm'>
+        <p className='text-lg font-semibold text-neutral-900'>Transactions</p>
 
         <table className="table-auto w-full">
-            <thead className="font-bold">
-                <tr className='*:py-3'>
+            <thead>
+                <tr className='*:py-3 *:text-left *:text-sm *:font-semibold *:text-neutral-900 border-b border-neutral-200 bg-neutral-50'>
                     <td className="pe-5">#</td>
                     <td>Email</td>
                     <td>Course title</td>
@@ -22,14 +22,14 @@ const Performance = () => {
             </thead>
             <tbody>
                 {transactions.map((__, i) => (
-                    <tr key={i} className="border-t space-y-5 *:py-3.5 border-neutral-50">
-                        <td className="pe-5">{i + 1}</td>
-                        <td>{__.email}</td>
-                        <td>{__.courseTitle}</td>
-                        <td>{__.cohort}</td>
-                        <td>{formatMoney(__.amount)}</td>
-                        <td>{__.dateTime}</td>
-                        <td><span className={` ${__.status==="Successful"?"bg-success text-success-foreground":__.status==="Pending"?"bg-warning text-warning-foreground":"bg-danger text-danger-foreground"}  p-2 rounded-lg capitalize`}>{__.status}</span></td>
+                    <tr key={i} className="border-b border-neutral-200 *:py-4 *:text-sm hover:bg-neutral-50 transition-colors duration-150">
+                        <td className="pe-5 text-neutral-700 font-medium">{i + 1}</td>
+                        <td className='text-neutral-700'>{__.email}</td>
+                        <td className='text-neutral-800 font-medium'>{__.courseTitle}</td>
+                        <td className='text-neutral-700'>{__.cohort}</td>
+                        <td className='text-neutral-900 font-semibold'>{formatMoney(__.amount)}</td>
+                        <td className='text-neutral-700'>{__.dateTime}</td>
+                        <td><span className={` ${__.status==="Successful"?"bg-green-50 text-green-700":__.status==="Pending"?"bg-yellow-50 text-yellow-700":"bg-red-50 text-red-700"} px-3 py-1 rounded-lg capitalize text-xs font-medium`}>{__.status}</span></td>
                     </tr>
                 ))}
             </tbody>

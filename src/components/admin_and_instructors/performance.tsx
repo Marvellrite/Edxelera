@@ -4,12 +4,12 @@ import { courses } from '@/mockdata/performance'
 
 const Performance = () => {
   return (
-    <section className='bg-white rounded-2xl p-3.5 h-fit space-y-5'>
-        <p className='text-lg'>Top Performing Courses</p>
+    <section className='bg-white rounded-xl border border-neutral-200 p-6 h-fit space-y-5 shadow-premium-sm'>
+        <p className='text-lg font-semibold text-neutral-900'>Top Performing Courses</p>
 
         <table className="table-auto w-full">
-            <thead className="font-bold">
-                <tr className='*:py-3'>
+            <thead>
+                <tr className='*:py-3 *:text-left *:text-sm *:font-semibold *:text-neutral-900 border-b border-neutral-200 bg-neutral-50'>
                     <td className="pe-5">#</td>
                     <td>Course ID</td>
                     <td>Course title</td>
@@ -21,14 +21,14 @@ const Performance = () => {
             </thead>
             <tbody>
                 {courses.map((__, i) => (
-                    <tr key={i} className="border-t space-y-5 *:py-3.5 border-neutral-50">
-                        <td className="pe-5">{i + 1}</td>
-                        <td>{__.courseId}</td>
-                        <td>{__.courseTitle}</td>
-                        <td><span className={` ${__.status==="active"?"bg-success text-success-foreground":"bg-danger text-danger-foreground"}  p-2 rounded-lg capitalize`}>{__.status}</span></td>
-                        <td>{__.enrollment}</td>
-                        <td>{__.price}</td>
-                        <td>{__.totalRevenue}</td>
+                    <tr key={i} className="border-b border-neutral-200 *:py-4 *:text-sm hover:bg-neutral-50 transition-colors duration-150">
+                        <td className="pe-5 text-neutral-700 font-medium">{i + 1}</td>
+                        <td className='text-neutral-700'>{__.courseId}</td>
+                        <td className='text-neutral-800 font-medium'>{__.courseTitle}</td>
+                        <td><span className={` ${__.status==="active"?"bg-green-50 text-green-700":"bg-red-50 text-red-700"} px-3 py-1 rounded-lg capitalize text-xs font-medium`}>{__.status}</span></td>
+                        <td className='text-neutral-700'>{__.enrollment}</td>
+                        <td className='text-neutral-700'>{__.price}</td>
+                        <td className='text-neutral-900 font-semibold'>{__.totalRevenue}</td>
                     </tr>
                 ))}
             </tbody>

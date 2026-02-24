@@ -24,49 +24,49 @@ const My_course: React.FC<VideoCardProps> = ({
    completion_date,
 }) => {
    return (
-      <div className=" grow  border border-neutral-400 rounded-lg p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+      <div className="grow border border-neutral-200 rounded-xl p-4 shadow-premium-sm hover:shadow-premium-md hover:-translate-y-1 transition-all duration-200 ease-out">
          {/* The Video Info Card */}
-         <div className=" h-[150px]">
+         <div className="h-[150px] rounded-lg overflow-hidden mb-4">
             <img
-               className=" w-full h-full object-cover rounded-lg "
+               className="w-full h-full object-cover"
                src={posterSrc}
                alt="Video Poster Image"
             />
          </div>
-         <div className=" flex flex-col  mt-2 mb-3">
-            <span className=" text-lg">{title}</span>
+         <div className="flex flex-col gap-2 mb-3">
+            <span className="text-lg font-semibold text-neutral-900 line-clamp-2">{title}</span>
             {status === 'Ongoing' ? (
-               <span className=" font-normal">Started on {starting_date}</span>
+               <span className="text-sm text-neutral-600">Started on {starting_date}</span>
             ) : (
-               <span className=" font-normal">
+               <span className="text-sm text-neutral-600">
                   Completed on {completion_date}
                </span>
             )}
          </div>
          {status === 'Ongoing' ? (
             <>
-               <div className=" mb-2">
+               <div className="mb-3">
                   <Progress value={progress} />
                </div>
-               <div className=" text-xs font-normal mb-4">
+               <div className="text-xs font-medium text-neutral-700 mb-4">
                   {current_duration}
                </div>
-               <div className=" ">
-                  <Button className=" w-full hover:cursor-pointer grow rounded-[500] h-[45px] text-[14px] font-medium ">
+               <div>
+                  <Button className="w-full rounded-lg h-11 text-sm font-medium shadow-premium-sm hover:shadow-premium-md transition-all">
                      Continue Learning
                   </Button>
                </div>
             </>
          ) : (
-            <div className=" flex gap-2">
+            <div className="flex gap-2">
                <Button
-                  className=' grow'
+                  className='grow rounded-lg h-10 text-sm font-medium'
                   variant={'secondary'}
                   >
                   Revisit Course
                </Button>
                <Button
-                  className=' grow'>
+                  className='grow rounded-lg h-10 text-sm font-medium shadow-premium-sm hover:shadow-premium-md transition-all'>
                   Get Certificate
                </Button>
             </div>
