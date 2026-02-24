@@ -26,19 +26,21 @@ export function CTASection() {
   )
 
   return (
-    <section ref={ctaRef} className="bg-white py-16 lg:py-14 cta">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px] text-center space-y-3">
-        <h2 className="text-black max-sm-md:text-[32px] max-sm-md:leading-[120%] text-[48px] leading-[150%] font-semibold">Teach on Edxelera</h2>
-        <div className="space-y-6">
-          <p className="text-neutral-800 text-md max-w-[646px] mx-auto">
+    <section ref={ctaRef} className="bg-linear-to-r from-primary-50 to-neutral-50 py-20 lg:py-24 cta shadow-premium-md">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px] text-center space-y-8">
+        <div className="space-y-4">
+          <h2 className="text-neutral-900 max-sm-md:text-3xl max-sm-md:leading-tight text-4xl lg:text-5xl leading-tight font-semibold">
+            Teach on Edxelera
+          </h2>
+          <p className="text-neutral-700 text-base lg:text-lg max-w-[646px] mx-auto leading-relaxed">
             Share your expertise, inspire thousands of learners, and earn by creating high-quality courses that make a real impact
           </p>
-          <Button  
-            className="  h-14  px-10 "
-          >
-            Learn More
-          </Button>
         </div>
+        <Button  
+          className="h-14 px-10 rounded-xl font-medium shadow-premium-md hover:shadow-premium-lg transition-all"
+        >
+          Learn More
+        </Button>
       </div>
     </section>
   );
