@@ -1,116 +1,68 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import VideoPoster from '../components/video_poster';
+import { useState } from 'react';
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
 import { Button } from '@/components/ui/button';
-import Ratings from '../../../components/common/rating';
 import Video_card from '../components/video_card';
-import Continue_learning_desktop from '../components/continue_learning_desktop';
 import Continue_learning_mobile from '../components/continue_learning_mobile';
 import StreakDisplay from '@/components/features/streak-display'
 
 const Page: React.FC = () => {
-   const [data, setData] = useState(mock_data);
-   //    useEffect(() => {
-   //       const fetchData = async () => {
-   //          const response = await fetch('/continue_learning_data');
-   //          const result = await response.json();
-   //          setData(result);
-   //       };
-   //       fetchData();
-   //    }, []);
+   const [data] = useState(mock_data);
 
    return (
-      <section className="p-6 py-12 ">
+      <section className="p-6 py-10 space-y-8">
+         <div className="rounded-3xl border border-primary/10 bg-linear-to-r from-white to-primary-100/35 p-5 shadow-[0_10px_30px_rgba(0,17,70,0.08)] sm:p-7">
+            <div className="flex flex-wrap items-center justify-between gap-5">
+               <div className="space-y-2">
+                  <p className="text-sm text-neutral-700">Welcome back 👋</p>
+                  <h1 className="text-3xl font-semibold text-primary">Let’s continue your learning streak</h1>
+                  <p className="text-neutral-800">Pick up where you stopped and keep your momentum today.</p>
+               </div>
+               <div className="flex gap-3">
+                  <Button className="px-6">Resume Course</Button>
+                  <Button variant="outline" className="px-6">Explore More</Button>
+               </div>
+            </div>
+         </div>
 
-         <>
-         {/* For Users that have started learning a course */}
-
-          <div className=" space-y-9">
-            {/* <Continue_learning_desktop data={data} /> */}
-            <div className=' flex gap-3 lg:flex-row flex-col'>
-
+         <div className="space-y-9">
+            <div className='flex gap-3 lg:flex-row flex-col'>
                <StreakDisplay/>
                <Continue_learning_mobile data={data} />
             </div>
-            <div>
-               <div className=" text-md font-normal mb-3 flex justify-between h-6 text-center">
-                  <span className='flex items-center text-base text-primary'>You may also like</span>
+
+            <div className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-[0_8px_24px_rgba(4,5,6,0.05)]">
+               <div className="text-md font-normal mb-3 flex justify-between h-6 text-center">
+                  <span className='flex items-center text-base text-primary font-semibold'>You may also like</span>
                   <Button
-                     className=" text-center rounded-[500px] text-primary text-base p-0 size-fit"
+                     className="text-center rounded-[500px] text-primary text-base p-0 size-fit"
                      variant={'link'}
                   >
                      See all
                   </Button>
                </div>
 
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {mock_data_al.map((data, index) => (
                      <Video_card hideCta key={index} {...data} />
                   ))}
                </div>
             </div>
-            <div>
-               <div className=" text-md font-normal mb-3">
-                  <span>Recently viewed courses</span>
+
+            <div className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-[0_8px_24px_rgba(4,5,6,0.05)]">
+               <div className="text-md font-normal mb-3">
+                  <span className='font-semibold text-primary'>Recently viewed courses</span>
                </div>
 
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {mock_data_al.map((data, index) => (
                      <Video_card hideCta key={index} {...data} />
                   ))}
                </div>
             </div>
          </div>
-
-         
-         </>
-          
-
-         <>
-         {/* For Users that have not started learning a course yet */}
-         
-          {/* <div className=" space-y-9">
-            <div className=" h-[252px] bg-primary rounded-xl flex items-end">
-               <div className=" mt-auto flex justify-between items-end text-white p-6 pb-7 basis-full max-md:flex-col max-md:items-start max-md:gap-4 max-md:px-4 max-md:py-3.5">
-                  <div className=" space-y-2">
-                     <h1 className=" text-[24px] max-md:mb-1">
-                        Product Design (UI/UX)
-                     </h1>
-                     <div className=" font-bold text-md">&#8358;150,000.00</div>
-                     <div>8 weeks</div>
-                  </div>
-                  <div>
-                     <Button className="bg-white rounded-[500px] h-[47px] w-[147px] text-primary py-3 px-2.5 font-medium text-[14px]">
-                        Enroll Now
-                     </Button>
-                  </div>
-               </div>
-            </div>
-
-            <div>
-               <div className=" text-md font-normal mb-3 flex justify-between">
-                  <span>Explore our courses</span>
-                  <Button
-                     className=" rounded-[500px] text-accent"
-                     variant={'ghost'}
-                  >
-                     See all
-                  </Button>
-               </div>
-
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
-                  {mock_data_al.map((data, index) => (
-                     <Video_card key={index} {...data} />
-                  ))}
-               </div>
-            </div>
-         </div>  */}
-         
-         </>
-
       </section>
    );
 };

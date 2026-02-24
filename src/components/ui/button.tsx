@@ -6,17 +6,16 @@ import { Loader2 } from 'lucide-react'; // or use your own spinner
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-   "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive ", 
+   "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium tracking-[0.01em] transition-all duration-200 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive active:scale-[0.99]", 
    {
       variants: {
          variant: {
-            default: 'bg-primary text-primary-foreground hover:bg-hover-primary  rounded-full disabled:bg-primary',
+            default: 'bg-primary text-primary-foreground hover:bg-hover-primary rounded-full shadow-[0_6px_20px_rgba(0,17,70,0.2)] hover:shadow-[0_10px_24px_rgba(0,17,70,0.24)] disabled:bg-primary',
             destructive:
                'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
             outline:
-               'border border-primary text-primary bg-background shadow-xs hover:bg-hover-primary hover:border-transparent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-hover hover:border-transparent',
-            secondary:
-               'bg-secondary text-secondary-foreground hover:bg-hover-secondary disabled:bg-secondary',
+               'border border-primary/30 text-primary bg-white shadow-[0_2px_8px_rgba(4,5,6,0.06)] hover:bg-primary hover:border-primary hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-hover',
+            secondary: 'bg-secondary text-secondary-foreground hover:bg-hover-secondary shadow-[0_6px_20px_rgba(237,28,36,0.2)] disabled:bg-secondary',
             ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
             link: 'text-primary underline-offset-4 hover:underline',
          },

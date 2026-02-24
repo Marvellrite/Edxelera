@@ -25,59 +25,28 @@ export function FeaturesSection() {
             start: "top 70%",
             once: true
           }})
-        
+
           t1.from(
             sectionRef.current, {
               y: 50,
               opacity: 0,
-              duration: 1.5,
-              ease: "elastic.out",
-              
+              duration: 1.2,
+              ease: "power2.out",
+
             }
           )
 
           features.forEach((_, i)=>{
-            switch(i){
-              case 0: t1.from(
-                _, {
-                  x: -100,
-                  opacity: 0,
-                  ease: "power1.out",
-                  duration: 0.5
-                }, "-=0.6"
-              );
-              break;
-              case 1: t1.from(
-                _, {
-                  x: 100,
-                  opacity: 0,
-                  ease: "power1.out",
-                  duration: 0.5
-                }, "+=0.2"
-              );
-              break;
-              case 2: t1.from(
-                _, {
-                  y: 100,
-                  opacity: 0,
-                  ease: "power1.out",
-                  duration: 0.5
-                }, "+=0.2"
-              );
-              break;
-              case 3: t1.from(
-                _, {
-                  x: 100,
-                  opacity: 0,
-                  ease: "power1.out",
-                  duration: 0.5
-                }, "+=0.2"
-              );
-
-              break;
-              }
-            }
-          )
+            t1.from(
+              _, {
+                y: 45,
+                opacity: 0,
+                ease: "power1.out",
+                duration: 0.45
+              }, i === 0 ? "-=0.6" : "-=0.25"
+            );
+          }
+        )
 
 
         },  {scope: sectionRef}
@@ -85,7 +54,7 @@ export function FeaturesSection() {
 
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-20 bg-white overflow-hidden featuresSection "  >
+    <section ref={sectionRef} className="py-16 lg:py-20 bg-linear-to-b from-white to-surface overflow-hidden featuresSection"  >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[150px]">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-neutral-900 text-5xl font-semibold max-sm-md:text-[32px] max-sm-md:leading-[120%]">
@@ -97,14 +66,13 @@ export function FeaturesSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_372px] gap-6">
-          {/* Left Column - 3 Feature Cards */}
           <div className=" grid lg:grid-cols-2 lg:grid-rows-1 gap-3 max-sm:grid-cols-1">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={cn("bg-neutral-50 rounded-[10px] p-6 space-y-5 feature", index==2&&" col-span-2 py-9 max-sm:col-span-1")}
+                className={cn("bg-white rounded-2xl border border-neutral-200 p-6 space-y-5 feature shadow-[0_8px_24px_rgba(4,5,6,0.06)] hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(4,5,6,0.08)] transition-all duration-200", index==2&&" col-span-2 py-9 max-sm:col-span-1")}
               >
-                <div className=' rounded-full border flex justify-center items-center p-3 border-neutral-900 w-fit'>
+                <div className=' rounded-full border flex justify-center items-center p-3 border-neutral-200 w-fit bg-primary/5'>
                   <ReactSVG
                     src={feature.icon}
                     width={20}
@@ -113,17 +81,16 @@ export function FeaturesSection() {
                   />
                 </div>
                 <div className="space-y-2.5">
-                  <h3 className="text-neutral-900 text-[20px] sm-md:text-[28px] font-medium">{feature.title}</h3>
+                  <h3 className="text-neutral-900 text-[20px] sm-md:text-[26px] font-semibold leading-[120%]">{feature.title}</h3>
                   <p className="text-neutral-800 text-base leading-6">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Right Column - Dark Card */}
-          <div className=" rounded-[10px] p-8 flex flex-col justify-between space-y-10 bg-primary feature">
+          <div className=" rounded-2xl border border-primary/30 p-8 flex flex-col justify-between space-y-10 bg-primary feature shadow-[0_16px_40px_rgba(0,17,70,0.25)]">
             <div className="space-y-5">
-              <div className=' rounded-full border-[1.5px] border-white size-12 flex items-center justify-center'>
+              <div className=' rounded-full border-[1.5px] border-white/70 size-12 flex items-center justify-center bg-white/10'>
 
                 <ReactSVG
                   src="/icons/landing/lock.svg"
@@ -133,7 +100,7 @@ export function FeaturesSection() {
                 />
               </div>
               <div className="space-y-2.5 ">
-                <h3 className="text-white text-[28px] font-medium leading-[42px] max-sm-md:text-[20px] max-sm-md:leading-[120%]">
+                <h3 className="text-white text-[28px] font-semibold leading-[130%] max-sm-md:text-[20px] max-sm-md:leading-[120%]">
                   A Real Classroom Experience Online
                 </h3>
                 <p className="text-neutral-50 text-base leading-6">
