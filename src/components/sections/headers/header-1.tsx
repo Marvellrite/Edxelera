@@ -1,6 +1,6 @@
 'use client'
 
-import SearchBar from "../nav-search-bar";
+import SearchBar from '@/components/data/nav-search-bar';
 import Image from "next/image";
 import { Bell } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
@@ -8,10 +8,12 @@ import { Sun, MoonOutline } from "@/components/icons/modified";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 const Header = () => {
     const { user } = useStudentSession();
     const { toggleTheme } = useTheme();
+    const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
     console.log(user)
 
     const displayName = user?.fullname || 'Student';
@@ -20,7 +22,13 @@ const Header = () => {
     const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
 
   return (
-      <header className=" px-4 pt-5 h-fit w-full text-neutral-700 flex flex-col gap-6 lg:gap-0">
+      <div ref={anchorRef}>
+      <div aria-hidden style={{ height: spacerHeight }} />
+      <header
+         ref={fixedRef}
+         style={fixedStyle}
+         className="bg-background/95 bg-surface-home px-4 py-5 h-fit w-full text-neutral-700 flex flex-col gap-6 lg:gap-0"
+      >
 
          <div className='flex items-center justify-between'>
 
@@ -92,6 +100,7 @@ const Header = () => {
    
 
       </header>
+      </div>
    );
 }
 

@@ -25,10 +25,10 @@ useGSAP(
 
       tl.from(".process-item", {
         opacity: 0,
-        y: 36,
-        duration: 0.45,
-        ease: "power1.out",
-        stagger: 0.18,
+        x: -50,
+        duration: 0.5,
+        ease: "bounce.out",
+        stagger: 0.6,
       })
 
   },
@@ -53,22 +53,24 @@ useGSAP(
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-14">
           {steps.map((step) => (
-            <div key={step.number} className="process-item space-y-5 max-sm:space-y-10 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
+            <div key={step.number} className="process-item space-y-5 max-sm:space-y-10">
+              {/* Number with dashed lines */}
               <div>
 
                 <div className="flex items-center gap-4 ">
-                  <div className=" flex-1 border-t-3 border-dashed border-neutral-50/60" />
+                  <div className=" flex-1 border-t-3 border-dashed border-neutral-50" />
 
-                  <div className="process-number w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
+                  <div className="process-number w-16 h-16 rounded-full bg-white flex items-center justify-center">
                     <span className="text-[36px] font-extrabold text-neutral-800">
                       {step.number}
                     </span>
                   </div>
 
-                  <div className=" flex-1 border-t-3 border-dashed border-neutral-50/60" />
+                  <div className=" flex-1 border-t-3 border-dashed border-neutral-50" />
                 </div>
               </div>
 
+              {/* Content */}
               <div className="text-center space-y-2">
                 <h3 className="text-white text-[32px] font-bold">
                   {step.title}

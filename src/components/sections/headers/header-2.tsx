@@ -1,4 +1,6 @@
-import SearchBar from "../nav-search-bar";
+'use client';
+
+import SearchBar from "@/components/data/nav-search-bar";
 import Image from "next/image";
 import { Bell, ArrowDown, Sort,  } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
@@ -6,12 +8,14 @@ import { } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 
 const Header = () => {
 
            const { user } = useStudentSession();
            const { toggleTheme } = useTheme();
+           const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
            console.log(user)
        
            const displayName = user?.fullname || 'Student';
@@ -20,7 +24,13 @@ const Header = () => {
            const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
 
   return (
-      <header className=" pt-5 h-fit w-full text-neutral-700 ">
+      <div ref={anchorRef}>
+      <div aria-hidden style={{ height: spacerHeight }} />
+      <header
+        ref={fixedRef}
+        style={fixedStyle}
+        className="bg-background/95 bg-surface-home py-5 h-fit w-full text-neutral-700 "
+      >
 
         <div className=" space-y-7.5">
 
@@ -97,6 +107,7 @@ const Header = () => {
    
 
       </header>
+      </div>
    );
 }
 

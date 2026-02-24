@@ -22,7 +22,7 @@ const Review = () => {
             </div>
          </div>
          <p className=" text-neutral-800 text-balance">
-            “I wasn’t expecting the community to be so active! Sharing my
+            “I wasn&apos;t expecting the community to be so active! Sharing my
             designs and getting constructive feedback from other learners helped
             me grow faster than I thought possible”
          </p>

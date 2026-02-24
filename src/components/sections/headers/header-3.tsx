@@ -8,7 +8,8 @@ import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Course_status } from "@/types/my-courses/course-status";
 import { useMyCoursesActiveCategoryStore } from "@/stores/my-courses-active-category";
-import SearchBar from "../nav-search-bar";
+import SearchBar from "@/components/data/nav-search-bar";
+import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 
 const Header = () => {
@@ -22,13 +23,20 @@ const Header = () => {
            const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
            const activeTab = useMyCoursesActiveCategoryStore((state) => state.activeCategory);
            const setActiveTab = useMyCoursesActiveCategoryStore((state) => state.setActiveCategory);
+           const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
 
   return (
-      <header className=" pt-5 h-fit w-full text-neutral-700 ">
+      <div ref={anchorRef}>
+      <div aria-hidden style={{ height: spacerHeight }} />
+      <header
+        ref={fixedRef}
+        style={fixedStyle}
+        className="bg-background/95 backdrop-blur py-5 h-fit w-full text-neutral-700 "
+      >
 
         <div className=" space-y-7.5">
 
-
+             {/* TODO: Make only top half of the header fixed */}
             <div className='hidden md:flex '>
 
                     {/* Top half of the navbar */}
@@ -86,7 +94,7 @@ const Header = () => {
                   </Button>
                ))}
             </div>
-            <div className=" basis-[50%] max-w-[463px]">
+            <div className=" basis-[50%] max-w-115.75">
                {' '}
                <Button
                   className=" md:hidden hover:text-white float-right"
@@ -110,6 +118,7 @@ const Header = () => {
    
 
       </header>
+      </div>
    );
 }
 

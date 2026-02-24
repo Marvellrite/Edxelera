@@ -9,23 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { ReactSVG } from 'react-svg';
 import { Note } from '@/components/icons/modified';
-
-export type CourseModuleLesson = {
-   title: string;
-   contentType?: string;
-   iconSrc?: string;
-};
-
-export type CourseModulesAccordionItem = {
-   value: string;
-   title: string;
-   iconVariant?: 'note' | 'svg-note';
-   lessons: CourseModuleLesson[];
-};
-
-type CourseModulesAccordionProps = {
-   items: CourseModulesAccordionItem[];
-};
+import { type CourseModulesAccordionProps } from '@/types/course';
 
 export default function CourseModulesAccordion({
    items,

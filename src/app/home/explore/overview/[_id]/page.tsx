@@ -4,8 +4,8 @@ import ModuleAssessment from './components/module-assessment';
 
 const OverviewCoursePage = () => {
    return (
-   //   <CourseBought/>
-   <CourseNotBought/>
+     <CourseBought/>
+   // <CourseNotBought/>
       // <Course_started />
       // <ModuleAssessment/>
    );

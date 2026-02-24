@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <nav
-  className={cn(" top-0 left-0 right-0 z-50 text-base text-neutral-900 font-medium sticky bg-white/95 backdrop-blur-md border-b border-neutral-100/80 sm-md:order-0 max-sm-md:-order-1")}
+  className={cn(" top-0 left-0 right-0 z-50 text-base text-neutral-900 font-medium sticky bg-white sm-md:order-0 max-sm-md:-order-1")}
 >
       {/* Nav For Tablet Size */}
       <div  className={cn("max-w-360 mx-auto px-6 lg:px-10 container flex items-center justify-center  sm-md:h-16 lg:h-22 max-sm-md:hidden lg:hidden")}>
@@ -93,7 +93,7 @@ export function Navbar() {
             <Button variant={"outline"} className="  px-6 h-12 w-34.5">
               Login
             </Button>
-            <Button className=" px-6 h-12 w-34.5 shadow-[0_8px_20px_rgba(0,17,70,0.2)]">
+            <Button className=" px-6 h-12 w-34.5 ">
               Sign Up
             </Button>
           </div>

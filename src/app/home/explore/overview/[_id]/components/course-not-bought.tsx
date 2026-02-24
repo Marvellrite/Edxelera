@@ -1,5 +1,5 @@
-import CourseHeroSection from '../../../../../../components/features/courses/course_poster';
-import CourseDetailsSections from '../../../../../../components/features/courses/course_arrangement';
+import CourseHeroSection from '../../../../../../components/features/course/course-hero-section';
+import CourseDetailsSections from '../../../../../../components/features/course/course-details-section';
 
 import { Button } from '@/components/ui/button';
 

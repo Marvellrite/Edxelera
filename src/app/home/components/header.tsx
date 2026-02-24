@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { Header1, Header2, Header3 } from './headers';
+import { Header1, Header2, Header3 } from '@/components/sections/headers';
 
 // Header mapping object - maps pathname segment to header component
 const headerMap: Record<string, React.ComponentType> = {

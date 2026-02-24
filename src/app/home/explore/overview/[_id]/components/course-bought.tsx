@@ -1,5 +1,5 @@
 import Course_poster_bought from "./course_poster_bought"
-import CourseDetailsSections from "../../../../../../components/features/courses/course_arrangement"
+import CourseDetailsSections from "../../../../../../components/features/course/course-details-section"
 import CohortStartedModal from "./cohort-started-modal"
 import { Button } from "@/components/ui/button"
 

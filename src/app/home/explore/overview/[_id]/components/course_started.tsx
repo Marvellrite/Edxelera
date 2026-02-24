@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Dispatch, SetStateAction } from 'react';
 import Header from './header';
 import { Button } from '@/components/ui/button';
-import CourseDetailsSections from '../../../../../../components/features/courses/course_arrangement';
+import CourseDetailsSections from '../../../../../../components/features/courses/course-details-section';
 import CourseStartedLearn from './course_started_learn';
 import { ReactSVG } from 'react-svg';
 import Comment from './comment';

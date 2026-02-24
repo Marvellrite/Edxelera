@@ -20,11 +20,9 @@ export default async function CourseLayout({
         <SidebarProvider>
           <ClearPendingEmailOnLoad />
           <HomeLayoutContent>
-            <section className="col-span-10 grow flex-1  px-8 xl:px-10 py-5 max-md:px-0 max-md:py-0 max-md:-mt-2 ">
-              <Header />
-              <div className=''>
+            <section className="col-span-10 grow flex-1  px-8 xl:px-15 py-5 max-md:px-0 max-md:py-0 max-md:-mt-2 ">
+              <Header headerTitle="Cart" />
               {children}
-              </div>
             </section>
           </HomeLayoutContent>
         </SidebarProvider>

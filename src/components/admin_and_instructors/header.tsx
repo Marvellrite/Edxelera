@@ -1,5 +1,5 @@
 "use client"
-import { Moon, MoonOutline, Notification } from '@/components/icons/modified'
+import { Moon, MoonOutline, Bell } from '@/components/icons/modified'
 import Image from 'next/image'
 import { ReactSVG } from 'react-svg'
 
@@ -24,7 +24,7 @@ const Header = () => {
                 </div>
 
                 <div className='border-r px-3 text-primary'>
-                    <Notification />
+                    <Bell />
                 </div>
 
                 <div className="hidden md:flex gap-2 border border-neutral-500 rounded-full p-1 focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 items-center ">

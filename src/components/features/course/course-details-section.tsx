@@ -2,74 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import Review from '../../../app/home/explore/overview/[_id]/components/review';
-import CourseModulesAccordion, {
-   type CourseModulesAccordionItem,
-} from '../../../app/home/explore/overview/[_id]/components/course_modules_accordion';
+import Review from '@/components/features/course/review';
+import CourseModulesAccordion from '@/components/features/course/course_modules_accordion';
+import COURSE_MODULE_ITEMS from '@/mockdata/course/details-mockdata';
+import RelatedChips from '@/components/features/course/related-chips';
+import WhatYouWillLearn from '@/components/features/course/what-you-will-learn';
 
-const DEFAULT_MODULE_LESSON = {
-   title: 'What is UX design? What is UI design? How do they work?',
-   contentType: 'Video Lesson',
-   iconSrc: '/icons/video-square.svg',
-} as const;
-
-const createLessons = (count: number) =>
-   Array.from({ length: count }, () => ({ ...DEFAULT_MODULE_LESSON }));
-
-const COURSE_MODULE_ITEMS: CourseModulesAccordionItem[] = [
-   {
-      value: 'item-1',
-      title: 'WEEK 1 - Introduction & Foundations',
-      iconVariant: 'note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-2',
-      title: 'WEEK 2 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-3',
-      title: 'WEEK 3 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-4',
-      title: 'WEEK 4 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-5',
-      title: 'WEEK 5 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-6',
-      title: 'WEEK 6 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-7',
-      title: 'WEEK 7 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-   {
-      value: 'item-8',
-      title: 'WEEK 8 - Introduction & Foundations',
-      iconVariant: 'svg-note',
-      lessons: createLessons(5),
-   },
-];
 
 export default function CourseDetailsSections() {
    const [isOverviewExpanded, setIsOverviewExpanded] = useState(false);
-   const overviewRef = useRef<HTMLDivElement | null>(null);
+   const descriptionRef = useRef<HTMLDivElement | null>(null);
    const modulesRef = useRef<HTMLDivElement | null>(null);
    const reviewsRef = useRef<HTMLDivElement | null>(null);
 
@@ -88,10 +30,10 @@ export default function CourseDetailsSections() {
    }, []);
 
    return (
-      <div className=" space-y-7 max-md:px-4 relative max-md:mt-10">
+      <div className=" space-y-7 max-md:px-4 relative mt-6 ">
          <div>
-            <div ref={overviewRef}>
-               <p className="md:hidden text-neutral-800 mb-3">Overview</p>
+            <div ref={descriptionRef}>
+               <p className=" text-primary mb-3">Description</p>
                <p
                   className={` text-md font-normal animate-in ${isOverviewExpanded ? '' : 'line-clamp-3'}`}
                >
@@ -120,13 +62,24 @@ export default function CourseDetailsSections() {
                   </Button>
                )}
             </div>
-            <div ref={modulesRef} className=" mt-3.5 ">
-               <p className="md:hidden text-neutral-800 mb-1">Modules</p>
+
+            <div className='mt-10'>
+               <RelatedChips
+                  items={["Graphic Design", "Product Design", "Branding", "Data Analytics", "Corporate Design"]}
+                  selected="Branding"
+                  onSelect={(v) => console.log(v)}
+                  />
+            </div>
+            <div ref={modulesRef} className=" mt-10 ">
+               <p className=" text-primary mb-3">Modules</p>
                {/* To contain the accordion */}
                <CourseModulesAccordion items={COURSE_MODULE_ITEMS} />
             </div>
+            <div className='mt-10'>
+               <WhatYouWillLearn/>
+            </div>
             <div className=" mt-10 ">
-               <p className="md:hidden text-neutral-800">Reviews</p>
+               <p className=" text-primary">Reviews</p>
 
                <div
                   ref={reviewsRef}

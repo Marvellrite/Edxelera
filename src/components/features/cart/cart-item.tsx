@@ -3,19 +3,21 @@
 import { useState } from 'react';
 import formatMoney from '@/utils/formatMoney';
 import Rating from '@/components/common/rating';
-import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { MinusCircle } from '@/components/icons/modified';
 
-interface CartItemProps {
-   // Define any props if needed in the future
+export interface CartItemData {
    posterSrc: string;
    title: string;
-   price: string;
+   price: string | number;
    duration: string;
    rating: number;
    _id: string;
+}
+
+interface CartItemProps extends CartItemData {
+   onRemove?: (id: string) => void;
 }
 
 const CartItem: React.FC<CartItemProps> = ({
@@ -25,11 +27,12 @@ const CartItem: React.FC<CartItemProps> = ({
    duration,
    rating,
    _id = '3',
+   onRemove,
 }) => {
    const [ratingVal, setRatingVal] = useState<number>(rating);
 
    return (
-      <div key={_id} className=" grow  border border-neutral-400 rounded-xl p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+      <div className=" grow border border-neutral-400 rounded-xl p-3.5 hover:shadow-lg transition-shadow duration-300 ease-in-out">
          {/* The Video Info Card */}
          <div className=" h-[150px] relative">
             <Image
@@ -52,7 +55,14 @@ const CartItem: React.FC<CartItemProps> = ({
                </span>
             </div>
          </div>
-         <button className='p-0'><MinusCircle/></button>
+         <button
+            type="button"
+            className="p-0 mt-auto"
+            onClick={() => onRemove?.(_id)}
+            aria-label={`Remove ${title} from cart`}
+         >
+            <MinusCircle />
+         </button>
       </div>
    );
 };

@@ -2,7 +2,7 @@
 import { AddCircle, Edit, GalleryAdd, Trash, VideoSquare } from "@/components/icons/modified"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { Lesson } from "@/types/courses"
+import { Lesson } from "@/types/course"
 import InputAnimated from "@/components/ui/custom/input-animated-1"
 import { Checkbox } from "@/components/ui/custom/checkbox"
 
