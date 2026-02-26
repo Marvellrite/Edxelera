@@ -40,9 +40,6 @@
       ],
       "vitest": [
         "./src/shims/vitest"
-      ],
-      "lucide-react": [
-        "./src/shims/lucide-react"
       ]
     }
   },

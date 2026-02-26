@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   CheckCircle2,
@@ -88,11 +88,19 @@ export default function WeekHubPage({ params }: { params: Promise<{ programSlug:
   const [activeTab, setActiveTab] = useState<TabType>("overview");
   const [resolvedParams, setResolvedParams] = useState<{ programSlug: string; weekNumber: string } | null>(null);
 
-  // Resolve params on first render via a pattern that works in client components
-  if (!resolvedParams) {
-    params.then((p) => setResolvedParams(p));
-    // Use defaults while loading
-  }
+  useEffect(() => {
+    let mounted = true;
+
+    params.then((p) => {
+      if (mounted) {
+        setResolvedParams(p);
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, [params]);
 
   const programSlug = resolvedParams?.programSlug ?? "web-dev-101";
   const weekNumber = resolvedParams?.weekNumber ?? "6";
