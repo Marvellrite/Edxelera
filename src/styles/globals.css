@@ -2,7 +2,10 @@
 
 @font-face {
   font-family: "Google Sans Flex";
-  src: url("/fonts/GoogleSansFlex.woff2") format("woff2");
+  src:
+    local("Google Sans Flex"),
+    url("/fonts/GoogleSansFlex.woff2") format("woff2"),
+    url("/fonts/GoogleSansFlex.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 1000;
   font-stretch: 25% 151%;
