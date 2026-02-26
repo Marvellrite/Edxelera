@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-interface LessonPageProps {
-  params: Promise<{ courseSlug: string; lessonSlug: string }>;
-}
+import { useParams } from "next/navigation";
 
 const mockLessonData = {
   "javascript-js-objects": {
@@ -33,8 +30,10 @@ const mockLessonData = {
   },
 };
 
-export default async function LessonPage({ params }: LessonPageProps) {
-  const { courseSlug, lessonSlug } = await params;
+export default function LessonPage() {
+  const params = useParams<{ courseSlug: string; lessonSlug: string }>();
+  const courseSlug = params.courseSlug ?? "javascript";
+  const lessonSlug = params.lessonSlug ?? "js-objects";
   const mockKey = `${courseSlug}-${lessonSlug}`;
   const lesson = mockLessonData[mockKey as keyof typeof mockLessonData] ||
     mockLessonData["javascript-js-objects"];

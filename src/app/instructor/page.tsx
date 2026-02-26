@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 
+function formatDateLabel(dateInput: string) {
+  const [year, month, day] = dateInput.split("-");
+  if (!year || !month || !day) return dateInput;
+  return `${day}/${month}/${year}`;
+}
+
 const mockInstructorDashboard = {
   stats: [
     { label: "Programs Teaching", value: "2" },
@@ -124,7 +130,7 @@ export default function InstructorDashboard() {
 
                   <p className="text-xs text-muted-foreground">
                     Next live session:{" "}
-                    {new Date(program.nextLiveSession).toLocaleDateString()}
+                    {formatDateLabel(program.nextLiveSession)}
                   </p>
                 </div>
               </Link>
@@ -147,7 +153,7 @@ export default function InstructorDashboard() {
                   {item.title}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Due {new Date(item.dueAt).toLocaleDateString()}
+                  Due {formatDateLabel(item.dueAt)}
                 </p>
               </div>
             ))}

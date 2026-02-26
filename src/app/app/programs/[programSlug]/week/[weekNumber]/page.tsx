@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-interface WeekPageProps {
-  params: Promise<{ programSlug: string; weekNumber: string }>;
-}
+import { useParams } from "next/navigation";
 
 const mockWeekHubs: Record<string, any> = {
   "web-dev-101-6": {
@@ -59,8 +56,10 @@ const mockWeekHubs: Record<string, any> = {
 
 type TabType = "overview" | "lessons" | "assignment" | "discussion" | "live";
 
-export default async function WeekHubPage({ params }: WeekPageProps) {
-  const { programSlug, weekNumber } = await params;
+export default function WeekHubPage() {
+  const params = useParams<{ programSlug: string; weekNumber: string }>();
+  const programSlug = params.programSlug ?? "web-dev-101";
+  const weekNumber = params.weekNumber ?? "6";
   const [activeTab, setActiveTab] = useState<TabType>("overview");
 
   const mockKey = `${programSlug}-${weekNumber}`;

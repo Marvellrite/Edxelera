@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 
+function formatDateLabel(dateInput: string) {
+  const [year, month, day] = dateInput.split("-");
+  if (!year || !month || !day) return dateInput;
+  return `${day}/${month}/${year}`;
+}
+
 // Mock data for dashboard
 const mockDashboard = {
   enrolledPrograms: [
@@ -125,7 +131,7 @@ export default function DashboardPage() {
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">
                         Next deadline:{" "}
-                        {new Date(program.nextDeadline).toLocaleDateString()}
+                        {formatDateLabel(program.nextDeadline)}
                       </span>
                       <span className="text-xs font-medium text-primary">
                         Continue →
@@ -165,7 +171,7 @@ export default function DashboardPage() {
                       {deadline.program}
                     </p>
                     <p className="text-xs font-semibold text-primary mt-2">
-                      {new Date(deadline.dueAt).toLocaleDateString()}
+                      {formatDateLabel(deadline.dueAt)}
                     </p>
                   </div>
                 </div>
