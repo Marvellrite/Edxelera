@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-background text-foreground font-sans">
+      <body className="bg-background text-foreground" style={{ fontFamily: "Google Sans Flex, Geist, Geist Fallback, sans-serif" }}>
         {children}
       </body>
     </html>

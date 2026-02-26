@@ -179,7 +179,6 @@ export default function InstructorDashboard() {
                   key={idx}
                   className="rounded-xl p-4"
                   style={{
-                    backgroundColor: "var(--color-surface-raised)",
                     border: item.urgent
                       ? "1px solid var(--color-brand-secondary-200)"
                       : "1px solid var(--color-border)",

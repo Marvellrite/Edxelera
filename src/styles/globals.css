@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Google Sans Flex";
+  src:
+    local("Google Sans Flex"),
+    url("/fonts/GoogleSansFlex.woff2") format("woff2"),
+    url("/fonts/GoogleSansFlex.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  font-display: swap;
+}
+
 @theme inline {
   /* ── Fonts ── */
-  --font-sans: "Geist", "Geist Fallback";
+  --font-sans: "Google Sans Flex", "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
 
   /* ── Brand: Black ── */
