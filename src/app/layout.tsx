@@ -1,17 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
-
-// Google Sans Flex: variable weight 100-1000, optical sizing 8-144
-const googleSansFlex = Geist({ 
-  subsets: ["latin"],
-  variable: "--font-sans-flex"
-});
-
-const geistMono = Geist_Mono({ 
-  subsets: ["latin"],
-  variable: "--font-mono"
-});
 
 export const metadata: Metadata = {
   title: "EdXelera - Cohort-Based Learning",
@@ -47,10 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${googleSansFlex.variable} ${geistMono.variable}`}>
-      <body className="bg-background text-foreground font-sans">
-        {children}
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-background text-foreground font-sans">{children}</body>
     </html>
   );
 }
