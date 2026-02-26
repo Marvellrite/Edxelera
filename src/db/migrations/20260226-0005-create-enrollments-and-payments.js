@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0005-create-enrollments-and-payments.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0005-create-enrollments-and-payments.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('enrollments',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},cohort_id:{type:S.UUID,allowNull:false,references:{model:'cohorts',key:'id'}},status:{type:S.STRING(32),allowNull:false,defaultValue:'active'},enrolled_at:{type:S.DATE,allowNull:false},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.addIndex('enrollments',['user_id','cohort_id'],{unique:true});await q.createTable('payment_transactions',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},cohort_id:{type:S.UUID,allowNull:false,references:{model:'cohorts',key:'id'}},provider:{type:S.STRING(32),allowNull:false},reference:{type:S.STRING(128),allowNull:false,unique:true},status:{type:S.STRING(32),allowNull:false},amount_minor:{type:S.INTEGER,allowNull:false},currency:{type:S.STRING(8),allowNull:false},metadata_json:{type:S.TEXT},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});},async down(q){await q.dropTable('payment_transactions');await q.dropTable('enrollments');}};

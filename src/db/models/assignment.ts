@@ -1,7 +1,11 @@
-import type { Sequelize } from \"sequelize\";
-import { definePlaceholderModel } from \"./_placeholder\";
+import { DataTypes, type Sequelize } from "sequelize";
 
 export function defineAssignmentModel(sequelize: Sequelize) {
-  // TODO: Replace placeholder schema with full Sequelize attributes/associations.
-  return definePlaceholderModel(sequelize, \"Assignment\", \"assignments\");
+  return sequelize.define("Assignment", {
+    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    weekId: { type: DataTypes.UUID, allowNull: false, field: "week_id" },
+    title: { type: DataTypes.STRING(255), allowNull: false },
+    instructions: { type: DataTypes.TEXT, allowNull: true },
+    dueAt: { type: DataTypes.DATE, allowNull: true, field: "due_at" },
+  }, { tableName: "assignments", underscored: true, timestamps: true });
 }

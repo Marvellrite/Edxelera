@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0001-create-users.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0001-create-users.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('users',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},email:{type:S.STRING(255),allowNull:false,unique:true},full_name:{type:S.STRING(255),allowNull:false},password_hash:{type:S.STRING(255),allowNull:false},two_fa_enabled:{type:S.BOOLEAN,allowNull:false,defaultValue:false},two_fa_secret:{type:S.STRING(255)},recovery_codes_json:{type:S.TEXT},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});},async down(q){await q.dropTable('users');}};

@@ -183,6 +183,76 @@ export interface CertificateDownloadUrlResult {
   expiresAtUtc: string;
 }
 
+export interface ProgramDTO {
+  id: string;
+  programSlug: string;
+  title: string;
+  description?: string;
+  timezone: string;
+  startDateUtc: string;
+  endDateUtc: string;
+  amountMinor: number;
+  currency: string;
+  enrollmentCloseHours: number;
+  lateJoinEnabled: boolean;
+  lateJoinDays: number;
+}
+
+export interface PaginatedResult<T> {
+  items: T[];
+  page: number;
+  pageSize: number;
+  total: number;
+}
+
+export interface AdminUserSummary {
+  id: string;
+  email: string;
+  fullName: string;
+  roles: RoleName[];
+}
+
+export interface AdminUserDetail extends AdminUserSummary {
+  enrollments: Array<{ programSlug: string; status: string; enrolledAtUtc: string }>;
+}
+
+export interface PaymentSummary {
+  id: string;
+  reference: string;
+  userId: string;
+  programSlug: string;
+  status: PaymentStatus;
+  amountMinor: number;
+  currency: string;
+  createdAtUtc: string;
+}
+
+export interface EnrollmentSummary {
+  id: string;
+  userId: string;
+  programSlug: string;
+  status: string;
+  enrolledAtUtc: string;
+}
+
+export interface ContentCourse {
+  id: string;
+  programSlug: string;
+  courseSlug: string;
+  title: string;
+  description?: string;
+}
+
+export interface ContentLesson {
+  id: string;
+  courseSlug: string;
+  weekNumber: number;
+  lessonSlug: string;
+  title: string;
+  position: number;
+  durationSeconds?: number;
+}
+
 export interface DiscussionPost {
   id: string;
   authorName: string;

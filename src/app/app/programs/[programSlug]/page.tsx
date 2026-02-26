@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Lock, CheckCircle2, ChevronRight, CalendarClock, FileText, Video } from "lucide-react";
 

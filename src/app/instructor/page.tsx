@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { Users, TrendingUp, BarChart2, DollarSign, ArrowRight, AlertCircle, MessageSquare, ChevronRight } from "lucide-react";
 
+function formatDateLabel(dateInput: string) {
+  const [year, month, day] = dateInput.split("-");
+  if (!year || !month || !day) return dateInput;
+  return `${day}/${month}/${year}`;
+}
+
 const mockInstructorDashboard = {
   stats: [
     { label: "Enrolled Students", value: "312", delta: "+12 this week", icon: Users, color: "var(--color-brand-primary-600)", bg: "var(--color-brand-primary-50)" },

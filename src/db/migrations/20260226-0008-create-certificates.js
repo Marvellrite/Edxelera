@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0008-create-certificates.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0008-create-certificates.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('certificates',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},cohort_id:{type:S.UUID,references:{model:'cohorts',key:'id'}},course_id:{type:S.UUID,references:{model:'courses',key:'id'}},type:{type:S.STRING(16),allowNull:false},title:{type:S.STRING(255),allowNull:false},status:{type:S.STRING(16),allowNull:false,defaultValue:'issued'},url:{type:S.STRING(1024)},issued_at:{type:S.DATE,allowNull:false},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});},async down(q){await q.dropTable('certificates');}};
