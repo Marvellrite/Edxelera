@@ -56,3 +56,42 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ### CloudFront signed URLs
 - Playback/certificate URLs are generated server-side.
 - Set `CLOUDFRONT_DOMAIN`, `CLOUDFRONT_KEY_PAIR_ID`, and `CLOUDFRONT_PRIVATE_KEY_BASE64`.
+
+## Admin/Instructor API coverage
+
+### Contract naming note (program vs cohort)
+- Database entities can continue to use internal cohort naming.
+- External API contracts should consistently use `program`/`programSlug` naming.
+- Use `toProgramDTO(cohortLike)` and `fromProgramSlug(programSlug)` adapters in `src/features/programs/server/program-contract.ts` to keep route contracts stable.
+
+### Admin endpoints (admin role)
+- `GET/POST /api/admin/programs`
+- `GET/PATCH /api/admin/programs/:programSlug`
+- `PATCH /api/admin/programs/:programSlug/pricing`
+- `PATCH /api/admin/programs/:programSlug/enrollment-rules`
+- `GET/POST /api/admin/content/courses`
+- `PATCH/DELETE /api/admin/content/courses/:courseSlug`
+- `GET /api/admin/content/modules`
+- `PATCH /api/admin/content/modules/:weekId`
+- `GET/POST /api/admin/content/lessons`
+- `PATCH/DELETE /api/admin/content/lessons/:lessonSlug`
+- `POST /api/admin/content/prerequisites`
+- `GET /api/admin/users`
+- `GET/PATCH /api/admin/users/:userId`
+- `GET /api/admin/payments`
+- `GET /api/admin/enrollments`
+- `POST /api/admin/enrollments/:enrollmentId/revoke`
+
+### Instructor endpoints (instructor role + program assignment)
+- `GET /api/instructor/programs`
+- `PATCH /api/instructor/programs/:programSlug/weeks/:weekNumber/pin`
+- `PATCH /api/instructor/programs/:programSlug/weeks/:weekNumber/assignment`
+- `PATCH /api/instructor/programs/:programSlug/weeks/:weekNumber/live-session`
+- `PATCH /api/instructor/discussion/posts/:postId`
+
+### Existing endpoints confirmed + wrappers
+- Discussion: thread/read/create/reply/pin
+- Certificates: list + signed download URL
+- Playback: signed lesson playback URL
+- Enrollment/paystack: eligibility + init + verify
+- All wrappers are exported from `src/features/client/index.ts`.
