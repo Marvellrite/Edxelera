@@ -323,15 +323,9 @@ export default function WeekHubPage() {
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Date & Time</p>
                   <p className="text-lg font-semibold text-foreground">
-                    {new Date(
-                      week.liveSession?.startUtc
-                    ).toLocaleDateString()} at{" "}
-                    {new Date(
-                      week.liveSession?.startUtc
-                    ).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    {week.liveSession?.startUtc
+                      ? `${new Date(week.liveSession.startUtc).toLocaleDateString()} at ${new Date(week.liveSession.startUtc).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`
+                      : "TBD"}
                   </p>
                 </div>
                 <div>
