@@ -2,119 +2,182 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Eye, EyeOff, ArrowRight } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Mock API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsLoading(false);
   };
 
   return (
     <div className="w-full max-w-md">
-      <div className="rounded-xl border border-border bg-background p-8 shadow-sm">
+      {/* Card */}
+      <div
+        className="rounded-2xl p-8"
+        style={{
+          backgroundColor: "var(--color-surface-raised)",
+          border: "1px solid var(--color-border)",
+          boxShadow: "0 8px 40px rgba(0,17,70,0.1)",
+        }}
+      >
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Welcome back</h1>
-          <p className="text-muted-foreground text-sm">
-            Sign in to your EdXelera account
+          <h1 className="text-2xl font-bold text-foreground mb-1.5 text-balance">
+            Welcome back
+          </h1>
+          <p className="text-sm" style={{ color: "var(--color-muted-foreground)" }}>
+            Sign in to continue your learning journey
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
-          <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
-              Email
+          <div className="space-y-1.5">
+            <label className="block text-sm font-medium text-foreground">
+              Email address
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              className="w-full rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-subtle-foreground outline-none transition-all duration-200"
+              style={{
+                border: "1px solid var(--color-border)",
+                backgroundColor: "var(--color-surface)",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "var(--color-brand-primary-600)";
+                e.target.style.boxShadow = "0 0 0 3px rgba(0,17,70,0.1)";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "var(--color-border)";
+                e.target.style.boxShadow = "none";
+              }}
               required
             />
           </div>
 
           {/* Password */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
               <label className="block text-sm font-medium text-foreground">
                 Password
               </label>
               <Link
-                href="/auth/forgot-password"
-                className="text-xs text-primary hover:text-primary/80 transition-colors"
+                href="/forgot-password"
+                className="text-xs font-medium transition-colors"
+                style={{ color: "var(--color-brand-primary-600)" }}
               >
-                Forgot?
+                Forgot password?
               </Link>
             </div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-              required
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full rounded-xl px-4 py-2.5 pr-11 text-sm text-foreground placeholder:text-subtle-foreground outline-none transition-all duration-200"
+                style={{
+                  border: "1px solid var(--color-border)",
+                  backgroundColor: "var(--color-surface)",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "var(--color-brand-primary-600)";
+                  e.target.style.boxShadow = "0 0 0 3px rgba(0,17,70,0.1)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "var(--color-border)";
+                  e.target.style.boxShadow = "none";
+                }}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted-foreground)" }}
+                tabIndex={-1}
+              >
+                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
+            </div>
           </div>
 
-          {/* Submit button */}
+          {/* Submit */}
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-lg bg-primary text-white px-4 py-2.5 text-sm font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+            style={{
+              background: isLoading
+                ? "var(--color-brand-primary-700)"
+                : "linear-gradient(135deg, var(--color-brand-primary-600) 0%, var(--color-brand-primary-700) 100%)",
+              boxShadow: "0 2px 8px rgba(0,17,70,0.25)",
+            }}
           >
-            {isLoading ? "Signing in..." : "Sign In"}
+            {isLoading ? (
+              <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <>
+                Sign In
+                <ArrowRight size={14} />
+              </>
+            )}
           </button>
         </form>
 
         {/* Divider */}
-        <div className="relative my-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-border" />
-          </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">Or</span>
-          </div>
+        <div className="relative my-6 flex items-center">
+          <div className="flex-1" style={{ borderTop: "1px solid var(--color-border)" }} />
+          <span className="px-3 text-xs" style={{ color: "var(--color-muted-foreground)" }}>
+            or continue with
+          </span>
+          <div className="flex-1" style={{ borderTop: "1px solid var(--color-border)" }} />
         </div>
 
-        {/* OAuth buttons */}
-        <div className="space-y-2">
-          <button className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground hover:bg-muted-background transition-colors">
-            Continue with Google
-          </button>
-          <button className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground hover:bg-muted-background transition-colors">
-            Continue with GitHub
-          </button>
+        {/* OAuth */}
+        <div className="grid grid-cols-2 gap-3">
+          {["Google", "GitHub"].map((provider) => (
+            <button
+              key={provider}
+              className="rounded-xl px-4 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-surface"
+              style={{
+                border: "1px solid var(--color-border)",
+                backgroundColor: "var(--color-surface-raised)",
+              }}
+            >
+              Continue with {provider}
+            </button>
+          ))}
         </div>
 
-        {/* Sign up link */}
-        <p className="mt-6 text-center text-sm text-muted-foreground">
-          Don't have an account?{" "}
+        {/* Sign-up link */}
+        <p className="mt-6 text-center text-sm" style={{ color: "var(--color-muted-foreground)" }}>
+          Don&apos;t have an account?{" "}
           <Link
-            href="/auth/register"
-            className="text-primary font-medium hover:text-primary/80 transition-colors"
+            href="/register"
+            className="font-semibold transition-colors"
+            style={{ color: "var(--color-brand-primary-600)" }}
           >
-            Sign up
+            Create one
           </Link>
         </p>
       </div>
 
-      {/* Footer note */}
-      <p className="mt-6 text-center text-xs text-muted-foreground">
+      <p className="mt-5 text-center text-xs" style={{ color: "var(--color-subtle-foreground)" }}>
         By signing in, you agree to our{" "}
-        <Link href="#" className="text-primary hover:text-primary/80">
-          Terms of Service
-        </Link>
+        <Link href="#" className="underline underline-offset-2">Terms of Service</Link>
       </p>
     </div>
   );

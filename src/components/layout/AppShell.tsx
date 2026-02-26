@@ -15,6 +15,7 @@ interface AppShellProps {
     email: string;
     fullName: string;
   };
+  cohortStatus?: string;
 }
 
 export function AppShell({
@@ -22,22 +23,24 @@ export function AppShell({
   sidebarItems = [],
   role = "student",
   user,
+  cohortStatus,
 }: AppShellProps) {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-hidden">
       {/* Top Navigation */}
-      <TopNav variant="app" user={user} />
+      <TopNav variant="app" user={user} cohortStatus={cohortStatus} />
 
-      {/* Main content area */}
+      {/* Body: sidebar + main */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
         {sidebarItems.length > 0 && (
-          <Sidebar items={sidebarItems} role={role} />
+          <Sidebar items={sidebarItems} role={role} user={user} />
         )}
 
-        {/* Main content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <main
+          className="flex-1 overflow-y-auto"
+          style={{ backgroundColor: "var(--color-surface)" }}
+        >
+          <div className="mx-auto max-w-6xl px-6 py-8">
             {children}
           </div>
         </main>
