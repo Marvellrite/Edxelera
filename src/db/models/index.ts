@@ -21,27 +21,14 @@ import { defineWeekModel } from "./week";
 
 export function initModels(sequelize: Sequelize) {
   const models = {
-    User: defineUserModel(sequelize),
-    Role: defineRoleModel(sequelize),
-    UserRole: defineUserRoleModel(sequelize),
-    Cohort: defineCohortModel(sequelize),
-    Course: defineCourseModel(sequelize),
-    CohortCourse: defineCohortCourseModel(sequelize),
-    Week: defineWeekModel(sequelize),
-    Lesson: defineLessonModel(sequelize),
-    LessonPrerequisite: defineLessonPrerequisiteModel(sequelize),
-    Assignment: defineAssignmentModel(sequelize),
-    LiveSession: defineLiveSessionModel(sequelize),
-    Enrollment: defineEnrollmentModel(sequelize),
-    PaymentTransaction: definePaymentTransactionModel(sequelize),
-    CourseProgress: defineCourseProgressModel(sequelize),
-    LessonProgress: defineLessonProgressModel(sequelize),
-    DiscussionThread: defineDiscussionThreadModel(sequelize),
-    DiscussionPost: defineDiscussionPostModel(sequelize),
-    Certificate: defineCertificateModel(sequelize),
-    VideoAsset: defineVideoAssetModel(sequelize),
+    User: defineUserModel(sequelize), Role: defineRoleModel(sequelize), UserRole: defineUserRoleModel(sequelize),
+    Cohort: defineCohortModel(sequelize), Course: defineCourseModel(sequelize), CohortCourse: defineCohortCourseModel(sequelize),
+    Week: defineWeekModel(sequelize), Lesson: defineLessonModel(sequelize), LessonPrerequisite: defineLessonPrerequisiteModel(sequelize),
+    Assignment: defineAssignmentModel(sequelize), LiveSession: defineLiveSessionModel(sequelize),
+    Enrollment: defineEnrollmentModel(sequelize), PaymentTransaction: definePaymentTransactionModel(sequelize),
+    CourseProgress: defineCourseProgressModel(sequelize), LessonProgress: defineLessonProgressModel(sequelize),
+    DiscussionThread: defineDiscussionThreadModel(sequelize), DiscussionPost: defineDiscussionPostModel(sequelize),
+    Certificate: defineCertificateModel(sequelize), VideoAsset: defineVideoAssetModel(sequelize),
   };
-
-  // TODO: Define associations after replacing placeholders with real schemas.
   return models;
 }

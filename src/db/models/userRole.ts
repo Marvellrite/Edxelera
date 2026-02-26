@@ -1,7 +1,9 @@
-import type { Sequelize } from \"sequelize\";
-import { definePlaceholderModel } from \"./_placeholder\";
+import { DataTypes, type Sequelize } from "sequelize";
 
 export function defineUserRoleModel(sequelize: Sequelize) {
-  // TODO: Replace placeholder schema with full Sequelize attributes/associations.
-  return definePlaceholderModel(sequelize, \"UserRole\", \"user_roles\");
+  return sequelize.define("UserRole", {
+    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    userId: { type: DataTypes.UUID, allowNull: false, field: "user_id" },
+    roleId: { type: DataTypes.UUID, allowNull: false, field: "role_id" },
+  }, { tableName: "user_roles", underscored: true, timestamps: true, indexes: [{ unique: true, fields: ["user_id", "role_id"] }] });
 }

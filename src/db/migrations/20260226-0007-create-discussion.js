@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0007-create-discussion.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0007-create-discussion.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('discussion_threads',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},cohort_id:{type:S.UUID,allowNull:false,references:{model:'cohorts',key:'id'}},week_id:{type:S.UUID,allowNull:false,references:{model:'weeks',key:'id'}},title:{type:S.STRING(255),allowNull:false},pinned_post_id:{type:S.UUID},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.createTable('discussion_posts',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},thread_id:{type:S.UUID,allowNull:false,references:{model:'discussion_threads',key:'id'}},author_user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},title:{type:S.STRING(255)},body:{type:S.TEXT,allowNull:false},parent_post_id:{type:S.UUID},is_pinned:{type:S.BOOLEAN,allowNull:false,defaultValue:false},status:{type:S.STRING(16),allowNull:false,defaultValue:'visible'},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});},async down(q){await q.dropTable('discussion_posts');await q.dropTable('discussion_threads');}};

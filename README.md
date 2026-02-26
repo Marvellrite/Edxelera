@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Backend setup (MySQL + Sequelize + Redis)
+
+1. Copy envs:
+   - `cp .env.example .env.local`
+2. Install deps:
+   - `pnpm install`
+3. Run migrations:
+   - `pnpm sequelize-cli db:migrate`
+4. Run seeders:
+   - `pnpm sequelize-cli db:seed:all`
+5. Start app:
+   - `pnpm dev`
+
+### Paystack webhook local testing
+- Forward `/api/paystack/webhook` using ngrok/cloudflared.
+- Configure Paystack webhook URL to the tunnel URL.
+- The webhook endpoint validates the `x-paystack-signature` hash with `PAYSTACK_WEBHOOK_SECRET`.
+
+### CloudFront signed URLs
+- Playback/certificate URLs are generated server-side.
+- Set `CLOUDFRONT_DOMAIN`, `CLOUDFRONT_KEY_PAIR_ID`, and `CLOUDFRONT_PRIVATE_KEY_BASE64`.

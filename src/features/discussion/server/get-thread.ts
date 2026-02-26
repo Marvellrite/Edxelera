@@ -1,12 +1,13 @@
 import type { DiscussionThread } from "@/features/_shared/types";
 
+const store: Record<string, DiscussionThread> = {};
+
 export async function getDiscussionThread(programSlug: string, weekNumber: number): Promise<DiscussionThread> {
-  // TODO: Load weekly thread + posts.
-  return {
-    threadId: `${programSlug}-w${weekNumber}`,
-    programSlug,
-    weekNumber,
-    title: `Week ${weekNumber} Discussion`,
-    posts: [],
-  };
+  const key = `${programSlug}-${weekNumber}`;
+  if (!store[key]) {
+    store[key] = { threadId: key, programSlug, weekNumber, title: `Week ${weekNumber} Discussion`, posts: [] };
+  }
+  return store[key];
 }
+
+export { store as discussionStore };
