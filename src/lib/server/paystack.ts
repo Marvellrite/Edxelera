@@ -15,7 +15,7 @@ export async function initializePaystackTransaction(email?: string, amountMinor?
   return { authorization_url: data.data.authorization_url, reference: data.data.reference };
 }
 
-export async function verifyPaystackTransaction(reference: string) {
+export async function verifyPaystackTransaction(reference: string): Promise<{ reference: string; status: "success" | "failed" | "pending"; paidAtUtc: string }> {
   if (!env.paystackSecretKey) return { reference, status: "pending" as const, paidAtUtc: new Date().toISOString() };
   const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
     headers: { Authorization: `Bearer ${env.paystackSecretKey}` },
