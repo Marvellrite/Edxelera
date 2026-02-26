@@ -98,6 +98,12 @@ export default function WeekHubPage({ params }: { params: Promise<{ programSlug:
   const weekNumber = resolvedParams?.weekNumber ?? "6";
   const mockKey = `${programSlug}-${weekNumber}`;
   const week = mockWeekHubs[mockKey] || mockWeekHubs["web-dev-101-6"];
+  const assignmentDueLabel = week.assignment?.deadlineUtc
+    ? new Date(week.assignment.deadlineUtc).toLocaleDateString("en-US", { month: "short", day: "numeric" })
+    : "TBD";
+  const liveSessionDateTimeLabel = week.liveSession?.startUtc
+    ? `${new Date(week.liveSession.startUtc).toLocaleDateString("en-US", { month: "long", day: "numeric" })} at ${new Date(week.liveSession.startUtc).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`
+    : "TBD";
 
   return (
     <div className="space-y-6">
@@ -218,7 +224,12 @@ export default function WeekHubPage({ params }: { params: Promise<{ programSlug:
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { label: "Lessons", value: week.lessons.length, color: "var(--color-brand-primary-600)", bg: "var(--color-brand-primary-50)" },
-                { label: "Assignment Due", value: new Date(week.assignment?.deadlineUtc).toLocaleDateString("en-US", { month: "short", day: "numeric" }), color: "var(--color-brand-secondary-500)", bg: "var(--color-brand-secondary-50)" },
+                {
+                  label: "Assignment Due",
+                  value: assignmentDueLabel,
+                  color: "var(--color-brand-secondary-500)",
+                  bg: "var(--color-brand-secondary-50)",
+                },
                 { label: "Live Session", value: "Apr 11 · 6 PM", color: "var(--color-info-500)", bg: "var(--color-info-50)" },
               ].map((item) => (
                 <div
@@ -355,7 +366,7 @@ export default function WeekHubPage({ params }: { params: Promise<{ programSlug:
                   }}
                 >
                   <CalendarClock size={12} />
-                  Due {new Date(week.assignment?.deadlineUtc).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                  Due {assignmentDueLabel}
                 </span>
               </div>
 
@@ -479,7 +490,7 @@ export default function WeekHubPage({ params }: { params: Promise<{ programSlug:
                 {[
                   {
                     label: "Date & Time",
-                    value: `${new Date(week.liveSession?.startUtc).toLocaleDateString("en-US", { month: "long", day: "numeric" })} at ${new Date(week.liveSession?.startUtc).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`,
+                    value: liveSessionDateTimeLabel,
                   },
                   { label: "Duration", value: "1 hour" },
                 ].map((item) => (

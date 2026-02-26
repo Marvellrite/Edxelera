@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000");
 @import "tailwindcss";
 
 @theme inline {
   /* ── Fonts ── */
-  --font-sans: "Geist", "Geist Fallback";
+  --font-sans: "Google Sans Flex", "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
 
   /* ── Brand: Black ── */
