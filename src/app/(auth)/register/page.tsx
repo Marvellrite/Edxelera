@@ -1,37 +1,18 @@
-"use client";
+'use client';
 
-import { useState, Suspense } from "react";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Eye, EyeOff, ArrowRight } from "lucide-react";
-
-const inputClass =
-  "w-full rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-subtle-foreground outline-none transition-all duration-200";
-
-const inputStyle = {
-  border: "1px solid var(--color-border)",
-  backgroundColor: "var(--color-surface)",
-};
-
-function focusStyle(el: HTMLInputElement) {
-  el.style.borderColor = "var(--color-brand-primary-600)";
-  el.style.boxShadow = "0 0 0 3px rgba(0,17,70,0.1)";
-}
-
-function blurStyle(el: HTMLInputElement) {
-  el.style.borderColor = "var(--color-border)";
-  el.style.boxShadow = "none";
-}
+import { useState, Suspense } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { Eye, EyeOff, ArrowRight, Check } from 'lucide-react';
 
 function RegisterForm() {
   const searchParams = useSearchParams();
-  const programSlug = searchParams.get("program");
+  const programSlug = searchParams.get('program');
 
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    fullName: '',
+    email: '',
+    password: '',
     agreeToTerms: false,
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -39,7 +20,7 @@ function RegisterForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,138 +30,165 @@ function RegisterForm() {
     setIsLoading(false);
   };
 
+  // Password strength calc
+  const passwordStrength = formData.password
+    ? Math.min(
+        100,
+        Math.max(
+          0,
+          (formData.password.length - 4) * 10 +
+            (formData.password.match(/[A-Z]/) ? 20 : 0) +
+            (formData.password.match(/[0-9]/) ? 20 : 0) +
+            (formData.password.match(/[^A-Za-z0-9]/) ? 20 : 0)
+        )
+      )
+    : 0;
+
+  const strengthColor =
+    passwordStrength < 40 ? '#ef4444' : passwordStrength < 70 ? '#f59e0b' : '#16a34a';
+
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full max-w-sm">
+      {/* Card */}
       <div
-        className="rounded-2xl p-8"
+        className="rounded-[--radius-xl] p-8 border"
         style={{
-          backgroundColor: "var(--color-surface-raised)",
-          border: "1px solid var(--color-border)",
-          boxShadow: "0 8px 40px rgba(0,17,70,0.1)",
+          backgroundColor: 'var(--color-card)',
+          borderColor: 'var(--color-card-border)',
+          boxShadow: 'var(--shadow-lg)',
         }}
       >
         {/* Header */}
-        <div className="mb-7">
-          <h1 className="text-2xl font-bold text-foreground mb-1.5 text-balance">
-            Create your account
-          </h1>
-          <p className="text-sm" style={{ color: "var(--color-muted-foreground)" }}>
-            Join EdXelera and start your structured learning journey
+        <div className="mb-8 space-y-2">
+          <h1 className="text-3xl font-[700] text-foreground">Get started today</h1>
+          <p className="text-sm text-muted-foreground">
+            Join thousands learning with EdXelera
           </p>
         </div>
 
-        {programSlug && (
-          <div
-            className="mb-6 flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium"
-            style={{
-              backgroundColor: "var(--color-brand-primary-50)",
-              color: "var(--color-brand-primary-600)",
-              border: "1px solid var(--color-brand-primary-100)",
-            }}
-          >
-            <span className="w-2 h-2 rounded-full bg-success-500 shrink-0" />
-            You&apos;ll be enrolled in the selected program after registration.
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Full Name */}
-          <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-foreground">Full Name</label>
+          <div className="space-y-2">
+            <label className="block text-sm font-[600] text-foreground">Full name</label>
             <input
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
-              placeholder="Jane Doe"
-              className={inputClass}
-              style={inputStyle}
-              onFocus={(e) => focusStyle(e.target as HTMLInputElement)}
-              onBlur={(e) => blurStyle(e.target as HTMLInputElement)}
+              placeholder="John Doe"
+              className="w-full rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-input-placeholder outline-none transition-all duration-200"
+              style={{
+                backgroundColor: 'var(--color-input-bg)',
+                border: '1px solid var(--color-input-border)',
+              }}
+              onFocus={(e) => {
+                (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-focus)';
+                (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(47, 79, 255, 0.1)';
+              }}
+              onBlur={(e) => {
+                (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-border)';
+                (e.target as HTMLInputElement).style.boxShadow = 'none';
+              }}
               required
             />
           </div>
 
           {/* Email */}
-          <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-foreground">Email address</label>
+          <div className="space-y-2">
+            <label className="block text-sm font-[600] text-foreground">Email address</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className={inputClass}
-              style={inputStyle}
-              onFocus={(e) => focusStyle(e.target as HTMLInputElement)}
-              onBlur={(e) => blurStyle(e.target as HTMLInputElement)}
+              className="w-full rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-input-placeholder outline-none transition-all duration-200"
+              style={{
+                backgroundColor: 'var(--color-input-bg)',
+                border: '1px solid var(--color-input-border)',
+              }}
+              onFocus={(e) => {
+                (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-focus)';
+                (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(47, 79, 255, 0.1)';
+              }}
+              onBlur={(e) => {
+                (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-border)';
+                (e.target as HTMLInputElement).style.boxShadow = 'none';
+              }}
               required
             />
           </div>
 
           {/* Password */}
-          <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-foreground">Password</label>
+          <div className="space-y-2">
+            <label className="block text-sm font-[600] text-foreground">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`${inputClass} pr-11`}
-                style={inputStyle}
-                onFocus={(e) => focusStyle(e.target as HTMLInputElement)}
-                onBlur={(e) => blurStyle(e.target as HTMLInputElement)}
+                className="w-full rounded-lg px-4 py-3 pr-11 text-sm text-foreground placeholder:text-input-placeholder outline-none transition-all duration-200"
+                style={{
+                  backgroundColor: 'var(--color-input-bg)',
+                  border: '1px solid var(--color-input-border)',
+                }}
+                onFocus={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-focus)';
+                  (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(47, 79, 255, 0.1)';
+                }}
+                onBlur={(e) => {
+                  (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-border)';
+                  (e.target as HTMLInputElement).style.boxShadow = 'none';
+                }}
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 transition-opacity hover:opacity-70"
-                style={{ color: "var(--color-muted-foreground)" }}
+                style={{ color: 'var(--color-muted-foreground)' }}
                 tabIndex={-1}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
-          </div>
 
-          {/* Confirm Password */}
-          <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-foreground">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder="••••••••"
-              className={inputClass}
-              style={inputStyle}
-              onFocus={(e) => focusStyle(e.target as HTMLInputElement)}
-              onBlur={(e) => blurStyle(e.target as HTMLInputElement)}
-              required
-            />
+            {/* Strength indicator */}
+            {formData.password && (
+              <div className="flex gap-1.5 mt-2">
+                {[0, 1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="flex-1 h-1 rounded-full transition-colors"
+                    style={{
+                      backgroundColor: i * 25 < passwordStrength ? strengthColor : '#e4e7ef',
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Terms */}
-          <div className="flex items-start gap-3 pt-1">
+          <div className="flex items-start gap-3">
             <input
               type="checkbox"
               name="agreeToTerms"
-              id="agreeToTerms"
               checked={formData.agreeToTerms}
               onChange={handleChange}
-              className="mt-0.5 rounded accent-brand-primary-600"
+              className="w-4 h-4 mt-0.5 rounded border border-border cursor-pointer accent-brand-primary-600"
               required
             />
-            <label htmlFor="agreeToTerms" className="text-sm" style={{ color: "var(--color-muted-foreground)" }}>
-              I agree to the{" "}
-              <Link href="#" className="font-medium underline underline-offset-2" style={{ color: "var(--color-brand-primary-600)" }}>
+            <label className="text-sm text-muted-foreground cursor-pointer">
+              I agree to the{' '}
+              <Link href="#" className="text-brand-primary-600 font-[600] hover:underline">
                 Terms of Service
-              </Link>{" "}
-              and{" "}
-              <Link href="#" className="font-medium underline underline-offset-2" style={{ color: "var(--color-brand-primary-600)" }}>
+              </Link>
+              {' '}and{' '}
+              <Link href="#" className="text-brand-primary-600 font-[600] hover:underline">
                 Privacy Policy
               </Link>
             </label>
@@ -189,11 +197,10 @@ function RegisterForm() {
           {/* Submit */}
           <button
             type="submit"
-            disabled={isLoading}
-            className="mt-1 w-full flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+            disabled={isLoading || !formData.agreeToTerms}
+            className="w-full flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-[700] text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-brand-primary-500/40"
             style={{
-              background: "linear-gradient(135deg, var(--color-brand-primary-600) 0%, var(--color-brand-primary-700) 100%)",
-              boxShadow: "0 2px 8px rgba(0,17,70,0.25)",
+              background: 'var(--gradient-primary)',
             }}
           >
             {isLoading ? (
@@ -207,13 +214,29 @@ function RegisterForm() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm" style={{ color: "var(--color-muted-foreground)" }}>
-          Already have an account?{" "}
-          <Link
-            href="/login"
-            className="font-semibold transition-colors"
-            style={{ color: "var(--color-brand-primary-600)" }}
-          >
+        {/* Divider */}
+        <div className="divider-label my-6" />
+
+        {/* OAuth */}
+        <div className="grid grid-cols-2 gap-3">
+          {['Google', 'GitHub'].map((provider) => (
+            <button
+              key={provider}
+              className="rounded-lg px-4 py-3 text-sm font-[600] text-foreground transition-all duration-200 hover:bg-surface border"
+              style={{
+                backgroundColor: 'var(--color-surface)',
+                borderColor: 'var(--color-border)',
+              }}
+            >
+              {provider}
+            </button>
+          ))}
+        </div>
+
+        {/* Sign-in link */}
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          Already have an account?{' '}
+          <Link href="/login" className="font-[700] text-brand-primary-600 hover:text-primary-active">
             Sign in
           </Link>
         </p>
@@ -224,14 +247,7 @@ function RegisterForm() {
 
 export default function RegisterPage() {
   return (
-    <Suspense
-      fallback={
-        <div
-          className="w-full max-w-md h-[520px] rounded-2xl skeleton"
-          style={{ border: "1px solid var(--color-border)" }}
-        />
-      }
-    >
+    <Suspense fallback={<div className="w-full h-screen bg-surface" />}>
       <RegisterForm />
     </Suspense>
   );
