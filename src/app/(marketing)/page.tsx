@@ -1,70 +1,122 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Logo } from "@/components/branding/Logo";
+import Link from 'next/link';
+import { ArrowRight, Zap, Users, Award, Rocket } from 'lucide-react';
+import { Logo } from '@/components/branding/Logo';
+
+const stats = [
+  { number: '5K+', label: 'Active Learners', color: '#2f4fff' },
+  { number: '120+', label: 'Programs', color: '#0ea5e9' },
+  { number: '94%', label: 'Completion Rate', color: '#16a34a' },
+  { number: '15K+', label: 'Certificates Issued', color: '#ED1C24' },
+];
+
+const features = [
+  {
+    icon: Rocket,
+    title: 'Structured Cohorts',
+    description: 'Learn on a fixed schedule with peers. Clear milestones, accountability, and real deadlines drive results.',
+    accent: false,
+  },
+  {
+    icon: Users,
+    title: 'Live Sessions',
+    description: 'Connect with expert instructors and your cohort in real-time. Get answers instantly, not tomorrow.',
+    accent: false,
+  },
+  {
+    icon: Award,
+    title: 'Recognized Credentials',
+    description: 'Earn shareable certificates that prove your skills. Built for employers, respected in your field.',
+    accent: false,
+  },
+  {
+    icon: Zap,
+    title: 'Community-Driven',
+    description: 'Learn from peers facing the same challenges. Peer feedback accelerates growth and builds lasting networks.',
+    accent: false,
+  },
+  {
+    icon: Users,
+    title: 'Personalized Learning',
+    description: 'Adaptive pathways that adjust to your pace. Master concepts before moving on — no rushing.',
+    accent: true, // Red accent dot
+  },
+  {
+    icon: Award,
+    title: 'Career Support',
+    description: 'Job board, resume reviews, and alumni network. Your education leads directly to opportunities.',
+    accent: false,
+  },
+];
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col gap-24">
-      {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4">
+    <main className="min-h-screen bg-background">
+      {/* ────── Hero Section ────── */}
+      <section className="relative overflow-hidden pt-20 pb-32 px-4">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 -z-10">
+          <div
+            className="absolute top-20 right-0 w-96 h-96 rounded-full opacity-5"
+            style={{ background: 'var(--gradient-primary)' }}
+          />
+          <div
+            className="absolute -bottom-20 left-1/4 w-96 h-96 rounded-full opacity-5"
+            style={{ background: 'var(--gradient-primary)' }}
+          />
+        </div>
+
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left column */}
-            <div className="space-y-6">
+            {/* Left Column */}
+            <div className="space-y-8">
               <div>
                 <Logo variant="dark" size="lg" className="mb-8" />
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-balance leading-tight text-foreground">
-                Learn Together, Grow Faster
+
+              <h1 className="text-5xl lg:text-6xl font-[900] text-balance leading-tight text-foreground">
+                Learn Together,
+                <br />
+                <span className="text-gradient-primary">Grow Faster</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-xl">
-                Join structured cohort-based programs with live sessions, community feedback, and personalized learning paths.
+
+              <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+                Join cohort-based programs with structured learning, live sessions, peer support, and career guidance. Master skills with accountability.
               </p>
-              <div className="flex gap-4 pt-4">
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-semibold text-white hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary-600 text-white font-[600] px-8 py-4 transition-all duration-200 hover:shadow-lg hover:shadow-brand-primary-500/40 hover:bg-primary-active"
                 >
                   Explore Programs
+                  <ArrowRight size={18} />
                 </Link>
                 <Link
-                  href="/auth/login"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-primary px-8 py-3 text-base font-semibold text-primary hover:bg-primary/5 transition-colors"
+                  href="/login"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border px-8 py-4 text-foreground font-[600] transition-colors hover:bg-surface"
                 >
                   Sign In
                 </Link>
               </div>
             </div>
 
-            {/* Right column - Feature highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                {
-                  number: "500+",
-                  label: "Active Learners",
-                },
-                {
-                  number: "50+",
-                  label: "Programs",
-                },
-                {
-                  number: "95%",
-                  label: "Completion Rate",
-                },
-                {
-                  number: "40h",
-                  label: "Avg. Learning Time",
-                },
-              ].map((stat, idx) => (
+            {/* Right Column - Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-lg bg-muted-background border border-border"
+                  className="p-6 rounded-[--radius-lg] border border-brand-primary-50 bg-white card-hover"
                 >
-                  <div className="text-3xl font-bold text-primary mb-2">
+                  <div
+                    className="text-4xl font-[800] mb-2"
+                    style={{ color: stat.color }}
+                  >
                     {stat.number}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-muted-foreground font-[500]">
                     {stat.label}
                   </div>
                 </div>
@@ -74,83 +126,70 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-muted-background">
+      {/* ────── Features Section ────── */}
+      <section className="py-20 px-4 bg-surface">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground text-balance">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-[800] text-balance text-foreground">
               Why Choose EdXelera?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive learning platform designed for structured, community-driven education.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              We combine structure, community, and expert instruction to accelerate your growth in ways traditional learning can't match.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Structured Cohorts",
-                description:
-                  "Learn with a cohort on a fixed schedule with clear start and end dates, creating accountability and community.",
-              },
-              {
-                title: "Live Sessions",
-                description:
-                  "Connect with instructors and peers in real-time. Ask questions, get feedback, and build relationships.",
-              },
-              {
-                title: "Weekly Progression",
-                description:
-                  "Content releases week by week, keeping you on track and preventing overwhelm.",
-              },
-              {
-                title: "Assignments & Projects",
-                description:
-                  "Apply what you learn with hands-on assignments aligned to real-world scenarios.",
-              },
-              {
-                title: "Discussion Forums",
-                description:
-                  "Collaborate with peers, share insights, and get mentorship from instructors.",
-              },
-              {
-                title: "Certificates",
-                description:
-                  "Earn verifiable certificates for individual courses and complete programs.",
-              },
-            ].map((feature, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-lg bg-background border border-border hover:border-primary transition-colors"
-              >
-                <div className="w-12 h-12 rounded-lg bg-accent text-white flex items-center justify-center mb-4 text-xl font-bold">
-                  {idx + 1}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={idx}
+                  className="relative p-8 rounded-[--radius-lg] bg-white border border-brand-primary-50 card-hover overflow-hidden"
+                >
+                  {/* Red accent dot */}
+                  {feature.accent && (
+                    <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-brand-secondary-500/10" />
+                  )}
+
+                  <div className="relative z-10">
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
+                      style={{ background: 'var(--gradient-card)' }}
+                    >
+                      <Icon size={24} className="text-brand-primary-600" />
+                    </div>
+                    <h3 className="text-lg font-[700] text-foreground mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center bg-primary rounded-2xl p-16 text-white">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Learning?</h2>
-          <p className="text-lg mb-8 text-white/90">
-            Join thousands of learners in our next cohort. Limited spots available.
+      {/* ────── CTA Banner ────── */}
+      <section className="py-16 px-4 bg-gradient-primary text-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl lg:text-4xl font-[800]">
+            Ready to Transform Your Learning?
+          </h2>
+          <p className="text-base lg:text-lg opacity-90 max-w-2xl mx-auto">
+            Join thousands of learners who've accelerated their careers with EdXelera's cohort-based programs.
           </p>
           <Link
             href="/programs"
-            className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-base font-semibold text-primary hover:bg-white/90 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-brand-primary-600 font-[700] px-8 py-4 transition-all duration-200 hover:shadow-lg hover:scale-105"
           >
-            Browse Programs
+            Explore Programs
+            <ArrowRight size={18} />
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
