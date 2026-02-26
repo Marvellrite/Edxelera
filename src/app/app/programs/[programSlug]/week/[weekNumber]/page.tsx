@@ -250,9 +250,9 @@ export default function WeekHubPage() {
                   Deadline
                 </p>
                 <p className="text-lg font-semibold text-foreground">
-                  {new Date(
-                    week.assignment?.deadlineUtc
-                  ).toLocaleDateString()}
+                  {week.assignment?.deadlineUtc
+                    ? new Date(week.assignment.deadlineUtc).toLocaleDateString()
+                    : "No deadline"}
                 </p>
               </div>
 
