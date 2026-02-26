@@ -4,7 +4,38 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-const mockWeekHubs: Record<string, any> = {
+type LessonItem = {
+  courseSlug: string;
+  lessonSlug: string;
+  title: string;
+  durationSeconds: number;
+  unlockState: "locked" | "unlocked" | "completed";
+  hasVideo: boolean;
+};
+
+type WeekHubMock = {
+  programSlug: string;
+  weekNumber: number;
+  title: string;
+  released: boolean;
+  releaseAt: string;
+  lessons: LessonItem[];
+  assignment?: {
+    title: string;
+    instructions: string;
+    deadlineUtc: string;
+    unlockState: "locked" | "unlocked" | "completed";
+  };
+  liveSession?: {
+    title: string;
+    startUtc: string;
+    endUtc: string;
+    joinUrl: string;
+  };
+  discussionThreadId?: string;
+};
+
+const mockWeekHubs: Record<string, WeekHubMock> = {
   "web-dev-101-6": {
     programSlug: "web-dev-101",
     weekNumber: 6,
@@ -219,9 +250,9 @@ export default function WeekHubPage() {
                   Deadline
                 </p>
                 <p className="text-lg font-semibold text-foreground">
-                  {new Date(
-                    week.assignment?.deadlineUtc
-                  ).toLocaleDateString()}
+                  {week.assignment?.deadlineUtc
+                    ? new Date(week.assignment.deadlineUtc).toLocaleDateString()
+                    : "No deadline"}
                 </p>
               </div>
 
@@ -292,15 +323,9 @@ export default function WeekHubPage() {
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Date & Time</p>
                   <p className="text-lg font-semibold text-foreground">
-                    {new Date(
-                      week.liveSession?.startUtc
-                    ).toLocaleDateString()} at{" "}
-                    {new Date(
-                      week.liveSession?.startUtc
-                    ).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    {week.liveSession?.startUtc
+                      ? `${new Date(week.liveSession.startUtc).toLocaleDateString()} at ${new Date(week.liveSession.startUtc).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`
+                      : "TBD"}
                   </p>
                 </div>
                 <div>

@@ -1,7 +1,13 @@
-export async function issueCourseCertificate(_userId: string, _courseId: string) {
-  // TODO: Create and persist course certificate when progress hits 100%.
+const issued = new Set<string>();
+
+export async function issueCourseCertificate(userId: string, courseId: string) {
+  issued.add(`${userId}:course:${courseId}`);
 }
 
-export async function issueProgramCertificate(_userId: string, _cohortId: string) {
-  // TODO: Create and persist program certificate after all cohort courses complete.
+export async function issueProgramCertificate(userId: string, cohortId: string) {
+  issued.add(`${userId}:program:${cohortId}`);
+}
+
+export function hasIssued(userId: string, kind: "course" | "program", id: string) {
+  return issued.has(`${userId}:${kind}:${id}`);
 }

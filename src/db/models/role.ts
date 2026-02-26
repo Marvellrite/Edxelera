@@ -1,7 +1,8 @@
-import type { Sequelize } from \"sequelize\";
-import { definePlaceholderModel } from \"./_placeholder\";
+import { DataTypes, type Sequelize } from "sequelize";
 
 export function defineRoleModel(sequelize: Sequelize) {
-  // TODO: Replace placeholder schema with full Sequelize attributes/associations.
-  return definePlaceholderModel(sequelize, \"Role\", \"roles\");
+  return sequelize.define("Role", {
+    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    name: { type: DataTypes.STRING(32), allowNull: false, unique: true },
+  }, { tableName: "roles", underscored: true, timestamps: true });
 }

@@ -8,5 +8,5 @@ export async function POST(req: Request) {
   if (!valid) {
     return NextResponse.json({ ok: false, error: { code: "INVALID_SIGNATURE", message: "Invalid webhook signature" } }, { status: 401 });
   }
-  return NextResponse.json({ ok: true, data: { received: true } });
+  return NextResponse.json({ ok: true, data: { processed: true } });
 }

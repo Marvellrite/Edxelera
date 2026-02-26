@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0003-create-cohorts-courses-cohort-courses.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0003-create-cohorts-courses-cohort-courses.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('cohorts',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},title:{type:S.STRING(255),allowNull:false},slug:{type:S.STRING(160),allowNull:false,unique:true},description:{type:S.TEXT},timezone:{type:S.STRING(64),allowNull:false,defaultValue:'UTC'},start_date:{type:S.DATE,allowNull:false},end_date:{type:S.DATE,allowNull:false},enrollment_close_hours:{type:S.INTEGER,allowNull:false,defaultValue:48},late_join_enabled:{type:S.BOOLEAN,allowNull:false,defaultValue:false},late_join_days:{type:S.INTEGER,allowNull:false,defaultValue:7},amount_minor:{type:S.INTEGER,allowNull:false,defaultValue:0},currency:{type:S.STRING(8),allowNull:false,defaultValue:'NGN'},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.createTable('courses',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},title:{type:S.STRING(255),allowNull:false},slug:{type:S.STRING(160),allowNull:false,unique:true},description:{type:S.TEXT},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.createTable('cohort_courses',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},cohort_id:{type:S.UUID,allowNull:false,references:{model:'cohorts',key:'id'}},course_id:{type:S.UUID,allowNull:false,references:{model:'courses',key:'id'}},position:{type:S.INTEGER,allowNull:false,defaultValue:1},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.addIndex('cohort_courses',['cohort_id','course_id'],{unique:true});},async down(q){await q.dropTable('cohort_courses');await q.dropTable('courses');await q.dropTable('cohorts');}};

@@ -1,13 +1,8 @@
 import type { DiscussionPost, ReplyToPostInput } from "@/features/_shared/types";
+import { discussionStore } from "./get-thread";
 
 export async function replyToPost(input: ReplyToPostInput): Promise<DiscussionPost> {
-  // TODO: Persist reply post with parent linkage.
-  return {
-    id: `reply_${Date.now()}`,
-    authorName: "System",
-    authorRole: "student",
-    body: input.body,
-    createdAtUtc: new Date().toISOString(),
-    parentPostId: input.postId,
-  };
+  const reply = { id: `reply_${Date.now()}`, authorName: "Student", authorRole: "student" as const, body: input.body, createdAtUtc: new Date().toISOString(), parentPostId: input.postId };
+  Object.values(discussionStore).forEach((thread) => thread.posts.push(reply));
+  return reply;
 }

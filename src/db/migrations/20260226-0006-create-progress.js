@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0006-create-progress.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0006-create-progress.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('course_progress',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},course_id:{type:S.UUID,allowNull:false,references:{model:'courses',key:'id'}},percent_complete:{type:S.INTEGER,allowNull:false,defaultValue:0},completed_at:{type:S.DATE},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.addIndex('course_progress',['user_id','course_id'],{unique:true});await q.createTable('lesson_progress',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},lesson_id:{type:S.UUID,allowNull:false,references:{model:'lessons',key:'id'}},completed_at:{type:S.DATE},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.addIndex('lesson_progress',['user_id','lesson_id'],{unique:true});},async down(q){await q.dropTable('lesson_progress');await q.dropTable('course_progress');}};

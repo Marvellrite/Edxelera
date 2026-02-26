@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { getSession } from "@/auth/session";
 
 export async function GET() {
-  return NextResponse.json({ ok: true, data: { session: null } });
+  const session = await getSession();
+  return NextResponse.json({ ok: true, data: { session } });
 }

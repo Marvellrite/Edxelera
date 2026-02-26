@@ -1,11 +1,2 @@
 'use strict';
-
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    // TODO: Implement migration: 20260226-0002-create-roles-and-user-roles.js
-  },
-
-  async down(queryInterface, Sequelize) {
-    // TODO: Revert migration: 20260226-0002-create-roles-and-user-roles.js
-  },
-};
+module.exports={async up(q,S){await q.createTable('roles',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},name:{type:S.STRING(32),allowNull:false,unique:true},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.createTable('user_roles',{id:{type:S.UUID,defaultValue:S.UUIDV4,primaryKey:true},user_id:{type:S.UUID,allowNull:false,references:{model:'users',key:'id'}},role_id:{type:S.UUID,allowNull:false,references:{model:'roles',key:'id'}},created_at:{type:S.DATE,allowNull:false},updated_at:{type:S.DATE,allowNull:false}});await q.addIndex('user_roles',['user_id','role_id'],{unique:true});},async down(q){await q.dropTable('user_roles');await q.dropTable('roles');}};
