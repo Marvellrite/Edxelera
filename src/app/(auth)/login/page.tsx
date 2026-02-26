@@ -46,14 +46,14 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-input-placeholder outline-none transition-all duration-200"
+              className="w-full rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-all duration-200 border-2"
               style={{
                 backgroundColor: 'var(--color-input-bg)',
-                border: '1px solid var(--color-input-border)',
+                borderColor: email ? 'var(--color-input-focus)' : 'var(--color-input-border)',
               }}
               onFocus={(e) => {
                 (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-focus)';
-                (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(47, 79, 255, 0.1)';
+                (e.target as HTMLInputElement).style.boxShadow = '0 0 0 4px rgba(47, 79, 255, 0.1)';
               }}
               onBlur={(e) => {
                 (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-border)';
@@ -81,14 +81,14 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-lg px-4 py-3 pr-11 text-sm text-foreground placeholder:text-input-placeholder outline-none transition-all duration-200"
+                className="w-full rounded-lg px-4 py-3 pr-11 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-all duration-200 border-2"
                 style={{
                   backgroundColor: 'var(--color-input-bg)',
-                  border: '1px solid var(--color-input-border)',
+                  borderColor: password ? 'var(--color-input-focus)' : 'var(--color-input-border)',
                 }}
                 onFocus={(e) => {
                   (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-focus)';
-                  (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(47, 79, 255, 0.1)';
+                  (e.target as HTMLInputElement).style.boxShadow = '0 0 0 4px rgba(47, 79, 255, 0.1)';
                 }}
                 onBlur={(e) => {
                   (e.target as HTMLInputElement).style.borderColor = 'var(--color-input-border)';

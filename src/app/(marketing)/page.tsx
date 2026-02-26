@@ -71,10 +71,6 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column */}
             <div className="space-y-8">
-              <div>
-                <Logo variant="dark" size="lg" className="mb-8" />
-              </div>
-
               <h1 className="text-5xl lg:text-6xl font-[900] text-balance leading-tight text-foreground">
                 Learn Together,
                 <br />
@@ -104,19 +100,19 @@ export default function LandingPage() {
             </div>
 
             {/* Right Column - Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-[--radius-lg] border border-brand-primary-50 bg-white card-hover"
+                  className="p-8 rounded-[--radius-lg] border border-card-border bg-card card-hover"
                 >
                   <div
-                    className="text-4xl font-[800] mb-2"
+                    className="text-5xl font-[900] mb-3"
                     style={{ color: stat.color }}
                   >
                     {stat.number}
                   </div>
-                  <div className="text-sm text-muted-foreground font-[500]">
+                  <div className="text-base text-muted-foreground font-[600]">
                     {stat.label}
                   </div>
                 </div>
