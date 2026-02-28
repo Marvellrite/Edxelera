@@ -72,8 +72,8 @@ export function HeroSection({slides, mode='landing'}:Props) {
       />
 
       
-      {/* Gradient Overlay - Enhanced for better readability */}
-      <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/40 to-transparent" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-linear-to-r from-black/69 to-transparent" />
 
       {/* Content */}
       <div className="relative max-w-[658px] mx-6 sm-md:mx-[52px] lg:mx-[150px] w-full">
@@ -95,11 +95,11 @@ export function HeroSection({slides, mode='landing'}:Props) {
           return (<div className="flex flex-wrap flex-col sm-md:flex-row gap-4 pt-4 mt-6">
             <Button 
               variant="outline" 
-              className="bg-white hover:bg-white text-neutral-900 border-white px-8 h-14 rounded-xl text-base font-medium shadow-premium-md hover:shadow-premium-lg transition-all"
+              className="bg-white hover:bg-neutral-50 text-neutral-900 border-white px-8 h-14 rounded-full text-base font-medium"
             >
               Explore our Courses
             </Button>
-            <Button variant={"secondary"} className="px-8 h-14 rounded-xl text-base font-medium shadow-premium-md hover:shadow-premium-lg transition-all hover:translate-y-minus-2">
+            <Button variant={"secondary"} className=" hover:bg-primary px-8 h-14 rounded-full text-base font-medium">
               Start Learning
             </Button>
           </div>)
@@ -108,11 +108,11 @@ export function HeroSection({slides, mode='landing'}:Props) {
             return (<div className="flex flex-wrap flex-col sm-md:flex-row gap-4 pt-4 mt-6">
             <Button 
               variant="outline" 
-              className="bg-white hover:bg-white text-neutral-900 border-white px-8 h-14 rounded-xl text-base font-medium shadow-premium-md hover:shadow-premium-lg transition-all"
+              className="bg-white hover:bg-neutral-50 text-neutral-900 border-white px-8 h-14 rounded-full text-base font-medium"
             >
               Explore our Courses
             </Button>
-            <Button className="bg-primary hover:bg-primary-700 text-white px-8 h-14 rounded-xl text-base font-medium shadow-premium-md hover:shadow-premium-lg transition-all hover:translate-y-minus-2">
+            <Button className="bg-primary hover:bg-primary-700 text-white px-8 h-14 rounded-full text-base font-medium">
               Start Learning
             </Button>
           </div>)

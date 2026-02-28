@@ -66,23 +66,6 @@
 
    --hover-foreground: white;
 
-   /* Surface Layer System */
-   --surface-layer-1: #FFFFFF;
-   --surface-layer-2: #F8F9FF;
-   --surface-layer-3: #F3F3F3;
-   --surface-elevated: #FFFFFF;
-
-   /* Gradient Tokens */
-   --gradient-hero-overlay: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3), transparent);
-   --gradient-premium: linear-gradient(135deg, #bc141d, #d7302d);
-   --gradient-cta: linear-gradient(135deg, #001146, #08206B);
-
-   /* Premium Shadow System */
-   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-
 }
 
 /* .dark :root {

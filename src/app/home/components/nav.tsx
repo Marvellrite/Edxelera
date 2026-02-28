@@ -77,7 +77,7 @@ export const Sidebar: React.FC = () => {
    const [showToggleButton, setShowToggleButton] = useState(false)
 
    return (
-      <aside className={`col-span-2 hidden md:block border-r border-neutral-100 h-screen px-5 text-neutral space-y-8.5 overflow-x-hidden bg-white shadow-premium-sm ${isOpen ? 'md:w-50 lg:w-67.5' : 'md:w-18 lg:w-18'} transition-all duration-300`}> 
+      <aside className={`col-span-2 hidden md:block border-r-2 border-neutral-100 h-screen px-5 text-neutral space-y-8.5 overflow-x-hidden ${isOpen ? 'md:w-50 lg:w-67.5' : 'md:w-18 lg:w-18'} transition-all duration-600`}> 
       <div className={cn(' flex justify-between pt-5 gap-0 *:inline-block transition-all duration-600', isOpen?'scale-x-100':'scale-x-[20px]')}>
 
          <div onMouseEnter={()=>{if(!isOpen){
@@ -124,13 +124,13 @@ export const Sidebar: React.FC = () => {
             <div className="flex justify-between items-center">
                <Link
                   href={links[0].href}
-                  className={cn(`flex gap-3 hover:cursor-pointer items-center duration-300 transition-all rounded-lg px-3 py-2 font-medium text-sm ${pathname === links[0].href ? 'bg-primary text-white shadow-premium-sm' : 'text-neutral-700 hover:bg-neutral-50'}`, isOpen?'gap-3':'gap-0 justify-center')}
+                  className={cn(`flex gap-5 hover:cursor-pointer items-center duration-600 transition-all ${pathname === links[0].href ? activeLink : ''}`, isOpen?'gap-5':'gap-0')}
                >
                   {React.createElement(
                      IconsMap[pathname === links[0].href ? links[0].icon : links[0].outline],
-                     { width: 22, height: 22, className: 'flex-shrink-0' }
+                     { width: 25, height: 25, className: ' translate-x-0.5 duration-0 ' }
                   )}
-                  <span className={cn('duration-300 transition-all whitespace-nowrap', isOpen?' opacity-100':' opacity-0 w-0')}>{links[0].label}</span>
+                  <span className={cn('duration-600 transition-all', isOpen?' opacity-100 delay-250':' opacity-0 delay-0')}>{links[0].label}</span>
                </Link>
 
              
@@ -139,13 +139,13 @@ export const Sidebar: React.FC = () => {
                <Link
                   key={link.href}
                   href={link.href}
-                  className={cn('flex gap-3 hover:cursor-pointer items-center duration-300 transition-all rounded-lg px-3 py-2 font-medium text-sm', pathname === link.href ? 'bg-primary text-white shadow-premium-sm' : 'text-neutral-700 hover:bg-neutral-50', isOpen?'gap-3':'gap-0 justify-center')}
+                  className={cn('flex gap-5 hover:cursor-pointer items-center duration-600 transition-all ', pathname === link.href ? activeLink : '', isOpen?'gap-5':'gap-0')}
                >
                   {React.createElement(
                      IconsMap[pathname === link.href ? link.icon : link.outline],
-                     { width: 22, height: 22, className: 'flex-shrink-0' }
+                     { width: 25, height: 25, className: ' translate-x-0.5 duration-0 ' }
                   )}
-                   <span className={cn('duration-300 transition-all text-nowrap', isOpen?' opacity-100':' opacity-0 w-0')}>{link.label}</span>
+                   <span className={cn('duration-600 transition-all text-nowrap', isOpen?' opacity-100 delay-250':' opacity-0 delay-0')}>{link.label}</span>
                </Link>
             ))}
          </nav>
@@ -192,18 +192,18 @@ export const Tabs: React.FC = () => {
    ];
 
    return (
-      <footer className={` ${isCourseOverviewPage && "hidden"} grid md:hidden grid-cols-5 h-20 items-center justify-center border-t border-neutral-100 bg-white shadow-premium-md `}>
+      <footer className={` ${isCourseOverviewPage && "hidden"} grid md:hidden grid-cols-5 h-20 items-center justify-center *:flex *:flex-col *:justify-center *:items-center *:text-tab border-t border-neutral-100 `}>
          {links.map((link) => (
             <Link
                key={link.href}
                href={link.href}
-               className={`flex flex-col gap-1 justify-center items-center text-center py-2 px-1 rounded-lg transition-all duration-200 ${pathname === link.href ? 'text-primary font-bold bg-primary-50 shadow-premium-sm' : 'text-neutral-700 hover:bg-neutral-50'}`}
+               className={`flex gap-1 hover:cursor-pointer items-center ${pathname === link.href ? activeLink : '*:text-neutral-700'}`}
             >
                {React.createElement(
                   IconsMap[pathname === link.href ? link.icon : link.outline],
-                  { width: 24, height: 24 }
+                  { width: 25, height: 25 }
                )}
-               <span className="text-xs font-medium text-nowrap">{link.label}</span>
+               <span className="text-nowrap">{link.label}</span>
             </Link>
          ))}
       </footer>

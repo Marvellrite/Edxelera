@@ -52,14 +52,14 @@ export function CoursesSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
+        <div className="flex flex-wrap justify-center gap-4">
           <Button 
             variant="outline" 
-            className="h-12 px-8 rounded-xl font-medium border-neutral-300 hover:border-neutral-400 shadow-premium-sm hover:shadow-premium-md transition-all"
+            className=" h-12  px-8"
           >
             More Courses
           </Button>
-          <Button className="h-12 px-8 rounded-xl font-medium shadow-premium-md hover:shadow-premium-lg transition-all">
+          <Button className=" h-12  px-8">
             Start Learning
           </Button>
         </div>

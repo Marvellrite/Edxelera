@@ -147,144 +147,21 @@ html {
    animation: accordion-up 0.2s ease-out;
 }
 
-/* Shadow System - Premium Design Tokens */
-@utility shadow-premium-sm {
-   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-@utility shadow-premium-md {
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@utility shadow-premium-lg {
-   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-@utility shadow-premium-xl {
-   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Card Hover Lift Animation */
-@utility hover-lift {
-   transition: all 0.2s ease-out;
-}
-
-@utility hover:translate-y-minus-2 {
-   transform: translateY(-2px);
-}
-
 /* Landing page custom utilities */
 @utility text-hero {
    font-size: 56px;
    font-weight: 800;
-   line-height: 1.5;
-   letter-spacing: -0.02em;
+   line-height: 84px;
 }
 
 @utility text-section-title {
    font-size: 48px;
    font-weight: 600;
-   line-height: 1.3;
-   letter-spacing: -0.01em;
 }
 
 @utility text-card-title {
    font-size: 28px;
    font-weight: 500;
-   line-height: 1.4;
-}
-
-@utility text-display-sm {
-   font-size: 20px;
-   font-weight: 600;
-   line-height: 1.4;
-}
-
-@utility text-body-lg {
-   font-size: 16px;
-   font-weight: 400;
-   line-height: 1.6;
-}
-
-@utility text-meta {
-   font-size: 12px;
-   font-weight: 500;
-   line-height: 1.4;
-   letter-spacing: 0.02em;
-}
-
-/* Component utility classes */
-@utility card-standard {
-   border: 1px solid var(--color-neutral-200);
-   border-radius: 12px;
-   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-   transition: all 0.2s ease-out;
-}
-
-@utility card-standard:hover {
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   transform: translateY(-2px);
-}
-
-@utility btn-primary {
-   background-color: var(--color-primary);
-   color: white;
-   border-radius: 12px;
-   padding: 12px 24px;
-   height: 44px;
-   border: none;
-   font-weight: 500;
-   transition: all 0.2s ease-out;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-}
-
-@utility btn-primary:hover {
-   background-color: var(--color-primary-800);
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@utility btn-primary:active {
-   background-color: var(--color-primary-900);
-}
-
-@utility btn-primary:focus {
-   outline: none;
-   box-shadow: 0 0 0 3px rgba(0, 17, 70, 0.1), 0 0 0 2px rgba(0, 17, 70, 0.3);
-}
-
-@utility btn-outline {
-   border: 1px solid var(--color-neutral-300);
-   background-color: white;
-   color: var(--color-primary);
-   border-radius: 12px;
-   padding: 12px 24px;
-   height: 44px;
-   font-weight: 500;
-   transition: all 0.2s ease-out;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-}
-
-@utility btn-outline:hover {
-   background-color: var(--color-neutral-50);
-   border-color: var(--color-neutral-400);
-}
-
-@utility badge-primary {
-   background-color: var(--color-primary-50);
-   color: var(--color-primary-700);
-   border-radius: 9999px;
-   padding: 6px 12px;
-   font-size: 12px;
-   font-weight: 500;
-   display: inline-flex;
-   align-items: center;
-   gap: 6px;
 }
 
 /* 100 - Thin */

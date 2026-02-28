@@ -74,7 +74,7 @@ export function TestimonialsSection() {
             {visibleTestimonials.map((testimonial) => (
               <div
                 key={testimonial._id}
-                className="bg-white rounded-xl border border-neutral-200 p-6 space-y-5 basis-[438px] flex-none shadow-premium-sm hover:shadow-premium-md transition-all duration-200 hover:-translate-y-1"
+                className="bg-white rounded-lg border border-neutral-300 p-6 space-y-5 basis-[438px] flex-none"
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -85,11 +85,11 @@ export function TestimonialsSection() {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <h3 className="text-neutral-900 text-lg font-semibold max-sm-md:text-base">{testimonial.name}</h3>
-                    <p className="text-neutral-600 text-sm font-medium">{testimonial.role}</p>
+                    <h3 className="text-neutral-900 text-xl font-medium max-sm-md:text-[20px] ">{testimonial.name}</h3>
+                    <p className="text-neutral-700 text-sm font-light">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-neutral-700 text-base leading-relaxed">{testimonial.content}</p>
+                <p className="text-neutral-800 text-base leading-6">{testimonial.content}</p>
               </div>
             ))}
           </div>

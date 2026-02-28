@@ -102,28 +102,29 @@ export function FeaturesSection() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={cn("bg-white border border-neutral-200 rounded-xl p-6 space-y-5 feature shadow-premium-sm hover:shadow-premium-md transition-all duration-200 hover:-translate-y-1", index==2&&" col-span-2 py-9 max-sm:col-span-1")}
+                className={cn("bg-neutral-50 rounded-[10px] p-6 space-y-5 feature", index==2&&" col-span-2 py-9 max-sm:col-span-1")}
               >
-                <div className='rounded-lg bg-primary-50 flex justify-center items-center p-3 w-fit'>
+                <div className=' rounded-full border flex justify-center items-center p-3 border-neutral-900 w-fit'>
                   <ReactSVG
                     src={feature.icon}
                     width={20}
                     height={20}
-                    className="w-5 h-5 text-primary-700"
+                    className="w-5 h-5"
                   />
                 </div>
                 <div className="space-y-2.5">
-                  <h3 className="text-neutral-900 text-[20px] sm-md:text-[28px] font-medium leading-tight">{feature.title}</h3>
-                  <p className="text-neutral-700 text-base leading-relaxed">{feature.description}</p>
+                  <h3 className="text-neutral-900 text-[20px] sm-md:text-[28px] font-medium">{feature.title}</h3>
+                  <p className="text-neutral-800 text-base leading-6">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Right Column - Dark Card with Gradient */}
-          <div className="rounded-xl p-8 flex flex-col justify-between space-y-10 bg-primary shadow-premium-lg feature hover:shadow-premium-xl transition-all duration-200 hover:-translate-y-1">
+          {/* Right Column - Dark Card */}
+          <div className=" rounded-[10px] p-8 flex flex-col justify-between space-y-10 bg-primary feature">
             <div className="space-y-5">
-              <div className='rounded-lg bg-white/20 border border-white/30 size-12 flex items-center justify-center'>
+              <div className=' rounded-full border-[1.5px] border-white size-12 flex items-center justify-center'>
+
                 <ReactSVG
                   src="/icons/landing/lock.svg"
                   width={20}
@@ -131,18 +132,18 @@ export function FeaturesSection() {
                   className="w-5 h-5 text-white"
                 />
               </div>
-              <div className="space-y-2.5">
-                <h3 className="text-white text-[28px] font-semibold leading-tight max-sm-md:text-[20px] max-sm-md:leading-tight">
+              <div className="space-y-2.5 ">
+                <h3 className="text-white text-[28px] font-medium leading-[42px] max-sm-md:text-[20px] max-sm-md:leading-[120%]">
                   A Real Classroom Experience Online
                 </h3>
-                <p className="text-white/90 text-base leading-relaxed">
+                <p className="text-neutral-50 text-base leading-6">
                   Edxelera delivers a structured, university-style learning environment—complete with guided lessons, discussions, assignments, and instructor presence.
                   <br /><br />
                   You learn alongside peers, engage in conversations, and follow a clear path that feels like a real classroom, but with the flexibility of being online
                 </p>
               </div>
             </div>
-            <Button variant={"secondary"} className="h-12 rounded-xl w-fit px-8 shadow-premium-md hover:shadow-premium-lg transition-all">
+            <Button variant={"secondary"} className=" h-12 rounded-full w-fit px-8">
               Start Learning
             </Button>
           </div>
