@@ -64,3 +64,4 @@ export { default as Graduation } from './Graduation';
 export { default as Cart } from './cart';
 export { default as MinusCircle } from './MinusCircle';
 export { default as Share } from './Share';
+export { default as CheckCircleIcon } from './CheckCircleIcon'

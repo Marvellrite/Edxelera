@@ -1,73 +1,103 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import VideoPoster from '../components/video_poster';
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
 import { Button } from '@/components/ui/button';
-import Ratings from '../../../components/common/rating';
 import Video_card from '../components/video_card';
-import Continue_learning_desktop from '../components/continue_learning_desktop';
 import Continue_learning_mobile from '../components/continue_learning_mobile';
-import StreakDisplay from '@/components/features/streak-display'
+import StreakDisplay from '@/components/features/streak-display';
 
 const Page: React.FC = () => {
-   const [data, setData] = useState(mock_data);
-   //    useEffect(() => {
-   //       const fetchData = async () => {
-   //          const response = await fetch('/continue_learning_data');
-   //          const result = await response.json();
-   //          setData(result);
-   //       };
-   //       fetchData();
-   //    }, []);
+   const data = mock_data;
 
    return (
-      <section className="p-6 pb-12 ">
-
-         <>
-         {/* For Users that have started learning a course */}
-
-          <div className=" space-y-9">
-            {/* <Continue_learning_desktop data={data} /> */}
-            <div className=' flex gap-3 lg:flex-row flex-col'>
-
-               <StreakDisplay/>
-               <Continue_learning_mobile data={data} />
+      <section className="relative overflow-hidden p-4 py-8 sm:p-6 sm:py-10 lg:p-8 lg:py-12">
+         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_10%_0%,hsl(var(--primary)/0.18),transparent),radial-gradient(90%_70%_at_100%_100%,hsl(var(--primary)/0.1),transparent)]" />
+         <div className="space-y-10">
+            {/* For Users that have started learning a course */}
+            <div className="rounded-2xl border border-primary/20 bg-background/85 p-3 shadow-[0_20px_60px_-25px_hsl(var(--primary)/0.55)] backdrop-blur-sm sm:p-4">
+               <div className="mb-4 flex items-center justify-start gap-3 sm:mb-5">
+                  <div>
+                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/70">
+                        Keep the momentum
+                     </p>
+                     <h2 className="text-xl font-semibold leading-tight text-foreground sm:text-2xl">
+                        Continue your learning journey
+                     </h2>
+                  </div>
+                  {/* <Button
+                     className="rounded-full border border-primary/20 bg-primary/10 px-4 text-primary hover:bg-primary/15"
+                     variant="ghost"
+                  >
+                     Dashboard
+                  </Button> */}
+               </div>
+               <div className="flex flex-col gap-3 lg:flex-row">
+                  <StreakDisplay />
+                  <Continue_learning_mobile data={data} />
+               </div>
             </div>
-            <div>
-               <div className=" text-md font-normal mb-3 flex justify-between h-6 text-center">
-                  <span className='flex items-center text-base text-primary'>You may also like</span>
+
+            <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-[0_16px_50px_-30px_hsl(var(--foreground)/0.5)] sm:p-6">
+               <div className="mb-4 flex items-end justify-between gap-3 sm:mb-5">
+                  <div>
+                     <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+                        You may also like
+                     </h3>
+                     <p className="text-sm text-muted-foreground">
+                        Curated picks based on your current learning activity.
+                     </p>
+                  </div>
                   <Button
-                     className=" text-center rounded-[500px] text-primary text-base p-0 size-fit"
-                     variant={'link'}
+                     className="rounded-full border border-primary/20 bg-primary/5 px-4 text-primary hover:bg-primary/15"
+                     variant="ghost"
                   >
                      See all
                   </Button>
                </div>
 
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
+               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
                   {mock_data_al.map((data, index) => (
-                     <Video_card hideCta key={index} {...data} />
+                     <div
+                        key={index}
+                        className="transition-transform duration-300 ease-out hover:-translate-y-1"
+                     >
+                        <Video_card hideCta {...data} />
+                     </div>
                   ))}
                </div>
             </div>
-            <div>
-               <div className=" text-md font-normal mb-3">
-                  <span>Recently viewed courses</span>
+
+            <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-[0_16px_50px_-30px_hsl(var(--foreground)/0.5)] sm:p-6">
+               <div className="mb-4 flex items-end justify-between gap-3 sm:mb-5">
+                  <div>
+                     <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+                        Recently viewed courses
+                     </h3>
+                     <p className="text-sm text-muted-foreground">
+                        Jump right back into courses you explored before.
+                     </p>
+                  </div>
+                  <Button
+                     className="rounded-full border border-primary/20 bg-primary/5 px-4 text-primary hover:bg-primary/15"
+                     variant="ghost"
+                  >
+                     See all
+                  </Button>
                </div>
 
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
+               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
                   {mock_data_al.map((data, index) => (
-                     <Video_card hideCta key={index} {...data} />
+                     <div
+                        key={index}
+                        className="transition-transform duration-300 ease-out hover:-translate-y-1"
+                     >
+                        <Video_card hideCta {...data} />
+                     </div>
                   ))}
                </div>
             </div>
          </div>
-
-         
-         </>
-          
 
          <>
          {/* For Users that have not started learning a course yet */}

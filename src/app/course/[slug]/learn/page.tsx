@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { Dispatch, SetStateAction } from 'react';
-import Header from './header';
+// import Header from './header';
 import { Button } from '@/components/ui/button';
-import CourseDetailsSections from '@/components/features/course/course-details-section';
-import CourseStartedLearn from '../../../../../../components/features/course/course_learning-panel';
+import CourseDetailsSection from '@/components/features/course/course-details-section';
+import CourseLearningPanel from '@/components/features/course/course_learning-panel';
 import { ReactSVG } from 'react-svg';
-import Comment from '../../../../../../components/features/community/comment';
-import CommentInput from '../../../../../../components/features/community/comment-input';
+import CommunityComment from '@/components/features/community/comment';
+import CommunityCommentInput from '@/components/features/community/comment-input';
 
 export default function Course_started() {
 
@@ -16,27 +16,19 @@ export default function Course_started() {
    const [ isCourseForumMobileOpen, setIsCourseForumMobileOpen] = useState(false)
 
    const isLearn = isLearnOrDetails=="learn";
-   const isMobile = window.matchMedia("(max-width:768px)").matches;
 
-   useEffect(
-      ()=>{
-
-         const toggleCourseforumVisibility = ()=>{
-            setIsCourseForumMobileOpen((state)=>{
-               console.log(state, isMobile)
-                  return state && isMobile
-            })
-
+   useEffect(() => {
+      const media = window.matchMedia("(max-width:768px)");
+      const handleViewportChange = (event: MediaQueryListEvent) => {
+         if (!event.matches) {
+            setIsCourseForumMobileOpen(false);
          }
+      };
 
-         toggleCourseforumVisibility();
+      media.addEventListener("change", handleViewportChange);
 
-         window.addEventListener("resize", toggleCourseforumVisibility)
-
-          return ()=> window.removeEventListener("resize", toggleCourseforumVisibility);
-
-      }, [isMobile]
-   )
+      return () => media.removeEventListener("change", handleViewportChange);
+   }, []);
 
       const [isModuleLocked, setIsModuleLocked ] = useState(true)
 
@@ -45,22 +37,7 @@ export default function Course_started() {
 
 
       <>
-         <Header>
-            <h1 className="flex gap-x-5 items-center justify-between w-full ">
-               <span className=" max-md:text-[24px] text-[40px] font-medium  text-center">
-                  Product Design (UI/UX)
-               </span>
-               <div className=' md:hidden'>
-
-
-               <button onClick={()=>setIsCourseForumMobileOpen((state)=>!state)} className="p-0"><ReactSVG src="/icons/reply.svg"/></button>
-                  
-
-               </div>
-               
-            </h1>
-         </Header>
-         <section className="px-8  py-10 max-md:px-0 max-md:py-0 max-md:mt-8 relative">
+         <section className="  max-md:px-0 max-md:py-0 max-md:mt-8 relative">
             <div className="  py-10 max-md:pt-0 pt-5  mx-auto">
                <div className=' max-md:pb-10'>
                   <div className=" max-md:mb-4 flex items-center gap-x-3 mb-4 mx-auto rounded-[500px] border border-neutral-200 w-[202px] h-[52px] py-2 px-2.5">
@@ -74,9 +51,9 @@ export default function Course_started() {
                   
 
                {isLearn?
-                  <CourseStartedLearn/>
+                  <CourseLearningPanel/>
                        :
-                  <CourseDetailsSections/>
+                  <CourseDetailsSection/>
 
                }
                </div>
@@ -120,12 +97,12 @@ const CourseForumMobile = ({setShowCourseForum}: {setShowCourseForum:  Dispatch<
         </div>
 
          <div className=' mt-5 space-y-8.5'>
-            <Comment forMobile={true}/>
-            <Comment forMobile={true}/>
-            <Comment forMobile={true}/>
+            <CommunityComment forMobile={true}/>
+            <CommunityComment forMobile={true}/>
+            <CommunityComment forMobile={true}/>
          </div>
 
-         <div className=' fixed w-full flex bottom-0 left-0 px-4 bg-white pb-9 pt-4 items-center gap-3'><CommentInput setIsThereText={setIsThereText}/> {isThereText && <button className='p-0'><ReactSVG src='/icons/paper-plane.svg'/></button>}</div>
+         <div className=' fixed w-full flex bottom-0 left-0 px-4 bg-white pb-9 pt-4 items-center gap-3'><CommunityCommentInput setIsThereText={setIsThereText}/> {isThereText && <button className='p-0'><ReactSVG src='/icons/paper-plane.svg'/></button>}</div>
     </div>
   )
 }

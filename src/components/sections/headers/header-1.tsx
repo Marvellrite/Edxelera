@@ -9,6 +9,7 @@ import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
+import Badge from '@/components/common/badge';
 
 const Header = () => {
     const { user } = useStudentSession();
@@ -79,9 +80,10 @@ const Header = () => {
 
                {/* Bell + theme toggler component */}
          
-               <button>
+               <button className='relative'>
 
-               <Bell className='text-primary' />
+               <Bell className='text-primary size-6' />
+               <Badge count={2}/>
                </button>
 
                   <ThemeTogglerComponent/>
