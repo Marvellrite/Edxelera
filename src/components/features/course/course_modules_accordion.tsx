@@ -8,7 +8,7 @@ import {
    AccordionTrigger,
 } from '@/components/ui/accordion';
 import { ReactSVG } from 'react-svg';
-import { Note } from '@/components/icons/modified';
+import { CheckCircleIcon, Note } from '@/components/icons/modified';
 import {
    type CourseModuleLearningStage,
    type CourseModuleLesson,
@@ -16,7 +16,6 @@ import {
    type CourseModulesAccordionProps,
 } from '@/types/course';
 import { cn } from '@/lib/utils';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 const LOCKED_MODULE_TEXT_CLASS = 'text-neutral-600';
 
@@ -46,16 +45,45 @@ export default function CourseModulesAccordion({
       return 'locked';
    };
 
-   const isModuleLocked = (item: CourseModulesAccordionItem) =>
-      isLearningMode && getModuleStage(item) === 'locked';
+   const currentLearningModuleIndex = React.useMemo(() => {
+      if (!isLearningMode || items.length === 0) return -1;
+
+      if (activeLesson) {
+         const activeLessonModuleIndex = items.findIndex(
+            (item) => item.value === activeLesson.moduleValue
+         );
+         if (activeLessonModuleIndex !== -1) return activeLessonModuleIndex;
+      }
+
+      const lessonActiveModuleIndex = items.findIndex((item) =>
+         item.lessons.some((lesson) => lesson.isActive)
+      );
+      if (lessonActiveModuleIndex !== -1) return lessonActiveModuleIndex;
+
+      const inProgressModuleIndex = items.findIndex(
+         (item) => getModuleStage(item) === 'in-progress' || item.isSelected
+      );
+      return inProgressModuleIndex !== -1 ? inProgressModuleIndex : 0;
+   }, [activeLesson, isLearningMode, items]);
+
+   const isModuleLocked = (item: CourseModulesAccordionItem, moduleIndex: number) => {
+      if (!isLearningMode) return false;
+
+      const isStageLocked = getModuleStage(item) === 'locked';
+      const isFutureModule =
+         currentLearningModuleIndex !== -1 && moduleIndex > currentLearningModuleIndex;
+
+      return isStageLocked || isFutureModule;
+   };
 
    const getLessonStage = (lesson: CourseModuleLesson): CourseModuleLearningStage =>
       lesson.learningStage ?? 'not-started';
 
    const isLessonLocked = (
       lesson: CourseModuleLesson,
-      module: CourseModulesAccordionItem
-   ) => isModuleLocked(module) || getLessonStage(lesson) === 'locked';
+      module: CourseModulesAccordionItem,
+      moduleIndex: number
+   ) => isModuleLocked(module, moduleIndex) || getLessonStage(lesson) === 'locked';
 
    const renderModuleIcon = (
       item: CourseModulesAccordionItem,
@@ -85,13 +113,32 @@ export default function CourseModulesAccordion({
    const isLessonCompleted = (lesson: CourseModuleLesson) =>
       getLessonStage(lesson) === 'completed';
 
-   const shouldShowLessonRadio = (lesson: CourseModuleLesson) => {
+   const shouldShowLessonProgress = (lesson: CourseModuleLesson) => {
       if (typeof lesson.showProgressIndicator === 'boolean') {
          return lesson.showProgressIndicator;
       }
 
       const normalizedContentType = (lesson.contentType ?? '').toLowerCase();
       return !['assessment', 'task'].includes(normalizedContentType);
+   };
+
+   const canLessonBeCurrent = (
+      module: CourseModulesAccordionItem,
+      moduleIndex: number,
+      lessonIndex: number
+   ) => {
+      const lesson = module.lessons[lessonIndex];
+      if (!lesson) return false;
+      if (!shouldShowLessonProgress(lesson)) return false;
+      if (isLessonCompleted(lesson)) return false;
+      if (isLessonLocked(lesson, module, moduleIndex)) return false;
+
+      const hasUncompletedTrackedLessonBefore = module.lessons
+         .slice(0, lessonIndex)
+         .filter(shouldShowLessonProgress)
+         .some((previousLesson) => !isLessonCompleted(previousLesson));
+
+      return !hasUncompletedTrackedLessonBefore;
    };
 
    React.useEffect(() => {
@@ -104,10 +151,23 @@ export default function CourseModulesAccordion({
       setOpenLearningModule(currentModule.value);
 
       const activeItem = items
-         .flatMap((item) => item.lessons.map((lesson, lessonIndex) => ({ item, lesson, lessonIndex })))
-         .find(({ lesson }) => lesson.isActive);
+         .flatMap((item, moduleIndex) =>
+            item.lessons.map((lesson, lessonIndex) => ({
+               item,
+               lesson,
+               lessonIndex,
+               moduleIndex,
+            }))
+         )
+         .find(({ lesson, item, moduleIndex, lessonIndex }) => {
+            if (!lesson.isActive) return false;
+            return canLessonBeCurrent(item, moduleIndex, lessonIndex);
+         });
 
-      if (activeItem && !isLessonLocked(activeItem.lesson, activeItem.item)) {
+      if (
+         activeItem &&
+         !isLessonLocked(activeItem.lesson, activeItem.item, activeItem.moduleIndex)
+      ) {
          setActiveLesson({
             moduleValue: activeItem.item.value,
             lessonIndex: activeItem.lessonIndex,
@@ -116,8 +176,18 @@ export default function CourseModulesAccordion({
       }
 
       const firstPlayable = items
-         .flatMap((item) => item.lessons.map((lesson, lessonIndex) => ({ item, lesson, lessonIndex })))
-         .find(({ lesson, item }) => !isLessonLocked(lesson, item));
+         .flatMap((item, moduleIndex) =>
+            item.lessons.map((lesson, lessonIndex) => ({
+               item,
+               lesson,
+               lessonIndex,
+               moduleIndex,
+            }))
+         )
+         .find(({ lesson, item, moduleIndex, lessonIndex }) =>
+            !isLessonLocked(lesson, item, moduleIndex) &&
+            canLessonBeCurrent(item, moduleIndex, lessonIndex)
+         );
 
       if (firstPlayable) {
          setActiveLesson({
@@ -130,16 +200,22 @@ export default function CourseModulesAccordion({
    const renderLessonRow = (
       lesson: CourseModuleLesson,
       item: CourseModulesAccordionItem,
+      moduleIndex: number,
       index: number
    ) => {
-      const showRadio = shouldShowLessonRadio(lesson);
+      const showProgress = shouldShowLessonProgress(lesson);
       const isCompleted = isLessonCompleted(lesson);
-      const lessonLocked = isLessonLocked(lesson, item);
+      const lessonLocked = isLessonLocked(lesson, item, moduleIndex);
+      const canBeCurrentLesson = canLessonBeCurrent(item, moduleIndex, index);
       const isCurrentLesson =
-         activeLesson?.moduleValue === item.value && activeLesson.lessonIndex === index;
-      const shouldHighlight = isCurrentLesson || lesson.isActive;
+         activeLesson?.moduleValue === item.value &&
+         activeLesson.lessonIndex === index &&
+         canBeCurrentLesson;
+      const shouldHighlight = isCurrentLesson;
+      const shouldShowCheck = isCompleted;
       const activateLesson = () => {
          if (lessonLocked) return;
+         if (!canBeCurrentLesson) return;
          setActiveLesson({
             moduleValue: item.value,
             lessonIndex: index,
@@ -161,29 +237,25 @@ export default function CourseModulesAccordion({
             }}
             className={cn(
                'flex w-full items-start gap-2.5 rounded-md text-left transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary/40',
-               !lessonLocked && 'hover:bg-neutral-100/70 cursor-pointer',
+               !lessonLocked && 'cursor-pointer',
                lessonLocked && 'cursor-not-allowed opacity-70'
             )}
          >
-            {showRadio && (
-               <RadioGroup
-                  value={isCompleted ? 'done' : isCurrentLesson ? 'current' : undefined}
-                  className="pointer-events-none space-y-0"
+            {showProgress && (
+               <span
+                  aria-label={`Lesson ${index + 1} progress`}
+                  className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center"
                >
-                  <RadioGroupItem
-                     value={isCompleted ? 'done' : 'current'}
-                     id={`${item.value}-lesson-progress-${index}`}
-                     className={cn(
-                        'size-5 border-neutral-400',
-                        (isCompleted || isCurrentLesson) && 'border-primary text-primary'
-                     )}
-                     aria-label={`Lesson ${index + 1} progress`}
-                  />
-               </RadioGroup>
+                  {shouldShowCheck ? (
+                     <CheckCircleIcon size={20} />
+                  ) : (
+                     <span className="size-5 rounded-full border border-neutral-400" />
+                  )}
+               </span>
             )}
 
             <div className="space-y-2">
-               <p className={cn(shouldHighlight && 'text-primary')}>{lesson.title}</p>
+               <p className={cn(shouldHighlight && 'text-secondary')}>{lesson.title}</p>
                <div className="flex items-center gap-2">
                   <ReactSVG src={lesson.iconSrc ?? '/icons/video-square.svg'} />
                   <span>{lesson.contentType ?? 'Video Lesson'}</span>
@@ -193,8 +265,11 @@ export default function CourseModulesAccordion({
       );
    };
 
-   const renderFallbackItem = (item: CourseModulesAccordionItem) => {
-      const isLocked = isModuleLocked(item);
+   const renderFallbackItem = (
+      item: CourseModulesAccordionItem,
+      moduleIndex: number
+   ) => {
+      const isLocked = isModuleLocked(item, moduleIndex);
 
       return (
          <div
@@ -220,7 +295,7 @@ export default function CourseModulesAccordion({
                className
             )}
          >
-            {items.map(renderFallbackItem)}
+            {items.map((item, moduleIndex) => renderFallbackItem(item, moduleIndex))}
             <hr className="border-none text-neutral-400 md:hidden" />
          </div>
       );
@@ -238,8 +313,8 @@ export default function CourseModulesAccordion({
                className
             )}
          >
-            {items.map((item) => {
-               const isLocked = isModuleLocked(item);
+            {items.map((item, moduleIndex) => {
+               const isLocked = isModuleLocked(item, moduleIndex);
 
                return (
                   <AccordionItem
@@ -251,7 +326,6 @@ export default function CourseModulesAccordion({
                      )}
                   >
                      <AccordionTrigger
-                        aria-disabled={isLocked}
                         className={cn(
                            'px-2.5 hover:no-underline',
                            !isLocked && 'hover:bg-neutral-400/30',
@@ -267,7 +341,7 @@ export default function CourseModulesAccordion({
                      <AccordionContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                         <div className="space-y-6 border-y border-neutral-200 px-3 py-3.5">
                            {item.lessons.map((lesson, index) =>
-                              renderLessonRow(lesson, item, index)
+                              renderLessonRow(lesson, item, moduleIndex, index)
                            )}
                         </div>
                      </AccordionContent>

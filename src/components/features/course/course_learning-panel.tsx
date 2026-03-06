@@ -5,7 +5,7 @@ import Comment from '../community/comment';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress'
 import CourseModulesAccordion from './course_modules_accordion';
-import COURSE_MODULE_ITEMS from '@/mockdata/course/details-mockdata';
+import { COURSE_MODULE_ITEMS_LEARNING } from '@/mockdata/course/details-mockdata';
 
 const CourseLearningPanel = () => {
    const isModuleLocked = false;
@@ -89,7 +89,7 @@ const CourseLearningPanel = () => {
                   <p className="mt-3 mb-3 px-4 font-normal text-primary">Modules</p>
                   <CourseModulesAccordion
                      className="border-0 border-neutral-400 rounded-lg px-2 max-md:border-none max-md:rounded-none md:[&>div:last-of-type]:border-b-0"
-                     items={COURSE_MODULE_ITEMS}
+                     items={COURSE_MODULE_ITEMS_LEARNING}
                      mode="learning"
                   />
                </div>
