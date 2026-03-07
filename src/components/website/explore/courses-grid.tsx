@@ -12,7 +12,7 @@ const CoursesGrid = ({...className}: Props) => {
   return (
     <div className={cn("grid max-lg:grid-cols-2 lg:grid-cols-3 gap-6 mb-8", className)}>
           {courses.map((course) => (
-            <Video_card key={course._id} {...course} hideCta={true}/>
+            <Video_card key={course._id} {...course} hideCta={true} variant="compact" />
           ))}
         </div>
   )

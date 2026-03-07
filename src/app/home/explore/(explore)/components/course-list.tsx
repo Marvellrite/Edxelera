@@ -9,7 +9,7 @@ const CourseList = () => {
 
          <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
             {mock_data_al.map((data, index) => (
-               <Video_card key={index} hideCta={true} {...data} />
+               <Video_card key={index} hideCta={true} {...data} variant="compact" />
             ))}
          </div>
       </section>

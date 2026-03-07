@@ -47,7 +47,7 @@ export function CoursesSection() {
         {/* Course Grid */}
         <div className="grid max-lg:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {courses.map((course) => (
-            <Video_card key={course._id} {...course} hideCta={true}/>
+            <Video_card key={course._id} {...course} hideCta={true} variant="compact" />
           ))}
         </div>
 
