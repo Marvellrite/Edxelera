@@ -6,7 +6,7 @@ import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
-import CartBellButton from "@/components/features/cart/cart-bell-button";
+import NotificationBellButton from "@/components/features/cart/notification-bell-button";
 
 const Header = () => {
     const { user } = useStudentSession();
@@ -76,7 +76,7 @@ const Header = () => {
 
                {/* Bell + theme toggler component */}
          
-               <CartBellButton count={2} />
+               <NotificationBellButton count={2} />
 
                   <ThemeTogglerComponent/>
 
@@ -99,3 +99,4 @@ const Header = () => {
 }
 
 export default Header
+

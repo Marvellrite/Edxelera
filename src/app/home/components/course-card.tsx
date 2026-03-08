@@ -19,7 +19,7 @@ interface VideoCardProps {
   variant?: "default" | "compact";
 }
 
-const Video_card: React.FC<VideoCardProps> = ({
+const CourseCard: React.FC<VideoCardProps> = ({
   posterSrc,
   title,
   price,
@@ -174,4 +174,4 @@ const Video_card: React.FC<VideoCardProps> = ({
   );
 };
 
-export default Video_card;
+export default CourseCard;

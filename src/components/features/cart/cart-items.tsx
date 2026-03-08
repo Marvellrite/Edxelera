@@ -2,33 +2,14 @@
 
 import CartItem, { type CartItemData } from "@/components/features/cart/cart-item";
 import { Button } from "@/components/ui/button";
+import { useCartStore } from "@/stores/cart-store";
 import formatMoney from "@/utils/formatMoney";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 type CartItemsProps = {
-  initialItems?: CartItemData[];
   onCheckout?: (items: CartItemData[]) => void;
   className?: string;
 };
-
-const FALLBACK_CART_ITEMS: CartItemData[] = [
-  {
-    _id: "cart-1",
-    posterSrc: "/assets/poster3.jpg",
-    title: "Product Design (UI/UX)",
-    price: 150000,
-    duration: "15 hours",
-    rating: 4.9,
-  },
-  {
-    _id: "cart-2",
-    posterSrc: "/assets/poster3.jpg",
-    title: "Frontend Development Bootcamp",
-    price: 120000,
-    duration: "12 hours",
-    rating: 4.7,
-  },
-];
 
 function toNumber(value: string | number) {
   if (typeof value === "number") return value;
@@ -38,11 +19,11 @@ function toNumber(value: string | number) {
 }
 
 export default function CartItems({
-  initialItems = FALLBACK_CART_ITEMS,
   onCheckout,
   className = "",
 }: CartItemsProps) {
-  const [items, setItems] = useState<CartItemData[]>(initialItems);
+  const items = useCartStore((state) => state.items);
+  const removeCourse = useCartStore((state) => state.removeCourse);
 
   const totalPrice = useMemo(
     () => items.reduce((sum, item) => sum + toNumber(item.price), 0),
@@ -50,7 +31,7 @@ export default function CartItems({
   );
 
   const handleRemoveItem = (id: string) => {
-    setItems((prev) => prev.filter((item) => item._id !== id));
+    removeCourse(id);
   };
 
   return (

@@ -50,8 +50,8 @@ const CourseLearningPanel = () => {
                   <Button className=" w-30 rounded-[500px]">Next</Button>
                </div>
             </div>
-            <div className="max-[890px]:hidden max-sm:border-none h-full basis-full rounded-lg border border-border p-3 px-0">
-               <p className="px-4 pt-2 pb-5.5 font-normal">Course Forum</p>
+            <div className="max-[890px]:hidden max-sm:border-none h-full basis-full rounded-lg border border-border p-3 px-4">
+               <p className=" pt-2 pb-5.5 font-normal">Course Forum</p>
                <div>
                   <Comment isChild={false}>
                      <Comment>
@@ -59,7 +59,7 @@ const CourseLearningPanel = () => {
                      </Comment>
                   </Comment>
 
-                  <div className="px-4">
+                  {/* <div className="px-4">
                      <div className="flex h-[53px] items-center gap-2 rounded-full border border-neutral-400 p-4">
                         <ReactSVG
                            src="/icons/reply.svg"
@@ -75,7 +75,7 @@ const CourseLearningPanel = () => {
                            placeholder="Start a conversation"
                         />
                      </div>
-                  </div>
+                  </div> */}
                </div>
 
                <div className="mt-4.5">

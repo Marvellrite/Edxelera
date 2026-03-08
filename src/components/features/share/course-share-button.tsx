@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 type CourseShareButtonProps = {
   courseTitle?: string;
@@ -40,10 +41,15 @@ export default function CourseShareButton({
   courseTitle = "Check out this course on Edxelera",
   shareUrl,
 }: CourseShareButtonProps) {
+  const [mounted, setMounted] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [copyMessage, setCopyMessage] = React.useState("");
   const [currentUrl, setCurrentUrl] = React.useState("");
   const [canNativeShare, setCanNativeShare] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   React.useEffect(() => {
     const resolvedUrl =
@@ -162,16 +168,22 @@ export default function CourseShareButton({
     [canShare, encodedTitle, encodedUrl, handleCopy]
   );
 
+  const triggerButton = (
+    <button
+      type="button"
+      aria-label="Share course"
+      className="group inline-flex size-10 items-center justify-center rounded-full border border-primary-200/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.7),rgba(238,242,255,0.86))] text-primary shadow-[0_10px_20px_-14px_rgba(var(--primary-bare),0.5)] backdrop-blur-md transition-[transform,border-color,background,box-shadow,color] duration-300 ease-out hover:-translate-y-[1px] hover:border-secondary-200 hover:bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,236,236,0.82))] hover:text-secondary-700 hover:shadow-[0_14px_24px_-16px_rgba(188,20,29,0.45)] active:translate-y-0 active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-300 focus-visible:ring-offset-2"
+    >
+      <Share2 className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-[1.04]" />
+    </button>
+  );
+
+  if (!mounted) return triggerButton;
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button
-          type="button"
-          aria-label="Share course"
-          className="group inline-flex size-10 items-center justify-center rounded-full border border-primary-200/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.7),rgba(238,242,255,0.86))] text-primary shadow-[0_10px_20px_-14px_rgba(var(--primary-bare),0.5)] backdrop-blur-md transition-[transform,border-color,background,box-shadow,color] duration-300 ease-out hover:-translate-y-[1px] hover:border-secondary-200 hover:bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,236,236,0.82))] hover:text-secondary-700 hover:shadow-[0_14px_24px_-16px_rgba(188,20,29,0.45)] active:translate-y-0 active:scale-[0.985] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-300 focus-visible:ring-offset-2"
-        >
-          <Share2 className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-[1.04]" />
-        </button>
+        {triggerButton}
       </DialogTrigger>
 
       <DialogContent
@@ -310,21 +322,36 @@ export default function CourseShareButton({
           </div>
 
           <div className="relative z-10 flex flex-col-reverse gap-2 border-t border-white/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.12))] px-6 py-4 backdrop-blur-md sm:flex-row sm:justify-between">
-            <button
+            {/* <button
               type="button"
               onClick={handleNativeShare}
               disabled={!canNativeShare || !canShare}
               className="inline-flex h-10 items-center justify-center rounded-full border border-secondary-200/85 bg-[linear-gradient(160deg,rgba(255,255,255,0.78),rgba(255,236,236,0.78))] px-4 text-xs font-semibold text-secondary-700 shadow-[0_14px_24px_-18px_rgba(188,20,29,0.36)] transition-[transform,border-color,background,box-shadow,color] duration-300 ease-out hover:-translate-y-[1px] hover:border-secondary-300 hover:bg-[linear-gradient(160deg,rgba(255,255,255,0.86),rgba(255,204,205,0.76))] hover:shadow-[0_16px_26px_-18px_rgba(188,20,29,0.46)] active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-300"
             >
               Share via Device
-            </button>
+            </button> */}
+            <Button
+              type="button"
+              variant={'secondary'}
+              onClick={handleNativeShare}
+              disabled={!canNativeShare || !canShare}
+              className="inline-flex h-10 items-center justify-center rounded-full border border-secondary-200/85  px-4 text-xs font-semibold  shadow-[0_14px_24px_-18px_rgba(188,20,29,0.36)] transition-[transform,border-color,background,box-shadow,color] duration-300 ease-out hover:-translate-y-[1px] hover:border-secondary-300  hover:shadow-[0_16px_26px_-18px_rgba(188,20,29,0.46)] active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-300"
+            >
+              Share via Device
+            </Button>
             <DialogClose asChild>
-              <button
+              {/* <button
                 type="button"
                 className="inline-flex h-10 items-center justify-center rounded-full border border-primary-300/70 bg-[linear-gradient(160deg,rgba(var(--primary-bare),0.95),rgba(47,79,255,0.85))] px-5 text-xs font-semibold text-white shadow-[0_16px_30px_-16px_rgba(var(--primary-bare),0.78)] transition-[transform,filter,box-shadow] duration-300 ease-out hover:-translate-y-[1px] hover:brightness-105 hover:shadow-[0_18px_32px_-16px_rgba(var(--primary-bare),0.82)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/55"
               >
                 Done
-              </button>
+              </button> */}
+              <Button
+                type="button"
+                className="inline-flex h-10 items-center justify-center rounded-full px-5 text-xs font-semibold text-white shadow-[0_16px_30px_-16px_rgba(var(--primary-bare),0.78)] transition-[transform,filter,box-shadow] duration-300 ease-out hover:-translate-y-[1px] hover:brightness-105  active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/55"
+              >
+                Done
+              </Button>
             </DialogClose>
           </div>
         </div>

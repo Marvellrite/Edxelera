@@ -1,17 +1,16 @@
 'use client'
 
 import * as React from "react";
-import { Bell, ArrowLeft} from "@/components/icons/modified"
+import { ArrowLeft} from "@/components/icons/modified"
 import Image from "next/image";
 import toTitleCase from "@/utils/toTitleCase";
-import { useTheme } from "@/hooks/useTheme";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
-import Badge from "@/components/common/badge";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 import CartDrawerButton from "@/components/features/cart/cart-drawer-button";
 import CourseShareButton from "@/components/features/share/course-share-button";
-import CartBellButton from "@/components/features/cart/cart-bell-button";
+import NotificationBellButton from "@/components/features/cart/notification-bell-button";
+import { useCartStore } from "@/stores/cart-store";
 
 type HeaderTopBarProps = {
 
@@ -32,7 +31,7 @@ type HeaderTopBarProps = {
 
 export default function HeaderTopBar({
   notificationCount = 1,
-  cartCount = 1,
+  cartCount,
   onBack,
   onNotifications,
   onToggleTheme,
@@ -46,13 +45,13 @@ export default function HeaderTopBar({
 
 
       const { user } = useStudentSession();
-      const { toggleTheme } = useTheme();
-      console.log(user)
+      const storeCartCount = useCartStore((state) => state.items.length);
   
       const displayName = user?.fullname || 'Student';
   
       const hour = new Date().getHours();
       const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+      const resolvedCartCount = cartCount ?? storeCartCount;
 
   return (
     <div ref={anchorRef}>
@@ -113,7 +112,7 @@ export default function HeaderTopBar({
 
         {/* Notifications with right divider */}
         <div className="flex h-12 shrink-0 items-center ms-2 hidden lg:flex">
-          <CartBellButton/>
+          <NotificationBellButton/>
 
         </div>
 
@@ -123,9 +122,10 @@ export default function HeaderTopBar({
 
         <CourseShareButton courseTitle={headerTitle || "Course on Edxelera"} />
 
-        <CartDrawerButton count={cartCount} onOpen={onCart} />
+        <CartDrawerButton count={resolvedCartCount} onOpen={onCart} />
       </div>
       </header>
     </div>
   );
 }
+

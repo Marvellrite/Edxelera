@@ -14,7 +14,7 @@ import {
 import { Cart } from "@/components/icons/modified";
 import Badge from "@/components/common/badge";
 import formatMoney from "@/utils/formatMoney";
-import { mock_data as suggestedCourses } from "@/app/home/(home)/also_like_mock_data";
+import { useCartStore } from "@/stores/cart-store";
 import {
   Dialog,
   DialogClose,
@@ -41,30 +41,54 @@ type CartDrawerButtonProps = {
   onRemoveItem?: (id: string) => void;
 };
 
-const DEFAULT_ITEMS: CartCourseItem[] = suggestedCourses.map((course, index) => ({
-  id: `${course._id}-${index}`,
-  image: course.posterSrc,
-  title: course.title,
-  price: Number(course.price),
-  duration: course.duration,
-  rating: course.rating,
-  reviewsCount: 120 + index * 37,
-}));
-
 export default function CartDrawerButton({
   count,
-  items = DEFAULT_ITEMS,
+  items,
   onOpen,
   onRemoveItem,
 }: CartDrawerButtonProps) {
+  const [mounted, setMounted] = React.useState(false);
   const [imageErrors, setImageErrors] = React.useState<Record<string, boolean>>({});
-  const itemCount = count ?? items.length;
-  const hasItems = items.length > 0;
-  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+  const storeItems = useCartStore((state) => state.items);
+  const removeCourse = useCartStore((state) => state.removeCourse);
+  const derivedItems = React.useMemo<CartCourseItem[]>(
+    () =>
+      storeItems.map((item, index) => ({
+        id: item._id,
+        image: item.posterSrc,
+        title: item.title,
+        price: Number(item.price),
+        duration: item.duration,
+        rating: item.rating,
+        reviewsCount: 120 + index * 23,
+      })),
+    [storeItems]
+  );
+  const resolvedItems = items ?? derivedItems;
+  const itemCount = count ?? resolvedItems.length;
+  const hasItems = resolvedItems.length > 0;
+  const subtotal = resolvedItems.reduce((sum, item) => sum + item.price, 0);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const markImageError = (id: string) => {
     setImageErrors((prev) => ({ ...prev, [id]: true }));
   };
+
+  const triggerButton = (
+    <button
+      type="button"
+      className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center"
+      aria-label="Cart"
+    >
+      <Cart className="h-7 w-7 text-[#001146]" />
+      <Badge count={itemCount} />
+    </button>
+  );
+
+  if (!mounted) return triggerButton;
 
   return (
     <Dialog
@@ -73,14 +97,7 @@ export default function CartDrawerButton({
       }}
     >
       <DialogTrigger asChild>
-        <button
-          type="button"
-          className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center"
-          aria-label="Cart"
-        >
-          <Cart className="h-7 w-7 text-[#001146]" />
-          <Badge count={itemCount} />
-        </button>
+        {triggerButton}
       </DialogTrigger>
 
       <DialogContent
@@ -108,7 +125,7 @@ export default function CartDrawerButton({
           <div className="relative z-10 flex-1 overflow-y-auto px-4 py-4">
             {hasItems ? (
               <div className="space-y-3 pr-1">
-                {items.map((item) => {
+                {resolvedItems.map((item) => {
                   const rating = item.rating ?? 0;
                   const roundedRating = Math.max(0, Math.min(5, Math.round(rating)));
 
@@ -170,10 +187,13 @@ export default function CartDrawerButton({
                         <p className="text-sm font-bold text-primary">
                           &#8358;{formatMoney(String(item.price))}
                         </p>
-                        {onRemoveItem ? (
+                        {onRemoveItem || !items ? (
                           <button
                             type="button"
-                            onClick={() => onRemoveItem(item.id)}
+                            onClick={() => {
+                              if (onRemoveItem) onRemoveItem(item.id);
+                              else removeCourse(item.id);
+                            }}
                             aria-label={`Remove ${item.title} from cart`}
                             className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary/25 bg-white/70 text-primary transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                           >
