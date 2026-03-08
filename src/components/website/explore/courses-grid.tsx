@@ -1,5 +1,5 @@
 import React from 'react'
-import Video_card from '@/app/home/components/video_card'
+import Video_card from '@/app/home/components/course-card'
 import { courses } from '@/lib/landing-data'
 import { cn } from '@/lib/utils'
 import { ClassValue } from 'clsx'

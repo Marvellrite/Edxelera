@@ -3,7 +3,7 @@
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
 import { Button } from '@/components/ui/button';
-import Video_card from '../components/video_card';
+import Video_card from '../components/course-card';
 import Continue_learning_mobile from '../components/continue_learning_mobile';
 import StreakDisplay from '@/components/features/streak-display';
 

@@ -1,17 +1,17 @@
 'use client'
 
 import * as React from "react";
-import { Cart, Bell, ArrowLeft} from "@/components/icons/modified"
+import { Bell, ArrowLeft} from "@/components/icons/modified"
 import Image from "next/image";
 import toTitleCase from "@/utils/toTitleCase";
 import { useTheme } from "@/hooks/useTheme";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import Badge from "@/components/common/badge";
-import Link from "next/link";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
-// import { Share } from "@/components/icons/modified";
-import { Share2 } from "lucide-react";
+import CartDrawerButton from "@/components/features/cart/cart-drawer-button";
+import CourseShareButton from "@/components/features/share/course-share-button";
+import CartBellButton from "@/components/features/cart/cart-bell-button";
 
 type HeaderTopBarProps = {
 
@@ -113,15 +113,7 @@ export default function HeaderTopBar({
 
         {/* Notifications with right divider */}
         <div className="flex h-12 shrink-0 items-center ms-2 hidden lg:flex">
-          <button
-            type="button"
-            onClick={onNotifications}
-            className="relative inline-flex h-11 w-11 items-center justify-center -mx-1.5"
-            aria-label="Notifications"
-          >
-            <Bell className="size-5 text-primary" />
-            <Badge  count={notificationCount} className="top-1 right-1.25" />
-          </button>
+          <CartBellButton/>
 
         </div>
 
@@ -129,20 +121,9 @@ export default function HeaderTopBar({
           <ThemeTogglerComponent />
 
 
-          {/* Share Button */}
-        <button className='p-0 px-1'>
-          <Share2/>
-        </button>
+        <CourseShareButton courseTitle={headerTitle || "Course on Edxelera"} />
 
-        {/* Cart with badge */}
-        <Link
-          className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center"
-          aria-label="Cart"
-          href='/cart'
-        >
-          <Cart className="h-7 w-7 text-[#001146]" />
-           <Badge count={notificationCount} />
-        </Link>
+        <CartDrawerButton count={cartCount} onOpen={onCart} />
       </div>
       </header>
     </div>

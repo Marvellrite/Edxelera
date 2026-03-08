@@ -54,10 +54,10 @@ const Video_card: React.FC<VideoCardProps> = ({
         <Link
           href={`/home/explore/overview/${_id}`}
           className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
-          onMouseEnter={openInfo}
-          onMouseLeave={closeInfo}
-          onFocus={openInfo}
-          onBlur={closeInfo}
+          // onMouseEnter={openInfo}
+          // onMouseLeave={closeInfo}
+          // onFocus={openInfo}
+          // onBlur={closeInfo}
         >
           <article
             className={cn(

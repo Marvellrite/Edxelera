@@ -2,18 +2,14 @@
 
 import SearchBar from '@/components/data/nav-search-bar';
 import Image from "next/image";
-import { Bell } from "@/components/icons/modified";
-import { useTheme } from "@/hooks/useTheme";
-import { Sun, MoonOutline } from "@/components/icons/modified";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
-import Badge from '@/components/common/badge';
+import CartBellButton from "@/components/features/cart/cart-bell-button";
 
 const Header = () => {
     const { user } = useStudentSession();
-    const { toggleTheme } = useTheme();
     const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
     console.log(user)
 
@@ -80,11 +76,7 @@ const Header = () => {
 
                {/* Bell + theme toggler component */}
          
-               <button className='relative'>
-
-               <Bell className='text-primary size-6' />
-               <Badge count={2}/>
-               </button>
+               <CartBellButton count={2} />
 
                   <ThemeTogglerComponent/>
 

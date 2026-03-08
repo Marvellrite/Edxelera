@@ -1,4 +1,4 @@
-import Video_card from '@/app/home/components/video_card';
+import Video_card from '@/app/home/components/course-card';
 import React from 'react'
 import { mock_data as mock_data_al } from '../../mock_data';
 

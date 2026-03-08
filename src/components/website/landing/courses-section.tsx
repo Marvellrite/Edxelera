@@ -2,7 +2,7 @@
 
 import { courses } from '@/lib/landing-data';
 import { Button } from '@/components/ui/button';
-import Video_card from '@/app/home/components/video_card';
+import Video_card from '@/app/home/components/course-card';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
