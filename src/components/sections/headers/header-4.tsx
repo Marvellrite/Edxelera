@@ -7,7 +7,7 @@ import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import ThemeTogglerComponent from "@/components/common/theme-toggler";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
-import CartDrawerButton from "@/components/features/cart/cart-drawer-button";
+import CartRouteButton from "@/components/features/cart/cart-route-button";
 import CourseShareButton from "@/components/features/share/course-share-button";
 import NotificationBellButton from "@/components/features/cart/notification-bell-button";
 import { useCartStore } from "@/stores/cart-store";
@@ -20,7 +20,6 @@ type HeaderTopBarProps = {
   onBack?: () => void;
   onNotifications?: () => void;
   onToggleTheme?: () => void;
-  onCart?: () => void;
 
   className?: string;
 
@@ -35,7 +34,6 @@ export default function HeaderTopBar({
   onBack,
   onNotifications,
   onToggleTheme,
-  onCart,
   className = "",
   headerTitle='',
   showbackBtn=true
@@ -122,7 +120,7 @@ export default function HeaderTopBar({
 
         <CourseShareButton courseTitle={headerTitle || "Course on Edxelera"} />
 
-        <CartDrawerButton count={resolvedCartCount} onOpen={onCart} />
+        <CartRouteButton count={resolvedCartCount} />
       </div>
       </header>
     </div>

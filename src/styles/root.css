@@ -66,6 +66,9 @@
    --streak-fg-inactive: var(--neutral-400);
    --streak-active-marker: #001146;
 
+   --success-light: #CDFFE3;
+   --error-light: #FFCDCE;
+
    --hover-foreground: white;
 
 }

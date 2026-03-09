@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { QuizData } from '../mock-data'
 import { QuizType } from '../types'
 import { QuizAnswers } from '../types'
-import SubmitQuizDialog from './submit_dialogue'
+import SubmitQuizDialog from '@/components/features/course/quiz/submit-quiz-dialog'
 import { ReactSVG } from 'react-svg'
 import Textarea from '@/components/data/textarea-noHook'
 import StarRating from '@/components/common/rating'
@@ -261,3 +261,4 @@ const Oops = ()=>{
 
 
 export default ModuleAssessment
+

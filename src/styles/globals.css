@@ -74,6 +74,10 @@
    --color-streak-fg-inactive: var(--streak-fg-inactive);
    --color-streak-active-marker: var(--streak-active-marker);
 
+   /* Semantic Colors */
+   --color-success-light: var(--success-light);
+   --color-error-light: var(--error-light);
+
    --breakpoint-sm-md: 620px;
    /* Added by Marvel, not a new color, still part of pre-existing template, git merge it */
 
