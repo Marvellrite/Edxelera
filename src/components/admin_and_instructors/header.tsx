@@ -5,20 +5,20 @@ import { ReactSVG } from 'react-svg'
 
 const Header = () => {
   return (
-    <header className='bg-white h-full w-full col-span-12 row-span-2 rounded-2xl py-2 px-4 flex justify-between items-center'>
-        <Image src="/logo.png" alt='logo' height={30} width={200} placeholder='empty' quality={100} className='object-contain h-auto' />
+    <header className='bg-white w-full col-span-1 md:col-span-12 md:row-span-2 rounded-2xl py-2 px-3 md:px-4 flex justify-between items-center gap-3'>
+        <Image src="/logo.png" alt='logo' height={30} width={200} placeholder='empty' quality={100} className='object-contain h-auto w-32 sm:w-40 md:w-auto' />
 
-        <section className='flex items-center gap-5'>
+        <section className='flex items-center gap-2 md:gap-5'>
             
 
-            <div className='flex gap-3 items-center'>
+            <div className='flex gap-2 md:gap-3 items-center'>
 
                 <div className='flex items-center gap-3'>
                     <Image src="/photo.png" alt='logo' height={100} width={100} className='h-10 w-10 object-contain' />
                     {/* <ReactSVG src='/icons/dropdown.svg' /> */}
                 </div>
 
-                <div>
+                <div className='hidden sm:block'>
                     <p className=' text-neutral-700 text-[14px] font-light'>Good morning</p>
                     <p className=' font-medium text-black'>David David</p>
                 </div>

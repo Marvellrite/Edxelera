@@ -13,8 +13,11 @@ type ModuleLesson = {
     videoName?: string
 }
 
+type AddLessonProps = {
+    previewHref: string
+}
 
-const AddLesson = () => {
+const AddLesson = ({ previewHref }: AddLessonProps) => {
     const  [showModuleFields, setShowModuleFields] = useState(false)
     const  [showLessonFields, setShowLessonFields] = useState(false)
     const [moduleTitle, setModuleTitle] = useState("")
@@ -100,7 +103,7 @@ const AddLesson = () => {
             {moduleError && <p className="text-xs text-red-600">{moduleError}</p>}
             {moduleSuccess && <p className="text-xs text-green-600">{moduleSuccess}</p>}
             </div>}
-            <CreateModules setShowModuleFields={setShowModuleFields}/>
+            <CreateModules setShowModuleFields={setShowModuleFields} previewHref={previewHref} />
         </form>
     </div>
   )

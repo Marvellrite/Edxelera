@@ -3,25 +3,34 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactSVG } from 'react-svg'
 import { useSidebar } from '@/context/sidebar'
+import { DashboardSegment } from './pages/route-utils'
 
-const Sidebar = () => {
+type SidebarProps = {
+  segment?: DashboardSegment
+}
+
+const Sidebar = ({ segment }: SidebarProps) => {
   const pathname = usePathname()
-  const dashboard = pathname === '/admin'
-  const course = pathname.startsWith('/admin/course')
-  const cohort = pathname === '/admin/cohort'
+  const resolvedSegment: DashboardSegment =
+    segment ?? (pathname.startsWith('/instructor') ? 'instructor' : 'admin')
+  const prefix = `/${resolvedSegment}`
+
+  const dashboard = pathname === prefix
+  const course = pathname.startsWith(`${prefix}/courses`)
+  const cohort = pathname === `${prefix}/cohort`
   const certificates = pathname === '/certificates'
-  const users = pathname === '/admin/users'
-  const staffs = pathname === '/admin/staffs'
-  const transactions = pathname === '/admin/transactions'
-  const reports = pathname === '/admin/reports'
-  const notifications = pathname === '/admin/notifications'
-  const support = pathname === '/admin/support'
-  const settings = pathname === '/admin/settings'
+  const users = pathname === `${prefix}/users`
+  const staffs = pathname === `${prefix}/staffs`
+  const transactions = pathname === `${prefix}/transactions`
+  const reports = pathname === `${prefix}/reports`
+  const notifications = pathname === `${prefix}/notifications`
+  const support = pathname === `${prefix}/support`
+  const settings = pathname === `${prefix}/settings`
 
   const { toggle, setToggle } = useSidebar()
 
   return (
-    <aside className={` ${toggle ? 'col-span-1' : 'col-span-2'} h-full w-full overflow-y-scroll no-scrollbar   no-scrollbar pt-5`}>
+    <aside className={`${toggle ? 'md:col-span-1' : 'md:col-span-2'} col-span-1 h-full w-full overflow-y-auto no-scrollbar pt-1 md:pt-5`}>
        <div className={`  bg-white h-full w-full rounded-2xl p-5 transition-all duration-1000 overflow-y-scroll no-scrollbar`}>
         <div className={`${toggle ? 'flex-col-reverse gap-2 mb-4' : ''} flex justify-between items-center`}>
           <p>Learning</p>
@@ -29,13 +38,13 @@ const Sidebar = () => {
         </div>  
         <ul className='space-y-1 mt-2'>
           <li>
-            <Link href='/' className={`${ dashboard ? 'bg-primary text-white' : 'hover:bg-text-neutral-100'} ${toggle ? 'justify-center' : ''} flex gap-2 items-center py-3 px-4 rounded-xl group`}>
+            <Link href={prefix} className={`${ dashboard ? 'bg-primary text-white' : 'hover:bg-text-neutral-100'} ${toggle ? 'justify-center' : ''} flex gap-2 items-center py-3 px-4 rounded-xl group`}>
               <ReactSVG src='/icons/home-outline-white.svg' className='group-hover:rotate-180 duration-500' />
               { !toggle && <span>Dashboard</span>}
             </Link>
           </li>
           <li>
-            <Link href='/admin/courses' className={`${ course ? 'bg-primary text-white' : 'hover:bg-text-neutral-100'} ${toggle ? 'justify-center' : ''} flex gap-2 items-center py-3 px-4 rounded-xl group`}>
+            <Link href={`${prefix}/courses`} className={`${ course ? 'bg-primary text-white' : 'hover:bg-text-neutral-100'} ${toggle ? 'justify-center' : ''} flex gap-2 items-center py-3 px-4 rounded-xl group`}>
               <ReactSVG src='/icons/book-outline.svg' className='group-hover:rotate-y-180 duration-500' />
               { !toggle && <span>Course Management</span>}
             </Link>

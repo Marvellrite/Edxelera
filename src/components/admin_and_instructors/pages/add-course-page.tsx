@@ -33,7 +33,7 @@ const AddCoursePage = ({ segment }: Props) => {
 
       <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
         <AddModules />
-        <AddLesson />
+        <AddLesson previewHref={routes.preview} />
       </div>
 
       <CustomAlertDialog
