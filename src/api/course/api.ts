@@ -39,10 +39,38 @@ export interface PresignedUrlPayload {
   title: string;
 }
 
+export type ExternalResource = {
+  title: string;
+  url: string;
+  description?: string;
+  type?: "video" | "article" | "repo" | "tool" | "dataset" | "documentation";
+};
+
 export interface PresignedUrlData {
   upload_url?: string;
   key?: string;
   fields?: Record<string, string>;
+}
+
+export interface CreateModulePayload {
+  course_id: string;
+  title: string;
+}
+
+export interface CreateModuleData {
+  module_id: string;
+}
+
+export interface CreateLessonPayload {
+  title: string;
+  module_id: string;
+  video_key?: string;
+  video_size?: number;
+  resources?: ExternalResource[];
+}
+
+export interface CreateLessonData {
+  lesson_id: string;
 }
 
 export interface CourseAPIResponse<T = unknown> {
@@ -167,4 +195,25 @@ export const courseAPI = {
         body: JSON.stringify(data ?? {}),
       }
     ),
+
+  createModule: (data: CreateModulePayload) =>
+    request<CourseAPIResponse<CreateModuleData>>("/modules/create", {
+      method: "POST",
+      body: JSON.stringify(data),
+      credentials: "include",
+    }, true),
+
+  getLessonPresignedUrl: (data: PresignedUrlPayload) =>
+    request<CourseAPIResponse<PresignedUrlData>>("/lessons/get-presigned-url", {
+      method: "POST",
+      body: JSON.stringify(data),
+      credentials: "include",
+    }, true),
+
+  createLesson: (data: CreateLessonPayload) =>
+    request<CourseAPIResponse<CreateLessonData>>("/lessons/create", {
+      method: "POST",
+      body: JSON.stringify(data),
+      credentials: "include",
+    }, true),
 };

@@ -2,7 +2,7 @@ import {
   useMutation,
   useQuery,
   UseMutationOptions,
-  UseQueryOptions,
+  UseQueryOptions
 } from "@tanstack/react-query";
 import {
   courseAPI,
@@ -10,6 +10,10 @@ import {
   CourseAPIResponse,
   CourseListData,
   CourseListQueryParams,
+  CreateLessonData,
+  CreateLessonPayload,
+  CreateModuleData,
+  CreateModulePayload,
   CreateCoursePayload,
   EditCoursePayload,
   PresignedUrlData,
@@ -84,6 +88,45 @@ export const useGetPresignedUrl = (
 ) => {
   return useMutation({
     mutationFn: courseAPI.getPresignedUrl,
+    ...options,
+  });
+};
+
+export const useCreateModule = (
+  options?: UseMutationOptions<
+    CourseAPIResponse<CreateModuleData>,
+    Error,
+    CreateModulePayload
+  >
+) => {
+  return useMutation({
+    mutationFn: courseAPI.createModule,
+    ...options,
+  });
+};
+
+export const useGetLessonPresignedUrl = (
+  options?: UseMutationOptions<
+    CourseAPIResponse<PresignedUrlData>,
+    Error,
+    PresignedUrlPayload
+  >
+) => {
+  return useMutation({
+    mutationFn: courseAPI.getLessonPresignedUrl,
+    ...options,
+  });
+};
+
+export const useCreateLesson = (
+  options?: UseMutationOptions<
+    CourseAPIResponse<CreateLessonData>,
+    Error,
+    CreateLessonPayload
+  >
+) => {
+  return useMutation({
+    mutationFn: courseAPI.createLesson,
     ...options,
   });
 };
