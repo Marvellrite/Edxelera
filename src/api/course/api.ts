@@ -42,8 +42,6 @@ export interface PresignedUrlPayload {
 export type ExternalResource = {
   title: string;
   url: string;
-  description?: string;
-  type?: "video" | "article" | "repo" | "tool" | "dataset" | "documentation";
 };
 
 export interface PresignedUrlData {
@@ -193,7 +191,7 @@ export const courseAPI = {
       {
         method: "POST",
         body: JSON.stringify(data ?? {}),
-      }
+      }, true
     ),
 
   createModule: (data: CreateModulePayload) =>
@@ -204,7 +202,7 @@ export const courseAPI = {
     }, true),
 
   getLessonPresignedUrl: (data: PresignedUrlPayload) =>
-    request<CourseAPIResponse<PresignedUrlData>>("/lessons/get-presigned-url", {
+    request<CourseAPIResponse<PresignedUrlData>>("/courses/get-presigned-url", {
       method: "POST",
       body: JSON.stringify(data),
       credentials: "include",

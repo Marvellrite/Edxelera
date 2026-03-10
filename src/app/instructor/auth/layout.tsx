@@ -11,9 +11,9 @@ export default function AuthLayout({
          <div className="relative hidden h-full lg:col-span-5 lg:block">
             <Image
                
-               src="/assets/auth.png"
+               src="/assets/instructor/auth/instructor.jpg"
                alt="side image"
-               className=" object-cover"
+               className=" object-cover -scale-x-100"
                fill
             />
             <div className="absolute w-full h-full bg-linear-to-b from-text/75 to-text/40"></div>

@@ -26,7 +26,7 @@ const CreateLesson = ({ disabled = false, onLessonCreated }: CreateLessonProps) 
   } = useForm<LessonFormValues>({
     defaultValues: {
       title: "",
-      resources: [{ title: "", url: "", description: "" }],
+      resources: [{ title: "", url: "" }],
     },
   });
 
@@ -47,7 +47,7 @@ const CreateLesson = ({ disabled = false, onLessonCreated }: CreateLessonProps) 
       });
       reset({
         title: "",
-        resources: [{ title: "", url: "", description: "" }],
+        resources: [{ title: "", url: "" }],
       });
     }
   });
@@ -108,19 +108,12 @@ const CreateLesson = ({ disabled = false, onLessonCreated }: CreateLessonProps) 
               {...register(`resources.${index}.url` as const)}
               disabled={disabled || isSubmittingLesson}
             />
-            <input
-              className="w-full rounded-xl border border-neutral-500 px-3 py-3"
-              type="text"
-              placeholder="Description"
-              {...register(`resources.${index}.description` as const)}
-              disabled={disabled || isSubmittingLesson}
-            />
           </div>
         ))}
 
         <button
           type="button"
-          onClick={() => append({ title: "", url: "", description: "" })}
+          onClick={() => append({ title: "", url: "" })}
           disabled={disabled || isSubmittingLesson}
           className="flex items-center gap-1 text-sm text-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
         >

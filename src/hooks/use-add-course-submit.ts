@@ -42,6 +42,9 @@ const uploadPosterToAWS = async (file: File, presignedData: PresignedUrlData) =>
       throw new Error("Failed to upload poster image to storage.");
     }
   } else {
+
+
+
     const uploadResponse = await fetch(presignedData.upload_url, {
       method: "PUT",
       headers: {
@@ -49,6 +52,9 @@ const uploadPosterToAWS = async (file: File, presignedData: PresignedUrlData) =>
       },
       body: file,
     });
+    // const response = await uploadResponse.json()
+
+    console.log('Image upload response: ', uploadResponse)
 
     if (!uploadResponse.ok) {
       throw new Error("Failed to upload poster image to storage.");
@@ -108,7 +114,7 @@ export const useAddCourseSubmit = ({ reset, setError, clearErrors }: UseAddCours
         duration: data.duration,
         price: data.price,
         overview: data.overview,
-        poster: posterUploadUrl,
+        poster: posterUploadUrl,  // poster id or poster url
       });
 
       const courseId = createCourseResponse.data?.course_id;
@@ -117,7 +123,7 @@ export const useAddCourseSubmit = ({ reset, setError, clearErrors }: UseAddCours
       }
       setCourseId(courseId);
 
-      reset();
+      // reset();
       clearErrors("root");
       setSuccessMessage("Course details and poster uploaded successfully.");
     } catch (error) {

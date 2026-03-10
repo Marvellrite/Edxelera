@@ -12,7 +12,6 @@ import { useState } from "react";
 export type LessonResourceInput = {
   title: string;
   url: string;
-  description?: string;
 };
 
 export type AddLessonPayload = {
@@ -42,7 +41,7 @@ const uploadVideoToAWS = async (file: File, presignedData: PresignedUrlData) => 
       throw new Error("Failed to upload lesson video to storage.");
     }
 
-    return presignedData.key;
+    return presignedData.upload_url;
   }
 
   const uploadResponse = await fetch(presignedData.upload_url, {
@@ -57,7 +56,7 @@ const uploadVideoToAWS = async (file: File, presignedData: PresignedUrlData) => 
     throw new Error("Failed to upload lesson video to storage.");
   }
 
-  return presignedData.key;
+  return presignedData.upload_url;
 };
 
 const normalizeResources = (resources: LessonResourceInput[]): ExternalResource[] =>
@@ -65,7 +64,6 @@ const normalizeResources = (resources: LessonResourceInput[]): ExternalResource[
     .map((resource) => ({
       title: resource.title.trim(),
       url: resource.url.trim(),
-      description: resource.description?.trim() || undefined,
     }))
     .filter((resource) => resource.title && resource.url);
 
@@ -109,18 +107,20 @@ export const useAddLessonSubmit = () => {
         throw new Error("Presigned response did not include upload data.");
       }
 
-      const videoKey = await uploadVideoToAWS(lessonVideo, presignedData);
-      if (!videoKey) {
+      const upload_url = await uploadVideoToAWS(lessonVideo, presignedData);
+      if (!upload_url) {
         throw new Error("Video upload completed but no video key was returned.");
       }
 
       const createLessonResponse = await createLesson({
         title: data.title.trim(),
         module_id: moduleId,
-        video_key: videoKey,
-        video_size: lessonVideo.size,
+        video_key: upload_url,
+        // video_size: lessonVideo.size,
         resources: normalizeResources(data.resources ?? []),
       });
+
+      console.log(createLessonResponse)
 
       const lessonId = createLessonResponse.data?.lesson_id;
       if (!lessonId) {
