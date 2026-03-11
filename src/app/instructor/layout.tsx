@@ -8,7 +8,7 @@ import DashboardShell from "@/components/admin_and_instructors/pages/dashboard-s
 export default function InstructorLayout({ children }: Readonly<{ children: ReactNode }>) {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/instructor/auth")) {
+  if (pathname.startsWith("/instructor/auth") || pathname.startsWith("/instructor/onboarding")) {
     return <>{children}</>;
   }
 
