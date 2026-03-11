@@ -33,7 +33,7 @@ export const InputIconned = <T extends FieldValues>({
         
          <input
             {...register<Path<T>>(name)}
-            className=" text-neutral basis-full h-full  self-end focus-visible:outline-none placeholder:text-neutral-700"
+            className=" text-neutral basis-full h-full  focus-visible:outline-none placeholder:text-neutral-700"
             placeholder={placeholder}
             id={input_id}
             {...rest}
