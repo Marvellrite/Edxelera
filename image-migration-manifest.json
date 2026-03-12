@@ -1,5 +1,1646 @@
 {
-  "generatedAt": "",
-  "cloudinaryCloudName": "",
-  "entries": {}
+  "generatedAt": "2026-03-12T17:13:34.918Z",
+  "cloudinaryCloudName": "dx5iohojj",
+  "entries": {
+    "public/assets/auth.png": {
+      "repoRelativePath": "public/assets/auth.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/auth.png",
+      "publicReferencePath": "/assets/auth.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.707Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/badge.png": {
+      "repoRelativePath": "public/assets/badge.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/badge.png",
+      "publicReferencePath": "/assets/badge.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.752Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/certificate_adjusted.jpg": {
+      "repoRelativePath": "public/assets/certificate_adjusted.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/certificate_adjusted.jpg",
+      "publicReferencePath": "/assets/certificate_adjusted.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.810Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/certificate.jpg": {
+      "repoRelativePath": "public/assets/certificate.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/certificate.jpg",
+      "publicReferencePath": "/assets/certificate.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.858Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/course-banner.jpg": {
+      "repoRelativePath": "public/assets/course-banner.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/course-banner.jpg",
+      "publicReferencePath": "/assets/course-banner.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.881Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/course-cover.jpg": {
+      "repoRelativePath": "public/assets/course-cover.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/course-cover.jpg",
+      "publicReferencePath": "/assets/course-cover.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.897Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/edxelera-logo.png": {
+      "repoRelativePath": "public/assets/edxelera-logo.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/edxelera-logo.png",
+      "publicReferencePath": "/assets/edxelera-logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:30.977Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/Edxera Logo 6.png": {
+      "repoRelativePath": "public/assets/Edxera Logo 6.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/Edxera Logo 6.png",
+      "publicReferencePath": "/assets/Edxera Logo 6.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.132Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/instructor/auth/instructor.jpg": {
+      "repoRelativePath": "public/assets/instructor/auth/instructor.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/instructor/auth/instructor.jpg",
+      "publicReferencePath": "/assets/instructor/auth/instructor.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.198Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/instructor/auth/onboarding/right-side.jpg": {
+      "repoRelativePath": "public/assets/instructor/auth/onboarding/right-side.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/instructor/auth/onboarding/right-side.jpg",
+      "publicReferencePath": "/assets/instructor/auth/onboarding/right-side.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.231Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/Laptop with Eauston.jpg": {
+      "repoRelativePath": "public/assets/Laptop with Eauston.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/Laptop with Eauston.jpg",
+      "publicReferencePath": "/assets/Laptop with Eauston.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.284Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/logo-submark-primary.png": {
+      "repoRelativePath": "public/assets/logo-submark-primary.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/logo-submark-primary.png",
+      "publicReferencePath": "/assets/logo-submark-primary.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.299Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/logo.png": {
+      "repoRelativePath": "public/assets/logo.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/logo.png",
+      "publicReferencePath": "/assets/logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.313Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/logo1.png": {
+      "repoRelativePath": "public/assets/logo1.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/logo1.png",
+      "publicReferencePath": "/assets/logo1.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.343Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/no_result_to_show.svg": {
+      "repoRelativePath": "public/assets/no_result_to_show.svg",
+      "absolutePath": "/workspace/Edxelera/public/assets/no_result_to_show.svg",
+      "publicReferencePath": "/assets/no_result_to_show.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.367Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/person_1.png": {
+      "repoRelativePath": "public/assets/person_1.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/person_1.png",
+      "publicReferencePath": "/assets/person_1.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.531Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/poster1.jpg": {
+      "repoRelativePath": "public/assets/poster1.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/poster1.jpg",
+      "publicReferencePath": "/assets/poster1.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.584Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/poster2.jpg": {
+      "repoRelativePath": "public/assets/poster2.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/poster2.jpg",
+      "publicReferencePath": "/assets/poster2.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.607Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/poster3.jpg": {
+      "repoRelativePath": "public/assets/poster3.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/poster3.jpg",
+      "publicReferencePath": "/assets/poster3.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.668Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/poster4.png": {
+      "repoRelativePath": "public/assets/poster4.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/poster4.png",
+      "publicReferencePath": "/assets/poster4.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.751Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/poster5.jpg": {
+      "repoRelativePath": "public/assets/poster5.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/poster5.jpg",
+      "publicReferencePath": "/assets/poster5.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.806Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/student/auth/student-pressing-computer-1.jpg": {
+      "repoRelativePath": "public/assets/student/auth/student-pressing-computer-1.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/student/auth/student-pressing-computer-1.jpg",
+      "publicReferencePath": "/assets/student/auth/student-pressing-computer-1.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.855Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/student/auth/student-pressing-computer.jpg": {
+      "repoRelativePath": "public/assets/student/auth/student-pressing-computer.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/student/auth/student-pressing-computer.jpg",
+      "publicReferencePath": "/assets/student/auth/student-pressing-computer.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.916Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/student/auth/student-typing-computer-2.png": {
+      "repoRelativePath": "public/assets/student/auth/student-typing-computer-2.png",
+      "absolutePath": "/workspace/Edxelera/public/assets/student/auth/student-typing-computer-2.png",
+      "publicReferencePath": "/assets/student/auth/student-typing-computer-2.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.935Z",
+      "error": "ENETUNREACH"
+    },
+    "public/assets/user-avatar.jpg": {
+      "repoRelativePath": "public/assets/user-avatar.jpg",
+      "absolutePath": "/workspace/Edxelera/public/assets/user-avatar.jpg",
+      "publicReferencePath": "/assets/user-avatar.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.954Z",
+      "error": "ENETUNREACH"
+    },
+    "public/avatars/christopher-emeka.jpg": {
+      "repoRelativePath": "public/avatars/christopher-emeka.jpg",
+      "absolutePath": "/workspace/Edxelera/public/avatars/christopher-emeka.jpg",
+      "publicReferencePath": "/avatars/christopher-emeka.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.981Z",
+      "error": "ENETUNREACH"
+    },
+    "public/avatars/oscar-amadi.jpg": {
+      "repoRelativePath": "public/avatars/oscar-amadi.jpg",
+      "absolutePath": "/workspace/Edxelera/public/avatars/oscar-amadi.jpg",
+      "publicReferencePath": "/avatars/oscar-amadi.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:31.997Z",
+      "error": "ENETUNREACH"
+    },
+    "public/favicon.png": {
+      "repoRelativePath": "public/favicon.png",
+      "absolutePath": "/workspace/Edxelera/public/favicon.png",
+      "publicReferencePath": "/favicon.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.066Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/add-circle.svg": {
+      "repoRelativePath": "public/icons/add-circle.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/add-circle.svg",
+      "publicReferencePath": "/icons/add-circle.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.094Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/add.svg": {
+      "repoRelativePath": "public/icons/add.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/add.svg",
+      "publicReferencePath": "/icons/add.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.104Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/angle-down.svg": {
+      "repoRelativePath": "public/icons/angle-down.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/angle-down.svg",
+      "publicReferencePath": "/icons/angle-down.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.134Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/apple.svg": {
+      "repoRelativePath": "public/icons/apple.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/apple.svg",
+      "publicReferencePath": "/icons/apple.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.194Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/arrow-down-linear.svg": {
+      "repoRelativePath": "public/icons/arrow-down-linear.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/arrow-down-linear.svg",
+      "publicReferencePath": "/icons/arrow-down-linear.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.214Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/arrow-down.svg": {
+      "repoRelativePath": "public/icons/arrow-down.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/arrow-down.svg",
+      "publicReferencePath": "/icons/arrow-down.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.222Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/award-outline.svg": {
+      "repoRelativePath": "public/icons/award-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/award-outline.svg",
+      "publicReferencePath": "/icons/award-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.265Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/back-arrow.svg": {
+      "repoRelativePath": "public/icons/back-arrow.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/back-arrow.svg",
+      "publicReferencePath": "/icons/back-arrow.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.285Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/book-outline.svg": {
+      "repoRelativePath": "public/icons/book-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/book-outline.svg",
+      "publicReferencePath": "/icons/book-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.341Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/book.svg": {
+      "repoRelativePath": "public/icons/book.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/book.svg",
+      "publicReferencePath": "/icons/book.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.365Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/certificate.svg": {
+      "repoRelativePath": "public/icons/certificate.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/certificate.svg",
+      "publicReferencePath": "/icons/certificate.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.372Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/chart-outline.svg": {
+      "repoRelativePath": "public/icons/chart-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/chart-outline.svg",
+      "publicReferencePath": "/icons/chart-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.381Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/chat.svg": {
+      "repoRelativePath": "public/icons/chat.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/chat.svg",
+      "publicReferencePath": "/icons/chat.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.398Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/chevron-down.svg": {
+      "repoRelativePath": "public/icons/chevron-down.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/chevron-down.svg",
+      "publicReferencePath": "/icons/chevron-down.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.432Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/clock.svg": {
+      "repoRelativePath": "public/icons/clock.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/clock.svg",
+      "publicReferencePath": "/icons/clock.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.457Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/close.svg": {
+      "repoRelativePath": "public/icons/close.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/close.svg",
+      "publicReferencePath": "/icons/close.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.468Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/confetti-desktop.svg": {
+      "repoRelativePath": "public/icons/confetti-desktop.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/confetti-desktop.svg",
+      "publicReferencePath": "/icons/confetti-desktop.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.478Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/confetti-mobile.svg": {
+      "repoRelativePath": "public/icons/confetti-mobile.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/confetti-mobile.svg",
+      "publicReferencePath": "/icons/confetti-mobile.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.488Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/dropdown.svg": {
+      "repoRelativePath": "public/icons/dropdown.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/dropdown.svg",
+      "publicReferencePath": "/icons/dropdown.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.503Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/edit.svg": {
+      "repoRelativePath": "public/icons/edit.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/edit.svg",
+      "publicReferencePath": "/icons/edit.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.521Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/error.toaster.svg": {
+      "repoRelativePath": "public/icons/error.toaster.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/error.toaster.svg",
+      "publicReferencePath": "/icons/error.toaster.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.541Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/eye-slash.svg": {
+      "repoRelativePath": "public/icons/eye-slash.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/eye-slash.svg",
+      "publicReferencePath": "/icons/eye-slash.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.566Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/eye.svg": {
+      "repoRelativePath": "public/icons/eye.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/eye.svg",
+      "publicReferencePath": "/icons/eye.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.588Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/filter.svg": {
+      "repoRelativePath": "public/icons/filter.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/filter.svg",
+      "publicReferencePath": "/icons/filter.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.597Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/fire-cold.svg": {
+      "repoRelativePath": "public/icons/fire-cold.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/fire-cold.svg",
+      "publicReferencePath": "/icons/fire-cold.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.608Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/fire-hot.svg": {
+      "repoRelativePath": "public/icons/fire-hot.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/fire-hot.svg",
+      "publicReferencePath": "/icons/fire-hot.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.624Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/fire-none.svg": {
+      "repoRelativePath": "public/icons/fire-none.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/fire-none.svg",
+      "publicReferencePath": "/icons/fire-none.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.633Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/flash.svg": {
+      "repoRelativePath": "public/icons/flash.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/flash.svg",
+      "publicReferencePath": "/icons/flash.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.641Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/gallery-add.svg": {
+      "repoRelativePath": "public/icons/gallery-add.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/gallery-add.svg",
+      "publicReferencePath": "/icons/gallery-add.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.665Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/gallery-export.svg": {
+      "repoRelativePath": "public/icons/gallery-export.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/gallery-export.svg",
+      "publicReferencePath": "/icons/gallery-export.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.680Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/google.svg": {
+      "repoRelativePath": "public/icons/google.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/google.svg",
+      "publicReferencePath": "/icons/google.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.704Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/home-outline-white.svg": {
+      "repoRelativePath": "public/icons/home-outline-white.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/home-outline-white.svg",
+      "publicReferencePath": "/icons/home-outline-white.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.719Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/home-outline.svg": {
+      "repoRelativePath": "public/icons/home-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/home-outline.svg",
+      "publicReferencePath": "/icons/home-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.728Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/home.svg": {
+      "repoRelativePath": "public/icons/home.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/home.svg",
+      "publicReferencePath": "/icons/home.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.737Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/arrow-right.svg": {
+      "repoRelativePath": "public/icons/landing/arrow-right.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/arrow-right.svg",
+      "publicReferencePath": "/icons/landing/arrow-right.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.756Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/chevron-left.svg": {
+      "repoRelativePath": "public/icons/landing/chevron-left.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/chevron-left.svg",
+      "publicReferencePath": "/icons/landing/chevron-left.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.771Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/chevron-right.svg": {
+      "repoRelativePath": "public/icons/landing/chevron-right.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/chevron-right.svg",
+      "publicReferencePath": "/icons/landing/chevron-right.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.791Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/email.svg": {
+      "repoRelativePath": "public/icons/landing/email.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/email.svg",
+      "publicReferencePath": "/icons/landing/email.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.808Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/heart-note.svg": {
+      "repoRelativePath": "public/icons/landing/heart-note.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/heart-note.svg",
+      "publicReferencePath": "/icons/landing/heart-note.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.824Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/lightning.svg": {
+      "repoRelativePath": "public/icons/landing/lightning.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/lightning.svg",
+      "publicReferencePath": "/icons/landing/lightning.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.838Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/location.svg": {
+      "repoRelativePath": "public/icons/landing/location.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/location.svg",
+      "publicReferencePath": "/icons/landing/location.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.851Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/lock.svg": {
+      "repoRelativePath": "public/icons/landing/lock.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/lock.svg",
+      "publicReferencePath": "/icons/landing/lock.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.872Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/messages.svg": {
+      "repoRelativePath": "public/icons/landing/messages.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/messages.svg",
+      "publicReferencePath": "/icons/landing/messages.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:32.907Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/people.svg": {
+      "repoRelativePath": "public/icons/landing/people.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/people.svg",
+      "publicReferencePath": "/icons/landing/people.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.011Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/phone.svg": {
+      "repoRelativePath": "public/icons/landing/phone.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/phone.svg",
+      "publicReferencePath": "/icons/landing/phone.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.026Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/ruler-pen.svg": {
+      "repoRelativePath": "public/icons/landing/ruler-pen.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/ruler-pen.svg",
+      "publicReferencePath": "/icons/landing/ruler-pen.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.037Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/search.svg": {
+      "repoRelativePath": "public/icons/landing/search.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/search.svg",
+      "publicReferencePath": "/icons/landing/search.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.055Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/shopping-cart.svg": {
+      "repoRelativePath": "public/icons/landing/shopping-cart.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/shopping-cart.svg",
+      "publicReferencePath": "/icons/landing/shopping-cart.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.092Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/star-rating.svg": {
+      "repoRelativePath": "public/icons/landing/star-rating.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/star-rating.svg",
+      "publicReferencePath": "/icons/landing/star-rating.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.116Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/landing/trophy.svg": {
+      "repoRelativePath": "public/icons/landing/trophy.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/landing/trophy.svg",
+      "publicReferencePath": "/icons/landing/trophy.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.141Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/left-arrow.svg": {
+      "repoRelativePath": "public/icons/left-arrow.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/left-arrow.svg",
+      "publicReferencePath": "/icons/left-arrow.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.162Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/like.svg": {
+      "repoRelativePath": "public/icons/like.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/like.svg",
+      "publicReferencePath": "/icons/like.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.172Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/lock-outline.svg": {
+      "repoRelativePath": "public/icons/lock-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/lock-outline.svg",
+      "publicReferencePath": "/icons/lock-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.213Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/lock.svg": {
+      "repoRelativePath": "public/icons/lock.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/lock.svg",
+      "publicReferencePath": "/icons/lock.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.234Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/message-question.svg": {
+      "repoRelativePath": "public/icons/message-question.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/message-question.svg",
+      "publicReferencePath": "/icons/message-question.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.255Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/message.svg": {
+      "repoRelativePath": "public/icons/message.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/message.svg",
+      "publicReferencePath": "/icons/message.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.267Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/minus.svg": {
+      "repoRelativePath": "public/icons/minus.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/minus.svg",
+      "publicReferencePath": "/icons/minus.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.275Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/money-receive.svg": {
+      "repoRelativePath": "public/icons/money-receive.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/money-receive.svg",
+      "publicReferencePath": "/icons/money-receive.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.280Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/moon-outline.svg": {
+      "repoRelativePath": "public/icons/moon-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/moon-outline.svg",
+      "publicReferencePath": "/icons/moon-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.290Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/moon.svg": {
+      "repoRelativePath": "public/icons/moon.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/moon.svg",
+      "publicReferencePath": "/icons/moon.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.322Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/more-circle.svg": {
+      "repoRelativePath": "public/icons/more-circle.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/more-circle.svg",
+      "publicReferencePath": "/icons/more-circle.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.345Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/not-found.svg": {
+      "repoRelativePath": "public/icons/not-found.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/not-found.svg",
+      "publicReferencePath": "/icons/not-found.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.361Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/note-2.svg": {
+      "repoRelativePath": "public/icons/note-2.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/note-2.svg",
+      "publicReferencePath": "/icons/note-2.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.378Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/note.svg": {
+      "repoRelativePath": "public/icons/note.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/note.svg",
+      "publicReferencePath": "/icons/note.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.419Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/notification-outline.svg": {
+      "repoRelativePath": "public/icons/notification-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/notification-outline.svg",
+      "publicReferencePath": "/icons/notification-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.557Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/notification.svg": {
+      "repoRelativePath": "public/icons/notification.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/notification.svg",
+      "publicReferencePath": "/icons/notification.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.574Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/paper-plane.svg": {
+      "repoRelativePath": "public/icons/paper-plane.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/paper-plane.svg",
+      "publicReferencePath": "/icons/paper-plane.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.588Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/password.svg": {
+      "repoRelativePath": "public/icons/password.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/password.svg",
+      "publicReferencePath": "/icons/password.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.599Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/people-outline.svg": {
+      "repoRelativePath": "public/icons/people-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/people-outline.svg",
+      "publicReferencePath": "/icons/people-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.609Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/people.svg": {
+      "repoRelativePath": "public/icons/people.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/people.svg",
+      "publicReferencePath": "/icons/people.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.622Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/photo.png": {
+      "repoRelativePath": "public/icons/photo.png",
+      "absolutePath": "/workspace/Edxelera/public/icons/photo.png",
+      "publicReferencePath": "/icons/photo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.641Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/pie.svg": {
+      "repoRelativePath": "public/icons/pie.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/pie.svg",
+      "publicReferencePath": "/icons/pie.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.666Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/play.svg": {
+      "repoRelativePath": "public/icons/play.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/play.svg",
+      "publicReferencePath": "/icons/play.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.684Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/receipt-outline.svg": {
+      "repoRelativePath": "public/icons/receipt-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/receipt-outline.svg",
+      "publicReferencePath": "/icons/receipt-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.693Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/reply.svg": {
+      "repoRelativePath": "public/icons/reply.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/reply.svg",
+      "publicReferencePath": "/icons/reply.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.697Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/right-arrow.svg": {
+      "repoRelativePath": "public/icons/right-arrow.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/right-arrow.svg",
+      "publicReferencePath": "/icons/right-arrow.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.702Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/sad-emoji.svg": {
+      "repoRelativePath": "public/icons/sad-emoji.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/sad-emoji.svg",
+      "publicReferencePath": "/icons/sad-emoji.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.711Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/search-outline.svg": {
+      "repoRelativePath": "public/icons/search-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/search-outline.svg",
+      "publicReferencePath": "/icons/search-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.720Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/search.svg": {
+      "repoRelativePath": "public/icons/search.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/search.svg",
+      "publicReferencePath": "/icons/search.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.725Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/setting-outline.svg": {
+      "repoRelativePath": "public/icons/setting-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/setting-outline.svg",
+      "publicReferencePath": "/icons/setting-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.747Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/setting.svg": {
+      "repoRelativePath": "public/icons/setting.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/setting.svg",
+      "publicReferencePath": "/icons/setting.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.761Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/sms.svg": {
+      "repoRelativePath": "public/icons/sms.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/sms.svg",
+      "publicReferencePath": "/icons/sms.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.773Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/social-links/facebook.svg": {
+      "repoRelativePath": "public/icons/social-links/facebook.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/social-links/facebook.svg",
+      "publicReferencePath": "/icons/social-links/facebook.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.787Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/social-links/instagram.svg": {
+      "repoRelativePath": "public/icons/social-links/instagram.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/social-links/instagram.svg",
+      "publicReferencePath": "/icons/social-links/instagram.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.798Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/social-links/linkedin.svg": {
+      "repoRelativePath": "public/icons/social-links/linkedin.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/social-links/linkedin.svg",
+      "publicReferencePath": "/icons/social-links/linkedin.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.811Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/social-links/twitter-x.svg": {
+      "repoRelativePath": "public/icons/social-links/twitter-x.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/social-links/twitter-x.svg",
+      "publicReferencePath": "/icons/social-links/twitter-x.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.827Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/sort.svg": {
+      "repoRelativePath": "public/icons/sort.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/sort.svg",
+      "publicReferencePath": "/icons/sort.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.869Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/star.svg": {
+      "repoRelativePath": "public/icons/star.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/star.svg",
+      "publicReferencePath": "/icons/star.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.886Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/students-enrolled.svg": {
+      "repoRelativePath": "public/icons/students-enrolled.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/students-enrolled.svg",
+      "publicReferencePath": "/icons/students-enrolled.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.903Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/success.toaster.svg": {
+      "repoRelativePath": "public/icons/success.toaster.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/success.toaster.svg",
+      "publicReferencePath": "/icons/success.toaster.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.938Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/sun-outline.svg": {
+      "repoRelativePath": "public/icons/sun-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/sun-outline.svg",
+      "publicReferencePath": "/icons/sun-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.954Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/sun.svg": {
+      "repoRelativePath": "public/icons/sun.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/sun.svg",
+      "publicReferencePath": "/icons/sun.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.975Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/support-outline.svg": {
+      "repoRelativePath": "public/icons/support-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/support-outline.svg",
+      "publicReferencePath": "/icons/support-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.993Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/teacher-outline.svg": {
+      "repoRelativePath": "public/icons/teacher-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/teacher-outline.svg",
+      "publicReferencePath": "/icons/teacher-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:33.997Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/teacher.svg": {
+      "repoRelativePath": "public/icons/teacher.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/teacher.svg",
+      "publicReferencePath": "/icons/teacher.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.006Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/toggle.svg": {
+      "repoRelativePath": "public/icons/toggle.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/toggle.svg",
+      "publicReferencePath": "/icons/toggle.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.022Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/trash.svg": {
+      "repoRelativePath": "public/icons/trash.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/trash.svg",
+      "publicReferencePath": "/icons/trash.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.032Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/user-outline.svg": {
+      "repoRelativePath": "public/icons/user-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/user-outline.svg",
+      "publicReferencePath": "/icons/user-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.048Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/user-tag.svg": {
+      "repoRelativePath": "public/icons/user-tag.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/user-tag.svg",
+      "publicReferencePath": "/icons/user-tag.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.067Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/user.svg": {
+      "repoRelativePath": "public/icons/user.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/user.svg",
+      "publicReferencePath": "/icons/user.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.085Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/users-outline.svg": {
+      "repoRelativePath": "public/icons/users-outline.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/users-outline.svg",
+      "publicReferencePath": "/icons/users-outline.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.104Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-end.svg": {
+      "repoRelativePath": "public/icons/video-end.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-end.svg",
+      "publicReferencePath": "/icons/video-end.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.175Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-expand-btn.svg": {
+      "repoRelativePath": "public/icons/video-expand-btn.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-expand-btn.svg",
+      "publicReferencePath": "/icons/video-expand-btn.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.216Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-pause-btn.svg": {
+      "repoRelativePath": "public/icons/video-pause-btn.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-pause-btn.svg",
+      "publicReferencePath": "/icons/video-pause-btn.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.242Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-play-btn.svg": {
+      "repoRelativePath": "public/icons/video-play-btn.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-play-btn.svg",
+      "publicReferencePath": "/icons/video-play-btn.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.264Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-settings-btn.svg": {
+      "repoRelativePath": "public/icons/video-settings-btn.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-settings-btn.svg",
+      "publicReferencePath": "/icons/video-settings-btn.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.286Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-square.svg": {
+      "repoRelativePath": "public/icons/video-square.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-square.svg",
+      "publicReferencePath": "/icons/video-square.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.302Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video-volume-btn.svg": {
+      "repoRelativePath": "public/icons/video-volume-btn.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video-volume-btn.svg",
+      "publicReferencePath": "/icons/video-volume-btn.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.342Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/video.svg": {
+      "repoRelativePath": "public/icons/video.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/video.svg",
+      "publicReferencePath": "/icons/video.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.359Z",
+      "error": "ENETUNREACH"
+    },
+    "public/icons/x.svg": {
+      "repoRelativePath": "public/icons/x.svg",
+      "absolutePath": "/workspace/Edxelera/public/icons/x.svg",
+      "publicReferencePath": "/icons/x.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.371Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/about-us.jpg": {
+      "repoRelativePath": "public/images/about-us.jpg",
+      "absolutePath": "/workspace/Edxelera/public/images/about-us.jpg",
+      "publicReferencePath": "/images/about-us.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.406Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/contact-us-underlay.jpg": {
+      "repoRelativePath": "public/images/contact-us-underlay.jpg",
+      "absolutePath": "/workspace/Edxelera/public/images/contact-us-underlay.jpg",
+      "publicReferencePath": "/images/contact-us-underlay.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.439Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/contact-us.png": {
+      "repoRelativePath": "public/images/contact-us.png",
+      "absolutePath": "/workspace/Edxelera/public/images/contact-us.png",
+      "publicReferencePath": "/images/contact-us.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.548Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/edx_logo_1.png": {
+      "repoRelativePath": "public/images/edx_logo_1.png",
+      "absolutePath": "/workspace/Edxelera/public/images/edx_logo_1.png",
+      "publicReferencePath": "/images/edx_logo_1.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.555Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/edx_logo.png": {
+      "repoRelativePath": "public/images/edx_logo.png",
+      "absolutePath": "/workspace/Edxelera/public/images/edx_logo.png",
+      "publicReferencePath": "/images/edx_logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.566Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/edxelera-white-logo.png": {
+      "repoRelativePath": "public/images/edxelera-white-logo.png",
+      "absolutePath": "/workspace/Edxelera/public/images/edxelera-white-logo.png",
+      "publicReferencePath": "/images/edxelera-white-logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.586Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/Edxera Logo 6.png": {
+      "repoRelativePath": "public/images/Edxera Logo 6.png",
+      "absolutePath": "/workspace/Edxelera/public/images/Edxera Logo 6.png",
+      "publicReferencePath": "/images/Edxera Logo 6.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.606Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/app-badges-footer.svg": {
+      "repoRelativePath": "public/images/landing/app-badges-footer.svg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/app-badges-footer.svg",
+      "publicReferencePath": "/images/landing/app-badges-footer.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.619Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/app-badges.svg": {
+      "repoRelativePath": "public/images/landing/app-badges.svg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/app-badges.svg",
+      "publicReferencePath": "/images/landing/app-badges.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.632Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/avatar.jpg": {
+      "repoRelativePath": "public/images/landing/avatar.jpg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/avatar.jpg",
+      "publicReferencePath": "/images/landing/avatar.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.644Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/course-thumbnail.jpg": {
+      "repoRelativePath": "public/images/landing/course-thumbnail.jpg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/course-thumbnail.jpg",
+      "publicReferencePath": "/images/landing/course-thumbnail.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.666Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/dashed-circle.svg": {
+      "repoRelativePath": "public/images/landing/dashed-circle.svg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/dashed-circle.svg",
+      "publicReferencePath": "/images/landing/dashed-circle.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.679Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/decorative-vector.svg": {
+      "repoRelativePath": "public/images/landing/decorative-vector.svg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/decorative-vector.svg",
+      "publicReferencePath": "/images/landing/decorative-vector.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.689Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/edx-logo.png": {
+      "repoRelativePath": "public/images/landing/edx-logo.png",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/edx-logo.png",
+      "publicReferencePath": "/images/landing/edx-logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.741Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/edxelera-logo.png": {
+      "repoRelativePath": "public/images/landing/edxelera-logo.png",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/edxelera-logo.png",
+      "publicReferencePath": "/images/landing/edxelera-logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.762Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/hero-bg-1.png": {
+      "repoRelativePath": "public/images/landing/hero-bg-1.png",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/hero-bg-1.png",
+      "publicReferencePath": "/images/landing/hero-bg-1.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.781Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/hero-bg-2.jpg": {
+      "repoRelativePath": "public/images/landing/hero-bg-2.jpg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/hero-bg-2.jpg",
+      "publicReferencePath": "/images/landing/hero-bg-2.jpg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.794Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/iphone-mockup-ini.png": {
+      "repoRelativePath": "public/images/landing/iphone-mockup-ini.png",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/iphone-mockup-ini.png",
+      "publicReferencePath": "/images/landing/iphone-mockup-ini.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.811Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/iphone-mockup.png": {
+      "repoRelativePath": "public/images/landing/iphone-mockup.png",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/iphone-mockup.png",
+      "publicReferencePath": "/images/landing/iphone-mockup.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.820Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/landing/learning-collage.svg": {
+      "repoRelativePath": "public/images/landing/learning-collage.svg",
+      "absolutePath": "/workspace/Edxelera/public/images/landing/learning-collage.svg",
+      "publicReferencePath": "/images/landing/learning-collage.svg",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.839Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/logos/edx_logo.png": {
+      "repoRelativePath": "public/images/logos/edx_logo.png",
+      "absolutePath": "/workspace/Edxelera/public/images/logos/edx_logo.png",
+      "publicReferencePath": "/images/logos/edx_logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.859Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/logos/Edxera Logo 6.png": {
+      "repoRelativePath": "public/images/logos/Edxera Logo 6.png",
+      "absolutePath": "/workspace/Edxelera/public/images/logos/Edxera Logo 6.png",
+      "publicReferencePath": "/images/logos/Edxera Logo 6.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.867Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/logos/logo-dark.png": {
+      "repoRelativePath": "public/images/logos/logo-dark.png",
+      "absolutePath": "/workspace/Edxelera/public/images/logos/logo-dark.png",
+      "publicReferencePath": "/images/logos/logo-dark.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.872Z",
+      "error": "ENETUNREACH"
+    },
+    "public/images/logos/logo-light.png": {
+      "repoRelativePath": "public/images/logos/logo-light.png",
+      "absolutePath": "/workspace/Edxelera/public/images/logos/logo-light.png",
+      "publicReferencePath": "/images/logos/logo-light.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.878Z",
+      "error": "ENETUNREACH"
+    },
+    "public/logo.png": {
+      "repoRelativePath": "public/logo.png",
+      "absolutePath": "/workspace/Edxelera/public/logo.png",
+      "publicReferencePath": "/logo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.891Z",
+      "error": "ENETUNREACH"
+    },
+    "public/photo.png": {
+      "repoRelativePath": "public/photo.png",
+      "absolutePath": "/workspace/Edxelera/public/photo.png",
+      "publicReferencePath": "/photo.png",
+      "cloudinarySecureUrl": null,
+      "cloudinaryPublicId": null,
+      "uploadStatus": "error",
+      "updatedAt": "2026-03-12T17:13:34.916Z",
+      "error": "ENETUNREACH"
+    }
+  }
 }

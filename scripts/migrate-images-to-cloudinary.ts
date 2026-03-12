@@ -194,6 +194,50 @@ function configureCloudinary(): void {
   });
 }
 
+function formatUploadError(error: unknown): string {
+  const fromError = (value: Error & { code?: unknown }): string => {
+    const message = value.message?.trim();
+    const code = typeof value.code === 'string' ? value.code : null;
+
+    if (message && code) {
+      return `${code}: ${message}`;
+    }
+    if (message) {
+      return message;
+    }
+    if (code) {
+      return code;
+    }
+    return value.name;
+  };
+
+  if (error instanceof Error) {
+    return fromError(error as Error & { code?: unknown });
+  }
+
+  if (typeof error === 'object' && error !== null && 'error' in error) {
+    const nested = (error as { error?: unknown }).error;
+    if (nested instanceof Error) {
+      return fromError(nested as Error & { code?: unknown });
+    }
+    if (typeof nested === 'string') {
+      return nested;
+    }
+    if (nested && typeof nested === 'object' && 'message' in nested) {
+      const nestedMessage = (nested as { message?: unknown }).message;
+      if (typeof nestedMessage === 'string') {
+        return nestedMessage;
+      }
+    }
+  }
+
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return String(error);
+  }
+}
+
 async function uploadImages(
   imagePaths: string[],
   manifest: ManifestFile,
@@ -270,7 +314,7 @@ async function uploadImages(
         cloudinaryPublicId: existing?.cloudinaryPublicId ?? null,
         uploadStatus: 'error',
         updatedAt: new Date().toISOString(),
-        error: error instanceof Error ? error.message : String(error),
+        error: formatUploadError(error),
       };
       console.error(`Failed to upload ${repoRelativePath}:`, error);
     }
