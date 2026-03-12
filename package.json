@@ -8,7 +8,11 @@
       "start": "next start",
       "lint": "eslint",
       "icons:build": "svgr public/icons/ --out-dir components/icons/generated --typescript",
-      "svg:viewbox": "node scripts/svg-viewbox-from-path.mjs"
+      "svg:viewbox": "node scripts/svg-viewbox-from-path.mjs",
+      "migrate:images": "tsx scripts/migrate-images-to-cloudinary.ts",
+      "migrate:images:dry": "tsx scripts/migrate-images-to-cloudinary.ts --dry-run",
+      "migrate:images:replace": "tsx scripts/migrate-images-to-cloudinary.ts --replace-only",
+      "migrate:images:cleanup": "echo \"Optional cleanup: delete local images only after verification.\""
    },
    "dependencies": {
       "@gsap/react": "^2.1.2",
