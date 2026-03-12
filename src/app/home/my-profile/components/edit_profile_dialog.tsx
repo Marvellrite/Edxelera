@@ -117,7 +117,7 @@ const Edit_profile_dialog = () => {
                      </h1>
                      <DialogClose asChild>
                         <button title="Dialog Clode Button" type="button">
-                           <ReactSVG src="/icons/x.svg" />
+                           <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340631/repo-images/public/icons/x.svg" />
                         </button>
                      </DialogClose>
                   </div>

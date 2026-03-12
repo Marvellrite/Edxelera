@@ -67,7 +67,7 @@ const ForgottenPasswordPage: React.FC = () => {
     <section className="flex min-h-screen items-center justify-center py-6 sm:py-10 lg:py-16.25">
       <div className="w-full rounded-[20px] border border-neutral-400 bg-surface px-4 py-7.5 sm:px-5 md:max-w-117">
         <div className="w-53.5 mx-auto">
-          <Image className="w-full h-auto" src="/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={108} />
+          <Image className="w-full h-auto" src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={108} />
         </div>
 
         <h1 className="mt-8 mb-4 text-3xl font-medium text-black md:text-4xl">Reset Password</h1>

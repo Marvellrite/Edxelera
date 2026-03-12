@@ -95,7 +95,7 @@ export default function CourseModulesAccordion({
 
       return (
          <ReactSVG
-            src="/icons/note.svg"
+            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340551/repo-images/public/icons/note.svg"
             beforeInjection={
                isLocked
                   ? (svg) => {
@@ -257,7 +257,7 @@ export default function CourseModulesAccordion({
             <div className="space-y-2">
                <p className={cn(shouldHighlight && 'text-secondary')}>{lesson.title}</p>
                <div className="flex items-center gap-2">
-                  <ReactSVG src={lesson.iconSrc ?? '/icons/video-square.svg'} />
+                  <ReactSVG src={lesson.iconSrc ?? 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg'} />
                   <span>{lesson.contentType ?? 'Video Lesson'}</span>
                </div>
             </div>
@@ -380,7 +380,7 @@ export default function CourseModulesAccordion({
                         <div key={`${item.value}-lesson-${index}`} className="space-y-2.5">
                            <p>{lesson.title}</p>
                            <div className="flex items-center gap-2">
-                              <ReactSVG src={lesson.iconSrc ?? '/icons/video-square.svg'} />
+                              <ReactSVG src={lesson.iconSrc ?? 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg'} />
                               <span>{lesson.contentType ?? 'Video Lesson'}</span>
                            </div>
                         </div>

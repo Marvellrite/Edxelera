@@ -29,19 +29,19 @@ const Page = () => {
         
                     <div className='flex justify-between items-center gap-2 w-1/2'>
                         <div className='border border-neutral-400 flex items-center gap-2 rounded-full py-1 px-2 h-11 w-full'>
-                            <ReactSVG src='/icons/search-outline.svg' />
+                            <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340576/repo-images/public/icons/search-outline.svg' />
                             <input type="search" placeholder='Search...' className="h-full w-full outline-none" />
                         </div>
                         {/* <div className='w-fit'> */}
                             <div className='flex items-center gap-2 w-fit border border-neutral-400 rounded-full py-2 px-3 text-nowrap'>
                                 <span>Sort by</span>
-                                <ReactSVG src='/icons/dropdown.svg' />
+                                <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg' />
                             </div>
                         {/* </div> */}
                         {/* <div className='w-fit'> */}
                             <div className='flex items-center gap-2 w-fit border rounded-full border-neutral-400 py-2 px-3 text-nowrap'>
                                 <span>Filter</span>
-                                <ReactSVG src='/icons/filter.svg' />
+                                <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340483/repo-images/public/icons/filter.svg' />
                             </div>
                         {/* </div> */}
                     </div>
@@ -88,10 +88,10 @@ const Page = () => {
                         <td>
                             <div className='flex gap-2'>
                                 <div className='hover:bg-gray-50 text-black w-7 h-7 items-center justify-center flex rounded-full'>
-                                    <ReactSVG src='/icons/minus.svg' />
+                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340539/repo-images/public/icons/minus.svg' />
                                 </div>
                                 <div className='hover:bg-gray-50 text-black w-7 h-7 items-center justify-center flex rounded-full'>
-                                    <ReactSVG src='/icons/edit.svg' />
+                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340474/repo-images/public/icons/edit.svg' />
                                 </div>
                             </div>
                         </td>

@@ -30,7 +30,7 @@ const AboutUs = () => {
                           className=" rounded-[10px] p-6 space-y-5 feature bg-secondary text-white"
                         >
                           <ReactSVG
-                            src='/icons/chat.svg'
+                            src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg'
                             className=" mb-5"
                           />
                           <div className="space-y-2.5">
@@ -43,7 +43,7 @@ const AboutUs = () => {
                           className=" rounded-[10px] p-6 space-y-5 feature bg-primary text-white"
                         >
                           <ReactSVG
-                            src='/icons/chat.svg'
+                            src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg'
                             className=" mb-5"
                           />
                           <div className="space-y-2.5">

@@ -16,7 +16,7 @@ const Page = () => {
            <div className=" w-53.5 mx-auto">
                           <Image
                              className=" w-full h-auto"
-                             src="/images/edx_logo_1.png"
+                             src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
                              alt="Edxelera Logo"
                              width={256}
                              height={108}

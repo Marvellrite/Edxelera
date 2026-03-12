@@ -6,7 +6,7 @@ const Badge = () => {
          <div>
             <img
                className=" w-[133px] block mx-auto"
-               src="/assets/badge.png"
+               src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340413/repo-images/public/assets/badge.jpg"
                alt="badge"
             />
          </div>

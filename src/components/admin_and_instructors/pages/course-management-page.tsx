@@ -32,7 +32,7 @@ const CourseManagementPage = ({ segment }: Props) => {
 
         <Button asChild className="flex items-center gap-2 text-white font-normal transition-colors w-full sm:w-auto">
           <Link href={routes.add}>
-            <ReactSVG src="/icons/add.svg" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340444/repo-images/public/icons/add.svg" />
             <span>Add New Course</span>
           </Link>
         </Button>

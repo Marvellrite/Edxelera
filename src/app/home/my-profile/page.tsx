@@ -15,7 +15,7 @@ const Page = () => {
                      <div className=" bg-neutral-50 size-24 rounded-[100px] flex items-center justify-center">
                         <ReactSVG
                            className=" text-neutral-500"
-                           src="/icons/user.svg"
+                           src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340614/repo-images/public/icons/user.svg"
                            beforeInjection={(svg) => {
                               const paths = svg.querySelectorAll('path');
                               paths.forEach((path) => {
@@ -89,12 +89,12 @@ const Page = () => {
                   <Certificates
                      title="Product Design (UI/UX)"
                      reception_date="2nd August, 2025"
-                     posterSrc="/assets/certificate_adjusted.jpg"
+                     posterSrc="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg"
                   />
                   <Certificates
                      title="Product Design (UI/UX)"
                      reception_date="2nd August, 2025"
-                     posterSrc="/assets/certificate_adjusted.jpg"
+                     posterSrc="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg"
                   />
                </div>
             </div>

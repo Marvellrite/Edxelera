@@ -10,7 +10,7 @@ const Overview = () => {
             <article className='bg-white p-3 rounded-xl h-36 flex flex-col justify-between'>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm'>Total Users</p>
-                    <ReactSVG src='/icons/user-outline.svg' className='flex bg-neutral-50 p-1 rounded-full' afterInjection={(svg) => {svg.setAttribute('width', '16'); svg.setAttribute('height', '16')}} />
+                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340611/repo-images/public/icons/user-outline.svg' className='flex bg-neutral-50 p-1 rounded-full' afterInjection={(svg) => {svg.setAttribute('width', '16'); svg.setAttribute('height', '16')}} />
                 </div>
 
                 <div className='flex gap-2 items-center'>
@@ -24,7 +24,7 @@ const Overview = () => {
             <article className='bg-white p-3 rounded-xl h-36 flex flex-col justify-between'>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm'>Active Learners</p>
-                    <ReactSVG src='/icons/teacher.svg' className='flex bg-neutral-50 p-1 rounded-full' />
+                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340606/repo-images/public/icons/teacher.svg' className='flex bg-neutral-50 p-1 rounded-full' />
                 </div>
 
                 <div className='flex gap-2 items-center'>
@@ -38,7 +38,7 @@ const Overview = () => {
             <article className='bg-white p-3 rounded-xl h-36 flex flex-col justify-between'>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm'>Course Completion Rate</p>
-                    <ReactSVG src='/icons/pie.svg' className='flex bg-neutral-50 p-1 rounded-full' />
+                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340564/repo-images/public/icons/pie.svg' className='flex bg-neutral-50 p-1 rounded-full' />
                 </div>
 
                 <div className='flex gap-2 items-center'>
@@ -52,7 +52,7 @@ const Overview = () => {
             <article className='bg-white p-3 rounded-xl h-36 flex flex-col justify-between'>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm'>Total Revenue</p>
-                    <ReactSVG src='/icons/money-receive.svg' className='flex bg-neutral-50 p-1 rounded-full' />
+                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340541/repo-images/public/icons/money-receive.svg' className='flex bg-neutral-50 p-1 rounded-full' />
                 </div>
 
                 <div className='flex gap-2 items-center'>

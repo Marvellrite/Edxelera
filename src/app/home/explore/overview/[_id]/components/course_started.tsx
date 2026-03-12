@@ -53,7 +53,7 @@ export default function Course_started() {
                <div className=' md:hidden'>
 
 
-               <button onClick={()=>setIsCourseForumMobileOpen((state)=>!state)} className="p-0"><ReactSVG src="/icons/reply.svg"/></button>
+               <button onClick={()=>setIsCourseForumMobileOpen((state)=>!state)} className="p-0"><ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340568/repo-images/public/icons/reply.svg"/></button>
                   
 
                </div>
@@ -112,7 +112,7 @@ const CourseForumMobile = ({setShowCourseForum}: {setShowCourseForum:  Dispatch<
         <div className=' flex justify-between px-4 py-2'>
             
             <button className='p-0' onClick={()=>setShowCourseForum((state)=>!state)}>
-            <ReactSVG src='/icons/back-arrow.svg'/>
+            <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340455/repo-images/public/icons/back-arrow.svg'/>
 
             </button>
             <div className=" font-medium text-[24px]">Course Forum</div>
@@ -125,7 +125,7 @@ const CourseForumMobile = ({setShowCourseForum}: {setShowCourseForum:  Dispatch<
             <Comment forMobile={true}/>
          </div>
 
-         <div className=' fixed w-full flex bottom-0 left-0 px-4 bg-white pb-9 pt-4 items-center gap-3'><CommentInput setIsThereText={setIsThereText}/> {isThereText && <button className='p-0'><ReactSVG src='/icons/paper-plane.svg'/></button>}</div>
+         <div className=' fixed w-full flex bottom-0 left-0 px-4 bg-white pb-9 pt-4 items-center gap-3'><CommentInput setIsThereText={setIsThereText}/> {isThereText && <button className='p-0'><ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340555/repo-images/public/icons/paper-plane.svg'/></button>}</div>
     </div>
   )
 }

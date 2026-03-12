@@ -23,7 +23,7 @@ export const users: User[] = [
     id: 1,
     name: 'Oscar Amadi',
     email: 'oscaramadi@gmail.com',
-    avatar: '/avatars/oscar-amadi.jpg', // Replace with actual path
+    avatar: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340440/repo-images/public/avatars/oscar-amadi.jpg', // Replace with actual path
     userId: '234930',
     courseAccess: [
       { courseName: 'Product Design' },
@@ -39,7 +39,7 @@ export const users: User[] = [
     id: 2,
     name: 'John Crew',
     email: 'johncrew@gmail.com',
-    avatar: '/avatars/oscar-amadi.jpg',
+    avatar: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340440/repo-images/public/avatars/oscar-amadi.jpg',
     userId: '234930',
     courseAccess: [
       { courseName: 'Front End' },
@@ -54,7 +54,7 @@ export const users: User[] = [
     id: 3,
     name: 'Christopher Emeka',
     email: 'emekachris@gmail.com',
-    avatar: '/avatars/christopher-emeka.jpg',
+    avatar: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340439/repo-images/public/avatars/christopher-emeka.jpg',
     userId: '234930',
     courseAccess: [],
     role: 'Student',

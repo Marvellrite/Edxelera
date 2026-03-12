@@ -62,7 +62,7 @@ const SignInPage: React.FC = () => {
         <div className="w-53.5 mx-auto">
           <Image
             className="w-full h-auto"
-            src="/images/edx_logo_1.png"
+            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
             alt="Edxelera Logo"
             width={256}
             height={108}
@@ -147,13 +147,13 @@ const SignInPage: React.FC = () => {
               className="text-neutral-600 flex justify-center items-center text-center grow border-neutral-600 size-16 rounded-full bg-white hover:bg-neutral-50/70"
               title="Login with Apple"
             >
-              <ReactSVG src="/icons/apple.svg" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340447/repo-images/public/icons/apple.svg" />
             </button>
             <button
               className="flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white hover:bg-neutral-50/70"
               title="Login with Google"
             >
-              <ReactSVG src="/icons/google.svg" className="text-neutral-600" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340494/repo-images/public/icons/google.svg" className="text-neutral-600" />
             </button>
           </div>
         </div>

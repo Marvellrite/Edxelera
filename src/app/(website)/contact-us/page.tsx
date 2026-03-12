@@ -30,7 +30,7 @@ const ContactUs = () => {
             hidden lg:flex
             basis-[40%] min-w-[500px] relative overflow-hidden items-end"
         >
-          <Image alt='Contact us image' fill src='/images/contact-us-underlay.jpg' className=' object-cover  absolute top-0 left-0 -Z-5 object- size-[1211px]! object-[-350px_-550px]'/>
+          <Image alt='Contact us image' fill src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340635/repo-images/public/images/contact-us-underlay.jpg' className=' object-cover  absolute top-0 left-0 -Z-5 object- size-[1211px]! object-[-350px_-550px]'/>
           <Image alt='Contact us image' fill src='/images/contact-us.png' className=' object-[0px_-45px] object-cover transform-[rotateY(180deg)] absolute inset-0'/>
           <div className='absolute bg-linear-to-b from-transparent to-[#000000] to-75% inset-0 z-15'/>
           {/* foreground content */}
@@ -38,7 +38,7 @@ const ContactUs = () => {
             <div className='space-y-4 mx-auto w-[349px] text-left'>
                 <div className="flex mb-2">
                   <Image
-                    src="/images/edxelera-white-logo.png"
+                    src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340638/repo-images/public/images/edxelera-white-logo.png"
                     alt="Edxelera's Logo"
                     width={217}
                     height={38}
@@ -51,10 +51,10 @@ const ContactUs = () => {
                 </p>
 
                 <div className="flex gap-3">
-                  <ReactSVG src="/icons/chat.svg" className="mb-5" />
-                  <ReactSVG src="/icons/chat.svg" className="mb-5" />
-                  <ReactSVG src="/icons/chat.svg" className="mb-5" />
-                  <ReactSVG src="/icons/chat.svg" className="mb-5" />
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
                 </div>
             </div>
           </div>
@@ -138,7 +138,7 @@ const ContactUs = () => {
         <div className="space-y-5 max-w-[349px]">
           <div className="flex justify-center">
             <Image
-              src="/images/edx_logo_1.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
               alt="Edxelera's Logo"
               width={148}
               height={32}
@@ -151,10 +151,10 @@ const ContactUs = () => {
           </p>
 
           <div className="flex gap-3 justify-center">
-            <ReactSVG src="/icons/chat.svg" className="mb-5" />
-            <ReactSVG src="/icons/chat.svg" className="mb-5" />
-            <ReactSVG src="/icons/chat.svg" className="mb-5" />
-            <ReactSVG src="/icons/chat.svg" className="mb-5" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg" className="mb-5" />
           </div>
         </div>
       </div>

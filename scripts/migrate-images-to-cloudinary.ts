@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+dotenv.config();
+
 import { v2 as cloudinary } from 'cloudinary';
 import { promises as fs } from 'fs';
 import path from 'path';

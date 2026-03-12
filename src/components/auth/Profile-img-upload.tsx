@@ -25,7 +25,7 @@ const Profile_img_upload = <T extends FieldValues>({
       <div>
          {!profileImagePreview ? (
             <div className=" relative mx-auto bg-neutral-200 w-22 h-22 rounded-[500px] flex justify-center items-center">
-               <ReactSVG src="/icons/gallery-add.svg" />
+               <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340491/repo-images/public/icons/gallery-add.svg" />
                <input
                   title="Profile Image"
                   className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0 hover:ring-2 hover:ring-primary rounded-lg"

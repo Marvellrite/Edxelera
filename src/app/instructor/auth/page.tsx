@@ -56,7 +56,7 @@ const Page: React.FC = () => {
     <section className="flex min-h-screen items-center justify-center py-6 sm:py-10 lg:py-16.25">
       <div className="w-full rounded-[20px] border border-neutral-400 bg-surface px-4 pt-6 py-7.5 sm:px-5 md:max-w-117">
         <div className="w-53.5 mx-auto">
-          <Image className="w-full h-auto" src="/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={63} />
+          <Image className="w-full h-auto" src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={63} />
         </div>
         <h1 className="mt-8 mb-6 text-3xl font-medium text-black md:text-4xl">Become an Instructor</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -128,13 +128,13 @@ const Page: React.FC = () => {
               className="text-neutral-600 flex justify-center items-center text-center grow border-neutral-600 size-16 rounded-full bg-white hover:bg-neutral-50/70"
               title="Login with Apple"
             >
-              <ReactSVG src="/icons/apple.svg" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340447/repo-images/public/icons/apple.svg" />
             </button>
             <button
               className="flex justify-center items-center text-center grow border-neutral-600 size-16 text-white rounded-full bg-white hover:bg-neutral-50/70"
               title="Login with Google"
             >
-              <ReactSVG src="/icons/google.svg" className="text-neutral-600" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340494/repo-images/public/icons/google.svg" className="text-neutral-600" />
             </button>
           </div>
           <div className="text-md basis-full text-center">

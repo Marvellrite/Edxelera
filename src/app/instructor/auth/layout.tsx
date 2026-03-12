@@ -21,14 +21,14 @@ export default function AuthLayout({
          <div className="relative hidden h-full lg:col-span-5 lg:block">
             <Image
                
-               src="/assets/instructor/auth/instructor.jpg"
+               src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340422/repo-images/public/assets/instructor/auth/instructor.jpg"
                alt="side image"
                className=" object-cover -scale-x-100"
                fill
             />
             <div className="absolute w-full h-full bg-linear-to-b from-text/75 to-text/40"></div>
          </div>
-         <div className="col-span-5 h-screen w-full overflow-y-auto bg-surface bg-cover bg-no-repeat md:bg-[url('/assets/auth.png')] lg:h-full lg:bg-none">
+         <div className="col-span-5 h-screen w-full overflow-y-auto bg-surface bg-cover bg-no-repeat md:bg-[url('https://res.cloudinary.com/dx5iohojj/image/upload/v1773340411/repo-images/public/assets/auth.png')] lg:h-full lg:bg-none">
             {children}
          </div>
       </section>

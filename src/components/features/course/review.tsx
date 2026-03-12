@@ -9,7 +9,7 @@ const Review = () => {
          <div className="flex gap-2">
             <Image
                className=" size-10 rounded-full"
-               src="/assets/person_1.png"
+               src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340431/repo-images/public/assets/person_1.png"
                alt="Student Image"
                width={40}
                height={40}

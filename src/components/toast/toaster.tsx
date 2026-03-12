@@ -17,7 +17,7 @@ export const SuccessToast = ({msg:{title, body}}: Props)=>{
     <div className="w-full space-y-1 bg-green-light text-green p-4">
 
         <div className="flex gap-2 items-center ">
-            <ReactSVG src="/icons/success.toaster.svg"/>
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340598/repo-images/public/icons/success.toaster.svg"/>
             <div className=" text-[16px] font-medium">{title}</div>
         </div>
 
@@ -34,7 +34,7 @@ export const ErrorToast = ({msg:{title, body}}: Props)=>{
     <div className="w-full space-y-1 bg-red-light text-red p-4">
 
         <div className="flex gap-2 items-center ">
-            <ReactSVG src="/icons/error.toaster.svg"/>
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340476/repo-images/public/icons/error.toaster.svg"/>
             <div className=" text-[16px] font-medium">{title}</div>
         </div>
 

@@ -16,7 +16,7 @@ type CoursePageProps = {
 
 const DEFAULT_COURSE: CartCourseItem = {
   _id: "product-design-ui-ux",
-  posterSrc: "/assets/poster3.jpg",
+  posterSrc: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340434/repo-images/public/assets/poster3.jpg",
   title: "Product Design (UI/UX)",
   price: 150000,
   duration: "15 hours",

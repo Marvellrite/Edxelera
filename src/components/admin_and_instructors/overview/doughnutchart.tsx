@@ -48,7 +48,7 @@ const DoughnutChart = () => {
             <p className='text-lg'>Course Engagement</p>
             <button {...triggerProps} onClick={()=>setIsTimeRangePopper((_)=>!_)}  className='flex items-center gap-2 rounded-full border border-neutral-400 py-2 px-5 text-sm'>
                 <span>All time</span>
-                <ReactSVG src='/icons/dropdown.svg' afterInjection={svg => svg.setAttribute('width', '14')} />
+                <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg' afterInjection={svg => svg.setAttribute('width', '14')} />
             </button>
         </div>
         

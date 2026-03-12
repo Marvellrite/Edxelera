@@ -27,7 +27,7 @@ export default function FeaturesSection() {
                 className={cn("bg-neutral-50 rounded-[10px] p-6 space-y-5 feature", index===array.length-2 && "bg-secondary text-white", index===array.length-1 && "bg-primary text-white")}
               >
                 <ReactSVG
-                  src='/icons/chat.svg'
+                  src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340463/repo-images/public/icons/chat.svg'
                   className=" mb-5"
                 />
                 <div className="space-y-2.5">

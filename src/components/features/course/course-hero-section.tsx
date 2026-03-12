@@ -21,7 +21,7 @@ function CourseHeroContent({ mode }: CourseHeroContentProps) {
    const course: CartCourseItem = React.useMemo(
       () => ({
          _id: 'product-design-ui-ux',
-         posterSrc: '/assets/poster3.jpg',
+         posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340434/repo-images/public/assets/poster3.jpg',
          title: 'Product Design (UI/UX)',
          price: 150000,
          duration: '15 hours',
@@ -87,7 +87,7 @@ function CourseHeroMedia() {
    return (
       <div className="relative order-first w-full overflow-hidden rounded-none aspect-430/198 @[1014px]:order-0 @[1014px]:basis-1/2 @[1014px]:aspect-533/301 @[1014px]:rounded-lg">
          <Image
-            src="/assets/poster3.jpg"
+            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340434/repo-images/public/assets/poster3.jpg"
             alt="Course Poster"
             className="object-cover"
             fill

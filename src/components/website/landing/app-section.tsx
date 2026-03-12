@@ -40,7 +40,7 @@ export function AppSection() {
                 Stay connected to your classes, track your progress, and continue learning on the go — anytime, anywhere
               </p>
               <Image
-                src="/images/landing/app-badges.svg"
+                src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340649/repo-images/public/images/landing/app-badges.svg"
                 alt="Download on App Store and Google Play"
                 width={640}
                 height={524}
@@ -52,7 +52,7 @@ export function AppSection() {
           {/* Right - Phone Mockup */}
           <div className="relative flex justify-center lg:justify-end">
             <Image
-              src="/images/landing/iphone-mockup.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340667/repo-images/public/images/landing/iphone-mockup.png"
               alt="Edxelera mobile app"
               width={640}
               height={480}

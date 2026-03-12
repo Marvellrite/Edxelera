@@ -43,7 +43,7 @@ const VideoPoster: React.FC<VideoPosterProps> = ({
             className=" hover:cursor-pointer rounded-[500px] size-[58px] bg-white absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center hover:bg-white"
             variant="ghost"
          >
-            <ReactSVG src="/icons/play.svg" />
+            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340565/repo-images/public/icons/play.svg" />
          </Button> */}
       </div>
    );

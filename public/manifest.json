@@ -8,12 +8,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/assets/logo.png",
+      "src": "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340428/repo-images/public/assets/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/logo.png",
+      "src": "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340428/repo-images/public/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }

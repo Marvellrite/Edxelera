@@ -168,10 +168,10 @@ const Congratulations = ()=>{
                 <div className=' basis-1/2 h-full flex justify-center items-center max-[990px]:flex-col max-[990px]:'>
                     <h1 className="text-center text-[40px] text-medium mb-5.5 text-black min-[990px]:hidden min-[990px]:w-70% mx-auto">Congratulations</h1>
                     <div className=' min-[990px]:w-[90%] mx-auto min-[990px]:max-w-[450px] max-[990px]:size-[280px]'>
-                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='/icons/confetti-desktop.svg'/>
+                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340470/repo-images/public/icons/confetti-desktop.svg'/>
 
                     </div>
-                    {/* <ReactSVG className=" md:hidden " src='/icons/confetti-mobile.svg'/> */}
+                    {/* <ReactSVG className=" md:hidden " src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340471/repo-images/public/icons/confetti-mobile.svg'/> */}
                 </div>
                 <div className=" basis-1/2">
                     <div className=" rounded-[20px] max-[990px]:border-0 border border-neutral-400 p-5 max-w-[480px] min-[990px]:w-[90%]">
@@ -198,17 +198,17 @@ const Review = ({onClose}:{onClose:Dispatch<SetStateAction<boolean>>})=>{
                 <div className='  basis-1/2 max-[870px]:basis-auto flex justify-center items-center max-[870px]:flex-col max-[870px]:'>
                
                     <div className=' min-[870px]:w-[90%] mx-auto min-[870px]:max-w-[400px]  max-[870px]:hidden'>
-                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='/icons/confetti-desktop.svg'/>
+                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340470/repo-images/public/icons/confetti-desktop.svg'/>
 
                     </div>
-                    {/* <ReactSVG className=" md:hidden " src='/icons/confetti-mobile.svg'/> */}
+                    {/* <ReactSVG className=" md:hidden " src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340471/repo-images/public/icons/confetti-mobile.svg'/> */}
                 </div>
                 <div className=" basis-1/2 max-md:grow">
                     <div className=" rounded-[20px] max-[870px]:border-0 border border-neutral-400 p-5 max-w-[480px] min-[870px]:w-[90%] max-[870px]:max-w-none mx-auto max-[870px]:px-0">
                         <div className=" space-y-6 max-[870px]:w-[70vw] max-[870px]:mx-auto max-[530px]:w-full max-[480px]:px-3">
                         <h1 className=" w-full text-center text-[40px] text-medium mb-5.5 text-black min-[870px]:hidden  mx-auto flex justify-between "> 
                         <button className="p-0" onClick={()=>onClose((state)=>!state)}>
-                            <ReactSVG src="/icons/back-arrow.svg"/>
+                            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340455/repo-images/public/icons/back-arrow.svg"/>
                         </button> 
                         <span>Write a Review</span> 
                         <span></span>
@@ -235,10 +235,10 @@ const Oops = ()=>{
                 <div className=' basis-1/2 h-full flex justify-center items-center max-[990px]:flex-col max-[990px]:'>
                     <h1 className="text-center text-[40px] text-medium mb-5.5 text-black min-[990px]:hidden min-[990px]:w-70% mx-auto">Oops...</h1>
                     <div className=' min-[990px]:w-[90%] mx-auto min-[990px]:max-w-[450px] max-[990px]:size-[280px]'>
-                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='/icons/sad-emoji.svg'/>
+                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340574/repo-images/public/icons/sad-emoji.svg'/>
 
                     </div>
-                    {/* <ReactSVG className=" md:hidden " src='/icons/confetti-mobile.svg'/> */}
+                    {/* <ReactSVG className=" md:hidden " src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340471/repo-images/public/icons/confetti-mobile.svg'/> */}
                 </div>
                 <div className=" basis-1/2">
                     <div className=" rounded-[20px] max-[990px]:border-0 border border-neutral-400 p-5 max-w-[480px] min-[990px]:w-[90%]">

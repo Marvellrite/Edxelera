@@ -13,12 +13,12 @@ export const hero_slides: HeroSlides[] = [
   { 
     id: 1, 
     title: "Learn Tech Skills. Build Real Projects. Become Job-Ready", paragraph: "Edxelera is a cohort-based learning platform helping beginners gain practical, employable tech skills with weekly modules, peer reviews, and hands-on projects",
-    imgSrc: "/images/landing/hero-bg-1.png"
+    imgSrc: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340664/repo-images/public/images/landing/hero-bg-1.jpg"
   },
   { 
     id: 2, 
     title: "Professional Courses Across Business, Creative, STEM & More", paragraph: "From business strategy to creative skills, engineering basics to personal development—learn with structured, instructor-led content built to match the quality of traditional learning institutions.",
-    imgSrc: "/images/landing/hero-bg-2.jpg"
+    imgSrc: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340665/repo-images/public/images/landing/hero-bg-2.jpg"
   },
 ]
 
@@ -42,17 +42,17 @@ export const steps: StepItem[] = [
 
 export const features: FeatureItem[] = [
   {
-    icon: '/icons/landing/messages.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340514/repo-images/public/icons/landing/messages.svg',
     title: 'Interactive Learning',
     description: 'With projects, quizzes, discussions, and hands-on activities, you stay engaged and retain more, making your learning journey both practical and enjoyable'
   },
   {
-    icon: '/icons/landing/lightning.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340509/repo-images/public/icons/landing/lightning.svg',
     title: 'Accelerated Learning',
     description: 'Clear, focused modules designed to help you learn faster without losing depth—so you gain practical skills in significantly shorter timeframes'
   },
   {
-    icon: '/icons/landing/trophy.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340527/repo-images/public/icons/landing/trophy.svg',
     title: 'Uncompromised Quality in Every Course',
     description: 'Each course is carefully crafted and reviewed by industry experts to ensure depth, clarity, and real-world relevance. Our structured modules, practical examples, and high-quality materials uphold a university-level standard that delivers lasting, meaningful learning'
   }
@@ -60,15 +60,15 @@ export const features: FeatureItem[] = [
 
 export const benefits: BenefitItem[] = [
   {
-    icon: '/icons/landing/people.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340516/repo-images/public/icons/landing/people.svg',
     text: 'Cohort-Based Learning With Real Classroom Feel'
   },
   {
-    icon: '/icons/landing/heart-note.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340507/repo-images/public/icons/landing/heart-note.svg',
     text: 'Accountability That Helps You Finish'
   },
   {
-    icon: '/icons/landing/ruler-pen.svg',
+    icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340519/repo-images/public/icons/landing/ruler-pen.svg',
     text: 'Hands-On Practicals & Portfolio Projects'
   }
 ];
@@ -80,7 +80,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   },
   {
     _id: '2',
@@ -88,7 +88,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   },
   {
     _id: '3',
@@ -96,7 +96,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   },
   {
     _id: '4',
@@ -104,7 +104,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   },
   {
     _id: '5',
@@ -112,7 +112,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   },
   {
     _id: '6',
@@ -120,7 +120,7 @@ export const courses: Course[] = [
     price: '₦150,000.00',
     duration: '8 Weeks',
     rating: 5.0,
-    posterSrc: '/images/landing/course-thumbnail.jpg'
+    posterSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340654/repo-images/public/images/landing/course-thumbnail.jpg'
   }
 ];
 

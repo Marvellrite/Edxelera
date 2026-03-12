@@ -6,7 +6,7 @@ const CourseForum = () => {
     <div>
         <div className=' flex justify-between'>
             
-            <ReactSVG src='/icons/reply.svg'/>
+            <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340568/repo-images/public/icons/reply.svg'/>
             <div className=" font-medium text-[24px]">Course Forum</div>
             <div></div>
         </div>

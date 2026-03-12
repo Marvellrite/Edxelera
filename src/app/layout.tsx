@@ -16,7 +16,7 @@ export const metadata: Metadata = {
    manifest: '/manifest.json',
    description: '',
    icons: {
-      icon: '/assets/logo.png',
+      icon: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340428/repo-images/public/assets/logo.png',
    },
 };
 
@@ -37,11 +37,11 @@ export default function RootLayout({
       <html lang="en">
          <head>
             <link rel="manifest" href="/manifest.json" />
-            <link rel="apple-touch-icon" href="/assets/logo.png" />
+            <link rel="apple-touch-icon" href="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340428/repo-images/public/assets/logo.png" />
             <link
                rel="apple-touch-icon"
                sizes="512x512"
-               href="/assets/logo.png"
+               href="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340428/repo-images/public/assets/logo.png"
             />
             <meta name="theme-color" content="#0f172a" />
             <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -126,7 +126,7 @@ export function FeaturesSection() {
               <div className=' rounded-full border-[1.5px] border-white size-12 flex items-center justify-center'>
 
                 <ReactSVG
-                  src="/icons/landing/lock.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340512/repo-images/public/icons/landing/lock.svg"
                   width={20}
                   height={20}
                   className="w-5 h-5 text-white"

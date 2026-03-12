@@ -6,7 +6,7 @@ const createInfoLessons = (count: number): CourseModuleLesson[] =>
    Array.from({ length: count }, () => ({
       title: INFO_LESSON_TITLE,
       contentType: 'Video Lesson',
-      iconSrc: '/icons/video-square.svg',
+      iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
    }));
 
 const createLearningLessons = (moduleIndex: number): CourseModuleLesson[] => {
@@ -15,44 +15,44 @@ const createLearningLessons = (moduleIndex: number): CourseModuleLesson[] => {
          {
             title: INFO_LESSON_TITLE,
             contentType: 'Video Lesson',
-            iconSrc: '/icons/video-square.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
             learningStage: 'completed',
          },
          {
             title: INFO_LESSON_TITLE,
             contentType: 'Video Lesson',
-            iconSrc: '/icons/video-square.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
             learningStage: 'completed',
          },
          {
             title: INFO_LESSON_TITLE,
             contentType: 'Video Lesson',
-            iconSrc: '/icons/video-square.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
             learningStage: 'in-progress',
             isActive: true,
          },
          {
             title: INFO_LESSON_TITLE,
             contentType: 'Video Lesson',
-            iconSrc: '/icons/video-square.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
             learningStage: 'not-started',
          },
          {
             title: INFO_LESSON_TITLE,
             contentType: 'Video Lesson',
-            iconSrc: '/icons/video-square.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
             learningStage: 'not-started',
          },
          {
             title: 'Module 1 Test',
             contentType: 'Assessment',
-            iconSrc: '/icons/message-question.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340535/repo-images/public/icons/message-question.svg',
             showProgressIndicator: false,
          },
          {
             title: "Analyze a product's UX",
             contentType: 'Task',
-            iconSrc: '/icons/message-question.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340535/repo-images/public/icons/message-question.svg',
             showProgressIndicator: false,
          },
       ];
@@ -61,7 +61,7 @@ const createLearningLessons = (moduleIndex: number): CourseModuleLesson[] => {
    return Array.from({ length: 5 }, (): CourseModuleLesson => ({
       title: INFO_LESSON_TITLE,
       contentType: 'Video Lesson',
-      iconSrc: '/icons/video-square.svg',
+      iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg',
       learningStage: 'not-started',
    }));
 };
@@ -76,12 +76,12 @@ export const COURSE_MODULE_ITEMS_INFO: CourseModulesAccordionItem[] = [
          {
             title: 'Module 1 Test',
             contentType: 'Assessment',
-            iconSrc: '/icons/message-question.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340535/repo-images/public/icons/message-question.svg',
          },
          {
             title: "Analyze a product's UX",
             contentType: 'Task',
-            iconSrc: '/icons/message-question.svg',
+            iconSrc: 'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340535/repo-images/public/icons/message-question.svg',
          },
       ],
    },

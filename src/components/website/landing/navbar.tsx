@@ -38,7 +38,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className=" w-49.25 ">
             <Image
-              src="/images/edx_logo_1.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
               alt="Edxelera's Logo"
               width={148}
               height={32}
@@ -48,10 +48,10 @@ export function Navbar() {
 
           <div className=' flex gap-4 text-black'>
             <button className=' p-0'>
-            <ReactSVG className='text-neutral-800' src='/icons/landing/search.svg' />
+            <ReactSVG className='text-neutral-800' src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340521/repo-images/public/icons/landing/search.svg' />
             </button>
             <button className=' p-0'>
-            <ReactSVG className='text-neutral-800' src='/icons/landing/shopping-cart.svg'/>
+            <ReactSVG className='text-neutral-800' src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340523/repo-images/public/icons/landing/shopping-cart.svg'/>
             </button>
           </div>
 
@@ -64,7 +64,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className=" w-36.75 ">
             <Image
-              src="/images/edx_logo_1.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
               alt="Edxelera"
               width={148}
               height={32}
@@ -88,7 +88,7 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden lg:flex gap-2 max-sm-md:hidden">
             <button className="p-0 mr-4">
-              <ReactSVG src="/icons/landing/shopping-cart.svg"/>
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340523/repo-images/public/icons/landing/shopping-cart.svg"/>
             </button>
             <Button variant={"outline"} className="  px-6 h-12 w-34.5">
               Login

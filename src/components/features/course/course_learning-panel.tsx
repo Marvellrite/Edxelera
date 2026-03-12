@@ -27,7 +27,7 @@ const CourseLearningPanel = () => {
                         <div className="w-full max-w-[278px] rounded-2xl bg-white p-4 text-center text-[14px] font-medium">
                            <div className="mb-2 flex w-full items-center justify-center">
                               <ReactSVG
-                                 src="/icons/lock.svg"
+                                 src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340533/repo-images/public/icons/lock.svg"
                                  className="text-center"
                               />
                            </div>
@@ -62,7 +62,7 @@ const CourseLearningPanel = () => {
                   {/* <div className="px-4">
                      <div className="flex h-[53px] items-center gap-2 rounded-full border border-neutral-400 p-4">
                         <ReactSVG
-                           src="/icons/reply.svg"
+                           src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340568/repo-images/public/icons/reply.svg"
                            beforeInjection={(svg) => {
                               const paths = svg.querySelectorAll('path');
                               paths.forEach((path) => {

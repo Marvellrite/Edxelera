@@ -83,7 +83,7 @@ const AddCoursePreviewPage = ({ segment }: Props) => {
 
             <div className="relative overflow-hidden rounded-lg border border-neutral-500">
               <Image
-                src="/assets/course-cover.jpg"
+                src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340417/repo-images/public/assets/course-cover.jpg"
                 alt="Course cover"
                 width={518}
                 height={144}
@@ -105,7 +105,7 @@ const AddCoursePreviewPage = ({ segment }: Props) => {
             {modules.map((module, index) => (
               <div key={index} className="flex items-center justify-between border-b border-neutral-200 py-4 last:border-0">
                 <div className="flex items-center gap-2">
-                  <ReactSVG src="/icons/note-2.svg" className="w-4 h-4" />
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340549/repo-images/public/icons/note-2.svg" className="w-4 h-4" />
                   <span className="text-base text-black">{module}</span>
                 </div>
                 <button className="text-neutral-800 hover:text-black transition-colors">

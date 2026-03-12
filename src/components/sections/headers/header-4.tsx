@@ -91,7 +91,7 @@ export default function HeaderTopBar({
        <div className='ms-2 hidden lg:flex min-w-0 items-center gap-2 md:ms-3 md:gap-3'>  
         {/* Avatar + Greeting */}
           <Image
-              src="/icons/photo.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340563/repo-images/public/icons/photo.png"
               alt="user image"
               className="h-10 w-10 shrink-0 rounded-full"
               width={25}

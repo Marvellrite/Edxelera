@@ -62,7 +62,7 @@ const HomeSidebar = () => {
       >
         <div className="relative rounded-md ">
           <Image
-            src="/images/logos/logo-dark.png"
+            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340672/repo-images/public/images/logos/logo-dark.png"
             loading="eager"
             alt="edxelera-logo"
             width={192}
@@ -168,7 +168,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
       <div className="bg-white h-full w-full rounded-2xl p-5 transition-all duration-1000 overflow-y-scroll no-scrollbar">
         <div className={`${toggle ? "flex-col-reverse gap-2 mb-4" : ""} flex justify-between items-center`}>
           <p>Learning</p>
-          <ReactSVG src="/icons/toggle.svg" className="hover:bg-text-neutral-100 p-2 rounded-xl" onClick={() => setToggle(!toggle)} />
+          <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340608/repo-images/public/icons/toggle.svg" className="hover:bg-text-neutral-100 p-2 rounded-xl" onClick={() => setToggle(!toggle)} />
         </div>
         <ul className="space-y-1 mt-2">
           <li>
@@ -178,7 +178,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/home-outline-white.svg" className="group-hover:rotate-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340496/repo-images/public/icons/home-outline-white.svg" className="group-hover:rotate-180 duration-500" />
               {!toggle && <span>Dashboard</span>}
             </Link>
           </li>
@@ -189,7 +189,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/book-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340456/repo-images/public/icons/book-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Course Management</span>}
             </Link>
           </li>
@@ -200,7 +200,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/people-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340559/repo-images/public/icons/people-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Cohort Management</span>}
             </Link>
           </li>
@@ -211,7 +211,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/award-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340453/repo-images/public/icons/award-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Certificates</span>}
             </Link>
           </li>
@@ -226,7 +226,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/user-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340611/repo-images/public/icons/user-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>User Management</span>}
             </Link>
           </li>
@@ -237,7 +237,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/users-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340616/repo-images/public/icons/users-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Staff Management</span>}
             </Link>
           </li>
@@ -252,7 +252,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/receipt-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340567/repo-images/public/icons/receipt-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Transactions</span>}
             </Link>
           </li>
@@ -263,7 +263,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/chart-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340461/repo-images/public/icons/chart-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Reports & Analytics</span>}
             </Link>
           </li>
@@ -280,7 +280,7 @@ const Sidebar = ({ segment }: SidebarProps) => {
                 toggle ? "justify-center" : ""
               } flex gap-2 items-center py-3 px-4 rounded-xl group`}
             >
-              <ReactSVG src="/icons/notification-outline.svg" className="group-hover:rotate-y-180 duration-500" />
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340552/repo-images/public/icons/notification-outline.svg" className="group-hover:rotate-y-180 duration-500" />
               {!toggle && <span>Notifications</span>}
             </Link>
           </li>

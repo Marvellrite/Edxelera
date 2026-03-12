@@ -23,7 +23,7 @@ const Comment = ({
   name = "Utange Kevin",
   role = "Instructor",
   timestamp = "",
-  avatarSrc = "/assets/person_1.png",
+  avatarSrc = "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340431/repo-images/public/assets/person_1.png",
   content = `Welcome to the Product Design forum. You can discuss all things product design here and ask questions and you will get answers from either the instructor, your fellow students, or past TBC students of product Design. Kindly be respectful in the chat. Cheers.`,
 }: CommentProps) => {
   const [showReplies, setShowReplies] = React.useState(false);
@@ -104,7 +104,7 @@ const Comment = ({
                   className="group inline-flex items-center gap-1.5 rounded-full border border-transparent px-2.5 py-1.5 text-sm font-medium text-neutral-600 transition-[color,background-color,border-color,transform] duration-200 hover:border-neutral-200 hover:bg-neutral-50 hover:text-primary active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
                 >
                   <span className="inline-flex h-4 w-4 items-center justify-center opacity-85 transition-opacity group-hover:opacity-100">
-                    <ReactSVG src="/icons/reply.svg" />
+                    <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340568/repo-images/public/icons/reply.svg" />
                   </span>
                   <span>{showReplyInput ? "Cancel" : "Reply"}</span>
                 </button>
@@ -126,7 +126,7 @@ const Comment = ({
                         showReplies ? "rotate-180" : "rotate-0"
                       }`}
                     >
-                      <ReactSVG src="/icons/angle-down.svg" />
+                      <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340446/repo-images/public/icons/angle-down.svg" />
                     </span>
                   </button>
                 ) : null}

@@ -94,7 +94,7 @@ export default function InstructorOnboarding() {
           <div className="w-full mb-8 md:mb-12">
             <Image
               className="w-auto h-auto"
-              src="/images/edx_logo_1.png"
+              src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"
               alt="Edxelera Logo"
               width={140}
               height={56}
@@ -157,7 +157,7 @@ export default function InstructorOnboarding() {
       {/* Right side - Content */}
             <div className="relative hidden h-full lg:col-span-4 lg:block">
         <Image
-          src="/assets/instructor/auth/onboarding/right-side.jpg"
+          src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340424/repo-images/public/assets/instructor/auth/onboarding/right-side.jpg"
           alt="Instructor onboarding"
           className="object-cover"
           fill

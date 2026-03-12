@@ -12,20 +12,20 @@
             </div>
             <div className="grid grid-cols-[repeat(2,auto)] grid-rows-2 gap-x-5 gap-y-3">
                <div className=" flex">
-                  <ReactSVG src="/icons/user-tag.svg" />{' '}
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340613/repo-images/public/icons/user-tag.svg" />{' '}
                   <span>Utange Kevin</span>
                </div>
                <div className=" flex ">
-                  <ReactSVG src="/icons/video-square.svg" />{' '}
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg" />{' '}
                   <span>Starts August 15th</span>
                </div>
                <div className=" flex">
-                  <ReactSVG src="/icons/video-square.svg" />{' '}
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340626/repo-images/public/icons/video-square.svg" />{' '}
                   <span>8 Weeks</span>
                </div>
 
                <div className=" flex">
-                  <ReactSVG src="/icons/students-enrolled.svg" />{' '}
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340596/repo-images/public/icons/students-enrolled.svg" />{' '}
                   <span>137 students enrolled</span>
                </div>
             </div>

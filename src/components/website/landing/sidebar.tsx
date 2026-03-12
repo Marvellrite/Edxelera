@@ -17,7 +17,7 @@ const Sidebar = ({isOpen, setIsOpen}:Props) => {
      <aside className={cn('lg:hidden bg-white border-t border-neutral-100 w-full sm-md:w-[362px] sm-md:top-0 transition-transform duration-700 ease-out fixed', isOpen?"max-sm-md:translate-y-0 sm-md:translate-x-0":"max-sm-md:-translate-y-[140%] sm-md:-translate-x-full")}>
             <div className=' max-sm-md:hidden flex justify-between p-6 pb-3'>
                 <Image 
-                src={"/images/edx_logo_1.png"} 
+                src={"https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png"} 
                 alt="Edxelera's Logo"
                 width={148}
                 height={32}/> 

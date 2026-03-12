@@ -102,7 +102,7 @@ const ResetPasswordPage: React.FC = () => {
   return (
     <AuthShell>
       <div className="w-53.5 mx-auto">
-        <Image className="w-full h-auto" src="/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={108} />
+        <Image className="w-full h-auto" src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340637/repo-images/public/images/edx_logo_1.png" alt="Edxelera Logo" width={256} height={108} />
       </div>
 
       <h1 className="mt-8 mb-6 text-3xl font-medium text-black md:text-4xl">Reset Password</h1>

@@ -35,7 +35,7 @@ const SubmitQuizDialog = ({unanswered=true, submitFunction}:{unanswered?:boolean
                   <div className="flex justify-between">
                      <DialogClose asChild>
                         <button type="button">
-                           <ReactSVG src="/icons/x.svg" />
+                           <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340631/repo-images/public/icons/x.svg" />
                         </button>
                      </DialogClose>
                      <h1 className="text-left font-medium text-[20px]">

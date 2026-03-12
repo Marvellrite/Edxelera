@@ -21,7 +21,7 @@ const AnnouncementBar = () => {
       Christmas Awoof. Up to 50% off our courses. Ends in 3d 50m 45s | Learn courses from us
           </Link>
         
-        <button aria-label='Close announcement bar' className=' text-white hover:text-secondary' onClick={()=>setIsVisible(false)}><ReactSVG src='/icons/x.svg'/></button>
+        <button aria-label='Close announcement bar' className=' text-white hover:text-secondary' onClick={()=>setIsVisible(false)}><ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340631/repo-images/public/icons/x.svg'/></button>
     </div>
     
   )

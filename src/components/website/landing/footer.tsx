@@ -43,7 +43,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-9 mb-20">
           {/* Left - Brand & Newsletter */}
           <div className="space-y-6 ">
-            <Image width={288} height={57} src={"/images/edxelera-white-logo.png"} alt='Edxlera logo' className='max-lg:w-[219px] ' />
+            <Image width={288} height={57} src={"https://res.cloudinary.com/dx5iohojj/image/upload/v1773340638/repo-images/public/images/edxelera-white-logo.png"} alt='Edxlera logo' className='max-lg:w-[219px] ' />
             <p className="text-base font-medium leading-6">
               Subscribe to our newsletter to get the latest updates and offers from us
             </p>
@@ -61,7 +61,7 @@ export function Footer() {
                 className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity rounded-full size-8 bg-secondary flex p-0 items-center justify-center"
                 aria-label="Subscribe"
               >
-                <ReactSVG src='/icons/landing/chevron-right.svg' className="w-4 h-4 text-white" />
+                <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340504/repo-images/public/icons/landing/chevron-right.svg' className="w-4 h-4 text-white" />
               </button>
             </form>
           </div>
@@ -102,7 +102,7 @@ export function Footer() {
               <div className="space-y-3">
                 <div className="flex gap-3">
                   <ReactSVG
-                    src="/icons/landing/location.svg"
+                    src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340511/repo-images/public/icons/landing/location.svg"
                     width={18}
                     height={20}
                     className="w-[18px] h-5 shrink-0 mt-1"
@@ -113,7 +113,7 @@ export function Footer() {
                 </div>
                 <div className="flex gap-3 items-center">
                   <ReactSVG
-                    src="/icons/landing/phone.svg"
+                    src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340518/repo-images/public/icons/landing/phone.svg"
                     width={20}
                     height={20}
                     className="w-5 h-5 shrink-0"
@@ -122,7 +122,7 @@ export function Footer() {
                 </div>
                 <div className="flex gap-3 items-center">
                   <ReactSVG
-                    src="/icons/landing/email.svg"
+                    src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340505/repo-images/public/icons/landing/email.svg"
                     width={20}
                     height={17}
                     className="w-5 h-[17px] shrink-0"
@@ -131,16 +131,16 @@ export function Footer() {
                 </div>
                 <div className='flex gap-1.5 social-links'>
                 <Link target='_blank' className="p-0 text-primary" href='https://www.facebook.com/profile.php?id=61584359654837'>
-                  <ReactSVG src="/icons/social-links/facebook.svg"/>
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340585/repo-images/public/icons/social-links/facebook.svg"/>
                 </Link>
                 <Link target='_blank' href='https://www.linkedin.com/company/edxelera/about/' className=' text-primary'>
-                  <ReactSVG src="/icons/social-links/linkedin.svg"/>
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340589/repo-images/public/icons/social-links/linkedin.svg"/>
                 </Link>
                 <Link target='_blank' href='https://www.instagram.com/edxelera/'>
-                  <ReactSVG src="/icons/social-links/instagram.svg"/>
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340587/repo-images/public/icons/social-links/instagram.svg"/>
                 </Link>
                 <Link target='_blank' href={''}>
-                  <ReactSVG src="/icons/social-links/twitter-x.svg"/>
+                  <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340591/repo-images/public/icons/social-links/twitter-x.svg"/>
                 </Link>
 
                 </div>
@@ -151,7 +151,7 @@ export function Footer() {
             <div className="space-y-3 max-sm-md:w-[161px]">
               <h4 className="text-lg font-semibold text-neutral-100 text-md ">Download App</h4>
               <Image
-                src="/images/landing/app-badges-footer.svg"
+                src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340641/repo-images/public/images/landing/app-badges-footer.svg"
                 alt="Download on App Store and Google Play"
                 width={161}
                 height={103}

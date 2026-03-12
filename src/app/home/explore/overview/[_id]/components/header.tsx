@@ -28,7 +28,7 @@ const Header = ({ children }: HeaderPropsType) => {
       <header className="flex items-center justify-between max-md:px-4 px-5 pt-5 h-fit w-full text-neutral-700">
          <div className="flex text-xl lg:text-5xl font-bold text-neutral-900 mx-auto lg:mx-0 gap-x-5 grow shrink">
             <button className=" hover:bg-neutral-300 rounded-[500px]">
-               <ReactSVG src="/icons/back-arrow.svg" />
+               <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340455/repo-images/public/icons/back-arrow.svg" />
             </button>
 
             {children}
@@ -41,7 +41,7 @@ const Header = ({ children }: HeaderPropsType) => {
                className={`${!home ? 'hidden md:flex' : ''} flex flex-row-reverse md:flex-row justify-between md:justify-normal gap-3 items-center w-full`}
             >
                <ReactSVG
-                  src="/icons/notification.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340554/repo-images/public/icons/notification.svg"
                   width={25}
                   height={25}
                   className="hover:cursor-pointer"
@@ -59,28 +59,28 @@ const Header = ({ children }: HeaderPropsType) => {
                      </p>
                   </div>
                   <Image
-                     src="/icons/photo.png"
+                     src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340563/repo-images/public/icons/photo.png"
                      alt="user image"
                      className="h-10 w-10 rounded-full"
                      width={25}
                      height={25}
                   />
                   <ReactSVG
-                     src="/icons/dropdown.svg"
+                     src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg"
                      width={25}
                      height={25}
                      className="hidden md:flex"
                   />
                   <div className="hidden md:flex gap-2 border border-neutral-500 rounded-full p-1 focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 ">
                      <ReactSVG
-                        src="/icons/sun.svg"
+                        src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340602/repo-images/public/icons/sun.svg"
                         width={5}
                         height={5}
                         className="bg-primary rounded-full p-1 hover:cursor-pointer"
                         onClick={() => toggleTheme('light')}
                      />
                      <ReactSVG
-                        src="/icons/moon-outline.svg"
+                        src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340542/repo-images/public/icons/moon-outline.svg"
                         width={5}
                         height={5}
                         className=" rounded-full p-1 hover:cursor-pointer"
@@ -94,7 +94,7 @@ const Header = ({ children }: HeaderPropsType) => {
                className={`${explore || home ? 'flex md:hidden' : 'hidden'} items-center gap-3 border-2 border-neutral-500 w-full h-12 p-2 rounded-full focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 `}
             >
                <ReactSVG
-                  src="/icons/search-outline.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340576/repo-images/public/icons/search-outline.svg"
                   width={25}
                   height={25}
                />
@@ -107,14 +107,14 @@ const Header = ({ children }: HeaderPropsType) => {
 
             {/* <div className="hidden md:flex gap-2 border border-neutral-500 rounded-full p-1 focus-within:ring-2 focus-within:text-neutral-300 transition-all duration-300 ">
                <ReactSVG
-                  src="/icons/sun.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340602/repo-images/public/icons/sun.svg"
                   width={5}
                   height={5}
                   className="bg-primary rounded-full p-1 hover:cursor-pointer"
                   onClick={() => toggleTheme('light')}
                />
                <ReactSVG
-                  src="/icons/moon-outline.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340542/repo-images/public/icons/moon-outline.svg"
                   width={5}
                   height={5}
                   className="bg-primary rounded-full p-1 hover:cursor-pointer"

@@ -16,7 +16,7 @@ const CohortStartedModal = () => {
           <div className=" md:hidden"></div>
 
           <div>
-            <ReactSVG className=" mx-auto w-20" beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='/icons/confetti-desktop.svg'/>
+            <ReactSVG className=" mx-auto w-20" beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340470/repo-images/public/icons/confetti-desktop.svg'/>
             <div className=" text-white  max-w-[762px] mx-auto text-center">
               <h1 className=" mt-8 font-medium md:text-[40px] max-md:text-[24px] max-md:font-bold">Your Cohort Has Started!</h1>
               <div className=" mt-8 text-md font-normal max-md:mt-3">Welcome to Module 1. Your classroom is now open — let’s begin your learning journey.</div>
@@ -35,7 +35,7 @@ const CohortStartedModal = () => {
           paths.forEach((_)=>{
             _.setAttribute("stroke", "white");
           })
-        }} className="text-white" src="/icons/x.svg"/>
+        }} className="text-white" src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340631/repo-images/public/icons/x.svg"/>
           
         </button>
 

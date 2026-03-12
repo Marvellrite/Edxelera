@@ -13,7 +13,7 @@ return (
                className={cn("flex items-center gap-3 border-2 border-neutral-900 w-full h-12 p-4 rounded-full focus-within:ring-2 focus-within:ring-primary  transition-all duration-300 ", wrapperClassNames)}
             >
                <ReactSVG
-                  src="/icons/search-outline.svg"
+                  src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340576/repo-images/public/icons/search-outline.svg"
                   width={25}
                   height={25}
                />
