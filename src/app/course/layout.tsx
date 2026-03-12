@@ -1,4 +1,4 @@
-import ContextProvider from "../context";
+import ContextProvider from "@/context";
 import { SidebarProvider } from "../home/context/sidebar-context";
 import HomeLayoutContent from "../home/components/layout/homeLayout";
 import ClearPendingEmailOnLoad from "../home/components/clear-pending-email-on-load";

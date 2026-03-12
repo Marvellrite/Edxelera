@@ -1,10 +1,10 @@
 "use client"
-import { AddCircle, Edit, GalleryAdd, Trash, VideoSquare } from "@/components/icons/modified"
+import {  FolderAdd, } from "@/components/admin_and_instructors/icons/modified"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { Lesson } from "@/types/course"
-import InputAnimated from "@/components/ui/custom/input-animated-1"
-import { Checkbox } from "@/components/ui/custom/checkbox"
+import InputAnimated from "@/components/admin_and_instructors/ui/custom/input-animated-1"
+import { Checkbox } from "@/components/admin_and_instructors/ui/custom/checkbox"
 
 interface ProgressStatus {
   EmailNotif: boolean;
@@ -26,7 +26,7 @@ const AddNotifySide2 = () => {
             <fieldset className={` border rounded-lg py-1 px-2 h-36 relative flex flex-col`}>
                 <span className=" text-neutral-700">Upload file (optional)</span>
                 <div className=' grow text-center'>
-                    <div className=' flex justify-center mb-3'> <GalleryAdd/> </div>
+                    <div className=' flex justify-center mb-3'> <FolderAdd/> </div>
                     <div className=' mb-1 text-neutral-800 text-[14px]'>Click or drag and drop file</div>
                     <div className=" text-neutral-600 text-[12px] font-normal">PNG, JPEG, WEBP, SVG, PDF, DOC, DOCX, PPTX</div>
                 </div>

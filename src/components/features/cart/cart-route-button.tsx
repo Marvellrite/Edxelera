@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Cart } from "@/components/icons/modified";
-import Badge from "@/components/common/badge";
+import { Badge } from "@/components/common";
 import { useCartStore } from "@/stores/cart-store";
 
 type CartRouteButtonProps = {

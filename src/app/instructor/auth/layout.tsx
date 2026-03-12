@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 // import '../globals.css';
 
 export default function AuthLayout({
@@ -6,6 +9,13 @@ export default function AuthLayout({
 }: Readonly<{
    children: React.ReactNode;
 }>) {
+
+     const pathname = usePathname();
+    
+      if (pathname.startsWith("/instructor/auth/onboarding") || pathname.startsWith("/instructor/onboarding")) {
+        return <>{children}</>;
+      }
+
    return (
       <section className="relative grid h-screen w-full grid-cols-1 grid-rows-1 overflow-hidden lg:grid-cols-10">
          <div className="relative hidden h-full lg:col-span-5 lg:block">

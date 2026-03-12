@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
       'http://192.168.10.31:3000',
       'http://10.75.191.239:3000',
    ],
+   images: {
+      remotePatterns: [
+         {
+            protocol: 'https',
+            hostname: 'hebbkx1anhila5yf.public.blob.vercel-storage.com',
+         },
+      ],
+   },
    turbopack: {},
    webpack(config) {
       // Add SVGR support for importing SVGs as React components

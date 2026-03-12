@@ -1,31 +1,23 @@
 'use client';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
+import { create } from 'zustand';
 
-interface SidebarContextType {
+interface SidebarState {
   isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
   toggleSidebar: () => void;
+  resetSidebar: () => void;
 }
 
-const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
+const useSidebarStore = create<SidebarState>((set) => ({
+  isOpen: true,
+  setIsOpen: (isOpen) => set({ isOpen }),
+  toggleSidebar: () => set((state) => ({ isOpen: !state.isOpen })),
+  resetSidebar: () => set({ isOpen: true }),
+}));
 
-export const useSidebar = () => {
-  const context = useContext(SidebarContext);
-  if (!context) {
-    throw new Error('useSidebar must be used within a SidebarProvider');
-  }
-  return context;
-};
+export const useSidebar = useSidebarStore;
 
 export const SidebarProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsOpen(prev => !prev);
-  };
-
-  return (
-    <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>
-      {children}
-    </SidebarContext.Provider>
-  );
+  return <>{children}</>;
 };

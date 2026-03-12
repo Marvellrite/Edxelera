@@ -1,7 +1,7 @@
 "use client";
 
 import { Bell } from "@/components/icons/modified";
-import Badge from "@/components/common/badge";
+import { Badge } from "@/components/common";
 
 type NotificationBellButtonProps = {
   count?: number;

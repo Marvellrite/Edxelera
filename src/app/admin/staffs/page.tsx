@@ -1,9 +1,9 @@
 "use client"
 import Image from 'next/image'
 import { ReactSVG } from 'react-svg'
-import { useSidebar } from '@/context/sidebar'
+import { useSidebar } from '@/context/sidebar.context'
 import { staffMembers } from '@/mockdata/staff-management'
-import Pagination from '@/components/common/pagination'
+import { Pagination } from '@/components/common'
 import { Button } from '@/components/ui/button'
 import { ArrowDownLinear } from '@/components/admin_and_instructors/icons/modified'
 import CustomAlertDialog from '@/components/admin_and_instructors/features/course/custom-modal'

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import AddLesson from "@/components/admin_and_instructors/addlesson";
 import AddModules from "@/components/admin_and_instructors/addmodules";
-import { useSidebar } from "@/context/sidebar";
+import { useSidebar } from "@/context/sidebar.context";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
 
 import { DashboardSegment, getCourseRoutes, getDashboardMainPaneClass } from "./route-utils";

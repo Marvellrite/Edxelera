@@ -1,5 +1,5 @@
 import CourseList from './course-list'
-import Pagination from '@/components/common/pagination'
+import { Pagination } from '@/components/common'
 
 const SearchIsFound = () => {
   return (

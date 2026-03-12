@@ -1,5 +1,5 @@
 "use client"
-import { useSidebar } from '@/context/sidebar'
+import { useSidebar } from '@/context/sidebar.context'
 
 const Page = () => {
   const { toggle } = useSidebar()

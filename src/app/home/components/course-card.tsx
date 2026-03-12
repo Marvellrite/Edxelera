@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import formatMoney from "@/utils/formatMoney";
-import Rating from "@/components/common/rating";
+import { Rating } from "@/components/common";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";

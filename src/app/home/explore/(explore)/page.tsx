@@ -5,7 +5,7 @@ import CourseList from './components/course-list';
 import IsSearching from './components/is-searching';
 import CourseNotFound from './components/search-not-found';
 import SearchIsFound from './components/search-is-found';
-import Pagination from '@/components/common/pagination';
+import { Pagination } from '@/components/common';
 
 
 const Page: React.FC = () => {

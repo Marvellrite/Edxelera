@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 
-import Course_poster from "@/components/admin_and_instructors/features/course/course-poster";
-import Course_arrangement from "@/components/admin_and_instructors/features/course/course-arrangement";
 import { Button } from "@/components/admin_and_instructors/ui/button";
-import { useSidebar } from "@/context/sidebar";
+import { useSidebar } from "@/context/sidebar.context";
 
 import { DashboardSegment, getCourseRoutes, getDashboardMainPaneClass } from "./route-utils";
+import CoursePage from "@/components/features/course/course-page";
 
 type Props = {
   segment: DashboardSegment;
@@ -27,9 +26,8 @@ const CourseViewPage = ({ segment }: Props) => {
           <span>{"//"}</span>
           <Link href={routes.preview}>Preview</Link>
         </p>
-        <div className="px-2 md:px-[32px]">
-          <Course_poster />
-          <Course_arrangement />
+        <div className="px-2 md:px-8">
+          <CoursePage/>
 
           <div className="mt-10 flex flex-col gap-3 md:flex-row md:justify-between">
             <Button variant="outline">Save as draft</Button>

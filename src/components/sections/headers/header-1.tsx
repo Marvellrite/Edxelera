@@ -4,7 +4,7 @@ import SearchBar from '@/components/data/nav-search-bar';
 import Image from "next/image";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import toTitleCase from "@/utils/toTitleCase";
-import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 import NotificationBellButton from "@/components/features/cart/notification-bell-button";
 

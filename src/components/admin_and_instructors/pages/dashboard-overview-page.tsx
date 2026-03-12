@@ -4,7 +4,7 @@ import Overview from "@/components/admin_and_instructors/overview/overview";
 import BarChartComponent from "@/components/admin_and_instructors/overview/barchart";
 import DoughnutChart from "@/components/admin_and_instructors/overview/doughnutchart";
 import Performance from "@/components/admin_and_instructors/performance";
-import { useSidebar } from "@/context/sidebar";
+import { useSidebar } from "@/context/sidebar.context";
 import { getDashboardMainPaneClass } from "./route-utils";
 
 const DashboardOverviewPage = () => {

@@ -1,7 +1,7 @@
 'use client';
 
 import CourseTabs from '@/components/sections/my-courses/course-tabs';
-import CourseNotFound from '@/components/common/not-found';
+import { NotFound as CourseNotFound } from '@/components/common';
 import { useState } from 'react';
 
 const Page = () => {

@@ -42,3 +42,4 @@ export { default as UsersOutline } from "./UsersOutline";
 export { default as VideoSquare } from "./VideoSquare";
 export { default as Video } from "./Video";
 export { default as X } from "./X";
+export { default as FolderAdd } from "./FolderAdd";

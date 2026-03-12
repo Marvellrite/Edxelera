@@ -26,7 +26,7 @@ export const InputIconned = <T extends FieldValues>({
       <div onClick={(e)=>{
          const input = e.currentTarget.querySelector("input");
          input?.focus()
-      }} className=" size-full relative px-5 rounded-full flex text-neutral-600 hover:cursor-text items-center gap-2 py-4 bg-surface-foreground justify-between focus-within:ring-primary/60 ring-2 ring-transparent hover:bg-neutral-200/10 focus-within:bg-surface-foreground!">
+      }} className=" size-full relative px-5 rounded-full flex text-neutral-600 hover:cursor-text items-center gap-2 py-4 bg-surface-foreground justify-between focus-within:ring-primary/60 ring-2 ring-transparent hover:bg-neutral-50 transition-colors duration-200 focus-within:bg-surface-foreground!">
          <span className=' text-neutral-800'>
          <LeftIcon/>
          </span>
@@ -39,14 +39,16 @@ export const InputIconned = <T extends FieldValues>({
             {...rest}
          />
 
-         {
-            RightIcon &&
-          <span className=' text-neutral-800' onMouseDown={(e)=>{
-            e.preventDefault();
-      }}>
-         {RightIcon}
-         </span>
-         }
+         {RightIcon && (
+            <span
+               className="text-neutral-800 self-stretch inline-flex items-center"
+               onMouseDown={(e) => {
+                  e.preventDefault();
+               }}
+            >
+               {RightIcon}
+            </span>
+         )}
          
       </div>
    );

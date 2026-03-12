@@ -1,6 +1,6 @@
 'use client';
 
-import StarRating from '@/components/common/rating';
+import { StarRating } from '@/components/common';
 import { ReactSVG } from 'react-svg';
 import formatMoney from '@/utils/formatMoney';
 import { Button } from '@/components/ui/button';

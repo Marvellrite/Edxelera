@@ -1,7 +1,7 @@
 "use client"
-import { Checkbox } from '@/components/ui/custom/checkbox';
-import InputAnimated from '@/components/ui/custom/input-animated-1';
-import Select from '@/components/ui/custom/select'
+import { Checkbox } from '@/components/admin_and_instructors/ui/custom/checkbox';
+import InputAnimated from '@/components/admin_and_instructors/ui/custom/input-animated-1';
+import Select from '@/components/admin_and_instructors/ui/custom/select'
 import { useState } from 'react';
 
 

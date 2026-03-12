@@ -14,7 +14,7 @@ export default function ProgressIndicator({
       {Array.from({ length: totalSteps }, (_, index) => (
         <div
           key={index + 1}
-          className={`h-1 flex-1 rounded-full transition-colors ${
+          className={`h-2.75 flex-1 rounded-full transition-colors ${
             index + 1 <= currentStep
               ? 'bg-primary'
               : 'bg-neutral-300'

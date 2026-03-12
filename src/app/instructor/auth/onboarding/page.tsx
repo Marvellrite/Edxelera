@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import ProgressIndicator from './components/ProgressIndicator';
 import QuestionStep from './components/QuestionStep';
 import OptionCard from './components/OptionCard';
+import { cn } from '@/lib/utils';
 
 interface OnboardingStep {
   id: number;
@@ -87,19 +88,8 @@ export default function InstructorOnboarding() {
   return (
     <section className="relative grid h-screen w-full grid-cols-1 grid-rows-1 overflow-hidden lg:grid-cols-10">
       {/* Left side - Image */}
-      <div className="relative hidden h-full lg:col-span-5 lg:block">
-        <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TBC_LMS-HlyM0evlEFJwVJX5GgKcux8557aLkE.png"
-          alt="Instructor onboarding"
-          className="object-cover"
-          fill
-        />
-        <div className="absolute w-full h-full bg-gradient-to-b from-black/50 to-black/20"></div>
-      </div>
-
-      {/* Right side - Content */}
-      <div className="col-span-1 h-screen w-full overflow-y-auto bg-surface lg:col-span-5">
-        <div className="flex flex-col h-full min-h-screen px-6 py-8 sm:px-8 sm:py-12">
+            <div className="col-span-1 h-screen w-full overflow-y-auto bg-surface lg:col-span-6 ">
+        <div className="flex flex-col px-6 py-8 sm:px-8 sm:py-12">
           {/* Logo */}
           <div className="w-full mb-8 md:mb-12">
             <Image
@@ -140,13 +130,12 @@ export default function InstructorOnboarding() {
           </div>
 
           {/* Navigation */}
-          <div className="flex gap-4 mt-8 md:mt-12 pt-6 border-t border-neutral-200">
+          <div className="flex gap-4 mt-8 md:mt-12 pt-6 border-t border-neutral-200 w-full justify-between">
             {!isFirstStep && (
               <Button
-                variant="destructive"
-                size="default"
+                variant="secondary"
                 onClick={handlePrevious}
-                className="bg-red hover:bg-red/90"
+                className=' w-30'
               >
                 Previous
               </Button>
@@ -156,12 +145,24 @@ export default function InstructorOnboarding() {
               size="default"
               onClick={handleNext}
               disabled={!isAnswered}
-              className={isFirstStep ? 'ml-auto' : ''}
+              className={cn('w-30')}
             >
               {isLastStep ? 'Proceed' : 'Next'}
             </Button>
           </div>
         </div>
+      </div>
+      
+
+      {/* Right side - Content */}
+            <div className="relative hidden h-full lg:col-span-4 lg:block">
+        <Image
+          src="/assets/instructor/auth/onboarding/right-side.jpg"
+          alt="Instructor onboarding"
+          className="object-cover"
+          fill
+        />
+        {/* <div className="absolute w-full h-full bg-gradient-to-b from-black/50 to-black/20"></div> */}
       </div>
     </section>
   );

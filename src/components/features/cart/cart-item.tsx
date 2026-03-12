@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import formatMoney from '@/utils/formatMoney';
-import Rating from '@/components/common/rating';
+import { Rating } from '@/components/common';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { MinusCircle } from '@/components/icons/modified';

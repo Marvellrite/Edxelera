@@ -2,8 +2,8 @@
 import Overview from '@/components/admin_and_instructors/features/transaction/overview'
 import Transactions from '@/components/admin_and_instructors/features/transaction/transactions'
 // import { useSidebar } from '../_context/sidebar'
-import { useSidebar } from '@/context/sidebar'
-import Pagination from '@/components/common/pagination'
+import { useSidebar } from '@/context/sidebar.context'
+import { Pagination } from '@/components/common'
 
 const Page = () => {
   const { toggle } = useSidebar();

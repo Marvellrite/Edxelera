@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ReactSVG } from "react-svg";
 import { Search, ChevronDown, SlidersHorizontal, MinusCircle, Edit2, Trash2 } from "lucide-react";
 
-import { useSidebar } from "@/context/sidebar";
+import { useSidebar } from "@/context/sidebar.context";
 import { courses } from "@/mockdata/course-management";
 import { Button } from "@/components/admin_and_instructors/ui/button";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";

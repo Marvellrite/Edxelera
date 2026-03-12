@@ -1,8 +1,9 @@
 'use client'
 
 // import '../globals.css';
-import { Sidebar, Tabs } from '../../components/nav';
+import { Tabs } from '../../components/nav';
 import { useSidebar } from '../../context/sidebar-context';
+import Sidebar from '@/components/admin_and_instructors/sidebar';
 
 export default function HomeLayoutContent({
    children,

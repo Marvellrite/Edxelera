@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Bell, SearchOutline } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
-import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { Course_status } from "@/types/my-courses/course-status";
 import { useMyCoursesActiveCategoryStore } from "@/stores/my-courses-active-category";

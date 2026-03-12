@@ -1,7 +1,7 @@
 "use client"
 import AddNotifySide2 from '@/components/admin_and_instructors/features/notifications/add-notif-side-2'
 import AddNotifSide1 from '@/components/admin_and_instructors/features/notifications/add-notif-side-1'
-import { useSidebar } from '@/context/sidebar'
+import { useSidebar } from '@/context/sidebar.context'
 import CustomAlertDialog from '@/components/admin_and_instructors/features/course/custom-modal'
 import Link from 'next/link'
 import { useState } from 'react'

@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 import { cn } from '@/lib/utils';
-import SearchInput from '@/components/common/search_input';
+import { SearchInput } from '@/components/common';
 import { ReactSVG } from 'react-svg';
 import Sidebar from './sidebar';
 

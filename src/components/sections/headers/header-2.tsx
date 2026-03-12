@@ -7,7 +7,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
-import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 

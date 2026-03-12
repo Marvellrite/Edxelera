@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ReactSVG } from "react-svg";
 import { ChevronDown } from "lucide-react";
 
-import { useSidebar } from "@/context/sidebar";
+import { useSidebar } from "@/context/sidebar.context";
 import { Button } from "@/components/admin_and_instructors/ui/button";
 import { DashboardSegment, getCourseRoutes, getDashboardMainPaneClass } from "./route-utils";
 

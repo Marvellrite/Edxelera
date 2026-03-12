@@ -1,10 +1,10 @@
 "use client"
 
 import { ReactSVG } from 'react-svg'
-import { useSidebar } from '@/context/sidebar'
+import { useSidebar } from '@/context/sidebar.context'
 import { MoreCircle } from '@/components/admin_and_instructors/icons/modified'
 import { Button } from '@/components/admin_and_instructors/ui/button'
-import Pagination from '@/components/common/pagination'
+import { Pagination } from '@/components/common'
 import { Add } from '@/components/admin_and_instructors/icons/modified'
 import {  notificationsExpanded } from '@/mockdata/notifications'
 import { cn } from '@/lib/utils'

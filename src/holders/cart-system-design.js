@@ -2,7 +2,7 @@ alright, do that. tell it to use already exiting design of the course card where
 
 import { useRef, useState } from "react";
 import formatMoney from "@/utils/formatMoney";
-import Rating from "@/components/common/rating";
+import { Rating } from "@/components/common";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";

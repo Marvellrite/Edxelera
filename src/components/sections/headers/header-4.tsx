@@ -5,7 +5,7 @@ import { ArrowLeft} from "@/components/icons/modified"
 import Image from "next/image";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
-import ThemeTogglerComponent from "@/components/common/theme-toggler";
+import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 import CartRouteButton from "@/components/features/cart/cart-route-button";
 import CourseShareButton from "@/components/features/share/course-share-button";

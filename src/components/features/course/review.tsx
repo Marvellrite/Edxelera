@@ -1,4 +1,5 @@
-import StarRating from '@/components/common/rating';
+import { Rating } from '@/components/common';
+import Image from 'next/image';
 
 import React from 'react';
 
@@ -6,17 +7,19 @@ const Review = () => {
    return (
       <div className=" min-w-78 p-4 rounded-sm border border-neutral-50 flex-0 bg-foreground">
          <div className="flex gap-2">
-            <img
+            <Image
                className=" size-10 rounded-full"
                src="/assets/person_1.png"
                alt="Student Image"
+               width={40}
+               height={40}
             />
             <div className="flex flex-col gap-0.5">
                <div>David Leebari</div>
                <div className=" flex items-center gap-x-2">
                   <span>5.0</span>
                   <div className=" -mt-1">
-                     <StarRating max={5} value={3} />{' '}
+                     <Rating max={5} value={3} />{' '}
                   </div>
                </div>
             </div>
