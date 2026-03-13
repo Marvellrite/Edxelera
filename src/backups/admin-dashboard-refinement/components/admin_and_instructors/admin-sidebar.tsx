@@ -134,13 +134,15 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
       <div
         className={cn(
           "fixed bottom-4 top-32 z-30 min-h-0 transition-all duration-[600ms]",
-          isOpen ? "left-4 w-[calc(((100vw-11rem)/10)*2+1rem)]" : "left-4 w-[calc((100vw-11rem)/10)]",
+          isOpen
+            ? "left-4 w-[calc(((100vw-11rem)/10)*2+1rem)]"
+            : "left-4 w-[calc((100vw-11rem)/10)]",
         )}
       >
         <div
           className={cn(
-            "h-full min-h-0 w-full overflow-y-auto rounded-2xl border border-border/70 bg-white shadow-sm no-scrollbar transition-all duration-[600ms]",
-            isOpen ? "px-4 py-4" : "px-2 py-4",
+            "bg-white h-full min-h-0 w-full rounded-2xl p-5 overflow-y-auto no-scrollbar transition-all duration-[600ms]",
+            isOpen ? "px-5" : "px-3",
           )}
         >
           <nav className="space-y-4">
@@ -154,19 +156,20 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                 type="button"
                 aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                 onClick={() => setToggle(!toggle)}
-                className="shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-[600ms] hover:bg-neutral-100"
+                className="shrink-0 rounded-xl p-2 transition-all duration-[600ms] hover:bg-text-neutral-100"
               >
                 <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340608/repo-images/public/icons/toggle.svg" />
               </button>
             </div>
-
             {sections.map((section, index) => (
-              <div key={section.title} className="space-y-1">
-                <div className="mt-1 flex items-center justify-between gap-2">
+              <div key={section.title}>
+                <div className="mt-4 flex items-center justify-between gap-2">
                   <p
                     className={cn(
-                      "overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] text-neutral-500 transition-all duration-[600ms]",
-                      isOpen ? "max-w-[220px] opacity-100" : "w-full text-center opacity-100",
+                      "overflow-hidden whitespace-nowrap transition-all duration-[600ms]",
+                      isOpen
+                        ? "max-w-[220px] opacity-100 text-left"
+                        : "w-full opacity-100",
                     )}
                   >
                     {isOpen ? section.title : (section.collapsedTitle ?? section.title)}
@@ -178,7 +181,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                       aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                       onClick={() => setToggle(!toggle)}
                       className={cn(
-                        "ml-auto shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-[600ms] hover:bg-neutral-100",
+                        "ml-auto shrink-0 rounded-xl p-2 transition-all duration-[600ms] hover:bg-text-neutral-100",
                         isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-0 opacity-0",
                       )}
                     >
@@ -186,34 +189,28 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                     </button>
                   )}
                 </div>
-
-                <ul className="mt-2 space-y-1.5">
+                <ul className="space-y-1 mt-2">
                   {section.items.map((item) => (
                     <li key={`${section.title}-${item.label}`}>
                       <Link
                         href={item.href}
                         className={cn(
-                          "group flex items-center rounded-xl py-2.5 transition-all duration-300",
-                          item.active
-                            ? "bg-primary/95 text-white shadow-sm"
-                            : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900",
-                          isOpen ? "gap-2 px-3" : "justify-center px-2",
+                          "group flex items-center rounded-xl py-3 transition-all duration-[600ms]",
+                          item.active ? "bg-primary text-white" : "hover:bg-text-neutral-100",
+                          isOpen ? "gap-2 px-4" : "gap-2 px-4",
                         )}
                       >
                         <ReactSVG
                           src={item.icon}
                           className={cn(
                             "shrink-0 duration-500",
-                            item.label === "Dashboard" || item.label === "Settings"
-                              ? "group-hover:rotate-180"
-                              : "group-hover:rotate-y-180",
+                            item.label === "Dashboard" || item.label === "Settings" ? "group-hover:rotate-180" : "group-hover:rotate-y-180",
                           )}
                         />
-
                         {!item.hideWhenCollapsed && (
                           <span
                             className={cn(
-                              "overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-[600ms]",
+                              "overflow-hidden whitespace-nowrap transition-all duration-[600ms]",
                               isOpen ? "max-w-[220px] opacity-100 delay-250" : "max-w-0 opacity-0 delay-0",
                             )}
                           >
