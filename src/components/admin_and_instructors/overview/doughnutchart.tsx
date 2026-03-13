@@ -1,129 +1,112 @@
-"use client"
-import { useState } from 'react';
-import { useLayer } from 'react-laag'
-import { ReactSVG } from 'react-svg';
-import { Pie, PieChart, Tooltip } from 'recharts';
+"use client";
+
+import { useMemo, useState } from "react";
+import { useLayer } from "react-laag";
+import { ReactSVG } from "react-svg";
+import { Pie, PieChart, Tooltip } from "recharts";
 
 const data = [
-  { name: 'Corporate Branding & Design', value: 100, fill: '#FC61C7' },
-  { name: 'Back End Development', value: 86, fill: '#50A0FF' },
-  { name: 'Product Design', value: 75, fill: 'var(--color-primary)' },
-  { name: 'Full Stack Development', value: 95, fill: '#7F00D4' },
-  { name: 'Social Media Marketing', value: 30, fill: '#FF6200' },
-  { name: 'WordPress Development', value: 45, fill: '#040506' },
-  { name: 'Data Analytics', value: 55, fill: '#494949' },
-  { name: 'Front End Development', value: 80, fill: '#800002' }
+  { name: "Corporate Branding & Design", value: 100, fill: "#FC61C7" },
+  { name: "Back End Development", value: 86, fill: "#50A0FF" },
+  { name: "Product Design", value: 75, fill: "var(--color-primary)" },
+  { name: "Full Stack Development", value: 95, fill: "#7F00D4" },
+  { name: "Social Media Marketing", value: 30, fill: "#FF6200" },
+  { name: "WordPress Development", value: 45, fill: "#040506" },
+  { name: "Data Analytics", value: 55, fill: "#494949" },
+  { name: "Front End Development", value: 80, fill: "#800002" },
 ];
 
 const DoughnutChart = () => {
+  const [timeframe, setTimeframe] = useState("All time");
+  const [isTimeRangePopper, setIsTimeRangePopper] = useState(false);
 
-    const [isTimeRangePopper, setIsTimeRangePopper] = useState(false)
-    // const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
-    // const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
-
-     function closeTimeRangePopper() {
+  const closeTimeRangePopper = () => {
     setIsTimeRangePopper(false);
-  }
+  };
 
-     const {
-    renderLayer,
-    triggerProps,
-    layerProps,
-  } = useLayer({
-    isOpen:isTimeRangePopper,
-    onOutsideClick: closeTimeRangePopper, // close the menu when the user clicks outside
-    onDisappear: closeTimeRangePopper, // close the menu when the menu gets scrolled out of sight
-    overflowContainer: false, // keep the menu positioned inside the container
-    auto: true, // automatically find the best placement
-    placement: "bottom-start", // we prefer to place the menu "top-end"
-    triggerOffset: 12, // keep some distance to the trigger
-    containerOffset: 16, // give the menu some room to breath relative to the container
+  const topCourses = useMemo(() => [...data].sort((a, b) => b.value - a.value).slice(0, 5), []);
+
+  const { renderLayer, triggerProps, layerProps } = useLayer({
+    isOpen: isTimeRangePopper,
+    onOutsideClick: closeTimeRangePopper,
+    onDisappear: closeTimeRangePopper,
+    overflowContainer: false,
+    auto: true,
+    placement: "bottom-end",
+    triggerOffset: 8,
+    containerOffset: 12,
   });
 
-
   return (
-    <section className=' bg-white rounded-2xl p-3.5  space-y-4 flex flex-col   grow shrink' style={{ flexBasis: "calc((496 / (632 + 496)) * 100%)" }}
->
-        <div className='flex justify-between items-center'>
-            <p className='text-lg'>Course Engagement</p>
-            <button {...triggerProps} onClick={()=>setIsTimeRangePopper((_)=>!_)}  className='flex items-center gap-2 rounded-full border border-neutral-400 py-2 px-5 text-sm'>
-                <span>All time</span>
-                <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg' afterInjection={svg => svg.setAttribute('width', '14')} />
-            </button>
+    <section className="relative h-full rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <p className="text-lg font-semibold text-neutral-900">Course Engagement</p>
+          <p className="text-xs text-neutral-500">Top courses by participation volume</p>
         </div>
-        
-        <div className='flex items-center gap-5 w-auto grow'>
-            <PieChart className='basis-1/2 aspect-square mt-9' responsive>
-                <Tooltip />
-                <Pie
-                    data={data}
-                    innerRadius="70%"
-                    outerRadius="100%"
-                    stroke='none'
-                    // Corner radius is the rounded edge of each pie slice
-                    cornerRadius="7%"
-                    fill="#8884d8"
-                    // padding angle is the gap between each pie slice
-                    paddingAngle={3}
-                    dataKey="value"
-                    isAnimationActive
-                />
-            </PieChart>
 
-            <div className='text-sm grid gap-2 grow'>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-primary rounded
-                    
-                    -full'></span>
-                    <span>Product Design</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#800002] rounded-full'></span>
-                    <span>Front End Development</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#040506] rounded-full'></span>
-                    <span>WordPress Development</span>
-                    
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#494949] rounded-full'></span>
-                    <span>Data Analytics</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#7F00D4] rounded-full'></span>
-                    <span>Full Stack Development</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#50A0FF] rounded-full'></span>
-                    <span>Back End Development</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#FF6200] rounded-full'></span>
-                    <span>Social Media Marketing</span>
-                </p>
-                <p className='flex items-center gap-2'>
-                    <span className='flex h-3 w-3 bg-[#FC61C7] rounded-full'></span>
-                    <span>Corporate Branding & Design</span>
-                </p>
+        <button
+          {...triggerProps}
+          onClick={() => setIsTimeRangePopper((prev) => !prev)}
+          className="flex items-center gap-2 rounded-full border border-border bg-neutral-50 py-1.5 pl-3 pr-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100"
+        >
+          <span>{timeframe}</span>
+          <ReactSVG
+            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg"
+            afterInjection={(svg) => svg.setAttribute("width", "14")}
+          />
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 items-center gap-4 xl:grid-cols-2">
+        <div className="mx-auto h-[230px] w-[230px]">
+          <PieChart className="h-full w-full" responsive>
+            <Tooltip />
+            <Pie
+              data={data}
+              innerRadius="68%"
+              outerRadius="100%"
+              stroke="none"
+              cornerRadius="6%"
+              paddingAngle={3}
+              dataKey="value"
+              isAnimationActive
+            />
+          </PieChart>
+        </div>
+
+        <div className="space-y-2">
+          {topCourses.map((course) => (
+            <div key={course.name} className="flex items-center justify-between rounded-xl border border-border/70 bg-neutral-50/70 px-3 py-2">
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: course.fill }} />
+                <span className="truncate text-sm text-neutral-700">{course.name}</span>
+              </div>
+              <span className="text-xs font-semibold text-neutral-500">{course.value}%</span>
             </div>
+          ))}
         </div>
+      </div>
 
-{ isTimeRangePopper &&
-    renderLayer(<div className=' bg-white' {...layerProps}  
-         >
-            <ul className=' list-none p-3 text-neutral-700 text-[18px] font-medium'>
-                <li ><button className=' p-3.5 rounded-full' onClick={()=>closeTimeRangePopper()}>All time</button></li>
-                <li ><button className=' p-3.5 rounded-full' onClick={()=>closeTimeRangePopper()}>This week</button></li>
-                <li ><button className=' p-3.5 rounded-full' onClick={()=>closeTimeRangePopper()}>This month</button></li>
-                <li ><button className=' p-3.5 rounded-full' onClick={()=>closeTimeRangePopper()}>This year</button></li>
-            </ul>
-        </div>)
-        
-
-}
+      {isTimeRangePopper &&
+        renderLayer(
+          <div {...layerProps} className="z-50 min-w-[10rem] rounded-xl border border-border bg-white p-1 shadow-lg">
+            {["All time", "This week", "This month", "This year"].map((range) => (
+              <button
+                key={range}
+                className="w-full rounded-lg px-3 py-2 text-left text-sm text-neutral-700 transition-colors hover:bg-neutral-100"
+                onClick={() => {
+                  setTimeframe(range);
+                  closeTimeRangePopper();
+                }}
+              >
+                {range}
+              </button>
+            ))}
+          </div>,
+        )}
     </section>
-  )
-}
+  );
+};
 
-export default DoughnutChart
+export default DoughnutChart;

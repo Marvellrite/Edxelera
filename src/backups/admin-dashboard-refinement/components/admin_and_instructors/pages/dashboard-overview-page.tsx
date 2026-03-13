@@ -5,7 +5,6 @@ import BarChartComponent from "@/components/admin_and_instructors/overview/barch
 import DoughnutChart from "@/components/admin_and_instructors/overview/doughnutchart";
 import Performance from "@/components/admin_and_instructors/performance";
 import { useSidebar } from "@/context/sidebar.context";
-
 import { getDashboardMainPaneClass } from "./route-utils";
 
 const DashboardOverviewPage = () => {
@@ -13,20 +12,13 @@ const DashboardOverviewPage = () => {
 
   return (
     <section
-      className={`${getDashboardMainPaneClass(toggle)} mt-2 md:mt-4 flex flex-col gap-4 md:gap-5 overflow-y-auto no-scrollbar pb-2`}
+      className={`${getDashboardMainPaneClass(toggle)} mt-3 md:mt-5 flex flex-col gap-3 overflow-y-auto no-scrollbar`}
     >
       <Overview />
-
-      <div className="grid grid-cols-1 gap-4 xl:grid-cols-10 xl:gap-5">
-        <div className="xl:col-span-6">
-          <BarChartComponent />
-        </div>
-
-        <div className="xl:col-span-4">
-          <DoughnutChart />
-        </div>
+      <div className="flex flex-col gap-2.5 lg:flex-row">
+        <BarChartComponent />
+        <DoughnutChart />
       </div>
-
       <Performance />
     </section>
   );
