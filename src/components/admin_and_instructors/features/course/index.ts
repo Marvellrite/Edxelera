@@ -1,1 +1,1 @@
-export { default as SuspendCourseModal } from '@/components/features/course/modals/custom-modal'
+export { default as SuspendCourseModal } from './custom-modal'

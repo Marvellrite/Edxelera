@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { useForm, useWatch } from 'react-hook-form';
 import { SigninSchema, signinSchema } from '@/schemas/sign-in';
@@ -37,6 +37,7 @@ const Page: React.FC = () => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
 
   const router = useRouter();
   const { mutate: signUp, isPending } = useSignUp({
@@ -56,9 +57,14 @@ const Page: React.FC = () => {
 
   const onSubmit = (data: SigninSchema) => {
     const { confirm_password: _confirmPassword, ...payload } = data;
-    document.cookie = `pendingEmail=${encodeURIComponent(data.email)}; path=/; max-age=600`;
+    setPendingEmail(data.email);
     signUp(payload);
   };
+
+  useEffect(() => {
+    if (!pendingEmail) return;
+    document.cookie = `pendingEmail=${encodeURIComponent(pendingEmail)}; path=/; max-age=600`;
+  }, [pendingEmail]);
 
   const [fullname, email, password, confirm_password] = useWatch({
     control,

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { OtpInputGroup } from '@/components/auth/OtpInputGroup';
+import { OtpInputGroup } from '@/components/auth/otp-input-group';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';

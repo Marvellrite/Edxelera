@@ -22,7 +22,6 @@ export const usePrevNextButtons = (emblaApi: EmblaCarouselType) => {
   useEffect(() => {
     if (!emblaApi) return
 
-    onSelect()
     emblaApi
       .on('select', onSelect)
       .on('reInit', onSelect)

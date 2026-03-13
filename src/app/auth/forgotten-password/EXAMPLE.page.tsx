@@ -80,7 +80,7 @@ const ForgottenPasswordPage: React.FC = () => {
 
         <h1 className="text-5xl font-medium mt-10 mb-6 text-black">Reset Password</h1>
         <p className="text-gray-600 mb-6">
-          Enter your email address and we'll send you a link to reset your password.
+          Enter your email address and we&apos;ll send you a link to reset your password.
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)}>

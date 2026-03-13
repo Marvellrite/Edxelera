@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { ReactSVG } from 'react-svg';
 import {
    UseFormRegister,
@@ -8,19 +7,19 @@ import {
 } from 'react-hook-form';
 import FormError from './form-error';
 
-interface Profile_img_upload_props<T extends FieldValues> {
+interface ProfileImageUploadProps<T extends FieldValues> {
    profileImagePreview: string;
    register: UseFormRegister<T>;
    errors: FieldErrors<T>;
    name: Path<T>;
 }
 
-const Profile_img_upload = <T extends FieldValues>({
+const ProfileImageUpload = <T extends FieldValues>({
    profileImagePreview,
    register,
    errors,
    name,
-}: Profile_img_upload_props<T>) => {
+}: ProfileImageUploadProps<T>) => {
    return (
       <div>
          {!profileImagePreview ? (
@@ -59,4 +58,4 @@ const Profile_img_upload = <T extends FieldValues>({
    );
 };
 
-export default Profile_img_upload;
+export default ProfileImageUpload;

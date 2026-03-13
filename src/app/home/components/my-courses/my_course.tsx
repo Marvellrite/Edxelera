@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Course_status } from '../../my-courses/types';
+import { Course_status } from '@/types/my-courses/course-status';
 
 interface VideoCardProps {
    // Define any props if needed in the future

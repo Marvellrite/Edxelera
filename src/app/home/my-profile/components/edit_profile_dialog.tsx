@@ -10,7 +10,7 @@ import {
    DialogTrigger,
 } from '@/components/ui/dialog';
 import DatePicker from '@/components/data/date-picker';
-import Profile_img_upload from '@/components/auth/Profile-img-upload';
+import ProfileImageUpload from '@/components/auth/profile-image-upload';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EditProfileSchema, editProfileSchema } from '@/schemas/edit_profile';
@@ -127,7 +127,7 @@ const Edit_profile_dialog = () => {
                className=" rounded-lg mt-6"
                onSubmit={handleSubmit(onSubmit)}
             >
-               <Profile_img_upload
+               <ProfileImageUpload
                   profileImagePreview={profileImagePreview}
                   register={register}
                   name="profileImage"

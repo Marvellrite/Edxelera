@@ -2,8 +2,8 @@ import { useCallback, useState, useEffect } from 'react';
 import { EmblaCarouselType } from 'embla-carousel';
 
 export const useDotButtons = (emblApi: EmblaCarouselType) => {
-   const [selectedIndex, setSelectedIndex] = useState(0);
-   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+   const [selectedIndex, setSelectedIndex] = useState(() => emblApi?.selectedScrollSnap() ?? 0);
+   const [scrollSnaps, setScrollSnaps] = useState<number[]>(() => emblApi?.scrollSnapList() ?? []);
 
    const onSelect = useCallback(() => {
       if (!emblApi) return;
@@ -17,7 +17,6 @@ export const useDotButtons = (emblApi: EmblaCarouselType) => {
 
    useEffect(() => {
       if (!emblApi) return;
-      onInit();
       emblApi.on('reInit', onInit).on('reInit', onSelect).on('select', onSelect);
 
    }, [emblApi, onInit, onSelect]);

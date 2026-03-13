@@ -1,4 +1,4 @@
-import StarRating from '@/components/features/course/ratings';
+import StarRating from './ratings';
 
 const Review = () => {
    return (

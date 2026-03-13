@@ -7,13 +7,13 @@ export interface ApiErrorResponse {
   error?: string;
 }
 
-export interface ApiSuccessResponse<T = any> {
+export interface ApiSuccessResponse<T = unknown> {
   success: true;
   message?: string;
   data?: T;
 }
 
-export type ApiResponse<T = any> = ApiSuccessResponse<T> | ApiErrorResponse;
+export type ApiResponse<T = unknown> = ApiSuccessResponse<T> | ApiErrorResponse;
 
 // Helper function to handle API responses
 export const handleApiResponse = async (response: Response) => {

@@ -2,15 +2,6 @@ import '../styles/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { ToastContainer } from "react-toastify";
 import Provider from './providers';
-import { Google_Sans_Flex } from "next/font/google";
-
-
-
-const googleSansFlex = Google_Sans_Flex({
-  variable: "--font-google-sans-flex",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
    title: 'EdXeLera',
    manifest: '/manifest.json',
@@ -52,7 +43,7 @@ export default function RootLayout({
          </head>
 
          <body
-            className={`${googleSansFlex.className} antialiased `}
+            className="antialiased"
          >
             <Provider>
                {children}
