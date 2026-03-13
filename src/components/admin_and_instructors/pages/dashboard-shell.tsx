@@ -15,7 +15,10 @@ const DashboardShell = ({ children, segment }: DashboardShellProps) => {
   return (
     <ContextProvider>
       <section className="antialiased min-h-dvh p-3 md:p-4 grid grid-cols-1 grid-rows-[96px_minmax(0,1fr)] md:grid-cols-12 md:grid-rows-[96px_minmax(0,1fr)] gap-3 md:gap-4">
-        <Header />
+        <div className="col-span-1 h-24 md:col-span-12" aria-hidden="true" />
+        <div className="fixed left-3 right-3 top-3 z-40 md:left-4 md:right-4 md:top-4">
+          <Header />
+        </div>
 
         <main className="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-10 gap-3 md:gap-4 min-h-0 ">
           <Sidebar segment={segment} />

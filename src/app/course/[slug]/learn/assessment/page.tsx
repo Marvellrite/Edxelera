@@ -234,7 +234,7 @@ const Review = ({onClose}:{onClose:Dispatch<SetStateAction<boolean>>})=>{
                     </h1>
                         <p className="text-md font-normal text-left">Kindly write a review and rate the course</p>
 
-                        <div className=" max-[870px]:mx-auto max-w-[500px] max-[870px]:w-full "><StarRating gap={12} size={58} value={0}/></div>
+                        <div className=" max-[870px]:mx-auto max-w-[500px] max-[870px]:w-full "><Rating gap={12} size={58} value={0}/></div>
                         <Textarea minHeight={'88px'} className="" placeholder='Review' name='review' id='review'  />
 
                         <Button className=' h-[50px] w-full text-medium text-white rounded-[500px]' type="submit">Submit Review</Button>
