@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ReactSVG } from 'react-svg';
-import { BackArrow } from '@/components/icons/modified';
+import { ArrowLeft } from '@/components/icons/modified';
 
 const TermsOfServicePage = () => {
    const router = useRouter();
@@ -33,7 +33,7 @@ const TermsOfServicePage = () => {
                className="flex items-center justify-center p-0 w-fit text-white"
                aria-label="Go back"
             >
-               <BackArrow size={30}/>
+               <ArrowLeft size={30} />
             </button>
             <p
                className="text-base font-medium leading-6 text-white"

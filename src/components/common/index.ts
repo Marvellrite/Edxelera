@@ -5,3 +5,5 @@ export { default as Pagination } from "./pagination";
 export { default as Rating } from "./ratings";
 export { default as SearchInput } from "./search_input";
 export { default as ThemeToggler } from "./theme-toggler";
+
+export { StarRating } from "./ratings";

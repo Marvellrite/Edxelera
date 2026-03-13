@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { OtpInputGroup } from '@/components/auth/OtpInputGroup';
+import { OtpInputGroup } from '@/components/auth/otp-input-group';
 import Link from 'next/link';
 import { useResendOtp, useVerifyOtp } from '@/api/auth';
 import { toast } from 'react-toastify';

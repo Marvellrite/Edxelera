@@ -36,11 +36,11 @@ const AddCoursePreviewPage = ({ segment }: Props) => {
         <Link href={routes.list} className="text-black hover:underline">
           Course Management
         </Link>
-        <span className="text-neutral-700">//</span>
+        <span className="text-neutral-700">{'//'}</span>
         <Link href={routes.add} className="text-black hover:underline">
           Add New Course
         </Link>
-        <span className="text-neutral-700">//</span>
+        <span className="text-neutral-700">{'//'}</span>
         <span className="text-black">Preview</span>
       </div>
 

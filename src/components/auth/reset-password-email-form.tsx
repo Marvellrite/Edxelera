@@ -3,17 +3,11 @@
 import { useForm, useWatch } from 'react-hook-form';
 import { SendPassResetSchema, sendPassResetSchema  } from '@/schemas/send-password-reset.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
 // import OTPInputs from '@/components/auth/input-otp';
-import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
-import { toast } from "react-toastify";
 import { Button } from '@/components/ui/button';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Sms } from '@/components/icons/modified';
-import { useMutation } from '@tanstack/react-query';
-import { getOtp } from '@/api/auth';
 
 export default function ResetPassEmailForm () {
  
@@ -23,9 +17,6 @@ export default function ResetPassEmailForm () {
       formState: { errors: sendErrors },
       control
    } = useForm<SendPassResetSchema>({resolver: zodResolver(sendPassResetSchema)})
-
-
-   const router = useRouter();
 
 
    const email = useWatch({

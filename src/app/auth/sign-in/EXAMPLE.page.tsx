@@ -129,7 +129,7 @@ const SignInPage: React.FC = () => {
 
         <div className="mt-6 flex flex-col justify-between gap-5 text-center">
           <div className="text-medium">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Button className="p-0 font-medium h-fit" variant="link" asChild>
               <Link href={'/auth/sign-up'}>Sign Up</Link>
             </Button>

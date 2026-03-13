@@ -44,24 +44,9 @@ const CustomAlertDialog = ({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
 
-  const [isAnimating, setIsAnimating] = React.useState(false)
-  const [shouldRender, setShouldRender] = React.useState(false)
+  const isAnimating = isOpen
 
-  useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true)
-      // Small delay to ensure DOM is ready before animation
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsAnimating(true)
-        })
-      })
-    } else {
-      setIsAnimating(false)
-    }
-  }, [isOpen])
-
-  if (!shouldRender) return null
+  if (!isOpen) return null
 
   const handleAction = () => {
     onAction?.()
@@ -80,9 +65,6 @@ const CustomAlertDialog = ({
         isAnimating ? 'bg-black/50 opacity-100' : 'bg-black/0 opacity-0'
       }`}
       onClick={handleBackdropClick}
-      onTransitionEnd={() => {
-        if (!isAnimating) setShouldRender(false)
-      }}
     >
       <div className={`relative w-full max-w-[648px] mx-4 bg-white rounded-[20px] py-6 px-6 shadow-xl transition-all duration-500 ease-out ${
         isAnimating ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'

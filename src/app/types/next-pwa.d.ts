@@ -1,4 +1,4 @@
-declare module "next-pwa" {
+declare module 'next-pwa' {
   interface PWAConfig {
     dest: string;
     register?: boolean;
@@ -6,11 +6,11 @@ declare module "next-pwa" {
     disable?: boolean;
     buildExcludes?: (string | RegExp)[];
     fallbacks?: Record<string, string>;
-    runtimeCaching?: any[];
+    runtimeCaching?: unknown[];
     reloadOnOnline?: boolean;
   }
 
-  function nextPwa(config: PWAConfig): (nextConfig: any) => any;
+  function nextPwa(config: PWAConfig): <T extends object>(nextConfig: T) => T;
 
   export default nextPwa;
 }

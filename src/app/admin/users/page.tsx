@@ -101,9 +101,13 @@ const Page = () => {
         </table>
               <div className=' w-full flex justify-center'><Pagination/></div>
 
-              <Dialog isOpen={isEditUserOpen} title='Edit User' onClose={()=>{}}
-                footer={<div className=' w-full'><Button className=' w-full'>Save</Button></div>}>
-
+              <Dialog
+                isOpen={isEditUserOpen}
+                title='Edit User'
+                onClose={() => setIsEditUserOpen(false)}
+                footer={<div className=' w-full'><Button className=' w-full'>Save</Button></div>}
+              >
+                <div className='text-sm text-neutral-600'>User editing form coming soon.</div>
               </Dialog>
     </section>
   )

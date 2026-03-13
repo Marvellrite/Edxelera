@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import type { ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -34,7 +34,7 @@ const InvalidResetState = () => (
   </AuthShell>
 );
 
-const ResetPasswordPage: React.FC = () => {
+const ResetPasswordForm: React.FC = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const email = searchParams.get('email') || '';
@@ -175,5 +175,11 @@ const ResetPasswordPage: React.FC = () => {
     </AuthShell>
   );
 };
+
+const ResetPasswordPage = () => (
+  <Suspense fallback={<AuthShell><p className="text-center text-neutral-600">Loading reset form...</p></AuthShell>}>
+    <ResetPasswordForm />
+  </Suspense>
+);
 
 export default ResetPasswordPage;

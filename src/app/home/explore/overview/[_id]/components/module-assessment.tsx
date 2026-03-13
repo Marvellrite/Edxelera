@@ -7,7 +7,7 @@ import { QuizType } from '../types'
 import { QuizAnswers } from '../types'
 import SubmitQuizDialog from '@/components/features/course/quiz/submit-quiz-dialog'
 import { ReactSVG } from 'react-svg'
-import Textarea from '@/components/data/textarea-noHook'
+import Textarea from '@/components/data/textarea-no-hook'
 import { StarRating } from '@/components/common'
 
 const ModuleAssessment = () => {

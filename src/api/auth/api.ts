@@ -29,6 +29,7 @@ export interface AuthResponse {
 export interface VerifyOtpPayload {
   email: string;
   otp: string;
+  otp_type?: string;
 }
 
 export interface ResetPasswordPayload {
