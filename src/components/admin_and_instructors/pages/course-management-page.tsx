@@ -11,11 +11,20 @@ import { Button } from "@/components/admin_and_instructors/ui/button";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { ArrowDownLinear } from "@/components/admin_and_instructors/icons/modified";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
+
 import { DashboardSegment, getCourseRoutes, getDashboardMainPaneClass } from "./route-utils";
 
 type Props = {
   segment: DashboardSegment;
 };
+
+const statusStyles: Record<string, string> = {
+  Live: "bg-success/15 text-success-foreground border border-success/30",
+  Draft: "bg-neutral-100 text-neutral-700 border border-neutral-300",
+  Suspended: "bg-danger/15 text-danger-foreground border border-danger/35",
+};
+
+const formatCellValue = (value: string | number) => (value === "--" ? "Not available" : value);
 
 const CourseManagementPage = ({ segment }: Props) => {
   const { toggle } = useSidebar();
@@ -24,112 +33,113 @@ const CourseManagementPage = ({ segment }: Props) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   return (
-    <section
-      className={`${getDashboardMainPaneClass(toggle)} mt-3 md:mt-5 space-y-4 md:space-y-6 rounded-[20px] bg-white p-4 md:p-6 shadow-sm overflow-y-auto no-scrollbar`}
-    >
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-lg font-normal text-black">Course Management</h1>
-
-        <Button asChild className="flex items-center gap-2 text-white font-normal transition-colors w-full sm:w-auto">
-          <Link href={routes.add}>
-            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340444/repo-images/public/icons/add.svg" />
-            <span>Add New Course</span>
-          </Link>
-        </Button>
-      </div>
-
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <Button className="bg-primary text-white rounded-full px-6 w-full sm:w-auto">
-          <ArrowDownLinear className="w-3.5 h-3.5" />
-          <span>Export CSV</span>
-        </Button>
-
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1 lg:max-w-2xl">
-          <div className="border border-neutral-400 flex items-center gap-3 rounded-full py-2.5 px-4 h-11 flex-1 min-w-0">
-            <Search className="w-5 h-5 text-neutral-600" />
-            <input
-              type="search"
-              placeholder="Search"
-              className="h-full w-full outline-none text-base text-neutral-600 placeholder:text-neutral-600"
-            />
+    <section className={`${getDashboardMainPaneClass(toggle)} mt-2 md:mt-4 space-y-4 md:space-y-5 overflow-y-auto no-scrollbar pb-2`}>
+      <header className="rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">Courses</p>
+            <h1 className="mt-1 text-2xl font-semibold text-neutral-900">Course Management</h1>
+            <p className="mt-1 text-sm text-neutral-500">Track course lifecycle, enrollment performance, and publishing status.</p>
           </div>
 
-          <button className="flex items-center justify-center gap-1 border border-neutral-400 rounded-full py-2.5 px-4 h-11 text-sm whitespace-nowrap hover:bg-neutral-50 transition-colors">
-            <span className="text-neutral-900">Sort by</span>
-            <ChevronDown className="w-3 h-3 text-neutral-900" />
-          </button>
-
-          <button className="flex items-center justify-center gap-1 border border-neutral-400 rounded-full py-2.5 px-4 h-11 text-sm whitespace-nowrap hover:bg-neutral-50 transition-colors">
-            <span className="text-neutral-900">Filter</span>
-            <SlidersHorizontal className="w-3 h-3 text-neutral-900" />
-          </button>
+          <Button asChild className="h-10 w-full rounded-full px-4 text-white sm:w-auto">
+            <Link href={routes.add}>
+              <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340444/repo-images/public/icons/add.svg" />
+              <span>Add New Course</span>
+            </Link>
+          </Button>
         </div>
-      </div>
+      </header>
 
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[900px] border-collapse">
-          <thead>
-            <tr className="border-b border-neutral-50">
-              <th className="text-left py-4 px-2 text-base font-bold text-black">#</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Course ID</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Course title</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Status</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Enrolment</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Price</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Date added</th>
-              <th className="text-left py-4 px-2 text-base font-bold text-black">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courses.map((course, index) => (
-              <tr key={`course-${index}`} className="border-b border-neutral-50">
-                <td className="py-4 px-2 text-base text-neutral-900">{index + 1}</td>
-                <td className="py-4 px-2 text-base text-neutral-900">{course.id}</td>
-                <td className="py-4 px-2 text-base text-neutral-900">{course.title}</td>
-                <td className="py-4 px-2">
-                  {course.status === "Live" && (
-                    <Badge className="bg-success text-success-foreground rounded-md px-3 py-1 text-base font-normal hover:bg-success">
-                      Live
-                    </Badge>
-                  )}
-                  {course.status === "Suspended" && (
-                    <Badge className="bg-danger text-danger-foreground rounded-md px-3 py-1 text-base font-normal hover:bg-danger">
-                      Suspended
-                    </Badge>
-                  )}
-                  {course.status === "Draft" && (
-                    <Badge className="bg-neutral-200 text-draft-foreground rounded-md px-3 py-1 text-base font-normal hover:bg-neutral-200">
-                      Draft
-                    </Badge>
-                  )}
-                </td>
-                <td className="py-4 px-2 text-base text-neutral-900">{course.enrollment || "--"}</td>
-                <td className="py-4 px-2 text-base text-neutral-900">{course.price || "--"}</td>
-                <td className="py-4 px-2 text-base text-neutral-900">{course.dateAdded || "--"}</td>
-                <td className="py-4 px-2">
-                  <div className="flex items-center gap-5">
-                    <button
-                      className="text-neutral-800 hover:text-neutral-900 transition-colors"
-                      onClick={() => setIsSuspendModalOpen(true)}
-                    >
-                      <MinusCircle className="w-4.5 h-4.5" />
-                    </button>
+      <div className="rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
+        <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <Button className="h-10 rounded-full border border-border bg-neutral-900 px-4 text-white hover:bg-neutral-800">
+              <ArrowDownLinear className="h-3.5 w-3.5" />
+              <span>Export CSV</span>
+            </Button>
+            <p className="text-xs text-neutral-500">Last export synced moments ago</p>
+          </div>
 
-                    <button className="text-neutral-800 hover:text-neutral-900 transition-colors">
-                      <Edit2 className="w-4 h-4.5" />
-                    </button>
-                    <button
-                      className="text-neutral-800 hover:text-neutral-900 transition-colors"
-                      onClick={() => setIsDeleteModalOpen(true)}
-                    >
-                      <Trash2 className="w-4 h-4.5" />
-                    </button>
-                  </div>
-                </td>
+          <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center xl:max-w-2xl">
+            <div className="flex h-10 flex-1 min-w-0 items-center gap-2 rounded-full border border-border px-3">
+              <Search className="h-4 w-4 text-neutral-500" />
+              <input
+                type="search"
+                placeholder="Search courses"
+                className="h-full w-full bg-transparent text-sm text-neutral-700 outline-none placeholder:text-neutral-400"
+              />
+            </div>
+
+            <button className="flex h-10 items-center justify-center gap-1 rounded-full border border-border bg-white px-4 text-sm text-neutral-700 transition-colors hover:bg-neutral-50">
+              <span>Sort by</span>
+              <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+
+            <button className="flex h-10 items-center justify-center gap-1 rounded-full border border-border bg-white px-4 text-sm text-neutral-700 transition-colors hover:bg-neutral-50">
+              <span>Filter</span>
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-4 overflow-x-auto rounded-xl border border-border/70">
+          <table className="w-full min-w-[940px] table-auto text-sm">
+            <thead>
+              <tr className="bg-neutral-50/80 text-left text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
+                <th className="px-4 py-3">#</th>
+                <th className="px-4 py-3">Course ID</th>
+                <th className="px-4 py-3">Course title</th>
+                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3 text-right">Enrolment</th>
+                <th className="px-4 py-3 text-right">Price</th>
+                <th className="px-4 py-3">Date added</th>
+                <th className="px-4 py-3 text-right">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {courses.map((course, index) => (
+                <tr key={`course-${index}`} className="border-t border-border/70 text-neutral-700 transition-colors hover:bg-neutral-50/70">
+                  <td className="px-4 py-3.5 text-neutral-500">{index + 1}</td>
+                  <td className="px-4 py-3.5 font-medium text-neutral-700">{course.id}</td>
+                  <td className="max-w-[260px] px-4 py-3.5">
+                    <p className="truncate font-medium text-neutral-900">{course.title}</p>
+                  </td>
+                  <td className="px-4 py-3.5">
+                    <Badge className={`rounded-full px-2.5 py-1 text-xs font-semibold ${statusStyles[course.status]}`}>
+                      {course.status}
+                    </Badge>
+                  </td>
+                  <td className="px-4 py-3.5 text-right font-medium">{formatCellValue(course.enrollment)}</td>
+                  <td className="px-4 py-3.5 text-right font-medium">{formatCellValue(course.price)}</td>
+                  <td className="px-4 py-3.5 text-neutral-600">{formatCellValue(course.dateAdded)}</td>
+                  <td className="px-4 py-3.5">
+                    <div className="flex items-center justify-end gap-1">
+                      <button
+                        className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+                        onClick={() => setIsSuspendModalOpen(true)}
+                        aria-label="Suspend course"
+                      >
+                        <MinusCircle className="h-4 w-4" />
+                      </button>
+
+                      <button className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900" aria-label="Edit course">
+                        <Edit2 className="h-4 w-4" />
+                      </button>
+                      <button
+                        className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-danger/10 hover:text-danger-foreground"
+                        onClick={() => setIsDeleteModalOpen(true)}
+                        aria-label="Delete course"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <CustomAlertDialog
