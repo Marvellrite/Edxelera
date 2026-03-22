@@ -38,10 +38,10 @@ const stats: StatCard[] = [
   },
   {
     title: "Total Revenue",
-    value: "NGN 900,400",
+    value: "₦900,400",
     change: "+4.9%",
     trend: "up",
-    previousLabel: "NGN 840,000",
+    previousLabel: "₦840,000",
     icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340541/repo-images/public/icons/money-receive.svg",
   },
 ];
@@ -49,19 +49,19 @@ const stats: StatCard[] = [
 const Overview = () => {
   return (
     <section className="space-y-4 md:space-y-5">
-      <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
+      <header className="admin-panel rounded-2xl px-4 py-4 md:px-5 md:py-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
             <p className="admin-eyebrow text-xs font-semibold uppercase">Admin Dashboard</p>
             <h1 className="admin-title mt-1 text-2xl font-semibold md:text-[1.75rem]">Overview</h1>
-            <p className="admin-muted admin-page-lead mt-1.5">
+            <p className="admin-muted mt-1.5 max-w-2xl text-sm leading-6">
               Welcome back. Here&apos;s a quick snapshot of users, learning activity, and revenue performance.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 lg:justify-end">
-            <span className="admin-chip admin-chip--compact">Last 30 days</span>
-            <span className="admin-chip admin-chip--compact admin-chip--ghost">Updated 8 mins ago</span>
+          <div className="admin-panel-subtle rounded-xl px-3 py-2.5 text-right">
+            <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Reporting window</p>
+            <p className="admin-title mt-1 text-sm font-semibold">Last 30 days</p>
           </div>
         </div>
       </header>
@@ -70,17 +70,13 @@ const Overview = () => {
         {stats.map((item) => (
           <article
             key={item.title}
-            className="admin-panel admin-stat-card group rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
+            className="admin-panel admin-stat-card group rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5 md:p-5"
           >
-            <div className="admin-stat-card__header">
-              <div className="space-y-2">
-                <p className="admin-muted text-sm font-semibold">{item.title}</p>
-                {/* <p className="admin-soft text-xs">Compared with the previous reporting window</p> */}
-              </div>
-
+            <div className="flex items-center justify-between gap-3">
+              <p className="admin-muted text-sm font-semibold">{item.title}</p>
               <ReactSVG
                 src={item.icon}
-                className="admin-stat-card__icon shrink-0"
+                className="admin-panel-subtle flex rounded-full p-2 transition-colors group-hover:bg-[rgba(238,244,255,0.85)]"
                 afterInjection={(svg) => {
                   svg.setAttribute("width", "16");
                   svg.setAttribute("height", "16");
@@ -88,17 +84,22 @@ const Overview = () => {
               />
             </div>
 
-            <div className="admin-stat-card__value-row">
+            <div className="mt-7 flex items-end gap-2">
               <h3 className="admin-title text-3xl font-semibold leading-none tracking-tight md:text-[2rem]">{item.value}</h3>
-              <small className={`admin-stat-card__delta ${item.trend === "up" ? "is-up" : "is-down"}`}>{item.change}</small>
+              <small
+                className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${
+                  item.trend === "up"
+                    ? "bg-[rgba(47,79,255,0.08)] text-[var(--primary-700)]"
+                    : "bg-[rgba(237,28,36,0.08)] text-[var(--secondary-700)]"
+                }`}
+              >
+                {item.change}
+              </small>
             </div>
 
-            <div className="admin-stat-card__meta">
-              <p className="admin-soft text-xs">
-                Previous: <span className="admin-text font-semibold">{item.previousLabel}</span>
-              </p>
-              <p className="admin-soft text-xs font-medium">{item.trend === "up" ? "Trending up" : "Needs attention"}</p>
-            </div>
+            <p className="admin-soft mt-4 text-xs">
+              Last month: <span className="admin-text font-semibold">{item.previousLabel}</span>
+            </p>
           </article>
         ))}
       </div>

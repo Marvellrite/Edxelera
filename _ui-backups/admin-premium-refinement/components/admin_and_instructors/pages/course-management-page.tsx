@@ -7,6 +7,7 @@ import { Search, ChevronDown, SlidersHorizontal, MinusCircle, Edit2, Trash2 } fr
 
 import { useSidebar } from "@/context/sidebar.context";
 import { courses } from "@/mockdata/course-management";
+import { Button } from "@/components/admin_and_instructors/ui/button";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { ArrowDownLinear } from "@/components/admin_and_instructors/icons/modified";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
@@ -33,52 +34,48 @@ const CourseManagementPage = ({ segment }: Props) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   return (
-    <section className={`${getDashboardMainPaneClass(toggle)} mt-2 overflow-y-auto pb-2 md:mt-4 no-scrollbar`}>
+    <section className={`${getDashboardMainPaneClass(toggle)} mt-2 md:mt-4 overflow-y-auto no-scrollbar pb-2`}>
       <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
-        <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
+        <header className="admin-panel rounded-2xl p-4 md:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
+            <div>
               <p className="admin-eyebrow text-xs font-semibold uppercase tracking-[0.14em]">Courses</p>
               <h1 className="admin-title mt-1 text-2xl font-semibold">Course Management</h1>
-              <p className="admin-muted admin-page-lead mt-1.5">
-                Track course lifecycle, enrollment performance, and publishing status.
-              </p>
+              <p className="admin-muted mt-1 max-w-2xl text-sm leading-6">Track course lifecycle, enrollment performance, and publishing status.</p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 lg:justify-end">
-              <span className="admin-chip admin-chip--compact">All Catalog</span>
-              <Link href={routes.add} className="admin-chip admin-chip--dark h-10 w-full px-4 text-white sm:w-auto">
+            <Button asChild className="h-10 w-full rounded-full px-4 text-white shadow-[0_10px_20px_rgba(0,17,70,0.18)] sm:w-auto">
+              <Link href={routes.add}>
                 <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340444/repo-images/public/icons/add.svg" />
                 <span>Add New Course</span>
               </Link>
-            </div>
+            </Button>
           </div>
         </header>
 
         <div className="admin-panel rounded-2xl p-4 md:p-5">
-          <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <button className="admin-chip admin-chip--dark h-10 px-4 text-white" type="button">
+          <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <Button className="h-10 rounded-full border border-[rgba(0,17,70,0.12)] bg-neutral-900 px-4 text-white hover:bg-neutral-800">
                 <ArrowDownLinear className="h-3.5 w-3.5" />
                 <span>Export CSV</span>
-              </button>
+              </Button>
 
-              {/* <div className="admin-panel-subtle rounded-2xl px-4 py-3">
+              {/* <div className="sm:pl-1">
                 <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Sync status</p>
-                <p className="admin-title mt-1 text-sm font-semibold">Catalog synced</p>
-                <p className="admin-muted mt-1 text-xs">Last export completed moments ago</p>
-              </div> */}
-            </div>
+                <p className="admin-muted mt-1 text-xs">Last export synced moments ago</p>
+              </div>
+            </div> */}
 
-            <div className="flex w-full flex-col gap-2 xl:max-w-3xl">
-              {/* <div className="flex items-center justify-between gap-3">
-                <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Controls</p>
+            <div className="flex w-full flex-col gap-2 xl:max-w-2xl">
+              <div className="flex items-center justify-between gap-3">
+                {/* <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Controls</p> */}
                 <p className="admin-muted text-xs">Search, sort, and filter the course catalog.</p>
-              </div> */}
+              </div>
 
-              <div className="flex w-full flex-col gap-2 lg:flex-row lg:items-center">
-                <div className="admin-input-shell min-w-0 flex-1">
-                  <Search className="admin-muted h-4 w-4 shrink-0" />
+              <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="admin-panel-subtle flex h-11 min-w-0 flex-1 items-center gap-2 rounded-full px-3">
+                  <Search className="admin-muted h-4 w-4" />
                   <input
                     type="search"
                     placeholder="Search courses"
@@ -86,12 +83,12 @@ const CourseManagementPage = ({ segment }: Props) => {
                   />
                 </div>
 
-                <button className="admin-chip admin-chip--ghost lg:min-w-[116px]">
+                <button className="admin-panel-subtle admin-text flex h-11 items-center justify-center gap-1 rounded-full px-4 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.9)]">
                   <span>Sort by</span>
                   <ChevronDown className="h-3.5 w-3.5" />
                 </button>
 
-                <button className="admin-chip admin-chip--ghost lg:min-w-[116px]">
+                <button className="admin-panel-subtle admin-text flex h-11 items-center justify-center gap-1 rounded-full px-4 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.9)]">
                   <span>Filter</span>
                   <SlidersHorizontal className="h-3.5 w-3.5" />
                 </button>
@@ -99,7 +96,7 @@ const CourseManagementPage = ({ segment }: Props) => {
             </div>
           </div>
 
-          <div className="admin-table-shell admin-table-shell--spacious mt-5">
+          <div className="admin-table-shell mt-4">
             <table className="admin-data-table min-w-[940px] table-auto text-sm">
               <thead>
                 <tr className="text-left text-xs font-semibold uppercase tracking-[0.12em]">
@@ -119,34 +116,35 @@ const CourseManagementPage = ({ segment }: Props) => {
                     <td className="admin-muted px-4 py-4 font-semibold">{index + 1}</td>
                     <td className="admin-text px-4 py-4 font-medium">{course.id}</td>
                     <td className="max-w-[320px] px-4 py-4">
-                      <p className="admin-row-title truncate">{course.title}</p>
-                      <p className="admin-row-subtext mt-1">
-                        {course.status === "Draft" ? "Pending publishing details" : "Visible in the learning catalog"}
-                      </p>
+                      <p className="admin-title truncate font-semibold">{course.title}</p>
+                      <p className="admin-soft mt-1 text-xs">{course.status === "Draft" ? "Pending publishing details" : "Visible in the learning catalog"}</p>
                     </td>
                     <td className="px-4 py-4">
                       <Badge className={cn("admin-status-badge px-2.5 py-1 text-xs font-semibold", statusStyles[course.status])}>
                         {course.status}
                       </Badge>
                     </td>
-                    <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{formatCellValue(course.enrollment)}</td>
-                    <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{formatCellValue(course.price)}</td>
+                    <td className="admin-text px-4 py-4 text-right font-medium">{formatCellValue(course.enrollment)}</td>
+                    <td className="admin-text px-4 py-4 text-right font-medium">{formatCellValue(course.price)}</td>
                     <td className="admin-muted px-4 py-4">{formatCellValue(course.dateAdded)}</td>
                     <td className="px-4 py-4">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-1">
                         <button
-                          className="admin-icon-button"
+                          className="admin-muted rounded-xl p-2 transition-colors hover:bg-[rgba(238,244,255,0.9)] hover:text-[var(--admin-text-strong)]"
                           onClick={() => setIsSuspendModalOpen(true)}
                           aria-label="Suspend course"
                         >
                           <MinusCircle className="h-4 w-4" />
                         </button>
 
-                        <button className="admin-icon-button" aria-label="Edit course">
+                        <button
+                          className="admin-muted rounded-xl p-2 transition-colors hover:bg-[rgba(238,244,255,0.9)] hover:text-[var(--admin-text-strong)]"
+                          aria-label="Edit course"
+                        >
                           <Edit2 className="h-4 w-4" />
                         </button>
                         <button
-                          className="admin-icon-button admin-icon-button--danger"
+                          className="admin-muted rounded-xl p-2 transition-colors hover:bg-[rgba(237,28,36,0.08)] hover:text-[var(--secondary-700)]"
                           onClick={() => setIsDeleteModalOpen(true)}
                           aria-label="Delete course"
                         >

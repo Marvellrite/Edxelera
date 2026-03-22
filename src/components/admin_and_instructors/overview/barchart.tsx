@@ -15,14 +15,14 @@ const data = [
 
 const BarChartComponent = () => {
   return (
-    <section className="admin-panel h-full rounded-2xl p-4 md:p-5">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+    <section className="admin-panel admin-chart-card h-full rounded-2xl">
+      <div className="admin-chart-card__header">
         <div>
           <p className="admin-title text-lg font-semibold">User Enrollment</p>
           <p className="admin-muted text-xs">Weekly trend across all active courses</p>
         </div>
 
-        <button className="admin-panel-subtle admin-text rounded-full px-3 py-1.5 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.92)]">
+        <button className="admin-chip admin-chip--compact">
           <span className="flex items-center gap-2">
             This Week
             <ReactSVG
@@ -33,26 +33,28 @@ const BarChartComponent = () => {
         </button>
       </div>
 
-      <div className="h-[280px] w-full md:h-[320px]">
-        <BarChart
-          className="h-full w-full"
-          responsive
-          data={data}
-          margin={{ top: 8, right: 8, left: 8, bottom: 4 }}
-        >
-          <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="rgba(148, 163, 184, 0.25)" />
-          <XAxis dataKey="name" style={{ fontSize: 12, fill: "var(--admin-text-muted)" }} tickLine={false} axisLine={false} />
-          <YAxis
-            width={30}
-            axisLine={false}
-            tickLine={false}
-            allowDecimals={false}
-            ticks={[0, 200, 400, 600, 800, 1000]}
-            style={{ fontSize: 12, fill: "var(--admin-text-muted)" }}
-          />
-          <Tooltip cursor={{ fill: "rgba(0,0,0,0.03)" }} />
-          <Bar dataKey="uv" fill="var(--color-primary)" radius={[8, 8, 0, 0]} barSize={34} isAnimationActive />
-        </BarChart>
+      <div className="admin-chart-surface">
+        <div className="h-[280px] w-full md:h-[320px]">
+          <BarChart
+            className="h-full w-full"
+            responsive
+            data={data}
+            margin={{ top: 8, right: 8, left: 2, bottom: 0 }}
+          >
+            <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="rgba(148, 163, 184, 0.22)" />
+            <XAxis dataKey="name" style={{ fontSize: 12, fill: "var(--admin-text-muted)" }} tickLine={false} axisLine={false} />
+            <YAxis
+              width={30}
+              axisLine={false}
+              tickLine={false}
+              allowDecimals={false}
+              ticks={[0, 200, 400, 600, 800, 1000]}
+              style={{ fontSize: 12, fill: "var(--admin-text-muted)" }}
+            />
+            <Tooltip cursor={{ fill: "rgba(0, 17, 70, 0.03)" }} />
+            <Bar dataKey="uv" fill="var(--color-primary)" radius={[8, 8, 0, 0]} barSize={34} isAnimationActive />
+          </BarChart>
+        </div>
       </div>
     </section>
   );

@@ -38,8 +38,8 @@ const DoughnutChart = () => {
   });
 
   return (
-    <section className="admin-panel admin-chart-card relative h-full rounded-2xl">
-      <div className="admin-chart-card__header">
+    <section className="admin-panel relative h-full rounded-2xl p-4 md:p-5">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="admin-title text-lg font-semibold">Course Engagement</p>
           <p className="admin-muted text-xs">Top courses by participation volume</p>
@@ -48,7 +48,7 @@ const DoughnutChart = () => {
         <button
           {...triggerProps}
           onClick={() => setIsTimeRangePopper((prev) => !prev)}
-          className="admin-chip admin-chip--compact"
+          className="admin-panel-subtle admin-text flex items-center gap-2 rounded-full py-1.5 pl-3 pr-2 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.92)]"
         >
           <span>{timeframe}</span>
           <ReactSVG
@@ -58,46 +58,39 @@ const DoughnutChart = () => {
         </button>
       </div>
 
-      <div className="admin-chart-surface">
-        <div className="admin-engagement-layout">
-          <div className="admin-engagement-chart">
-            <div className="admin-engagement-chart__frame">
-              <PieChart className="h-full w-full" responsive>
-                <Tooltip />
-                <Pie
-                  data={data}
-                  innerRadius="68%"
-                  outerRadius="100%"
-                  stroke="none"
-                  cornerRadius="6%"
-                  paddingAngle={3}
-                  dataKey="value"
-                  isAnimationActive
-                />
-              </PieChart>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 items-center gap-4 xl:grid-cols-2">
+        <div className="mx-auto h-[230px] w-[230px]">
+          <PieChart className="h-full w-full" responsive>
+            <Tooltip />
+            <Pie
+              data={data}
+              innerRadius="68%"
+              outerRadius="100%"
+              stroke="none"
+              cornerRadius="6%"
+              paddingAngle={3}
+              dataKey="value"
+              isAnimationActive
+            />
+          </PieChart>
+        </div>
 
-          <div className="admin-engagement-legend">
-            {topCourses.map((course) => (
-              <div key={course.name} className="admin-engagement-legend__item">
-                <div className="admin-engagement-legend__label">
-                  <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: course.fill }} />
-                  <span className="admin-text admin-engagement-legend__name text-sm font-medium">{course.name}</span>
-                </div>
-                <span className="admin-muted shrink-0 text-xs font-semibold tabular-nums">{course.value}%</span>
+        <div className="space-y-2">
+          {topCourses.map((course) => (
+            <div key={course.name} className="admin-panel-subtle flex items-center justify-between rounded-xl px-3 py-2">
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: course.fill }} />
+                <span className="admin-text truncate text-sm font-medium">{course.name}</span>
               </div>
-            ))}
-          </div>
+              <span className="admin-muted text-xs font-semibold">{course.value}%</span>
+            </div>
+          ))}
         </div>
       </div>
 
       {isTimeRangePopper &&
         renderLayer(
-          <div
-            {...layerProps}
-            className="z-50 min-w-[10rem] rounded-xl border border-[rgba(201,211,223,0.85)] bg-white p-1 shadow-[0_18px_40px_rgba(12,28,63,0.12)]"
-          >
+          <div {...layerProps} className="z-50 min-w-[10rem] rounded-xl border border-[rgba(201,211,223,0.85)] bg-white p-1 shadow-lg">
             {["All time", "This week", "This month", "This year"].map((range) => (
               <button
                 key={range}

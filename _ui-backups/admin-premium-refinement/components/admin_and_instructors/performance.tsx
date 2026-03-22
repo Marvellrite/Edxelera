@@ -9,19 +9,14 @@ const currencyFormatter = new Intl.NumberFormat("en-NG", {
 const Performance = () => {
   return (
     <section className="admin-panel rounded-2xl p-4 md:p-5">
-      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="admin-title text-lg font-semibold">Top Performing Courses</p>
           <p className="admin-muted text-xs">Revenue and enrollment performance across active courses</p>
         </div>
-
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="admin-chip admin-chip--compact">All time</span>
-          <span className="admin-chip admin-chip--compact admin-chip--ghost">Ranked by revenue</span>
-        </div>
       </div>
 
-      <div className="admin-table-shell admin-table-shell--spacious">
+      <div className="admin-table-shell">
         <table className="admin-data-table min-w-[760px] table-auto text-sm">
           <thead>
             <tr className="text-left uppercase tracking-wider">
@@ -41,9 +36,9 @@ const Performance = () => {
                 <td className="admin-muted px-4 py-4 font-semibold">{index + 1}</td>
                 <td className="admin-text px-4 py-4 font-medium">{course.courseId}</td>
                 <td className="px-4 py-4">
-                  <div className="max-w-[320px]">
-                    <p className="admin-row-title">{course.courseTitle}</p>
-                    <p className="admin-row-subtext mt-1">Active course performance snapshot</p>
+                  <div>
+                    <p className="admin-title font-semibold">{course.courseTitle}</p>
+                    <p className="admin-soft mt-1 text-xs">Active course performance snapshot</p>
                   </div>
                 </td>
                 <td className="px-4 py-3.5">
@@ -51,9 +46,9 @@ const Performance = () => {
                     {course.status}
                   </span>
                 </td>
-                <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{course.enrollment.toLocaleString()}</td>
-                <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{currencyFormatter.format(course.price)}</td>
-                <td className="admin-title px-4 py-4 text-right font-semibold tabular-nums">
+                <td className="admin-text px-4 py-4 text-right font-medium">{course.enrollment.toLocaleString()}</td>
+                <td className="admin-text px-4 py-4 text-right font-medium">{currencyFormatter.format(course.price)}</td>
+                <td className="admin-title px-4 py-4 text-right font-semibold">
                   {currencyFormatter.format(course.totalRevenue)}
                 </td>
               </tr>
