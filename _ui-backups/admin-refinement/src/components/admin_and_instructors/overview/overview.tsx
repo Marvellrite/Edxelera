@@ -49,34 +49,34 @@ const stats: StatCard[] = [
 const Overview = () => {
   return (
     <section className="space-y-4 md:space-y-5">
-      <header className="admin-panel rounded-2xl px-4 py-4 md:px-5 md:py-5">
+      <header className="rounded-2xl border border-border/70 bg-white px-4 py-4 shadow-sm md:px-5 md:py-5">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="admin-eyebrow text-xs font-semibold uppercase">Admin Dashboard</p>
-            <h1 className="admin-title mt-1 text-2xl font-semibold md:text-[1.75rem]">Overview</h1>
-            <p className="admin-muted mt-1.5 max-w-2xl text-sm leading-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">Admin Dashboard</p>
+            <h1 className="mt-1 text-2xl font-semibold text-neutral-900 md:text-[1.75rem]">Overview</h1>
+            <p className="mt-1.5 text-sm text-neutral-500">
               Welcome back. Here&apos;s a quick snapshot of users, learning activity, and revenue performance.
             </p>
           </div>
 
-          <div className="admin-panel-subtle rounded-xl px-3 py-2.5 text-right">
-            <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Reporting window</p>
-            <p className="admin-title mt-1 text-sm font-semibold">Last 30 days</p>
+          <div className="rounded-xl border border-border bg-neutral-50 px-3 py-2 text-right">
+            <p className="text-xs uppercase tracking-wide text-neutral-500">Reporting window</p>
+            <p className="text-sm font-medium text-neutral-800">Last 30 days</p>
           </div>
         </div>
       </header>
 
-      <div className="admin-stat-grid">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 2xl:grid-cols-4 md:gap-4">
         {stats.map((item) => (
           <article
             key={item.title}
-            className="admin-panel admin-stat-card group rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5 md:p-5"
+            className="group rounded-2xl border border-border/70 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md md:p-5"
           >
             <div className="flex items-center justify-between gap-3">
-              <p className="admin-muted text-sm font-semibold">{item.title}</p>
+              <p className="text-sm font-medium text-neutral-600">{item.title}</p>
               <ReactSVG
                 src={item.icon}
-                className="admin-panel-subtle flex rounded-full p-2 transition-colors group-hover:bg-[rgba(238,244,255,0.85)]"
+                className="flex rounded-full border border-border bg-neutral-50 p-2 transition-colors group-hover:bg-neutral-100"
                 afterInjection={(svg) => {
                   svg.setAttribute("width", "16");
                   svg.setAttribute("height", "16");
@@ -84,21 +84,19 @@ const Overview = () => {
               />
             </div>
 
-            <div className="mt-7 flex items-end gap-2">
-              <h3 className="admin-title text-3xl font-semibold leading-none tracking-tight md:text-[2rem]">{item.value}</h3>
+            <div className="mt-6 flex items-end gap-2">
+              <h3 className="text-3xl font-semibold leading-none tracking-tight text-neutral-900 md:text-[2rem]">{item.value}</h3>
               <small
-                className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${
-                  item.trend === "up"
-                    ? "bg-[rgba(47,79,255,0.08)] text-[var(--primary-700)]"
-                    : "bg-[rgba(237,28,36,0.08)] text-[var(--secondary-700)]"
+                className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${
+                  item.trend === "up" ? "bg-success/15 text-success-foreground" : "bg-danger/15 text-danger-foreground"
                 }`}
               >
                 {item.change}
               </small>
             </div>
 
-            <p className="admin-soft mt-4 text-xs">
-              Last month: <span className="admin-text font-semibold">{item.previousLabel}</span>
+            <p className="mt-4 text-xs text-neutral-500">
+              Last month: <span className="font-semibold text-neutral-700">{item.previousLabel}</span>
             </p>
           </article>
         ))}

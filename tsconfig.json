@@ -31,5 +31,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "src/backups"]
+  "exclude": ["node_modules", "src/backups", "_ui-backups"]
 }

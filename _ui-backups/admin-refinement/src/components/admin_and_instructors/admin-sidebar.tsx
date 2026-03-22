@@ -139,7 +139,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
       >
         <div
           className={cn(
-            "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar transition-all duration-[600ms]",
+            "h-full min-h-0 w-full overflow-y-auto rounded-2xl border border-border/70 bg-white shadow-sm no-scrollbar transition-all duration-[600ms]",
             isOpen ? "px-4 py-4" : "px-2 py-4",
           )}
         >
@@ -165,7 +165,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                 <div className="mt-1 flex items-center justify-between gap-2">
                   <p
                     className={cn(
-                      "admin-soft overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] transition-all duration-[600ms]",
+                      "overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] text-neutral-500 transition-all duration-[600ms]",
                       isOpen ? "max-w-[220px] opacity-100" : "w-full text-center opacity-100",
                     )}
                   >
@@ -196,7 +196,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                           "group flex items-center rounded-xl py-2.5 transition-all duration-300",
                           item.active
                             ? "bg-primary/95 text-white shadow-sm"
-                            : "text-[var(--admin-text-default)] hover:bg-[rgba(238,244,255,0.82)] hover:text-[var(--admin-text-strong)]",
+                            : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900",
                           isOpen ? "gap-2 px-3" : "justify-center px-2",
                         )}
                       >

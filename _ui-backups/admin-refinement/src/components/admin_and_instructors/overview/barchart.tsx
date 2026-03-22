@@ -15,14 +15,14 @@ const data = [
 
 const BarChartComponent = () => {
   return (
-    <section className="admin-panel h-full rounded-2xl p-4 md:p-5">
+    <section className="h-full rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="admin-title text-lg font-semibold">User Enrollment</p>
-          <p className="admin-muted text-xs">Weekly trend across all active courses</p>
+          <p className="text-lg font-semibold text-neutral-900">User Enrollment</p>
+          <p className="text-xs text-neutral-500">Weekly trend across all active courses</p>
         </div>
 
-        <button className="admin-panel-subtle admin-text rounded-full px-3 py-1.5 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.92)]">
+        <button className="rounded-full border border-border bg-neutral-50 px-3 py-1.5 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100">
           <span className="flex items-center gap-2">
             This Week
             <ReactSVG
@@ -40,15 +40,15 @@ const BarChartComponent = () => {
           data={data}
           margin={{ top: 8, right: 8, left: 8, bottom: 4 }}
         >
-          <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="rgba(148, 163, 184, 0.25)" />
-          <XAxis dataKey="name" style={{ fontSize: 12, fill: "var(--admin-text-muted)" }} tickLine={false} axisLine={false} />
+          <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="rgba(120,120,120,0.2)" />
+          <XAxis dataKey="name" style={{ fontSize: 12 }} tickLine={false} axisLine={false} />
           <YAxis
             width={30}
             axisLine={false}
             tickLine={false}
             allowDecimals={false}
             ticks={[0, 200, 400, 600, 800, 1000]}
-            style={{ fontSize: 12, fill: "var(--admin-text-muted)" }}
+            style={{ fontSize: 12 }}
           />
           <Tooltip cursor={{ fill: "rgba(0,0,0,0.03)" }} />
           <Bar dataKey="uv" fill="var(--color-primary)" radius={[8, 8, 0, 0]} barSize={34} isAnimationActive />

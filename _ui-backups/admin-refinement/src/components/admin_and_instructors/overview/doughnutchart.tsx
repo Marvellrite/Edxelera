@@ -38,17 +38,17 @@ const DoughnutChart = () => {
   });
 
   return (
-    <section className="admin-panel relative h-full rounded-2xl p-4 md:p-5">
+    <section className="relative h-full rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="admin-title text-lg font-semibold">Course Engagement</p>
-          <p className="admin-muted text-xs">Top courses by participation volume</p>
+          <p className="text-lg font-semibold text-neutral-900">Course Engagement</p>
+          <p className="text-xs text-neutral-500">Top courses by participation volume</p>
         </div>
 
         <button
           {...triggerProps}
           onClick={() => setIsTimeRangePopper((prev) => !prev)}
-          className="admin-panel-subtle admin-text flex items-center gap-2 rounded-full py-1.5 pl-3 pr-2 text-sm font-medium transition-colors hover:bg-[rgba(238,244,255,0.92)]"
+          className="flex items-center gap-2 rounded-full border border-border bg-neutral-50 py-1.5 pl-3 pr-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100"
         >
           <span>{timeframe}</span>
           <ReactSVG
@@ -77,12 +77,12 @@ const DoughnutChart = () => {
 
         <div className="space-y-2">
           {topCourses.map((course) => (
-            <div key={course.name} className="admin-panel-subtle flex items-center justify-between rounded-xl px-3 py-2">
+            <div key={course.name} className="flex items-center justify-between rounded-xl border border-border/70 bg-neutral-50/70 px-3 py-2">
               <div className="flex min-w-0 items-center gap-2">
                 <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: course.fill }} />
-                <span className="admin-text truncate text-sm font-medium">{course.name}</span>
+                <span className="truncate text-sm text-neutral-700">{course.name}</span>
               </div>
-              <span className="admin-muted text-xs font-semibold">{course.value}%</span>
+              <span className="text-xs font-semibold text-neutral-500">{course.value}%</span>
             </div>
           ))}
         </div>
@@ -90,11 +90,11 @@ const DoughnutChart = () => {
 
       {isTimeRangePopper &&
         renderLayer(
-          <div {...layerProps} className="z-50 min-w-[10rem] rounded-xl border border-[rgba(201,211,223,0.85)] bg-white p-1 shadow-lg">
+          <div {...layerProps} className="z-50 min-w-[10rem] rounded-xl border border-border bg-white p-1 shadow-lg">
             {["All time", "This week", "This month", "This year"].map((range) => (
               <button
                 key={range}
-                className="admin-text w-full rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-[rgba(238,244,255,0.9)]"
+                className="w-full rounded-lg px-3 py-2 text-left text-sm text-neutral-700 transition-colors hover:bg-neutral-100"
                 onClick={() => {
                   setTimeframe(range);
                   closeTimeRangePopper();

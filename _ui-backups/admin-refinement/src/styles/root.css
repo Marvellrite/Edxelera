@@ -2,9 +2,6 @@
    /* COLORS */
    --black: #040506;
    --text-default: #040506;
-   --text-strong: #0f172a;
-   --text-muted: #556173;
-   --text-soft: #748195;
    --white: rgb(255, 255, 255);
 
    --primary-bare: 0, 17, 70;
@@ -57,18 +54,12 @@
    --gradient-red: rgb(214, 40, 41);
    --gradient-red-light: rgb(169, 29, 30);
 
-   --scrollbar-color: rgba(58, 58, 58, 0.267);
+   --scrollbar-color: rgba(58, 58, 58, 0.267)
    --scrollbar-color-hover: rgba(0, 0, 0, 0.381);
 
    --surface: #F3F3F3;
    --surface-foreground: #FFFFFF; 
    --surface-home: #F8F9FF;
-   --surface-subtle: #F7F9FC;
-   --surface-raised: #FFFFFF;
-   --border-subtle: #D9E0E8;
-   --border-strong: #C9D3DF;
-   --shadow-soft: 0 10px 30px rgba(0, 17, 70, 0.07);
-   --shadow-card: 0 6px 18px rgba(15, 23, 42, 0.05);
 
    --streak-surface: #EFF8FF;
    --streak-fg-active: #D9EEFF;
@@ -140,3 +131,4 @@
       --white-rgb: 4, 5, 6;
    }
 }
+

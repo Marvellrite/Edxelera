@@ -8,18 +8,18 @@ const currencyFormatter = new Intl.NumberFormat("en-NG", {
 
 const Performance = () => {
   return (
-    <section className="rounded-2xl border border-border/70 bg-white p-4 shadow-sm md:p-5">
+    <section className="admin-panel rounded-2xl p-4 md:p-5">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
         <div>
-          <p className="text-lg font-semibold text-neutral-900">Top Performing Courses</p>
-          <p className="text-xs text-neutral-500">Revenue and enrollment performance across active courses</p>
+          <p className="admin-title text-lg font-semibold">Top Performing Courses</p>
+          <p className="admin-muted text-xs">Revenue and enrollment performance across active courses</p>
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-border/70">
-        <table className="w-full min-w-[760px] table-auto text-sm">
+      <div className="admin-table-shell">
+        <table className="admin-data-table min-w-[760px] table-auto text-sm">
           <thead>
-            <tr className="bg-neutral-50/80 text-left text-xs font-semibold uppercase tracking-wider text-neutral-500">
+            <tr className="text-left uppercase tracking-wider">
               <th className="px-4 py-3">#</th>
               <th className="px-4 py-3">Course ID</th>
               <th className="px-4 py-3">Course title</th>
@@ -32,22 +32,23 @@ const Performance = () => {
 
           <tbody>
             {courses.map((course, index) => (
-              <tr key={course.id} className="border-t border-border/70 transition-colors hover:bg-neutral-50/60">
-                <td className="px-4 py-3.5 font-medium text-neutral-600">{index + 1}</td>
-                <td className="px-4 py-3.5 font-medium text-neutral-700">{course.courseId}</td>
-                <td className="px-4 py-3.5 text-neutral-800">{course.courseTitle}</td>
+              <tr key={course.id} className="transition-colors">
+                <td className="admin-muted px-4 py-4 font-semibold">{index + 1}</td>
+                <td className="admin-text px-4 py-4 font-medium">{course.courseId}</td>
+                <td className="px-4 py-4">
+                  <div>
+                    <p className="admin-title font-semibold">{course.courseTitle}</p>
+                    <p className="admin-soft mt-1 text-xs">Active course performance snapshot</p>
+                  </div>
+                </td>
                 <td className="px-4 py-3.5">
-                  <span
-                    className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold capitalize ${
-                      course.status === "active" ? "bg-success/15 text-success-foreground" : "bg-danger/15 text-danger-foreground"
-                    }`}
-                  >
+                  <span className={`admin-status-badge capitalize ${course.status === "active" ? "is-active" : "is-suspended"}`}>
                     {course.status}
                   </span>
                 </td>
-                <td className="px-4 py-3.5 text-right font-medium text-neutral-700">{course.enrollment.toLocaleString()}</td>
-                <td className="px-4 py-3.5 text-right font-medium text-neutral-700">{currencyFormatter.format(course.price)}</td>
-                <td className="px-4 py-3.5 text-right font-semibold text-neutral-900">
+                <td className="admin-text px-4 py-4 text-right font-medium">{course.enrollment.toLocaleString()}</td>
+                <td className="admin-text px-4 py-4 text-right font-medium">{currencyFormatter.format(course.price)}</td>
+                <td className="admin-title px-4 py-4 text-right font-semibold">
                   {currencyFormatter.format(course.totalRevenue)}
                 </td>
               </tr>

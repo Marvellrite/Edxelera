@@ -48,14 +48,6 @@
    --color-red: var(--red);
    --color-red-light: var(--red-light);
    --color-error: var(--red-400);
-   --color-text-strong: var(--text-strong);
-   --color-text-default: var(--text-default);
-   --color-text-muted: var(--text-muted);
-   --color-text-soft: var(--text-soft);
-   --color-surface-subtle: var(--surface-subtle);
-   --color-surface-raised: var(--surface-raised);
-   --color-border-subtle: var(--border-subtle);
-   --color-border-strong: var(--border-strong);
 
    /* This Section Added my Marvel */
    --color-primary-foreground: white;
@@ -234,4 +226,5 @@ html {
 .navHeight2{
    height: 95px
 }
+
 
