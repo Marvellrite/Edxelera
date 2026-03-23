@@ -10,6 +10,7 @@ import Link from 'next/link';
 import FormError from '@/components/auth/form-error';
 import Image from 'next/image';
 import { InputIconned } from '@/components/data/input-iconned';
+import { PasswordStrengthIndicator } from '@/components/auth/password-strength-indicator';
 import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons/modified';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
@@ -23,7 +24,7 @@ const Page: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, touchedFields },
     control,
   } = useForm<SigninSchema>({
     resolver: zodResolver(signinSchema),
@@ -70,6 +71,12 @@ const Page: React.FC = () => {
     control,
     name: ['fullname', 'email', 'password', 'confirm_password'],
   });
+
+  const showConfirmPasswordMismatch =
+    Boolean(touchedFields.confirm_password) &&
+    Boolean(confirm_password) &&
+    password !== confirm_password &&
+    !errors.confirm_password;
 
   return (
     <section className="flex min-h-screen items-center justify-center py-6 sm:py-10 lg:py-16.25">
@@ -123,6 +130,7 @@ const Page: React.FC = () => {
                 </button>
               }
             />
+            <PasswordStrengthIndicator password={password ?? ''} />
             {errors.password && <FormError>{errors.password.message}</FormError>}
           </div>
           <div className="mb-6 space-y-2">
@@ -148,6 +156,7 @@ const Page: React.FC = () => {
               }
               type={isConfirmPasswordVisible ? 'text' : 'password'}
             />
+            {showConfirmPasswordMismatch && <FormError>Passwords do not match</FormError>}
             {errors.confirm_password && <FormError>{errors.confirm_password.message}</FormError>}
           </div>
 

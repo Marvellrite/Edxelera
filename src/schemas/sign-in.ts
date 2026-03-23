@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { getPasswordValidationError } from '@/lib/auth/password';
 
 export const signinSchema = z
    .object({
@@ -6,11 +7,17 @@ export const signinSchema = z
          .string()
          .min(3, 'Full name must be at least 3 characters long'),
       email: z.email('Invalid email address'),
-      password: z
-         .string()
-         .min(6, 'Password must be at least 6 characters long')
-         .max(100, 'Password is too long'),
-      confirm_password: z.string().min(6, 'Please confirm your password'),
+      password: z.string().superRefine((password, ctx) => {
+         const validationError = getPasswordValidationError(password);
+
+         if (validationError) {
+            ctx.addIssue({
+               code: 'custom',
+               message: validationError,
+            });
+         }
+      }),
+      confirm_password: z.string().min(1, 'Please confirm your password'),
    })
    .refine((data) => data.password === data.confirm_password, {
       path: ['confirm_password'], // attach error to confirm_password field

@@ -129,7 +129,7 @@ const CourseManagementPage = ({ segment }: Props) => {
                         {course.status}
                       </Badge>
                     </td>
-                    <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{formatCellValue(course.enrollment)}</td>
+                    <td className="admin-text px-4 py-4 text-center font-medium tabular-nums">{formatCellValue(course.enrollment)}</td>
                     <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{formatCellValue(course.price)}</td>
                     <td className="admin-muted px-4 py-4">{formatCellValue(course.dateAdded)}</td>
                     <td className="px-4 py-4">
