@@ -2,9 +2,9 @@
 
 import { mock_data } from './continue_learning_mock_data';
 import { mock_data as mock_data_al } from './also_like_mock_data';
-import { Button } from '@/components/ui/button';
 import Video_card from '../components/course-card';
 import Continue_learning_mobile from '../components/continue_learning_mobile';
+import SectionHeaderAction from '../components/section-header-action';
 import StreakDisplay from '@/components/features/streak-display';
 
 const Page: React.FC = () => {
@@ -48,12 +48,7 @@ const Page: React.FC = () => {
                         Curated picks based on your current learning activity.
                      </p>
                   </div>
-                  <Button
-                     className="rounded-full border border-primary/20 bg-primary/5 px-4 text-primary hover:bg-primary/15"
-                     variant="ghost"
-                  >
-                     See all
-                  </Button>
+                  <SectionHeaderAction />
                </div>
 
                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
@@ -78,12 +73,7 @@ const Page: React.FC = () => {
                         Jump right back into courses you explored before.
                      </p>
                   </div>
-                  <Button
-                     className="rounded-full border border-primary/20 bg-primary/5 px-4 text-primary hover:bg-primary/15"
-                     variant="ghost"
-                  >
-                     See all
-                  </Button>
+                  <SectionHeaderAction />
                </div>
 
                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
