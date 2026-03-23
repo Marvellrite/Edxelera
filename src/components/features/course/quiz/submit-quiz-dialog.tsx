@@ -56,7 +56,7 @@ const SubmitQuizDialog = ({unanswered=true, submitFunction}:{unanswered?:boolean
                      <button
                         type="button"
                         aria-label="Close submit assessment dialog"
-                        className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-transparent text-neutral-500 transition-[color,background-color,border-color,transform] duration-200 hover:border-border/80 hover:bg-neutral-50 hover:text-neutral-800 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
+                        className="inline-flex shrink-0 items-center justify-center rounded-full border border-transparent text-neutral-500 transition-[color,background-color,border-color,transform] duration-200 hover:border-border/80 hover:bg-neutral-50 hover:text-neutral-800 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
                      >
                         <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340631/repo-images/public/icons/x.svg" />
                      </button>
@@ -68,7 +68,7 @@ const SubmitQuizDialog = ({unanswered=true, submitFunction}:{unanswered?:boolean
                <DialogFooter className="gap-3 sm:flex-row sm:justify-end">
                   <DialogClose asChild>
                      <Button
-                        className="h-11 w-full border-neutral-400 text-neutral-700 hover:border-neutral-500 hover:bg-neutral-50 sm:w-auto sm:min-w-[160px]"
+                        className="h-11 w-full  sm:w-auto sm:min-w-[160px]"
                         variant={'outline'}
                      >
                         {unanswered ? 'Review answers' : 'Cancel'}

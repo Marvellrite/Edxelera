@@ -21,7 +21,7 @@ const ModuleAssessment = () => {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<QuizAnswers>({});
   const [success, setSuccess] = useState(false);
-  const [failureResult, setFailureResult] = useState(true);
+  const [failureResult, setFailureResult] = useState(false);
   const [showReview, setShowReview] = useState(false);
   const [isResultMode, setIsResultMode] = useState(false);
 
