@@ -8,6 +8,7 @@ type CommentProps = {
   isChild?: boolean;
   forMobile?: boolean;
   replyCount?: number;
+  commentPath?: string;
   name?: string;
   role?: string;
   timestamp?: string;
@@ -20,6 +21,7 @@ const Comment = ({
   isChild = true,
   forMobile = false,
   replyCount = 0,
+  commentPath = "comment",
   name = "Utange Kevin",
   role = "Instructor",
   timestamp = "",
@@ -29,8 +31,8 @@ const Comment = ({
   const [showReplies, setShowReplies] = React.useState(false);
   const [showReplyInput, setShowReplyInput] = React.useState(false);
   const [replyText, setReplyText] = React.useState("");
-  const replyComposerId = React.useId();
-  const repliesPanelId = React.useId();
+  const replyComposerId = `${commentPath}-reply-composer`;
+  const repliesPanelId = `${commentPath}-replies`;
 
   const childRepliesCount = React.Children.count(children);
   const resolvedReplyCount = replyCount > 0 ? replyCount : childRepliesCount;
@@ -39,6 +41,17 @@ const Comment = ({
 
   const avatarSize = isChild ? "size-10" : forMobile ? "size-10" : "size-11";
   const bodyTextSize = forMobile ? "text-[14px]" : "text-[15px]";
+  const nestedChildren = React.Children.map(children, (child, index) => {
+    if (!React.isValidElement<CommentProps>(child)) {
+      return child;
+    }
+
+    const nestedPath = child.props.commentPath ?? `${commentPath}-child-${index}`;
+
+    return React.cloneElement(child, {
+      commentPath: nestedPath,
+    });
+  });
 
   return (
     <article className="w-full">
@@ -194,7 +207,7 @@ const Comment = ({
               showReplies ? "translate-y-0" : "-translate-y-1"
             } transition-transform duration-300 ease-out`}
           >
-            {children}
+            {nestedChildren}
           </div>
         </div>
       </div>

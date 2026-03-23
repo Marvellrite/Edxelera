@@ -21,7 +21,7 @@ const ModuleAssessment = () => {
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<QuizAnswers>({});
   const [success, setSuccess] = useState(false);
-  const [failureResult, setFailureResult] = useState(false);
+  const [failureResult, setFailureResult] = useState(true);
   const [showReview, setShowReview] = useState(false);
   const [isResultMode, setIsResultMode] = useState(false);
 
@@ -61,10 +61,18 @@ const ModuleAssessment = () => {
 
     const label = String.fromCharCode(65 + optionIndex).toLowerCase();
 
-    setUserAnswers((prev) => ({
-      ...prev,
-      [currentQuizIndex]: label,
-    }));
+    setUserAnswers((prev) => {
+      if (prev[currentQuizIndex]?.toLowerCase() === label) {
+        const nextAnswers = { ...prev };
+        delete nextAnswers[currentQuizIndex];
+        return nextAnswers;
+      }
+
+      return {
+        ...prev,
+        [currentQuizIndex]: label,
+      };
+    });
   };
 
   return (
@@ -77,7 +85,7 @@ const ModuleAssessment = () => {
             </div>
 
             <div>
-              <div className="text-900 text-primary-900 font-medium mb-3">
+              <div className="text-900 text-secondary font-medium mb-3">
                 Question {currentQuizIndex + 1} of {quizData.length}
               </div>
 
@@ -163,6 +171,7 @@ const ModuleAssessment = () => {
                     answered={isAnswered(index)}
                     isCorrect={getIsCorrect(index)}
                     isResultMode={isResultMode}
+                    isCurrent={currentQuizIndex === index}
                     onSelect={() => setCurrentQuizIndex(index)}
                   >
                     {index + 1}
@@ -187,12 +196,14 @@ const QuestionTag = ({
     isCorrect = null,
     isResultMode = false,
     onSelect,
+    isCurrent
 }:{
     children:number,
     answered?:boolean,
     isCorrect?: boolean | null,
     isResultMode?: boolean,
     onSelect:()=>void,
+    isCurrent?: boolean
 })=>{
     return(
         <button
@@ -202,7 +213,8 @@ const QuestionTag = ({
                 'rounded-lg h-10 font-medium',
                 answered ? "bg-neutral text-white" : "bg-neutral-50 text-neutral-700",
                 isResultMode && isCorrect === true && "bg-green text-white",
-                isResultMode && isCorrect === false && "bg-red-500 text-white"
+                isResultMode && isCorrect === false && "bg-red-500 text-white",
+                isCurrent && 'border border-secondary text-secondary'
             )}
         >
             Q{children}

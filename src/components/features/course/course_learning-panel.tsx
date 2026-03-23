@@ -53,7 +53,7 @@ const CourseLearningPanel = () => {
             <div className="max-[890px]:hidden max-sm:border-none h-full basis-full rounded-lg border border-border p-3 px-4">
                <p className=" pt-2 pb-5.5 font-normal">Course Forum</p>
                <div>
-                  <Comment isChild={false}>
+                  <Comment isChild={false} commentPath="course-forum-thread-1">
                      <Comment>
                         <Comment />
                      </Comment>
@@ -79,7 +79,7 @@ const CourseLearningPanel = () => {
                </div>
 
                <div className="mt-4.5">
-                  <Comment isChild={false}>
+                  <Comment isChild={false} commentPath="course-forum-thread-2">
                      <Comment />
                   </Comment>
                </div>

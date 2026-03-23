@@ -120,9 +120,9 @@ const CourseForumMobile = ({setShowCourseForum}: {setShowCourseForum:  Dispatch<
         </div>
 
          <div className=' mt-5 space-y-8.5'>
-            <Comment forMobile={true}/>
-            <Comment forMobile={true}/>
-            <Comment forMobile={true}/>
+            <Comment forMobile={true} commentPath="mobile-course-forum-thread-1"/>
+            <Comment forMobile={true} commentPath="mobile-course-forum-thread-2"/>
+            <Comment forMobile={true} commentPath="mobile-course-forum-thread-3"/>
          </div>
 
          <div className=' fixed w-full flex bottom-0 left-0 px-4 bg-white pb-9 pt-4 items-center gap-3'><CommentInput setIsThereText={setIsThereText}/> {isThereText && <button className='p-0'><ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340555/repo-images/public/icons/paper-plane.svg'/></button>}</div>
