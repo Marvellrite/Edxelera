@@ -1,15 +1,14 @@
 "use client"
-import {useState, Dispatch, SetStateAction} from 'react'
+import {useState} from 'react'
 import { Button } from '@/components/ui/button'
 import { QuizData } from '@/mockdata/quiz'
 import { QuizType } from '@/types/quiz'
 import { QuizAnswers } from '@/types/quiz'
 import SubmitQuizDialog from '@/components/features/course/quiz/submit-quiz-dialog'
-import { ReactSVG } from 'react-svg'
-import Textarea from '@/components/data/textarea-no-hook'
-import { Rating } from '@/components/common'
 import SuccessResult from '@/components/features/course/quiz/success-result'
 import FailureResult from '@/components/features/course/quiz/failure-result'
+import QuestionTag from '@/components/features/course/quiz/question-tag'
+import AssessmentReview from '@/components/features/course/quiz/assessment-review'
 import { cn } from '@/lib/utils'
 
 const EXPECTED_ANSWERS: QuizAnswers = { 0: "a", 1: "d" };
@@ -22,7 +21,7 @@ const ModuleAssessment = () => {
   const [userAnswers, setUserAnswers] = useState<QuizAnswers>({});
   const [success, setSuccess] = useState(false);
   const [failureResult, setFailureResult] = useState(false);
-  const [showReview, setShowReview] = useState(false);
+  const [showReview, setShowReview] = useState(true);
   const [isResultMode, setIsResultMode] = useState(false);
 
   const getExpectedAnswer = (index: number) =>
@@ -160,8 +159,8 @@ const ModuleAssessment = () => {
             </div>
           </div>
 
-          <div className="rounded-lg basis-[40%]">
-            <div className="p-4 border border-neutral-100 max-sm:border-0">
+          <div className="rounded-lg basis-[40%] ">
+            <div className="p-4 border border-neutral-100 max-sm:border-0 sticky top-24">
               <h1 className="text-md">Questions</h1>
 
               <div className="grid grid-cols-[repeat(auto-fill,74px)] gap-2">
@@ -184,82 +183,10 @@ const ModuleAssessment = () => {
 
         {success && <SuccessResult />}
         {failureResult && <FailureResult />}
-        {showReview && <Review onClose={setShowReview} />}
+        {showReview && <AssessmentReview onClose={setShowReview} />}
       </section>
     </>
   );
 };
-
-const QuestionTag = ({
-    children,
-    answered=false,
-    isCorrect = null,
-    isResultMode = false,
-    onSelect,
-    isCurrent
-}:{
-    children:number,
-    answered?:boolean,
-    isCorrect?: boolean | null,
-    isResultMode?: boolean,
-    onSelect:()=>void,
-    isCurrent?: boolean
-})=>{
-    return(
-        <button
-            type="button"
-            onClick={onSelect}
-            className={cn(
-                'rounded-lg h-10 font-medium',
-                answered ? "bg-neutral text-white" : "bg-neutral-50 text-neutral-700",
-                isResultMode && isCorrect === true && "bg-green text-white",
-                isResultMode && isCorrect === false && "bg-red-500 text-white",
-                isCurrent && 'border border-secondary text-secondary'
-            )}
-        >
-            Q{children}
-        </button>
-    )
-}
-
-const Review = ({onClose}:{onClose:Dispatch<SetStateAction<boolean>>})=>{
-    return(
-        <div className=' w-full h-full fixed top-0 left-0 overflow-y-auto bg-white '>
-            <div className=' flex items-center max-[870px]:justify-start justify-center w-full h-full  max-[870px]:flex-col gap-x-10 max-[870px]:py-5.5 max-[870px]:*:w-[85%] max-[480px]:*:w-full max-[545px]:*:w-[95%]'>
-                <div className='  basis-1/2 max-[870px]:basis-auto flex justify-center items-center max-[870px]:flex-col max-[870px]:'>
-
-                    <div className=' min-[870px]:w-[90%] mx-auto min-[870px]:max-w-[400px]  max-[870px]:hidden'>
-                        <ReactSVG beforeInjection={(svg)=>{ svg.setAttribute('style', 'width:100%;height:100%'); svg.setAttribute('preserveAspectRatio', 'xMidYMid meet'); }} src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340470/repo-images/public/icons/confetti-desktop.svg'/>
-
-                    </div>
-                    {/* <ReactSVG className=" md:hidden " src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340471/repo-images/public/icons/confetti-mobile.svg'/> */}
-                </div>
-                <div className=" basis-1/2 max-md:grow">
-                    <div className=" rounded-[20px] max-[870px]:border-0 border border-neutral-400 p-5 max-w-[480px] min-[870px]:w-[90%] max-[870px]:max-w-none mx-auto max-[870px]:px-0">
-                        <div className=" space-y-6 max-[870px]:w-[70vw] max-[870px]:mx-auto max-[530px]:w-full max-[480px]:px-3">
-                        <h1 className=" w-full text-center text-[40px] text-medium mb-5.5 text-black min-[870px]:hidden  mx-auto flex justify-between ">
-                        <button className="p-0" onClick={()=>onClose((state)=>!state)}>
-                            <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340455/repo-images/public/icons/back-arrow.svg"/>
-                        </button>
-                        <span>Write a Review</span>
-                        <span></span>
-                    </h1>
-                        <p className="text-md font-normal text-left">Kindly write a review and rate the course</p>
-
-                        <div className=" max-[870px]:mx-auto max-w-[500px] max-[870px]:w-full "><Rating gap={12} size={58} value={0}/></div>
-                        <Textarea minHeight={'88px'} className="" placeholder='Review' name='review' id='review'  />
-
-                        <Button className=' h-[50px] w-full text-medium text-white rounded-[500px]' type="submit">Submit Review</Button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-
-
 
 export default ModuleAssessment

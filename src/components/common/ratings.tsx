@@ -20,14 +20,25 @@ export const StarRating: React.FC<StarRatingProps> = ({
    size=11,
    gap=4
 }) => {
+   const [internalValue, setInternalValue] = React.useState(value);
    const [hoverValue, setHoverValue] = React.useState<number | null>(null);
+   const isInteractive = !readOnly;
 
-   const displayValue = hoverValue ?? value;
+   React.useEffect(() => {
+      setInternalValue(value);
+   }, [value]);
+
+   const displayValue = hoverValue ?? (onChange ? value : internalValue);
 
    const handleClick = (index: number, half: boolean) => {
-      if (readOnly || !onChange) return;
+      if (!isInteractive) return;
       const newValue = half ? index + 0.5 : index + 1;
-      onChange(newValue);
+      if (onChange) {
+         onChange(newValue);
+         return;
+      }
+
+      setInternalValue(newValue);
    };
 
    return (
@@ -42,11 +53,14 @@ export const StarRating: React.FC<StarRatingProps> = ({
             return (
                <div
                   key={index}
-                  className="relative flex items-center cursor-pointer select-none"
-                  onMouseLeave={() => setHoverValue(null)}
+                  className={`relative flex items-center select-none ${isInteractive ? 'cursor-pointer' : 'cursor-default'}`}
+                  onMouseLeave={() => {
+                     if (!isInteractive) return;
+                     setHoverValue(null);
+                  }}
                >
                   {/* Left half (0.5) */}
-                  {!readOnly && (
+                  {isInteractive && (
                      <div
                         className="absolute left-0 top-0 h-full w-1/2 z-20"
                         onMouseEnter={() => setHoverValue(index + 0.5)}
@@ -55,7 +69,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
                   )}
 
                   {/* Right half (1.0) */}
-                  {!readOnly && (
+                  {isInteractive && (
                      <div
                         className="absolute right-0 top-0 h-full w-1/2 z-20"
                         onMouseEnter={() => setHoverValue(index + 1)}

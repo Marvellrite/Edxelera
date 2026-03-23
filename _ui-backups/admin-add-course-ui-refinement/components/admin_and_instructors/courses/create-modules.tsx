@@ -14,18 +14,18 @@ const CreateModules = ({ setShowModuleFields, previewHref, disabled = false }: P
     <>
       <button
         type="button"
-        className="admin-empty-state flex h-20 flex-col items-center justify-center py-3.5 text-neutral-700 transition-colors disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex h-20 flex-col items-center justify-center rounded-xl border border-dashed border-border bg-white py-3.5 text-neutral-700 transition-colors hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-60"
         onClick={() => setShowModuleFields(true)}
         disabled={disabled}
       >
         <div className="text-center">
           <AddCircle />
         </div>
-        <div className="admin-empty-state__title mt-2 text-center text-sm">Add a module</div>
+        <div className="mt-2 text-center text-sm">Add a module</div>
       </button>
 
-      <div className="admin-action-row mt-3 justify-end">
-        <Button variant="outline" className="h-10 rounded-full border-border/80 bg-white px-4 text-neutral-700 hover:bg-neutral-50">
+      <div className="mt-2 flex flex-wrap items-center justify-end gap-2 border-t border-border/70 pt-3">
+        <Button variant="outline" className="h-10 rounded-full px-4">
           Save as draft
         </Button>
         <Button className="h-10 rounded-full px-4" disabled={disabled}>

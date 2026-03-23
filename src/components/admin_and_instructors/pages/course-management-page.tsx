@@ -107,10 +107,10 @@ const CourseManagementPage = ({ segment }: Props) => {
                   <th className="px-4 py-3">Course ID</th>
                   <th className="px-4 py-3">Course title</th>
                   <th className="px-4 py-3">Status</th>
-                  <th className="px-4 py-3 text-right">Enrolment</th>
-                  <th className="px-4 py-3 text-right">Price</th>
+                  <th className="px-4 py-3">Enrolment</th>
+                  <th className="px-4 py-3">Price</th>
                   <th className="px-4 py-3">Date added</th>
-                  <th className="px-4 py-3 text-right">Actions</th>
+                  <th className="px-4 py-3">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,8 +129,8 @@ const CourseManagementPage = ({ segment }: Props) => {
                         {course.status}
                       </Badge>
                     </td>
-                    <td className="admin-text px-4 py-4 text-center font-medium tabular-nums">{formatCellValue(course.enrollment)}</td>
-                    <td className="admin-text px-4 py-4 text-right font-medium tabular-nums">{formatCellValue(course.price)}</td>
+                    <td className="admin-text px-4 py-4 font-medium tabular-nums">{formatCellValue(course.enrollment)}</td>
+                    <td className="admin-text px-4 py-4 font-medium tabular-nums">{formatCellValue(course.price)}</td>
                     <td className="admin-muted px-4 py-4">{formatCellValue(course.dateAdded)}</td>
                     <td className="px-4 py-4">
                       <div className="flex items-center justify-end gap-2">
