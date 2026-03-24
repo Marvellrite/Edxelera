@@ -14,7 +14,7 @@ import type { InstructorOnboardingResultProps } from "@/components/instructor/on
 import { cn } from "@/lib/utils";
 
 export default function InstructorOnboardingResult({
-  variant,
+  state,
   className,
   ctaHref,
   onGetStarted,
@@ -22,7 +22,7 @@ export default function InstructorOnboardingResult({
   logoSrc = DEFAULT_INSTRUCTOR_ONBOARDING_RESULT_LOGO,
   priority = true,
 }: InstructorOnboardingResultProps) {
-  const content = INSTRUCTOR_ONBOARDING_RESULT_CONTENT[variant];
+  const content = INSTRUCTOR_ONBOARDING_RESULT_CONTENT[state];
 
   return (
     <section
@@ -97,9 +97,9 @@ export default function InstructorOnboardingResult({
                     >
                       <p>{content.description}</p>
 
-                      {content.checklist && content.checklist.length > 0 && (
+                      {content.actions && content.actions.length > 0 && (
                         <ul className="mt-2 list-disc space-y-1 pl-7">
-                          {content.checklist.map((item) => (
+                          {content.actions.map((item) => (
                             <li key={item}>{item}</li>
                           ))}
                         </ul>

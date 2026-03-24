@@ -1,23 +1,68 @@
-export type OnboardingStep = {
-  id: 'teaching_experience' | 'teaching_format' | 'goal';
-  title: string;
-  options: Array<{
-    value: string;
-    label: string;
-    description?: string;
-  }>;
-  ctaLabel?: string;
+export type ExperienceValue =
+  | "new"
+  | "some_teaching"
+  | "created_courses"
+  | "published_courses";
+
+export type ContentValue =
+  | "full_content"
+  | "partial_content"
+  | "no_content";
+
+export type VideoComfortValue =
+  | "very_comfortable"
+  | "somewhat_comfortable"
+  | "not_comfortable";
+
+export type InstructorOnboardingState =
+  | "guided-start"
+  | "content-building"
+  | "launch-ready";
+
+export type OnboardingResultVisualVariant = "guided" | "build" | "launch";
+
+export type OnboardingOption = {
+  id: string;
+  label: string;
+  value: string;
 };
 
-export type OnboardingAnswers = Partial<Record<OnboardingStep['id'], string>>;
+export type OnboardingStepKey =
+  | "experience"
+  | "content"
+  | "video_comfort";
 
-export type InstructorOnboardingResultVariant =
-  | "not-experienced-no-course"
-  | "experienced-no-course"
-  | "experienced-with-course";
+export type OnboardingStep = {
+  id: number;
+  key: OnboardingStepKey;
+  question: string;
+  helperText?: string;
+  options: OnboardingOption[];
+};
+
+export type OnboardingAnswers = Partial<{
+  experience: ExperienceValue;
+  content: ContentValue;
+  video_comfort: VideoComfortValue;
+}>;
+
+export type ResolvedOnboardingAnswers = {
+  experience: ExperienceValue;
+  content: ContentValue;
+  video_comfort: VideoComfortValue;
+};
+
+export type InstructorProfile = {
+  state: InstructorOnboardingState;
+  signals: {
+    experience: ExperienceValue;
+    content: ContentValue;
+    videoComfort: VideoComfortValue;
+  };
+};
 
 export type InstructorOnboardingResultProps = {
-  variant: InstructorOnboardingResultVariant;
+  state: InstructorOnboardingState;
   className?: string;
   ctaHref: string;
   onGetStarted?: () => void;
@@ -28,8 +73,9 @@ export type InstructorOnboardingResultProps = {
 
 export type InstructorOnboardingResultContent = {
   title: string;
-  description?: string;
-  checklist?: string[];
+  description: string;
+  actions?: string[];
+  variant: OnboardingResultVisualVariant;
   cardMaxWidth: string;
   cardMinHeight: string;
   titleMaxWidth?: string;

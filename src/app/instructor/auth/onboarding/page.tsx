@@ -2,66 +2,34 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import ProgressIndicator from './components/ProgressIndicator';
 import QuestionStep from './components/QuestionStep';
 import OptionCard from './components/OptionCard';
+import {
+  buildInstructorProfile,
+  isResolvedOnboardingAnswers,
+  ONBOARDING_STEPS,
+} from '@/components/instructor/onboarding/onboarding-flow';
+import type { OnboardingAnswers } from '@/components/instructor/onboarding/types';
 import { cn } from '@/lib/utils';
 
-interface OnboardingStep {
-  id: number;
-  question: string;
-  options: Array<{
-    id: string;
-    label: string;
-  }>;
-}
-
-const ONBOARDING_STEPS: OnboardingStep[] = [
-  {
-    id: 1,
-    question: 'How familiar are you with teaching?',
-    options: [
-      { id: 'a', label: 'A. New to teaching' },
-      { id: 'b', label: 'B. Some experience teaching or mentoring' },
-      { id: 'c', label: 'C. Experienced instructor' },
-      { id: 'd', label: "D. I've built and sold courses before" },
-    ],
-  },
-  {
-    id: 2,
-    question: 'How good are you with the camera? (making videos)',
-    options: [
-      { id: 'a', label: 'A. New to teaching' },
-      { id: 'b', label: 'B. Some experience teaching or mentoring' },
-      { id: 'c', label: 'C. Experienced instructor' },
-      { id: 'd', label: "D. I've built and sold courses before" },
-    ],
-  },
-  {
-    id: 3,
-    question: 'Do you have already existing course content (videos)',
-    options: [
-      { id: 'a', label: 'A. Yes' },
-      { id: 'b', label: 'B. Not at all' },
-      { id: 'c', label: 'C. I have some, but not complete' },
-    ],
-  },
-];
-
 export default function InstructorOnboarding() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<OnboardingAnswers>({});
 
   const step = ONBOARDING_STEPS[currentStep - 1];
-  const isAnswered = answers[currentStep];
+  const currentAnswer = answers[step.key];
+  const isAnswered = Boolean(currentAnswer);
   const isFirstStep = currentStep === 1;
   const isLastStep = currentStep === ONBOARDING_STEPS.length;
 
-  const handleSelectOption = (optionId: string) => {
+  const handleSelectOption = (optionValue: string) => {
     setAnswers((prev) => ({
       ...prev,
-      [currentStep]: optionId,
+      [step.key]: optionValue,
     }));
   };
 
@@ -80,9 +48,19 @@ export default function InstructorOnboarding() {
   };
 
   const handleSubmit = () => {
-    console.log('Onboarding completed with answers:', answers);
-    // TODO: Send answers to backend API
-    // For now, just log and could redirect to next flow
+    if (!isResolvedOnboardingAnswers(answers)) {
+      return;
+    }
+
+    const profile = buildInstructorProfile(answers);
+    const params = new URLSearchParams({
+      state: profile.state,
+      experience: profile.signals.experience,
+      content: profile.signals.content,
+      video_comfort: profile.signals.videoComfort,
+    });
+
+    router.push(`/instructor/auth/onboarding/result?${params.toString()}`);
   };
 
   return (
@@ -113,7 +91,10 @@ export default function InstructorOnboarding() {
 
             {/* Question */}
             <div className="mb-8 md:mb-12">
-              <QuestionStep question={step.question} />
+              <QuestionStep
+                question={step.question}
+                helperText={step.helperText}
+              />
             </div>
 
             {/* Options */}
@@ -122,8 +103,8 @@ export default function InstructorOnboarding() {
                 <OptionCard
                   key={option.id}
                   option={option}
-                  isSelected={answers[currentStep] === option.id}
-                  onClick={() => handleSelectOption(option.id)}
+                  isSelected={currentAnswer === option.value}
+                  onClick={() => handleSelectOption(option.value)}
                 />
               ))}
             </div>

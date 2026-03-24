@@ -1,6 +1,6 @@
 import type {
   InstructorOnboardingResultContent,
-  InstructorOnboardingResultVariant,
+  InstructorOnboardingState,
 } from "@/components/instructor/onboarding/types";
 
 export const DEFAULT_INSTRUCTOR_ONBOARDING_RESULT_IMAGE =
@@ -10,35 +10,51 @@ export const DEFAULT_INSTRUCTOR_ONBOARDING_RESULT_LOGO =
   "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340672/repo-images/public/images/logos/logo-dark.png";
 
 export const INSTRUCTOR_ONBOARDING_RESULT_CONTENT: Record<
-  InstructorOnboardingResultVariant,
+  InstructorOnboardingState,
   InstructorOnboardingResultContent
 > = {
-  "not-experienced-no-course": {
-    title: "No experience? no worries",
+  "guided-start": {
+    title: "No experience? You're in the right place",
     description:
-      "We'll guide you step-by-step to design and deliver your first course successfully.",
-    cardMaxWidth: "570px",
-    cardMinHeight: "347px",
-    titleMaxWidth: "490px",
-  },
-  "experienced-no-course": {
-    title: "Let's Structure Your Knowledge",
-    description: "We'll help you turn your experience into a powerful course",
-    cardMaxWidth: "551px",
-    cardMinHeight: "380px",
-    titleMaxWidth: "360px",
-  },
-  "experienced-with-course": {
-    title: "Great, you're good to go",
-    description: "Here's what you have to do:",
-    checklist: [
-      "Upload course content",
-      "Structure modules",
-      "Add assessments and capstone project",
-      "Submit for review",
+      "We'll guide you step-by-step to design, record, and publish your first course successfully.",
+    actions: [
+      "Learn how course creation works",
+      "Plan your first course structure",
+      "Record your first lessons",
+      "Prepare your course for publishing",
     ],
+    variant: "guided",
+    cardMaxWidth: "570px",
+    cardMinHeight: "380px",
+    titleMaxWidth: "500px",
+  },
+  "content-building": {
+    title: "Let's turn your knowledge into a course",
+    description:
+      "You already have valuable experience. We'll help you structure it into a professional learning experience.",
+    actions: [
+      "Create your course outline",
+      "Organize modules and lessons",
+      "Upload or record your content",
+      "Prepare assessments",
+    ],
+    variant: "build",
+    cardMaxWidth: "551px",
+    cardMinHeight: "400px",
+    titleMaxWidth: "420px",
+  },
+  "launch-ready": {
+    title: "Great, you're ready to launch",
+    description: "Here's what you can do next:",
+    actions: [
+      "Upload your course content",
+      "Structure your modules",
+      "Add assessments and capstone project",
+      "Submit your course for review",
+    ],
+    variant: "launch",
     cardMaxWidth: "551px",
     cardMinHeight: "444px",
-    titleMaxWidth: "450px",
+    titleMaxWidth: "460px",
   },
 };
