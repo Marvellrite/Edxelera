@@ -486,6 +486,26 @@
   color: #ba1b21;
 }
 
+.admin-status-badge.is-success {
+  border-color: rgba(0, 88, 39, 0.18);
+  background: linear-gradient(180deg, rgba(205, 255, 227, 0.96), rgba(205, 255, 227, 0.72));
+  color: #005827;
+}
+
+.admin-status-badge.is-pending,
+.admin-status-badge.is-processing {
+  border-color: rgba(0, 17, 70, 0.16);
+  background: linear-gradient(180deg, rgba(218, 228, 255, 0.92), rgba(238, 242, 255, 0.78));
+  color: var(--primary-700);
+}
+
+.admin-status-badge.is-failed,
+.admin-status-badge.is-refunded {
+  border-color: rgba(237, 28, 36, 0.18);
+  background: linear-gradient(180deg, rgba(255, 205, 206, 0.96), rgba(255, 205, 206, 0.74));
+  color: #ba1b21;
+}
+
 .admin-topbar-brand {
   display: flex;
   align-items: center;

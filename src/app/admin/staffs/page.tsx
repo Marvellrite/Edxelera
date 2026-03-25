@@ -1,136 +1,296 @@
-"use client"
-import Image from 'next/image'
-import { ReactSVG } from 'react-svg'
-import { useSidebar } from '@/context/sidebar.context'
-import { staffMembers } from '@/mockdata/staff-management'
-import { Pagination } from '@/components/common'
-import { Button } from '@/components/ui/button'
-import { ArrowDownLinear } from '@/components/admin_and_instructors/icons/modified'
-import CustomAlertDialog from '@/components/admin_and_instructors/features/course/custom-modal'
-import { useState } from 'react'
+"use client";
 
-const Page = () => {
-    const { toggle } = useSidebar()
-    const [isSuspendAdminModalOpen, setIsSuspendAdminModalOpen] = useState(false)
-    
-    const [isSuspendInstructorModalOpen, setIsSuspendInstructorModalOpen] = useState(false)
- 
-    const [isDeleteAdminModalOpen, setIsDeleteAdminModalOpen] = useState(false)
-    
-    const [isDeleteInstructorModalOpen, setIsDeleteInstructorModalOpen] = useState(false)
-    
+import Image from "next/image";
+import { useState, useSyncExternalStore } from "react";
+import { ReactSVG } from "react-svg";
+import { Search, ChevronDown, SlidersHorizontal, Edit2, MinusCircle, Trash2 } from "lucide-react";
+
+import { ArrowDownLinear, MoreCircle } from "@/components/admin_and_instructors/icons/modified";
+import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
+import { Badge } from "@/components/admin_and_instructors/ui/badge";
+import { Pagination } from "@/components/common";
+import { useSidebar } from "@/context/sidebar.context";
+import { cn } from "@/lib/utils";
+import { staffMembers } from "@/mockdata/staff-management";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+const roleStyles: Record<string, string> = {
+  "Super admin": "is-active",
+  Admin: "is-processing",
+  Instructor: "is-scheduled",
+  "Support admin": "is-draft",
+};
+
+const statusStyles: Record<string, string> = {
+  active: "is-success",
+  inactive: "is-draft",
+  suspended: "is-suspended",
+};
+
+function StaffRoleBadge({ role }: { role: string }) {
   return (
-    <section className={`${toggle ? 'col-span-9' : 'col-span-8'} rounded-2xl p-[14px] space-y-3 overflow-y-scroll no-scrollbar bg-white shadow mt-5`}>
-        <p className='text-lg'>Staff Management</p>
-        
-        
-                <div className='flex justify-between items-center mb-[35px] mt-[25px]'>
-                    
-                            <Button className='text-white items-center  h-12.5 flex bg-primary' > 
-                                <ArrowDownLinear/>
-                                <span>Export CSV</span>
-                            </Button>
-                
-                            <div className='flex justify-between items-center gap-2 w-1/2'>
-                                <div className='border border-neutral-400 flex items-center gap-2 rounded-full py-1 px-2 h-11 w-full'>
-                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340576/repo-images/public/icons/search-outline.svg' />
-                                    <input type="search" placeholder='Search...' className="h-full w-full outline-none" />
-                                </div>
-                                {/* <div className='w-fit'> */}
-                                    <div className='flex items-center gap-2 w-fit border border-neutral-400 rounded-full py-2 px-3 text-nowrap'>
-                                        <span>Sort by</span>
-                                        <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340473/repo-images/public/icons/dropdown.svg' />
-                                    </div>
-                                {/* </div> */}
-                                {/* <div className='w-fit'> */}
-                                    <div className='flex items-center gap-2 w-fit border rounded-full border-neutral-400 py-2 px-3 text-nowrap'>
-                                        <span>Filter</span>
-                                        <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340483/repo-images/public/icons/filter.svg' />
-                                    </div>
-                                {/* </div> */}
-                            </div>
-                        </div>
-       
-
-        <table className="table-auto w-full">
-            <thead className="font-bold">
-                <tr className='*:py-3'>
-                    <td className="pe-5">#</td>
-                    <td>User</td>
-                    <td>Email</td>
-                    <td>User ID</td>
-                    <td>Role</td>
-                    <td>Status</td>
-                    <td>Date Added</td>
-                    <td>Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                {staffMembers.map((_, i) => (
-                    <tr key={i} className="border-t space-y-5 *:py-3 hover:cursor-pointer">
-                        <td className="pe-5">{i + 1}</td>
-                        <td>
-                            <div className='flex items-center gap-2'>
-                                <Image src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340674/repo-images/public/photo.png" alt="" width={100} height={100} className='h-10 w-10' />
-                                    <p>{_.name}</p>
-                                    <small></small>
-                            </div>
-                        </td>
-                        <td>{_.email}</td>
-                        <td>{_.userId}</td>
-                        <td>{_.role}</td>
-                        <td><span className={` ${ _.status==='active'? "bg-success text-success-foreground":"bg-danger text-danger-foreground"} p-2 rounded-lg capitalize`}>{_.status}</span></td>
-                        <td>{_.dateAdded}</td>
-                        <td>
-                            <div className='flex gap-2'>
-                                <button onClick={()=>_.role==='Instructor'?setIsSuspendInstructorModalOpen(true): setIsSuspendAdminModalOpen(true)} className='p-0 hover:bg-gray-50 text-black w-7 h-7 items-center justify-center flex rounded-full' title='Suspend Staff'>
-                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340539/repo-images/public/icons/minus.svg' />
-                                </button>
-                                <button className='p-0 hover:bg-gray-50 text-black w-7 h-7 items-center justify-center flex rounded-full' title='Edit Staff'>
-                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340474/repo-images/public/icons/edit.svg' />
-                                </button>
-                                <button onClick={()=>_.role==='Instructor'?setIsDeleteInstructorModalOpen(true): setIsDeleteAdminModalOpen(true)} className='p-0 hover:bg-gray-50 text-black w-7 h-7 items-center justify-center flex rounded-full' title='Delete Staff'>
-                                    <ReactSVG src='https://res.cloudinary.com/dx5iohojj/image/upload/v1773340610/repo-images/public/icons/trash.svg' />
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-
-         <CustomAlertDialog 
-            isOpen={isSuspendAdminModalOpen} 
-            onClose={() => setIsSuspendAdminModalOpen(false)}
-            title="Suspend Admin"
-            description="Are you sure you want to suspend this admin? You can always unsuspend them at any time."
-            actionText="Suspend" />
-         
-         <CustomAlertDialog 
-            isOpen={isSuspendInstructorModalOpen} 
-            onClose={() => setIsSuspendInstructorModalOpen(false)}
-            title="Suspend Admin"
-            description="AAre you sure you want to suspend this instructor? You can always unsuspend them at any time."
-            actionText="Suspend" />
-
-         <CustomAlertDialog 
-            isOpen={isDeleteAdminModalOpen} 
-            onClose={() => setIsDeleteAdminModalOpen(false)}
-            title="Suspend Admin"
-            description="Are you sure you want to delete this admin? You can always unsuspend them at any time."
-            actionText="Delete" />
-         
-         <CustomAlertDialog 
-            isOpen={isDeleteInstructorModalOpen} 
-            onClose={() => setIsDeleteInstructorModalOpen(false)}
-            title="Suspend Admin"
-            description="Are you sure you want to delete this instructor? You can always unsuspend them at any time."
-            actionText="Delete" />
-
-        <div className=' w-full flex justify-center'><Pagination/></div>
-
-    </section>
-  )
+    <Badge className={cn("admin-status-badge px-2.5 py-1 text-xs font-semibold", roleStyles[role] ?? "is-draft")}>
+      {role}
+    </Badge>
+  );
 }
 
-export default Page
+function StaffStatusBadge({ status }: { status: string }) {
+  const normalizedStatus = status.charAt(0).toUpperCase() + status.slice(1);
+
+  return (
+    <Badge
+      className={cn("admin-status-badge px-2.5 py-1 text-xs font-semibold capitalize", statusStyles[status] ?? "is-draft")}
+    >
+      {normalizedStatus}
+    </Badge>
+  );
+}
+
+const Page = () => {
+  const { toggle } = useSidebar();
+  const [isSuspendAdminModalOpen, setIsSuspendAdminModalOpen] = useState(false);
+  const [isSuspendInstructorModalOpen, setIsSuspendInstructorModalOpen] = useState(false);
+  const [isDeleteAdminModalOpen, setIsDeleteAdminModalOpen] = useState(false);
+  const [isDeleteInstructorModalOpen, setIsDeleteInstructorModalOpen] = useState(false);
+  const [openActionIndex, setOpenActionIndex] = useState<number | null>(null);
+  const isHydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+
+  return (
+    <section className={`${toggle ? "col-span-9" : "col-span-8"} mt-4 overflow-y-auto pb-2 no-scrollbar`}>
+      <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
+        <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="admin-eyebrow text-xs font-semibold uppercase tracking-[0.14em]">Team</p>
+              <h1 className="admin-title mt-1 text-2xl font-semibold">Staff Management</h1>
+              <p className="admin-muted admin-page-lead mt-1.5">
+                Review internal team members, roles, account states, and administrative access at a glance.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 lg:justify-end">
+              <span className="admin-chip admin-chip--compact">{staffMembers.length} team members</span>
+            </div>
+          </div>
+        </header>
+
+        <div className="admin-panel rounded-2xl p-4 md:p-5">
+          <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <button className="admin-chip admin-chip--dark h-10 px-4 text-white" type="button">
+                <ArrowDownLinear className="h-3.5 w-3.5" />
+                <span>Export CSV</span>
+              </button>
+            </div>
+
+            <div className="flex w-full flex-col gap-2 xl:max-w-3xl">
+              <div className="flex w-full flex-col gap-2 lg:flex-row lg:items-center">
+                <div className="admin-input-shell min-w-0 flex-1">
+                  <Search className="admin-muted h-4 w-4 shrink-0" />
+                  <input
+                    type="search"
+                    placeholder="Search staff by name, email, or role"
+                    className="h-full w-full bg-transparent text-sm text-[var(--admin-text-default)] outline-none placeholder:text-[var(--admin-text-soft)]"
+                  />
+                </div>
+
+                <button className="admin-chip admin-chip--ghost lg:min-w-[116px]" type="button">
+                  <span>Sort by</span>
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </button>
+
+                <button className="admin-chip admin-chip--ghost lg:min-w-[116px]" type="button">
+                  <span>Filter</span>
+                  <SlidersHorizontal className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="admin-table-shell admin-table-shell--spacious mt-5">
+            <table className="admin-data-table min-w-[1040px] table-auto text-sm">
+              <thead>
+                <tr className="text-left text-xs font-semibold uppercase tracking-[0.12em]">
+                  <th className="px-4 py-3">#</th>
+                  <th className="px-4 py-3">User</th>
+                  <th className="px-4 py-3">Email</th>
+                  <th className="px-4 py-3">User ID</th>
+                  <th className="px-4 py-3">Role</th>
+                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">Date Added</th>
+                  <th className="px-4 py-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {staffMembers.map((staff, index) => (
+                  <tr key={staff.id} className="transition-colors">
+                    <td className="admin-muted px-4 py-4 font-semibold">{index + 1}</td>
+                    <td className="px-4 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="relative">
+                          <Image
+                            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340674/repo-images/public/photo.png"
+                            alt={staff.name}
+                            width={40}
+                            height={40}
+                            className="h-10 w-10 rounded-full object-cover"
+                          />
+                          {staff.isOnline && (
+                            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-[var(--green)]" />
+                          )}
+                        </div>
+
+                        <div className="min-w-0">
+                          <p className="admin-row-title truncate">{staff.name}</p>
+                          <p className="admin-row-subtext mt-1 truncate">{staff.role}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="max-w-[240px] px-4 py-4">
+                      <p className="truncate font-medium text-[var(--admin-text-default)]">{staff.email}</p>
+                      <p className="admin-row-subtext mt-1">Primary contact</p>
+                    </td>
+                    <td className="px-4 py-4">
+                      <div className="flex flex-col gap-1">
+                        <span className="font-medium text-[var(--admin-text-default)]">#{staff.userId}</span>
+                        <span className="admin-row-subtext">Internal identifier</span>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4">
+                      <StaffRoleBadge role={staff.role} />
+                    </td>
+                    <td className="px-4 py-4">
+                      <StaffStatusBadge status={staff.status} />
+                    </td>
+                    <td className="px-4 py-4">
+                      <div className="flex flex-col gap-1">
+                        <span className="font-medium text-[var(--admin-text-default)]">{staff.dateAdded}</span>
+                        <span className="admin-row-subtext">Joined the team</span>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4">
+                      <div className="flex justify-end">
+                        {isHydrated ? (
+                          <Popover
+                            open={openActionIndex === index}
+                            onOpenChange={(isOpen) => setOpenActionIndex(isOpen ? index : null)}
+                          >
+                            <PopoverTrigger asChild>
+                              <button
+                                type="button"
+                                aria-label={`Open actions for ${staff.name}`}
+                                className="inline-flex size-9 items-center justify-center rounded-full border border-transparent transition-colors hover:border-[rgba(201,211,223,0.82)] hover:bg-[rgba(247,249,252,0.98)]"
+                              >
+                                <MoreCircle />
+                              </button>
+                            </PopoverTrigger>
+
+                            <PopoverContent
+                              align="end"
+                              sideOffset={8}
+                              className="w-52 rounded-2xl border-neutral-100 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                            >
+                              <div className="flex flex-col gap-1">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    staff.role === "Instructor"
+                                      ? setIsSuspendInstructorModalOpen(true)
+                                      : setIsSuspendAdminModalOpen(true);
+                                    setOpenActionIndex(null);
+                                  }}
+                                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-neutral-900 transition-colors hover:bg-neutral-50"
+                                >
+                                  <MinusCircle className="h-4 w-4" />
+                                  <span>Suspend Staff</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => setOpenActionIndex(null)}
+                                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-neutral-900 transition-colors hover:bg-neutral-50"
+                                >
+                                  <Edit2 className="h-4 w-4" />
+                                  <span>Edit Staff</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    staff.role === "Instructor"
+                                      ? setIsDeleteInstructorModalOpen(true)
+                                      : setIsDeleteAdminModalOpen(true);
+                                    setOpenActionIndex(null);
+                                  }}
+                                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-red-600 transition-colors hover:bg-red-50"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                  <span>Delete Staff</span>
+                                </button>
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                        ) : (
+                          <button
+                            type="button"
+                            aria-label={`Open actions for ${staff.name}`}
+                            className="inline-flex size-9 items-center justify-center rounded-full border border-transparent transition-colors hover:border-[rgba(201,211,223,0.82)] hover:bg-[rgba(247,249,252,0.98)]"
+                          >
+                            <MoreCircle />
+                          </button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="admin-action-row mt-4 justify-center border-t-0 pt-0">
+            <Pagination />
+          </div>
+        </div>
+
+        <CustomAlertDialog
+          isOpen={isSuspendAdminModalOpen}
+          onClose={() => setIsSuspendAdminModalOpen(false)}
+          title="Suspend Admin"
+          description="Are you sure you want to suspend this admin? You can always unsuspend them at any time."
+          actionText="Suspend"
+        />
+
+        <CustomAlertDialog
+          isOpen={isSuspendInstructorModalOpen}
+          onClose={() => setIsSuspendInstructorModalOpen(false)}
+          title="Suspend Instructor"
+          description="Are you sure you want to suspend this instructor? You can always unsuspend them at any time."
+          actionText="Suspend"
+        />
+
+        <CustomAlertDialog
+          isOpen={isDeleteAdminModalOpen}
+          onClose={() => setIsDeleteAdminModalOpen(false)}
+          title="Delete Admin"
+          description="Are you sure you want to delete this admin? This action should only be taken when access needs to be permanently removed."
+          actionText="Delete"
+        />
+
+        <CustomAlertDialog
+          isOpen={isDeleteInstructorModalOpen}
+          onClose={() => setIsDeleteInstructorModalOpen(false)}
+          title="Delete Instructor"
+          description="Are you sure you want to delete this instructor? This action should only be taken when access needs to be permanently removed."
+          actionText="Delete"
+        />
+      </div>
+    </section>
+  );
+};
+
+export default Page;
