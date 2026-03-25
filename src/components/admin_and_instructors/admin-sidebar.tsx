@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactSVG } from "react-svg";
@@ -32,6 +33,70 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
   const prefix = `/${segment}`;
   const { toggle, setToggle } = useSidebar();
   const isOpen = !toggle;
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const dragStateRef = React.useRef({
+    isDragging: false,
+    didDrag: false,
+    startY: 0,
+    startScrollTop: 0,
+  });
+  const [isDragging, setIsDragging] = React.useState(false);
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    const scrollElement = scrollRef.current;
+
+    if (!scrollElement) {
+      return;
+    }
+
+    dragStateRef.current = {
+      isDragging: true,
+      didDrag: false,
+      startY: event.clientY,
+      startScrollTop: scrollElement.scrollTop,
+    };
+
+    setIsDragging(false);
+    scrollElement.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const scrollElement = scrollRef.current;
+
+    if (!scrollElement || !dragStateRef.current.isDragging) {
+      return;
+    }
+
+    const deltaY = event.clientY - dragStateRef.current.startY;
+
+    if (Math.abs(deltaY) > 4) {
+      dragStateRef.current.didDrag = true;
+      setIsDragging(true);
+    }
+
+    scrollElement.scrollTop = dragStateRef.current.startScrollTop - deltaY;
+  };
+
+  const handlePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {
+    const scrollElement = scrollRef.current;
+
+    dragStateRef.current.isDragging = false;
+    setIsDragging(false);
+
+    if (scrollElement?.hasPointerCapture(event.pointerId)) {
+      scrollElement.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  const handleClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!dragStateRef.current.didDrag) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    dragStateRef.current.didDrag = false;
+  };
 
   const sections: NavSection[] = [
     {
@@ -138,10 +203,18 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
         )}
       >
         <div
+          ref={scrollRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
+          onClickCapture={handleClickCapture}
           className={cn(
             "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar transition-all duration-[600ms]",
+            isDragging ? "cursor-grabbing select-none" : "cursor-grab",
             isOpen ? "px-4 py-4" : "px-2 py-4",
           )}
+          style={{ touchAction: "pan-y" }}
         >
           <nav className="space-y-4">
             <div

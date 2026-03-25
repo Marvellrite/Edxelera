@@ -76,7 +76,7 @@ const Header = () => {
 
                {/* Bell + theme toggler component */}
          
-               <NotificationBellButton count={2} />
+               <NotificationBellButton />
 
                   <ThemeTogglerComponent/>
 
