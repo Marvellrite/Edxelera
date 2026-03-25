@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from '@/lib/utils';
 // import '../globals.css';
 import { Tabs } from '../../components/nav';
 import { useSidebar } from '../../context/sidebar-context';
@@ -15,7 +16,7 @@ export default function HomeLayoutContent({
    return (
       <main className="flex flex-1 h-screen overflow-y-auto  w-full max-md:flex-col bg-surface-home">
          <Sidebar />
-         <section className={`@container grow overflow-y-auto flex-1 duration-600 transition-all ${isOpen ? 'md:ml-0' : 'md:ml-0'}`}>
+         <section className={cn('@container grow overflow-y-auto flex-1 duration-600 transition-all max-md:px-5', isOpen ? 'md:ml-0' : 'md:ml-0')}>
             {children}
          </section>
          <Tabs />
