@@ -4,6 +4,7 @@
 
 @import "./toaster.css";
 @import "./navbar.css";
+@import "./breakpoint.css";
 @import './root.css';
 
 @theme inline {

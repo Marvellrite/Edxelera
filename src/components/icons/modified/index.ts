@@ -68,3 +68,4 @@ export { default as CheckCircleIcon } from './CheckCircleIcon'
 
 
 export { default as LikeDislikeIcon } from './LikeDislike'
+export { default as ReviewReceivedIcon } from './ReviewReceived'

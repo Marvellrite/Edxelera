@@ -1,7 +1,11 @@
 import CourseReview from "@/components/features/course/quiz/course-review";
+import ReviewReceived from "@/components/features/course/quiz/review-received";
 
 const CourseReviewPage = ()=>{
-    return <CourseReview />
+
+    const noReview = false
+
+    return noReview? <CourseReview /> : <ReviewReceived/>
 }
 
 

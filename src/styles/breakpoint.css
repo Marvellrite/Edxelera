@@ -1,0 +1,22 @@
+@theme {
+  /*
+    Custom container-query breakpoints.
+    Prefix: `cq-`
+
+    Usage:
+    - Add `@container` to the parent element
+    - Use variants like `@cq-sm:`, `@cq-md:`, `@cq-lg:`
+
+    Example:
+    <div className="@container">
+      <div className="grid grid-cols-1 @cq-md:grid-cols-2 @cq-xl:grid-cols-4" />
+    </div>
+  */
+
+  --container-cq-xs: 20rem;
+  --container-cq-sm: 24rem;
+  --container-cq-md: 32rem;
+  --container-cq-lg: 40rem;
+  --container-cq-xl: 48rem;
+  --container-cq-2xl: 64rem;
+}
