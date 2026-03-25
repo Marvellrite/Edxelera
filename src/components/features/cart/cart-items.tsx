@@ -2,7 +2,7 @@
 
 import CartItem, { type CartItemData } from "@/components/features/cart/cart-item";
 import { Button } from "@/components/ui/button";
-import { useCartStore } from "@/stores/cart-store";
+import { useCartStore } from "@/stores";
 import formatMoney from "@/utils/formatMoney";
 import { useMemo } from "react";
 

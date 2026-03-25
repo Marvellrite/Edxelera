@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import CreateLesson from "./courses/create-lesson"
 import CreateModules from "./courses/create-modules"
 import { useState } from "react"
-import { useCourseCreationStore } from "@/stores/course-creation-store"
+import { useCourseCreationStore } from "@/stores"
 import { useAddModuleSubmit } from "@/hooks/use-add-module-submit"
 
 type ModuleLesson = {

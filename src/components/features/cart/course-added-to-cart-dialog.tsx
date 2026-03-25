@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CheckCircle2, Star, Clock3, X } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import type { CartCourseItem } from "@/stores/cart-store";
+import type { CartCourseItem } from "@/stores";
 import formatMoney from "@/utils/formatMoney";
 
 type CourseAddedToCartDialogProps = {
@@ -114,4 +114,3 @@ export default function CourseAddedToCartDialog({
     </Dialog>
   );
 }
-

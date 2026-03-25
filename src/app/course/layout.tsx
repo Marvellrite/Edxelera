@@ -1,7 +1,5 @@
 import ContextProvider from "@/context";
-import { SidebarProvider } from "../home/context/sidebar-context";
 import HomeLayoutContent from "../home/components/layout/homeLayout";
-import ClearPendingEmailOnLoad from "../home/components/clear-pending-email-on-load";
 import Header from "@/components/sections/headers/header-4";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getQueryClient } from "@/lib/react-query/get-query-client";
@@ -16,9 +14,7 @@ export default async function CourseLayout({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient, reactQueryDehydrateOptions)}>
-      <ContextProvider>
-        <SidebarProvider>
-          <ClearPendingEmailOnLoad />
+      <ContextProvider>  
           <HomeLayoutContent>
             <section className="col-span-10 grow flex-1  px-8 xl:px-10 py-5 max-md:px-0 max-md:py-0 max-md:-mt-2 ">
               <Header />
@@ -27,7 +23,6 @@ export default async function CourseLayout({
               </div>
             </section>
           </HomeLayoutContent>
-        </SidebarProvider>
       </ContextProvider>
     </HydrationBoundary>
   );

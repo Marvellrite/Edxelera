@@ -17,11 +17,33 @@ const getResultPayload = (
     return undefined;
   }
 
+  if (
+    "success" in response ||
+    "data" in response ||
+    "message" in response
+  ) {
+    if (response.data) {
+      return response.data;
+    }
+
+    return undefined;
+  }
+
+  if (
+    "status" in response ||
+    "passed" in response ||
+    "score" in response ||
+    "percentage_score" in response ||
+    "score_percentage" in response
+  ) {
+    return response;
+  }
+
   if ("data" in response && response.data) {
     return response.data;
   }
 
-  return response;
+  return undefined;
 };
 
 const getVariant = (result?: AssessmentAttemptResultData) => {

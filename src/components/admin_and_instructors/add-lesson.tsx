@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AddCircle, Edit, Trash, VideoSquare } from "@/components/admin_and_instructors/icons/modified";
 import { Button } from "@/components/ui/button";
 import { useAddModuleSubmit } from "@/hooks/use-add-module-submit";
-import { useCourseCreationStore } from "@/stores/course-creation-store";
+import { useCourseCreationStore } from "@/stores";
 
 import CreateLesson from "./courses/create-lesson";
 import CreateModules from "./courses/create-modules";

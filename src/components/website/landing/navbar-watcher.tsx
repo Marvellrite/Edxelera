@@ -1,7 +1,7 @@
 "use client"
 
 import {useEffect, useRef}  from 'react'
-import { useNavScrollStore } from '@/stores/scroll-observer-store';
+import { useNavScrollStore } from '@/stores';
 
 const NavbarWatcher = () => {
 

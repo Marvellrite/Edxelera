@@ -8,7 +8,7 @@ import SubmitQuizDialog from '@/components/features/course/quiz/submit-quiz-dial
 import SuccessResult from '@/components/features/course/quiz/success-result'
 import FailureResult from '@/components/features/course/quiz/failure-result'
 import QuestionTag from '@/components/features/course/quiz/question-tag'
-import AssessmentReview from '@/components/features/course/quiz/assessment-review'
+
 import { cn } from '@/lib/utils'
 
 const EXPECTED_ANSWERS: QuizAnswers = { 0: "a", 1: "d" };
@@ -183,7 +183,6 @@ const ModuleAssessment = () => {
 
         {success && <SuccessResult />}
         {failureResult && <FailureResult />}
-        {showReview && <AssessmentReview onClose={setShowReview} />}
       </section>
     </>
   );

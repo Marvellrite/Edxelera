@@ -10,7 +10,7 @@ import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 import CartRouteButton from "@/components/features/cart/cart-route-button";
 import CourseShareButton from "@/components/features/share/course-share-button";
 import NotificationBellButton from "@/components/features/cart/notification-bell-button";
-import { useCartStore } from "@/stores/cart-store";
+import { useCartStore, useHeaderTitleStore } from "@/stores";
 
 type HeaderTopBarProps = {
 
@@ -35,7 +35,7 @@ export default function HeaderTopBar({
   onNotifications,
   onToggleTheme,
   className = "",
-  headerTitle='',
+  headerTitle,
   showbackBtn=true
 }: HeaderTopBarProps) {
   // const isLight = theme === "light";
@@ -50,6 +50,8 @@ export default function HeaderTopBar({
       const hour = new Date().getHours();
       const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
       const resolvedCartCount = cartCount ?? storeCartCount;
+      const storedHeaderTitle = useHeaderTitleStore((state) => state.headerTitle);
+      const resolvedHeaderTitle = headerTitle ?? storedHeaderTitle;
 
   return (
     <div ref={anchorRef}>
@@ -77,8 +79,8 @@ export default function HeaderTopBar({
           </button>
           }
           {
-            headerTitle &&
-          <h1 className=" font-medium text-[40px]">{headerTitle}</h1>
+            resolvedHeaderTitle &&
+          <h1 className=" font-medium text-[40px]">{resolvedHeaderTitle}</h1>
           }
 
         </div>
@@ -118,7 +120,7 @@ export default function HeaderTopBar({
           <ThemeTogglerComponent />
 
 
-        <CourseShareButton courseTitle={headerTitle || "Course on Edxelera"} />
+        <CourseShareButton courseTitle={resolvedHeaderTitle || "Course on Edxelera"} />
 
         <CartRouteButton count={resolvedCartCount} />
       </div>

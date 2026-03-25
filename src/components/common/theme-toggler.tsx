@@ -12,7 +12,7 @@ const ThemeTogglerComponent = () => {
    };
 
    return (
-      <div className="flex items-center md:hidden md:border-l md:border-border/60 md:pl-4 lg:flex">
+      <div className="flex items-center hidden md:border-l md:border-border/60 md:pl-4 lg:flex">
          <div className="flex items-center gap-2 rounded-2xl border border-primary-200/70 bg-white/35 px-2 py-1.5 shadow-[0_6px_16px_-10px_rgba(var(--primary-bare),0.25)] backdrop-blur-md">
             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/85">
                Theme

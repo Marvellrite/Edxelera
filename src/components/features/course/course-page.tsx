@@ -7,7 +7,7 @@ import CourseDetailsSections from "@/components/features/course/course-details-s
 import CourseAddedToCartDialog from "@/components/features/cart/course-added-to-cart-dialog";
 import { Button } from "@/components/ui/button";
 import { CourseMode } from "@/types/course";
-import { useCartStore, type CartCourseItem } from "@/stores/cart-store";
+import { useCartStore, type CartCourseItem } from "@/stores";
 
 type CoursePageProps = {
   mode?: CourseMode;

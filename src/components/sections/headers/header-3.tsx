@@ -7,7 +7,7 @@ import { useStudentSession } from "@/hooks/useStudentSession";
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { Course_status } from "@/types/my-courses/course-status";
-import { useMyCoursesActiveCategoryStore } from "@/stores/my-courses-active-category";
+import { useMyCoursesActiveCategoryStore } from "@/stores";
 import SearchBar from "@/components/data/nav-search-bar";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 

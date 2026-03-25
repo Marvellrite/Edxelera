@@ -6,7 +6,7 @@ import {
   useCreateLesson,
   useGetLessonPresignedUrl,
 } from "@/api/course";
-import { useCourseCreationStore } from "@/stores/course-creation-store";
+import { useCourseCreationStore } from "@/stores";
 import { useState } from "react";
 
 export type LessonResourceInput = {

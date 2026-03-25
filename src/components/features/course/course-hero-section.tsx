@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import CourseMetaBar from '@/components/features/course/courseMetaBar';
 import Image from 'next/image';
 import { CourseMode } from '@/types/course';
-import { useCartStore, type CartCourseItem } from '@/stores/cart-store';
+import { useCartStore, type CartCourseItem } from '@/stores';
 import CourseAddedToCartDialog from '@/components/features/cart/course-added-to-cart-dialog';
 
 interface CourseHeroContentProps {
