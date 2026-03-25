@@ -25,6 +25,7 @@ export type OnboardingOption = {
   id: string;
   label: string;
   value: string;
+  description?: string;
 };
 
 export type OnboardingStepKey =

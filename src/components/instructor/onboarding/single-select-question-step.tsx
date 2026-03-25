@@ -13,7 +13,7 @@ export function SingleSelectQuestionStep({ step, selectedValue, onSelect }: Sing
   return (
     <section aria-labelledby={`step-question-${step.id}`} className="space-y-5">
       <h1 id={`step-question-${step.id}`} className="text-2xl font-medium text-black sm:text-3xl">
-        {step.title}
+        {step.question}
       </h1>
 
       <RadioGroup value={selectedValue} onValueChange={onSelect} className="space-y-3">
