@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { ReactSVG } from "react-svg";
 import { Search, ChevronDown, SlidersHorizontal, MinusCircle, Edit2, Trash2 } from "lucide-react";
 
 import { useSidebar } from "@/context/sidebar.context";
 import { courses } from "@/mockdata/course-management";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
-import { ArrowDownLinear } from "@/components/admin_and_instructors/icons/modified";
+import { ArrowDownLinear, MoreCircle } from "@/components/admin_and_instructors/icons/modified";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
 import { DashboardSegment, getCourseRoutes, getDashboardMainPaneClass } from "./route-utils";
@@ -29,8 +30,15 @@ const formatCellValue = (value: string | number) => (value === "--" ? "Not avail
 const CourseManagementPage = ({ segment }: Props) => {
   const { toggle } = useSidebar();
   const routes = getCourseRoutes(segment);
+  const [openActionIndex, setOpenActionIndex] = useState<number | null>(null);
+  const [selectedCourseIndex, setSelectedCourseIndex] = useState<number | null>(null);
   const [isSuspendModalOpen, setIsSuspendModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const isHydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   return (
     <section className={`${getDashboardMainPaneClass(toggle)} mt-2 overflow-y-auto pb-2 md:mt-4 no-scrollbar`}>
@@ -133,26 +141,73 @@ const CourseManagementPage = ({ segment }: Props) => {
                     <td className="admin-text px-4 py-4 font-medium tabular-nums">{formatCellValue(course.price)}</td>
                     <td className="admin-muted px-4 py-4">{formatCellValue(course.dateAdded)}</td>
                     <td className="px-4 py-4">
-                      <div className="flex items-center justify-end gap-2">
-                        <button
-                          className="admin-icon-button"
-                          onClick={() => setIsSuspendModalOpen(true)}
-                          aria-label="Suspend course"
+                      {isHydrated ? (
+                        <Popover
+                          open={openActionIndex === index}
+                          onOpenChange={(isOpen) => setOpenActionIndex(isOpen ? index : null)}
                         >
-                          <MinusCircle className="h-4 w-4" />
-                        </button>
+                          <PopoverTrigger asChild>
+                            <button
+                              type="button"
+                              aria-label={`Open actions for ${course.title}`}
+                              className="inline-flex size-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-50"
+                            >
+                              <MoreCircle />
+                            </button>
+                          </PopoverTrigger>
 
-                        <button className="admin-icon-button" aria-label="Edit course">
-                          <Edit2 className="h-4 w-4" />
-                        </button>
+                          <PopoverContent
+                            align="end"
+                            sideOffset={8}
+                            className="w-52 rounded-2xl border-neutral-100 p-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+                          >
+                            <div className="flex flex-col gap-1">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedCourseIndex(index);
+                                  setIsSuspendModalOpen(true);
+                                  setOpenActionIndex(null);
+                                }}
+                                className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-neutral-900 transition-colors hover:bg-neutral-50"
+                              >
+                                <MinusCircle className="h-4 w-4" />
+                                <span>Suspend Course</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => setOpenActionIndex(null)}
+                                className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-neutral-900 transition-colors hover:bg-neutral-50"
+                              >
+                                <Edit2 className="h-4 w-4" />
+                                <span>Edit Course</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedCourseIndex(index);
+                                  setIsDeleteModalOpen(true);
+                                  setOpenActionIndex(null);
+                                }}
+                                className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-red-600 transition-colors hover:bg-red-50"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                                <span>Delete Course</span>
+                              </button>
+                            </div>
+                          </PopoverContent>
+                        </Popover>
+                      ) : (
                         <button
-                          className="admin-icon-button admin-icon-button--danger"
-                          onClick={() => setIsDeleteModalOpen(true)}
-                          aria-label="Delete course"
+                          type="button"
+                          aria-label={`Open actions for ${course.title}`}
+                          className="inline-flex size-9 items-center justify-center rounded-full transition-colors hover:bg-neutral-50"
                         >
-                          <Trash2 className="h-4 w-4" />
+                          <MoreCircle />
                         </button>
-                      </div>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -164,17 +219,31 @@ const CourseManagementPage = ({ segment }: Props) => {
 
       <CustomAlertDialog
         isOpen={isSuspendModalOpen}
-        onClose={() => setIsSuspendModalOpen(false)}
+        onClose={() => {
+          setIsSuspendModalOpen(false);
+          setSelectedCourseIndex(null);
+        }}
         title="Suspend Course"
-        description="Make this course invisible to users. This action can always be undone"
+        description={
+          selectedCourseIndex !== null
+            ? `Make "${courses[selectedCourseIndex]?.title}" invisible to users. This action can always be undone.`
+            : "Make this course invisible to users. This action can always be undone."
+        }
         actionText="Suspend"
       />
 
       <CustomAlertDialog
         isOpen={isDeleteModalOpen}
-        onClose={() => setIsDeleteModalOpen(false)}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+          setSelectedCourseIndex(null);
+        }}
         title="Delete Course"
-        description="Are you sure you want to delete this course? This action cannot be undone, you might want to suspend the course instead"
+        description={
+          selectedCourseIndex !== null
+            ? `Are you sure you want to delete "${courses[selectedCourseIndex]?.title}"? This action cannot be undone, you might want to suspend the course instead.`
+            : "Are you sure you want to delete this course? This action cannot be undone, you might want to suspend the course instead."
+        }
         actionText="Yes, Delete"
       />
     </section>

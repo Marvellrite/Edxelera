@@ -2,6 +2,7 @@ import * as React from "react";
 import { X } from "lucide-react";
 import NotificationItem from "./notification-item";
 import { Button } from "@/components/ui/button";
+import useDragScroll from "@/hooks/useDragScroll";
 import { cn } from "@/lib/utils";
 
 const notifications = [
@@ -40,52 +41,7 @@ export default function NotificationsPanel({
   className,
   onClose,
 }: NotificationsPanelProps) {
-  const scrollRef = React.useRef<HTMLDivElement>(null);
-  const dragStateRef = React.useRef({
-    isDragging: false,
-    startY: 0,
-    startScrollTop: 0,
-  });
-  const [isDragging, setIsDragging] = React.useState(false);
-
-  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    const scrollElement = scrollRef.current;
-
-    if (!scrollElement) {
-      return;
-    }
-
-    dragStateRef.current = {
-      isDragging: true,
-      startY: event.clientY,
-      startScrollTop: scrollElement.scrollTop,
-    };
-
-    setIsDragging(true);
-    scrollElement.setPointerCapture(event.pointerId);
-  };
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const scrollElement = scrollRef.current;
-
-    if (!scrollElement || !dragStateRef.current.isDragging) {
-      return;
-    }
-
-    const deltaY = event.clientY - dragStateRef.current.startY;
-    scrollElement.scrollTop = dragStateRef.current.startScrollTop - deltaY;
-  };
-
-  const handlePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {
-    const scrollElement = scrollRef.current;
-
-    dragStateRef.current.isDragging = false;
-    setIsDragging(false);
-
-    if (scrollElement?.hasPointerCapture(event.pointerId)) {
-      scrollElement.releasePointerCapture(event.pointerId);
-    }
-  };
+  const { dragScrollProps, isDragging, scrollRef } = useDragScroll<HTMLDivElement>();
 
   return (
     <aside
@@ -111,15 +67,11 @@ export default function NotificationsPanel({
 
       <div
         ref={scrollRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerEnd}
-        onPointerCancel={handlePointerEnd}
+        {...dragScrollProps}
         className={cn(
           "flex min-h-0 flex-1 flex-col gap-10 overflow-y-auto pr-1 [scrollbar-width:thin] [scrollbar-color:rgba(44,44,44,0.22)_rgba(44,44,44,0.06)] [&::-webkit-scrollbar]:w-[1px] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-white [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[rgba(44,44,44,0.22)] [&::-webkit-scrollbar-thumb:hover]:bg-[rgba(44,44,44,0.3)]",
           isDragging ? "cursor-grabbing select-none" : "cursor-grab"
         )}
-        style={{ touchAction: "pan-y" }}
       >
         {notifications.map((notification, index) => (
           <NotificationItem

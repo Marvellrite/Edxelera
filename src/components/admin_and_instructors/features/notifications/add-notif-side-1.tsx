@@ -1,73 +1,138 @@
-"use client"
-import { Checkbox } from '@/components/admin_and_instructors/ui/custom/checkbox';
-import InputAnimated from '@/components/admin_and_instructors/ui/custom/input-animated-1';
-import Select from '@/components/admin_and_instructors/ui/custom/select'
-import { useState } from 'react';
+"use client";
 
+import { useState } from "react";
 
-interface ProgressStatus {
-  NotStarted: boolean;
-  InProgress: boolean;
-  Completed: boolean;
-  FailedExam: boolean
-}
+import InputAnimated from "@/components/admin_and_instructors/ui/custom/input-animated-1";
+import Select from "@/components/admin_and_instructors/ui/custom/select";
+import { cn } from "@/lib/utils";
+
+type ProgressStatus = "Not Started" | "In Progress" | "Completed" | "Failed Exam";
+
+const progressOptions: ProgressStatus[] = [
+  "Not Started",
+  "In Progress",
+  "Completed",
+  "Failed Exam",
+];
 
 const AddNotifSide1 = () => {
+  const [selectedAudience, setSelectedAudience] = useState("all");
+  const [selectedAudienceFilter, setSelectedAudienceFilter] = useState("course_enrolled");
+  const [selectedProgress, setSelectedProgress] = useState<ProgressStatus[]>([]);
 
-  const [progressStatus, setProgressStatus] = useState<ProgressStatus>({NotStarted: false, InProgress: false, Completed: false, FailedExam: false})
-    
+  const toggleProgress = (option: ProgressStatus) => {
+    setSelectedProgress((state) =>
+      state.includes(option) ? state.filter((item) => item !== option) : [...state, option]
+    );
+  };
+
   return (
-    <section className='border border-neutral-50 rounded-2xl p-3 space-y-3 h-fit'>
-        <p>New Notificaion</p>
+    <section className="admin-form-panel">
+      <div className="admin-form-panel__header">
+        <p className="admin-form-panel__title">Notification Details</p>
+        <p className="admin-form-panel__description">
+          Define the core message and choose which audience should receive it.
+        </p>
+      </div>
 
-        <form className='grid gap-3 grid-cols-2 '>
-          <div className=' col-span-2'>
+      <form className="grid gap-4">
+        <div className="space-y-2">
+          <label htmlFor="notification-title" className="admin-form-label">
+            Title
+          </label>
+          <InputAnimated placeholder="Notification title" id="notification-title" input_id="notification-title" />
+          <p className="admin-form-helper">
+            Use a short, descriptive title that helps recipients recognize the purpose immediately.
+          </p>
+        </div>
 
-            <InputAnimated placeholder='Title' id='title' />
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-2">
+            <label className="admin-form-label">Recipient Group</label>
+            <Select
+              label="Recipient Group"
+              value={selectedAudience}
+              options={[
+                { value: "all", key: "All Users" },
+                { value: "learners", key: "Learners" },
+                { value: "admins", key: "Admins" },
+                { value: "cohort", key: "By Cohort" },
+                { value: "course", key: "By Course" },
+                { value: "enrollment", key: "By Enrollment Status" },
+                { value: "individual", key: "Individual Users" },
+              ]}
+              onChange={(selectedOption) => {
+                setSelectedAudience(selectedOption.value);
+              }}
+            />
+            <p className="admin-form-helper">Choose the primary audience that should receive this notification.</p>
           </div>
+
+          <div className="space-y-2">
+            <label className="admin-form-label">Audience Filter</label>
             <Select
-              label='Recipient'
-              value='All users'
+              label="Audience Filter"
+              value={selectedAudienceFilter}
               options={[
-                { value: 'all', key: 'All Users' },
-                { value: 'learners', key: 'Learners' },
-                { value: 'admins', key: 'Admins' },
-                { value: 'cohort', key: 'By Cohort' },
-                { value: 'course', key: 'By Course' },
-                { value: 'enrollment', key: 'By Enrollment Status' },
-                { value: 'individual', key: 'Individual Users' }
+                { value: "course_enrolled", key: "Course Enrolled" },
+                { value: "cohort", key: "Cohort" },
+                { value: "progress", key: "Progress" },
+                { value: "payment_status", key: "Payment Status" },
+                { value: "location", key: "Location" },
               ]}
-              onChange={(selectedOption)=>{console.log(selectedOption)}}
-              className=' cols-span-1'
+              onChange={(selectedOption) => {
+                setSelectedAudienceFilter(selectedOption.value);
+              }}
             />
-            <Select
-              label='Recipient'
-              value='All users'
-              options={[
-                { value: 'course_enrolled', key: 'Course Enrolled' },
-                { value: 'cohort', key: 'Cohort' },
-                { value: 'progress', key: 'Progress' },
-                { value: 'payment_status', key: 'Payment Status' },
-                { value: 'location', key: 'Location' },
-              ]}
-              onChange={(selectedOption)=>{console.log(selectedOption)}}
-              className=' cols-span-1'
-            />
-            <div>
-              <p className=' text-neutral-700 mb-2.5 text-[14px]'>Progress</p>
-              <div className='flex flex-col gap-1.5 *:w-fit'>
-              <div><Checkbox checked={progressStatus.NotStarted} label='Not Started' onChange={(checked)=>{setProgressStatus((state)=>({...state, NotStarted: checked }))}}/></div>
-              <div><Checkbox checked={progressStatus.InProgress} label='In Progress' onChange={(checked)=>{setProgressStatus((state)=>({...state, InProgress: checked }))}}/></div>
-              <div><Checkbox checked={progressStatus.Completed} label='Completed' onChange={(checked)=>{setProgressStatus((state)=>({...state, Completed: checked }))}}/></div>
-              <div><Checkbox checked={progressStatus.FailedExam} label='Failed Exam' onChange={(checked)=>{setProgressStatus((state)=>({...state, FailedExam: checked }))}}/></div>
-              </div>
-            </div>
-        </form>
+            <p className="admin-form-helper">Apply a secondary rule to narrow the recipients more precisely.</p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <div>
+            <p className="admin-form-label">Progress Criteria</p>
+            <p className="admin-form-helper mt-1">
+              Optionally target learners by where they currently are in their journey.
+            </p>
+          </div>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            {progressOptions.map((option) => {
+              const isSelected = selectedProgress.includes(option);
+
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => toggleProgress(option)}
+                  className={cn(
+                    "rounded-2xl border px-4 py-3 text-left transition-all duration-200",
+                    isSelected
+                      ? "border-[rgba(47,79,255,0.22)] bg-[rgba(238,244,255,0.9)] shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]"
+                      : "border-[rgba(201,211,223,0.78)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,250,255,0.94))] hover:border-[rgba(183,198,216,0.92)]"
+                  )}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-medium text-[var(--admin-text-default)]">{option}</span>
+                    <span
+                      className={cn(
+                        "inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-semibold",
+                        isSelected
+                          ? "border-[rgba(47,79,255,0.18)] bg-[var(--primary-700)] text-white"
+                          : "border-[rgba(201,211,223,0.82)] bg-white text-[var(--admin-text-soft)]"
+                      )}
+                    >
+                      {isSelected ? "On" : "Off"}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </form>
     </section>
-  )
-}
+  );
+};
 
-export default AddNotifSide1
-
-
-
+export default AddNotifSide1;

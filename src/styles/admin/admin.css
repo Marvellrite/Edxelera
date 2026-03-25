@@ -474,6 +474,12 @@
   color: #556173;
 }
 
+.admin-status-badge.is-scheduled {
+  border-color: rgba(0, 17, 70, 0.16);
+  background: linear-gradient(180deg, rgba(218, 228, 255, 0.9), rgba(238, 242, 255, 0.76));
+  color: var(--primary-700);
+}
+
 .admin-status-badge.is-suspended {
   border-color: rgba(237, 28, 36, 0.18);
   background: linear-gradient(180deg, rgba(237, 28, 36, 0.1), rgba(237, 28, 36, 0.06));
