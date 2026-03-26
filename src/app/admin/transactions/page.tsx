@@ -6,13 +6,11 @@ import { Search, ChevronDown, SlidersHorizontal } from "lucide-react";
 import Overview from "@/components/admin_and_instructors/features/transaction/overview";
 import Transactions from "@/components/admin_and_instructors/features/transaction/transactions";
 import { Pagination } from "@/components/common";
-import { useSidebar } from "@/context/sidebar.context";
 import { dashboardStats, transactions } from "@/mockdata/transactions";
 
 const statusOptions = ["All Statuses", "Successful", "Pending", "Failed"];
 
 const Page = () => {
-  const { toggle } = useSidebar();
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("All Statuses");
 
@@ -34,7 +32,7 @@ const Page = () => {
   }, [query, statusFilter]);
 
   return (
-    <section className={`${toggle ? "col-span-9" : "col-span-8"} mt-4 overflow-y-auto pb-2 no-scrollbar`}>
+    <section className="mt-4 min-h-0 min-w-0 flex-1 overflow-y-auto pb-2 no-scrollbar">
       <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
         <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

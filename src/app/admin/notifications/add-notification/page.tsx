@@ -7,14 +7,12 @@ import AddNotifSide1 from "@/components/admin_and_instructors/features/notificat
 import AddNotifySide2 from "@/components/admin_and_instructors/features/notifications/add-notif-side-2";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
 import { Button } from "@/components/ui/button";
-import { useSidebar } from "@/context/sidebar.context";
 
 const Page = () => {
-  const { toggle } = useSidebar();
   const [isExitCourseCreationModalOpen, setIsExitCourseCreationModalOpen] = useState(false);
 
   return (
-    <section className={`${toggle ? "col-span-9" : "col-span-8"} mt-4 overflow-y-auto pb-3 no-scrollbar`}>
+    <section className="mt-4 min-h-0 min-w-0 flex-1 overflow-y-auto pb-3 no-scrollbar">
       <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
         <div className="admin-form-hero">
           <p className="flex flex-wrap items-center gap-2 text-sm">

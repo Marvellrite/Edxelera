@@ -9,7 +9,6 @@ import { ArrowDownLinear, MoreCircle } from "@/components/admin_and_instructors/
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { Pagination } from "@/components/common";
-import { useSidebar } from "@/context/sidebar.context";
 import { cn } from "@/lib/utils";
 import { staffMembers } from "@/mockdata/staff-management";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -48,7 +47,6 @@ function StaffStatusBadge({ status }: { status: string }) {
 }
 
 const Page = () => {
-  const { toggle } = useSidebar();
   const [isSuspendAdminModalOpen, setIsSuspendAdminModalOpen] = useState(false);
   const [isSuspendInstructorModalOpen, setIsSuspendInstructorModalOpen] = useState(false);
   const [isDeleteAdminModalOpen, setIsDeleteAdminModalOpen] = useState(false);
@@ -61,7 +59,7 @@ const Page = () => {
   );
 
   return (
-    <section className={`${toggle ? "col-span-9" : "col-span-8"} mt-4 overflow-y-auto pb-2 no-scrollbar`}>
+    <section className="mt-4 min-h-0 min-w-0 flex-1 overflow-y-auto pb-2 no-scrollbar">
       <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
         <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

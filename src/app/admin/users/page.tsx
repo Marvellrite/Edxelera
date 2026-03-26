@@ -10,7 +10,6 @@ import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { Dialog } from "@/components/admin_and_instructors/ui/custom/dialog";
 import { Pagination } from "@/components/common";
 import { Button } from "@/components/ui/button";
-import { useSidebar } from "@/context/sidebar.context";
 import { cn } from "@/lib/utils";
 import { users } from "@/mockdata/user-management";
 
@@ -85,11 +84,10 @@ function UserCourseAccessCell({
 }
 
 const Page = () => {
-  const { toggle } = useSidebar();
   const [isEditUserOpen, setIsEditUserOpen] = useState(false);
 
   return (
-    <section className={`${toggle ? "col-span-9" : "col-span-8"} mt-4 overflow-y-auto pb-2 no-scrollbar`}>
+    <section className="mt-4 min-h-0 min-w-0 flex-1 overflow-y-auto pb-2 no-scrollbar">
       <div className="admin-page-frame flex flex-col gap-4 md:gap-5">
         <header className="admin-panel rounded-2xl px-4 py-4 md:px-6 md:py-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

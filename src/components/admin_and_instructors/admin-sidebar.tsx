@@ -24,23 +24,23 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
   return (
     <aside
       className={cn(
-        "col-span-1 hidden h-full min-h-0 md:block transition-all duration-[600ms]",
-        isOpen ? "md:col-span-2" : "md:col-span-1"
+        "hidden min-h-0 overflow-visible md:block md:shrink-0 md:self-stretch",
+        "transition-all duration-500 ease-in-out",
+        isOpen ? "w-50 lg:w-67.5" : "w-18 lg:w-18"
       )}
     >
       <div
         className={cn(
-          "fixed bottom-4 top-32 z-30 min-h-0 transition-all duration-[600ms]",
-          isOpen
-            ? "left-4 w-[calc(((100vw-11rem)/10)*2+1rem)]"
-            : "left-4 w-[calc((100vw-11rem)/10)]"
+          "sticky top-32 z-30 h-[calc(100dvh-9rem)] min-h-0 w-full",
+          "transition-all duration-500 ease-in-out"
         )}
       >
         <div
           ref={scrollRef}
           {...dragScrollProps}
           className={cn(
-            "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar transition-all duration-[600ms]",
+            "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar",
+            "transition-all duration-500 ease-in-out",
             isDragging ? "cursor-grabbing select-none" : "cursor-grab",
             isOpen ? "px-4 py-4" : "px-2 py-4"
           )}
@@ -48,15 +48,15 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
           <nav className="space-y-4">
             <div
               className={cn(
-                "flex overflow-hidden transform-origin-top transition-all duration-[600ms]",
-                isOpen ? "max-h-0 scale-y-0 opacity-0" : "max-h-16 scale-y-100 opacity-100"
+                "flex overflow-hidden origin-top transition-[max-height,opacity,transform,margin] duration-400 ease-in-out",
+                isOpen ? "pointer-events-none -mb-2 max-h-0 scale-y-95 opacity-0" : "mb-1 max-h-16 scale-y-100 opacity-100"
               )}
             >
               <button
                 type="button"
                 aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                 onClick={() => setToggle(!toggle)}
-                className="shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-[600ms] hover:bg-neutral-100"
+                className="shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-600 hover:bg-neutral-100"
               >
                 <ReactSVG src={SIDEBAR_TOGGLE_ICON_SRC} />
               </button>
@@ -64,11 +64,14 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
 
             {sections.map((section, index) => (
               <div key={section.title} className="space-y-1">
-                <div className="mt-1 flex items-center justify-between gap-2">
+              <div className="mt-1 flex items-center justify-between gap-2">
                   <p
                     className={cn(
-                      "admin-soft overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] transition-all duration-[600ms]",
-                      isOpen ? "max-w-[220px] opacity-100" : "w-full text-center opacity-100"
+                      "admin-soft overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em]",
+                      "transition-[max-width,opacity,letter-spacing,transform] duration-500 ease-in-out",
+                      isOpen
+                        ? "max-w-[220px] translate-x-0 opacity-100"
+                        : "max-w-full translate-x-0 text-center opacity-100"
                     )}
                   >
                     {isOpen ? section.title : (section.collapsedTitle ?? section.title)}
@@ -80,8 +83,9 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                       aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                       onClick={() => setToggle(!toggle)}
                       className={cn(
-                        "ml-auto shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-[600ms] hover:bg-neutral-100",
-                        isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-0 opacity-0"
+                        "ml-auto shrink-0 rounded-xl border border-border/70 p-2 hover:bg-neutral-100",
+                        "transition-[opacity,transform] duration-300 ease-in-out",
+                        isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0"
                       )}
                     >
                       <ReactSVG src={SIDEBAR_TOGGLE_ICON_SRC} />
@@ -95,33 +99,36 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                       <Link
                         href={item.href}
                         className={cn(
-                          "group flex items-center rounded-xl py-2.5 transition-all duration-300",
+                          "group flex items-center rounded-xl py-2.5",
+                          "transition-[padding,background-color,color,box-shadow] duration-300 ease-out", 'transition-all duration-500 ease-in-out',
                           item.active
                             ? "bg-primary/95 text-white shadow-sm"
-                            : "text-[var(--admin-text-default)] hover:bg-[rgba(238,244,255,0.82)] hover:text-[var(--admin-text-strong)]",
-                          isOpen ? "gap-2 px-3" : "justify-center px-2"
+                            : "text-[var(--admin-text-default)] hover:bg-[rgba(255,238,244,0.82)] hover:text-[var(--admin-text-strong)]",
+                          isOpen ? "gap-2 px-3" : " gap-0 px-2"
                         )}
                       >
                         <ReactSVG
                           src={item.icon}
                           className={cn(
-                            "shrink-0 duration-500",
+                            "shrink-0 transition-transform duration-500",
                             item.label === "Dashboard" || item.label === "Settings"
                               ? "group-hover:rotate-180"
                               : "group-hover:rotate-y-180"
                           )}
                         />
 
-                        {!item.hideWhenCollapsed && (
-                          <span
-                            className={cn(
-                              "overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-[600ms]",
-                              isOpen ? "max-w-[220px] opacity-100 delay-250" : "max-w-0 opacity-0 delay-0"
-                            )}
-                          >
-                            {item.label}
-                          </span>
-                        )}
+                        <span
+                          className={cn(
+                            "overflow-hidden whitespace-nowrap text-sm font-medium",
+                            "transition-all duration-500 ease-in-out",
+                            isOpen
+                              ? "max-w-[220px] translate-x-0 opacity-100 delay-150"
+                              : "max-w-0 -translate-x-2 opacity-0"
+                          )}
+                        >
+                          {item.label}
+                        </span>
+
                       </Link>
                     </li>
                   ))}

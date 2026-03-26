@@ -14,4 +14,4 @@ export const getCourseRoutes = (segment: DashboardSegment) => {
 };
 
 export const getDashboardMainPaneClass = (toggle: boolean) =>
-  `${toggle ? "md:col-span-9" : "md:col-span-8"} col-span-1 w-full min-h-0`;
+  `min-h-0 w-full flex-1 min-w-0`;

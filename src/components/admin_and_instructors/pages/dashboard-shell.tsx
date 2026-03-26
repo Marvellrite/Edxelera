@@ -22,7 +22,7 @@ const DashboardShell = ({ children, segment }: DashboardShellProps) => {
           </div>
         </div>
 
-        <main className="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-10 gap-3 md:gap-4 min-h-0 ">
+        <main className="col-span-1 md:col-span-12 flex min-h-0 flex-col gap-3 md:flex-row md:gap-4">
           <Sidebar segment={segment} />
           {children}
         </main>
