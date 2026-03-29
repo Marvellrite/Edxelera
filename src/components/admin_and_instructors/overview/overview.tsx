@@ -1,6 +1,8 @@
 "use client";
 
 import { ReactSVG } from "react-svg";
+import { UserOutline, TeacherOutline, Pie, MoneyReceive } from "../icons/modified";
+import React from "react";
 
 type StatCard = {
   title: string;
@@ -8,7 +10,7 @@ type StatCard = {
   change: string;
   trend: "up" | "down";
   previousLabel: string;
-  icon: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
 const stats: StatCard[] = [
@@ -18,7 +20,7 @@ const stats: StatCard[] = [
     change: "+4.9%",
     trend: "up",
     previousLabel: "19,892",
-    icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340611/repo-images/public/icons/user-outline.svg",
+    Icon: UserOutline,
   },
   {
     title: "Active Learners",
@@ -26,7 +28,7 @@ const stats: StatCard[] = [
     change: "+4.9%",
     trend: "up",
     previousLabel: "13,892",
-    icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340606/repo-images/public/icons/teacher.svg",
+    Icon: TeacherOutline,
   },
   {
     title: "Course Completion Rate",
@@ -34,7 +36,7 @@ const stats: StatCard[] = [
     change: "-4.9%",
     trend: "down",
     previousLabel: "92%",
-    icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340564/repo-images/public/icons/pie.svg",
+    Icon: Pie,
   },
   {
     title: "Total Revenue",
@@ -42,7 +44,7 @@ const stats: StatCard[] = [
     change: "+4.9%",
     trend: "up",
     previousLabel: "NGN 840,000",
-    icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340541/repo-images/public/icons/money-receive.svg",
+    Icon: MoneyReceive,
   },
 ];
 
@@ -104,14 +106,7 @@ const Overview = () => {
           group-hover:bg-white/[0.08]
         "
       >
-        <ReactSVG
-          src={item.icon}
-          className="admin-stat-card__icon shrink-0 transition-transform duration-300"
-          afterInjection={(svg) => {
-            svg.setAttribute("width", "16");
-            svg.setAttribute("height", "16");
-          }}
-        />
+        <item.Icon/>
       </div>
     </div>
 

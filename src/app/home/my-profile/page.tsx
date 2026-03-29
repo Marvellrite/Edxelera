@@ -3,6 +3,7 @@ import { ReactSVG } from 'react-svg';
 import Badge from '../components/my-profile/badge';
 import Certificates from '../components/my-profile/certificates';
 import EditProfileDialogue from './components/edit_profile_dialog';
+import ProfileLinks from './components/profile-links';
 
 const Page = () => {
    return (
@@ -72,6 +73,8 @@ const Page = () => {
                   <EditProfileDialogue />
                </div>
             </div>
+
+            <ProfileLinks/>
 
             <div className=" space-y-3 ">
                <p className="font-normal text-md">Achievements & Badges</p>

@@ -26,7 +26,7 @@ export const InputIconned = <T extends FieldValues>({
       <div onClick={(e)=>{
          const input = e.currentTarget.querySelector("input");
          input?.focus()
-      }} className=" size-full relative px-5 rounded-full flex text-neutral-600 hover:cursor-text items-center gap-2 py-4 bg-surface-foreground justify-between focus-within:ring-primary/60 ring-2 ring-transparent hover:bg-neutral-50 transition-colors duration-200 focus-within:bg-surface-foreground!">
+      }} className="size-full relative flex items-center justify-between gap-2 rounded-full bg-surface-foreground px-5 py-4 text-neutral-600 ring-2 ring-transparent transition-[background-color,box-shadow,ring-color] duration-200 hover:cursor-text hover:ring-primary/20 focus-within:ring-primary/60 focus-within:hover:ring-primary/60 focus-within:bg-surface-foreground">
          <span className=' text-neutral-800'>
          <LeftIcon/>
          </span>

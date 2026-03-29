@@ -12,7 +12,6 @@ import { Pagination } from "@/components/common";
 import { cn } from "@/lib/utils";
 import { notificationsExpanded } from "@/mockdata/notifications";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { InputIconned } from "@/components/data/input-iconned";
 import SearchBar from "@/components/data/nav-search-bar";
 
 const statusStyles: Record<string, string> = {
