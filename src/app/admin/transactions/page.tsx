@@ -58,7 +58,7 @@ const Page = () => {
         <div className="admin-panel rounded-2xl p-4 md:p-5">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
             <div className="max-w-xl">
-              <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Transaction Activity</p>
+              <p className="admin-section-label text-[11px] uppercase tracking-[0.14em]">Transaction Activity</p>
               <p className="admin-muted mt-1 text-sm">
                 Review payment records by learner, course, cohort, and transaction status.
               </p>

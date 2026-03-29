@@ -37,7 +37,7 @@ const CoursePage = ({ mode = "marketing", course: courseOverride }: CoursePagePr
   };
 
   return (
-    <section>
+    <section className='w-full'>
       <div className="mx-auto pb-10 max-md:pt-0">
         <CourseHeroSection mode={mode} />
         <CourseDetailsSections />

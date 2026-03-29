@@ -12,6 +12,8 @@ import { Pagination } from "@/components/common";
 import { cn } from "@/lib/utils";
 import { notificationsExpanded } from "@/mockdata/notifications";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { InputIconned } from "@/components/data/input-iconned";
+import SearchBar from "@/components/data/nav-search-bar";
 
 const statusStyles: Record<string, string> = {
   Sent: "is-active",
@@ -33,7 +35,7 @@ function NotificationChannelsCell({ channels }: { channels: string[] }) {
       {channels.map((channel) => (
         <Badge
           key={channel}
-          className="rounded-full border border-[rgba(201,211,223,0.82)] bg-[rgba(247,249,252,0.98)] px-2.5 py-1 text-[11px] font-semibold text-[var(--admin-text-default)]"
+          className="admin-inline-badge rounded-full px-2.5 py-1 text-[11px]"
         >
           {channel}
         </Badge>
@@ -48,7 +50,7 @@ function NotificationRecipientCell({ groups }: { groups: string[] }) {
   return (
     <div className="flex min-w-0 flex-col gap-1">
       <div className="flex min-w-0 items-center gap-2">
-        <Badge className="w-fit rounded-full border border-[rgba(201,211,223,0.82)] bg-[rgba(247,249,252,0.98)] px-2.5 py-1 text-[11px] font-semibold text-[var(--admin-text-default)]">
+        <Badge className="admin-inline-badge w-fit rounded-full px-2.5 py-1 text-[11px]">
           {primaryGroup}
         </Badge>
 
@@ -113,7 +115,7 @@ const Page = () => {
               <span className="admin-chip admin-chip--compact">
                 {filteredNotifications.length} active records
               </span>
-              <Button asChild className="h-10 px-4">
+              <Button asChild className=" ">
                 <Link href="/admin/notifications/add-notification">
                   <Add />
                   <span>New Notification</span>
@@ -126,7 +128,7 @@ const Page = () => {
         <div className="admin-panel rounded-2xl p-4 md:p-5">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
             <div className="max-w-xl">
-              <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Notifications List</p>
+              <p className="admin-section-label text-[11px] uppercase tracking-[0.14em]">Notifications List</p>
               <p className="admin-muted mt-1 text-sm">
                 Review delivery channels, recipient groups, and publishing state at a glance.
               </p>
@@ -134,15 +136,9 @@ const Page = () => {
 
             <div className="flex w-full flex-col gap-2 xl:max-w-3xl">
               <div className="flex w-full flex-col gap-2 lg:flex-row lg:items-center">
-                <div className="admin-input-shell min-w-0 flex-1">
-                  <Search className="admin-muted h-4 w-4 shrink-0" />
-                  <input
-                    type="search"
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Search by title, recipient group, or channel"
-                    className="h-full w-full bg-transparent text-sm text-[var(--admin-text-default)] outline-none placeholder:text-[var(--admin-text-soft)]"
-                  />
+                <div className=" min-w-0 flex-1">
+                  {/* <Search className="admin-muted h-4 w-4 shrink-0" />  */}
+                  <SearchBar/>
                 </div>
 
                 <button className="admin-chip admin-chip--ghost lg:min-w-[116px]" type="button">
@@ -193,7 +189,7 @@ const Page = () => {
                       </td>
                       <td className="admin-muted px-4 py-4">
                         <div className="flex flex-col gap-1">
-                          <span className="font-medium text-[var(--admin-text-default)]">
+                          <span className="admin-data-emphasis">
                             {notification.dateCreated}
                           </span>
                           <span className="text-xs">

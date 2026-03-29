@@ -65,7 +65,7 @@ const Transactions = ({ items }: TransactionsProps) => {
                     <p className="admin-row-subtext mt-1">Course purchase</p>
                   </td>
                   <td className="px-4 py-4">
-                    <span className="inline-flex rounded-full border border-[rgba(201,211,223,0.82)] bg-[rgba(247,249,252,0.98)] px-2.5 py-1 text-xs font-semibold text-[var(--admin-text-default)]">
+                    <span className="admin-inline-badge inline-flex rounded-full px-2.5 py-1 text-xs">
                       {transaction.cohort}
                     </span>
                   </td>
@@ -79,7 +79,7 @@ const Transactions = ({ items }: TransactionsProps) => {
                   </td>
                   <td className="px-4 py-4">
                     <div className="flex flex-col gap-1">
-                      <span className="font-medium text-[var(--admin-text-default)]">{date}</span>
+                      <span className="admin-data-emphasis">{date}</span>
                       <span className="admin-row-subtext">{time}</span>
                     </div>
                   </td>

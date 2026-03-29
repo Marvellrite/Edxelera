@@ -25,7 +25,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
     <aside
       className={cn(
         "hidden min-h-0 overflow-visible md:block md:shrink-0 md:self-stretch",
-        "transition-all duration-500 ease-in-out",
+        "transition-all duration-500 ease-in-out", '',
         isOpen ? "w-50 lg:w-67.5" : "w-18 lg:w-18"
       )}
     >
@@ -39,10 +39,10 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
           ref={scrollRef}
           {...dragScrollProps}
           className={cn(
-            "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar",
+            "admin-panel h-full min-h-0 w-full overflow-y-auto rounded-2xl no-scrollbar p-4",
             "transition-all duration-500 ease-in-out",
             isDragging ? "cursor-grabbing select-none" : "cursor-grab",
-            isOpen ? "px-4 py-4" : "px-2 py-4"
+            // isOpen ? "px-4 py-4" : "px-2 py-4"
           )}
         >
           <nav className="space-y-4">
@@ -56,7 +56,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                 type="button"
                 aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                 onClick={() => setToggle(!toggle)}
-                className="shrink-0 rounded-xl border border-border/70 p-2 transition-all duration-600 hover:bg-neutral-100"
+                className="shrink-0 rounded-xl border border-border/70 p-1 transition-all duration-600 hover:bg-neutral-100"
               >
                 <ReactSVG src={SIDEBAR_TOGGLE_ICON_SRC} />
               </button>
@@ -67,7 +67,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
               <div className="mt-1 flex items-center justify-between gap-2">
                   <p
                     className={cn(
-                      "admin-soft overflow-hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em]",
+                      "admin-sidebar-section-label overflow-hidden whitespace-nowrap text-[11px] uppercase tracking-[0.12em]",
                       "transition-[max-width,opacity,letter-spacing,transform] duration-500 ease-in-out",
                       isOpen
                         ? "max-w-[220px] translate-x-0 opacity-100"
@@ -83,7 +83,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                       aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                       onClick={() => setToggle(!toggle)}
                       className={cn(
-                        "ml-auto shrink-0 rounded-xl border border-border/70 p-2 hover:bg-neutral-100",
+                        "ml-auto shrink-0 rounded-xl border border-border/70 p-1 hover:bg-neutral-100",
                         "transition-[opacity,transform] duration-300 ease-in-out",
                         isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0"
                       )}
@@ -119,7 +119,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
 
                         <span
                           className={cn(
-                            "overflow-hidden whitespace-nowrap text-sm font-medium",
+                            "admin-sidebar-item-label overflow-hidden whitespace-nowrap text-sm",
                             "transition-all duration-500 ease-in-out",
                             isOpen
                               ? "max-w-[220px] translate-x-0 opacity-100 delay-150"

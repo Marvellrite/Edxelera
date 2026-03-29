@@ -150,12 +150,12 @@ const Page = () => {
                       </div>
                     </td>
                     <td className="max-w-[240px] px-4 py-4">
-                      <p className="truncate font-medium text-[var(--admin-text-default)]">{staff.email}</p>
+                      <p className="admin-data-emphasis truncate">{staff.email}</p>
                       <p className="admin-row-subtext mt-1">Primary contact</p>
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex flex-col gap-1">
-                        <span className="font-medium text-[var(--admin-text-default)]">#{staff.userId}</span>
+                        <span className="admin-data-emphasis">#{staff.userId}</span>
                         <span className="admin-row-subtext">Internal identifier</span>
                       </div>
                     </td>
@@ -167,7 +167,7 @@ const Page = () => {
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex flex-col gap-1">
-                        <span className="font-medium text-[var(--admin-text-default)]">{staff.dateAdded}</span>
+                        <span className="admin-data-emphasis">{staff.dateAdded}</span>
                         <span className="admin-row-subtext">Joined the team</span>
                       </div>
                     </td>

@@ -37,7 +37,7 @@ export default function Course_started() {
 
 
       <>
-         <section className="  max-md:px-0 max-md:py-0 max-md:mt-8 relative">
+         <section className="  max-md:px-0 max-md:py-0 max-md:mt-8 relative w-full">
             <div className="  py-10 max-md:pt-0 pt-5  mx-auto">
                <div className=' max-md:pb-10'>
                   <div className=" max-md:mb-4 flex items-center gap-x-3 mb-4 mx-auto rounded-[500px] border border-neutral-200 w-[202px] h-[52px] py-2 px-2.5">

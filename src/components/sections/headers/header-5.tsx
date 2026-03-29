@@ -17,8 +17,8 @@ const Header = () => {
                 </div>
 
                 <div className='hidden sm:block'>
-                    <p className='admin-muted text-[13px] font-normal'>Good morning</p>
-                    <p className='admin-title text-[15px] font-semibold'>David David</p>
+                    <p className='admin-topbar-greeting text-[13px]'>Good morning</p>
+                    <p className='admin-topbar-name text-[15px]'>David David</p>
                 </div>
 
                 <NotificationBellButton/>

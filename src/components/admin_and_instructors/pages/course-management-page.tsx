@@ -80,7 +80,7 @@ const CourseManagementPage = ({ segment }: Props) => {
 
             <div className="flex w-full flex-col gap-2 xl:max-w-3xl">
               {/* <div className="flex items-center justify-between gap-3">
-                <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">Controls</p>
+                <p className="admin-section-label text-[11px] uppercase tracking-[0.14em]">Controls</p>
                 <p className="admin-muted text-xs">Search, sort, and filter the course catalog.</p>
               </div> */}
 

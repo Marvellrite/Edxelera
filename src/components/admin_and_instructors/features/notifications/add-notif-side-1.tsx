@@ -113,7 +113,7 @@ const AddNotifSide1 = () => {
                   )}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-medium text-[var(--admin-text-default)]">{option}</span>
+                    <span className="admin-data-emphasis">{option}</span>
                     <span
                       className={cn(
                         "inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-semibold",

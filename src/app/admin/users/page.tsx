@@ -62,7 +62,7 @@ function UserCourseAccessCell({
   return (
     <div className="flex min-w-0 flex-col gap-1">
       <div className="flex min-w-0 items-center gap-2">
-        <Badge className="w-fit rounded-full border border-[rgba(201,211,223,0.82)] bg-[rgba(247,249,252,0.98)] px-2.5 py-1 text-[11px] font-semibold text-[var(--admin-text-default)]">
+        <Badge className="admin-inline-badge w-fit rounded-full px-2.5 py-1 text-[11px]">
           <span className="truncate">{primaryCourse.courseName}</span>
           <span className="inline-flex rounded-full bg-white/80 p-0.5">
             <X className="h-3 w-3" />
@@ -179,7 +179,7 @@ const Page = () => {
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex flex-col gap-1">
-                        <span className="font-medium text-[var(--admin-text-default)]">#{user.userId}</span>
+                        <span className="admin-data-emphasis">#{user.userId}</span>
                         <span className="admin-row-subtext">Internal identifier</span>
                       </div>
                     </td>
@@ -194,7 +194,7 @@ const Page = () => {
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex flex-col gap-1">
-                        <span className="font-medium text-[var(--admin-text-default)]">{user.dateJoined}</span>
+                        <span className="admin-data-emphasis">{user.dateJoined}</span>
                         <span className="admin-row-subtext">Account created</span>
                       </div>
                     </td>

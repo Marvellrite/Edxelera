@@ -118,7 +118,7 @@ const AddNotifySide2 = () => {
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p className="font-medium text-[var(--admin-text-default)]">{channel}</p>
+                      <p className="admin-data-emphasis">{channel}</p>
                       <p className="admin-row-subtext mt-1">
                         {channel === "Email Notification"
                           ? "Best for long-form updates and supporting links."

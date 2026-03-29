@@ -88,7 +88,7 @@ const Overview = () => {
   <div className="relative z-10">
     <div className="admin-stat-card__header">
       <div className="space-y-2">
-        <p className="admin-muted text-sm font-semibold transition-colors duration-300 group-hover:text-foreground/90">
+        <p className="admin-stat-card__label text-sm transition-colors duration-300 group-hover:text-foreground/90">
           {item.title}
         </p>
         {/* <p className="admin-soft text-xs">Compared with the previous reporting window</p> */}

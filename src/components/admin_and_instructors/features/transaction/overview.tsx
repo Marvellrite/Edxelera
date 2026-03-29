@@ -32,7 +32,7 @@ function SummaryCard({
     <article className="admin-panel admin-stat-card relative rounded-2xl">
       <div className="admin-stat-card__header">
         <div>
-          <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">{title}</p>
+          <p className="admin-stat-card__label text-[11px] uppercase tracking-[0.14em]">{title}</p>
           <div className="admin-stat-card__value-row mt-3">
             <h3 className="admin-title text-3xl font-semibold tracking-tight md:text-[2rem]">{value}</h3>
             <span className={cn("admin-stat-card__delta", isPositive ? "is-up" : "is-down")}>
@@ -46,7 +46,7 @@ function SummaryCard({
 
       <div className="admin-stat-card__meta">
         <div>
-          <p className="admin-soft text-[11px] font-semibold uppercase tracking-[0.14em]">
+          <p className="admin-section-label text-[11px] uppercase tracking-[0.14em]">
             {comparisonLabel}
           </p>
           <p className="admin-text mt-1 text-sm font-semibold">{comparisonValue}</p>

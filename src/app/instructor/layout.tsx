@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/admin/admin.css";
+
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 
