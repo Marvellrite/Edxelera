@@ -86,7 +86,7 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
       {
         href: () => "",
         label: "Support",
-        icon: "MessageQuestion",
+        icon: "HelpChat",
         isActive: (pathname, prefix) => pathname === `${prefix}/support`,
       },
       {

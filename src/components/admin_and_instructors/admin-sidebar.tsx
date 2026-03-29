@@ -4,17 +4,19 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import Bell from "@/components/icons/modified/Bell";
-import BookOutline from "@/components/icons/modified/BookOutline";
-import GridIcon from "@/components/icons/modified/GridIcon";
-import MessageQuestion from "@/components/icons/modified/MessageQuestion";
-import PeopleOutline from "@/components/icons/modified/PeopleOutline";
-import Receipt from "@/components/icons/modified/Receipt";
-import SettingOutline from "@/components/icons/modified/SettingOutline";
-import ShieldStar from "@/components/icons/modified/ShieldStar";
-import Toggle from "@/components/icons/modified/Toggle";
-import UserOutline from "@/components/icons/modified/UserOutline";
-import Users from "@/components/icons/modified/Users";
+import {
+  Bell,
+  BookOutline,
+  GridIcon,
+  HelpChat,
+  PeopleOutline,
+  Receipt,
+  SettingOutline,
+  ShieldStar,
+  Toggle,
+  UserOutline,
+  Users,
+} from "@/components/icons/modified";
 import { useSidebar } from "@/context/sidebar.context";
 import useDragScroll from "@/hooks/useDragScroll";
 import { cn } from "@/lib/utils";
@@ -29,7 +31,7 @@ const adminSidebarIcons = {
   Bell,
   BookOutline,
   GridIcon,
-  MessageQuestion,
+  HelpChat,
   PeopleOutline,
   Receipt,
   SettingOutline,
@@ -52,14 +54,14 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
   return (
     <aside
       className={cn(
-        "hidden min-h-0 overflow-hidden md:block md:shrink-0 md:self-stretch",
-        "transition-[width] duration-500 ease-in-out [will-change:width] sticky top-32 h-screen",
-        isOpen ? "w-50 lg:w-67.5" : "w-22 lg:w-22"
+        "hidden min-h-0 md:block md:shrink-0 md:self-start",
+        "sticky top-32 h-[calc(100dvh-9rem)] transition-[width] duration-500 ease-in-out [will-change:width]",
+        isOpen ? "w-50 lg:w-67.5" : "w-26 lg:w-26"
       )}
     >
       <div
         className={cn(
-          " z-30 h-[calc(100dvh-9rem)] min-h-0 overflow-hidden"
+          "h-full min-h-0 overflow-hidden"
         )}
       >
         <div
@@ -71,7 +73,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
             ref={scrollRef}
             {...dragScrollProps}
             className={cn(
-              "admin-panel bg-[rgba(255,255,255,0.985)] h-full w-full min-h-0 overflow-y-auto rounded-2xl no-scrollbar p-4",
+              "admin-panel bg-[rgba(255,255,255,0.985)] h-full w-full min-h-0 overflow-y-auto rounded-2xl no-scrollbar p-4 px-4",
               isDragging ? "cursor-grabbing select-none" : "cursor-grab"
             )}
           >
@@ -86,13 +88,19 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                   type="button"
                   aria-label={isOpen ? "Collapse admin sidebar" : "Expand admin sidebar"}
                   onClick={() => setToggle(!toggle)}
-                  className="shrink-0 rounded-xl border border-border/70 p-1 transition-colors duration-300 hover:bg-neutral-100"
+                  className={cn(isOpen?'translate-x-0':'translate-x-4', "shrink-0 rounded-xl border border-border/70 p-1 transition-colors duration-300 hover:bg-neutral-100")}
                 >
-                  {React.createElement(ToggleIcon, { width: 22, height: 22 })}
+                  {React.createElement(ToggleIcon, { width: 22, height: 22,  })}
                 </button>
               </div>
 
-              {sections.map((section, index) => (
+              {sections.map((section, index) => {
+                //  const isLearning = section.title === 'Learning'
+                 const isUsers = section.title === 'Users'
+                 const isInsights = section.title === 'Insights'
+                 const isSettings = section.collapsedTitle === 'Settings'
+                 console.log()
+                 return (
                 <div key={section.title} className="space-y-1">
                   <div className="mt-1 flex items-center justify-between gap-2">
                     <p
@@ -101,7 +109,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                         "transition-[max-width,opacity,transform] duration-350 ease-out",
                         isOpen
                           ? "max-w-[220px] translate-x-0 opacity-100"
-                          : "max-w-full translate-x-0 text-center opacity-100"
+                          : "max-w-full translate-x-0 text-center opacity-100", !isOpen && isUsers && 'translate-x-3.5', !isOpen && isInsights && 'translate-x-1', !isOpen && isSettings && 'translate-x-1'
                       )}
                     >
                       {isOpen ? section.title : (section.collapsedTitle ?? section.title)}
@@ -128,7 +136,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                       const Icon = adminSidebarIcons[item.icon as AdminSidebarIconName];
 
                       return (
-                      <li key={`${section.title}-${item.label}`}>
+                      <li key={`${section.title}-${item.label}`} className={cn('transition-[padding]', isOpen? 'px-0':'px-2')}>
                         <Link
                           href={item.href}
                           className={cn(
@@ -147,7 +155,7 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                               "shrink-0 transition-transform duration-500",
                               item.label === "Dashboard" || item.label === "Settings"
                                 ? "group-hover:rotate-180"
-                                : "group-hover:rotate-y-180"
+                                : "group-hover:rotate-y-180", isOpen ? 'translate-x-0':'translate-x-2'
                             ),
                           })}
 
@@ -169,7 +177,8 @@ const AdminSidebar = ({ segment }: AdminSidebarProps) => {
                     })}
                   </ul>
                 </div>
-              ))}
+              )
+              } )}
             </nav>
           </div>
         </div>
