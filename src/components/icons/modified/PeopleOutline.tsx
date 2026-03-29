@@ -9,7 +9,7 @@ const SvgPeopleOutline = (props: SVGProps<SVGSVGElement>) => (
       {...props}
    >
       <path
-         stroke="#6E6E6E"
+         stroke="currentColor"
          strokeLinecap="round"
          strokeLinejoin="round"
          strokeWidth={1.5}

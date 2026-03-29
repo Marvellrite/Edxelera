@@ -69,3 +69,7 @@ export { default as CheckCircleIcon } from './CheckCircleIcon'
 
 export { default as LikeDislikeIcon } from './LikeDislike'
 export { default as ReviewReceivedIcon } from './ReviewReceived'
+export { default as GridIcon } from './GridIcon'
+export { default as ShieldStar } from './ShieldStar'
+export { default as Users } from './Users'
+export { default as Receipt } from './Receipt'

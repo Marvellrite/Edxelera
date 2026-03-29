@@ -22,25 +22,25 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
       {
         href: (prefix) => prefix,
         label: "Dashboard",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340496/repo-images/public/icons/home-outline-white.svg",
+        icon: "GridIcon",
         isActive: (pathname, prefix) => pathname === prefix,
       },
       {
         href: (prefix) => `${prefix}/courses`,
         label: "Course Management",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340456/repo-images/public/icons/book-outline.svg",
+        icon: "BookOutline",
         isActive: (pathname, prefix) => pathname.startsWith(`${prefix}/courses`),
       },
       {
         href: (prefix) => `${prefix}/cohort`,
         label: "Cohort Management",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340559/repo-images/public/icons/people-outline.svg",
+        icon: "PeopleOutline",
         isActive: (pathname, prefix) => pathname === `${prefix}/cohort`,
       },
       {
         href: (prefix) => `${prefix}/certificates`,
         label: "Certificates",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340453/repo-images/public/icons/award-outline.svg",
+        icon: "ShieldStar",
         isActive: (pathname, prefix) => pathname === `${prefix}/certificates`,
       },
     ],
@@ -51,13 +51,13 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
       {
         href: (prefix) => `${prefix}/users`,
         label: "User Management",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340611/repo-images/public/icons/user-outline.svg",
+        icon: "UserOutline",
         isActive: (pathname, prefix) => pathname === `${prefix}/users`,
       },
       {
         href: (prefix) => `${prefix}/staffs`,
         label: "Staff Management",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340616/repo-images/public/icons/users-outline.svg",
+        icon: "Users",
         isActive: (pathname, prefix) => pathname === `${prefix}/staffs`,
       },
     ],
@@ -68,14 +68,8 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
       {
         href: (prefix) => `${prefix}/transactions`,
         label: "Transactions",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340567/repo-images/public/icons/receipt-outline.svg",
+        icon: "Receipt",
         isActive: (pathname, prefix) => pathname === `${prefix}/transactions`,
-      },
-      {
-        href: () => "",
-        label: "Reports & Analytics",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340461/repo-images/public/icons/chart-outline.svg",
-        isActive: (pathname, prefix) => pathname === `${prefix}/reports`,
       },
     ],
   },
@@ -86,19 +80,19 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
       {
         href: (prefix) => `${prefix}/notifications`,
         label: "Notifications",
-        icon: "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340552/repo-images/public/icons/notification-outline.svg",
+        icon: "Bell",
         isActive: (pathname, prefix) => pathname === `${prefix}/notifications`,
       },
       {
         href: () => "",
         label: "Support",
-        icon: "/iconsadmin/port-outline.svg",
+        icon: "MessageQuestion",
         isActive: (pathname, prefix) => pathname === `${prefix}/support`,
       },
       {
         href: () => "",
         label: "Settings",
-        icon: "/iconsadmin/ting-outline.svg",
+        icon: "SettingOutline",
         isActive: (pathname, prefix) => pathname === `${prefix}/settings`,
         hideWhenCollapsed: false,
       },
@@ -107,7 +101,7 @@ const SIDEBAR_SECTIONS: SidebarSectionDefinition[] = [
 ];
 
 export const SIDEBAR_TOGGLE_ICON_SRC =
-  "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340608/repo-images/public/icons/toggle.svg";
+  "Toggle";
 
 export function getAdminSidebarSections(
   pathname: string,
