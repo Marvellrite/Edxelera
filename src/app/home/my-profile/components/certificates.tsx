@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 
 export interface CertificateCardProps {
+   id?: string;
+   receivedAt?: string;
    posterSrc?: string;
    title: string;
    reception_date: string;

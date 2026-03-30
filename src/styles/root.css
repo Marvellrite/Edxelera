@@ -62,7 +62,8 @@
 
    --surface: #F3F3F3;
    --surface-foreground: #FFFFFF; 
-   --surface-home: #F8F9FF;
+   /* --surface-home: #F8F9FF; */
+   --surface-home: #f5f6fd;
    --surface-subtle: #F7F9FC;
    --surface-raised: #FFFFFF;
    --surface-tint-blue: #F7FAFF;

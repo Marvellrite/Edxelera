@@ -3,6 +3,8 @@ import { CalendarDays } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export type AchievementBadgeCardProps = {
+   id?: string;
+   earnedAt?: string;
    title?: string;
    description?: string;
    unlockedOn?: string;

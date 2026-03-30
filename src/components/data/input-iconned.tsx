@@ -1,4 +1,9 @@
-import { UseFormRegister, FieldValues, Path } from 'react-hook-form';
+import {
+   UseFormRegister,
+   FieldValues,
+   Path,
+   RegisterOptions,
+} from 'react-hook-form';
 import { ComponentProps, ComponentType, JSX } from 'react';
 import IconProp from '@/components/icons/generated/IconType';
 
@@ -7,6 +12,7 @@ interface InputPropsType<T extends FieldValues>
    name: Path<T>;
    input_id?: string;
    register: UseFormRegister<T>;
+   registerOptions?: RegisterOptions<T, Path<T>>;
    placeholder: string;
    LeftIcon: ComponentType<IconProp>
    RightIcon?: JSX.Element
@@ -18,6 +24,7 @@ export const InputIconned = <T extends FieldValues>({
    name,
    input_id="",
    register,
+   registerOptions,
    LeftIcon,
    RightIcon,
    ...rest
@@ -32,7 +39,7 @@ export const InputIconned = <T extends FieldValues>({
          </span>
         
          <input
-            {...register<Path<T>>(name)}
+            {...register<Path<T>>(name, registerOptions)}
             className=" text-neutral basis-full h-full  focus-visible:outline-none placeholder:text-neutral-700"
             placeholder={placeholder}
             id={input_id}

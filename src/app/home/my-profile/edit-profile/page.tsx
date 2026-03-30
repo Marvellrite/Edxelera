@@ -1,32 +1,67 @@
 'use client';
 
-import type { ChangeEventHandler, FormEventHandler } from 'react';
-import Link from 'next/link';
+import { useEffect, useState, type ChangeEventHandler } from 'react';
+import { Globe, MapPin } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import {
+   siFacebook,
+   siInstagram,
+   siLinkerd,
+   siX,
+   type SimpleIcon,
+} from 'simple-icons';
+import { useHeaderTitleStore } from '@/stores';
 
+import ProfileImageUpload from '@/components/auth/profile-image-upload';
+import FormError from '@/components/auth/form-error';
+import { InputIconned } from '@/components/data/input-iconned';
+import type IconProp from '@/components/icons/generated/IconType';
+import {
+   SearchOutline,
+   UserOutline,
+} from '@/components/icons/modified';
 import { Button } from '@/components/ui/button';
-import { GalleryAdd, ArrowLeft } from '@/components/icons/modified';
 
-const userIconSrc =
-   '"https://res.cloudinary.com/dx5iohojj/image/upload/v1773340563/repo-images/public/icons/photo.png';
-const locationIconSrc =
-   'https://www.figma.com/api/mcp/asset/e6998dd5-6fd6-424c-b6d1-eaddf1576157';
 const defaultAvatarSrc =
-   'https://www.figma.com/api/mcp/asset/5c41fc93-75e3-4d01-9aa8-f6b833e0bbc1';
+   'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340563/repo-images/public/icons/photo.png';
 
-type EditProfileFieldProps = {
-   label: string;
-   placeholder?: string;
-   value?: string;
-   iconSrc?: string;
-   type?: 'text' | 'date';
-};
+function createSimpleBrandIcon(icon: SimpleIcon) {
+   return function SimpleBrandIcon({
+      className,
+      size = 20,
+      ...props
+   }: IconProp) {
+      return (
+         <svg
+            viewBox="0 0 24 24"
+            width={size}
+            height={size}
+            className={className ?? 'size-5 text-neutral-800'}
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+         >
+            <path d={icon.path} />
+         </svg>
+      );
+   };
+}
 
-export type EditProfileLinkValues = {
-   website?: string;
-   facebook?: string;
-   x?: string;
-   linkedIn?: string;
-   instagram?: string;
+const SimpleFacebookIcon = createSimpleBrandIcon(siFacebook);
+const SimpleXIcon = createSimpleBrandIcon(siX);
+const SimpleLinkedInIcon = createSimpleBrandIcon(siLinkerd);
+const SimpleInstagramIcon = createSimpleBrandIcon(siInstagram);
+
+type EditProfileFormValues = {
+   bio: string;
+   location: string;
+   learningGoal: string;
+   website: string;
+   facebook: string;
+   x: string;
+   linkedIn: string;
+   instagram: string;
+   profileImage: FileList;
 };
 
 export type EditProfileViewProps = {
@@ -34,145 +69,193 @@ export type EditProfileViewProps = {
    backHref?: string;
    saveLabel?: string;
    avatarSrc?: string;
-   bio?: string;
-   location?: string;
-   learningGoal?: string;
-   links?: EditProfileLinkValues;
-   onSubmit?: FormEventHandler<HTMLFormElement>;
+   defaultValues?: Partial<EditProfileFormValues>;
+   onSubmit?: (data: EditProfileFormValues) => void;
    onAvatarChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
-const fieldBaseClassName =
-   'flex h-14 w-full items-center gap-2 rounded-[50px] bg-white px-5 py-4 text-sm font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.02)] outline-none transition focus-within:ring-2 focus-within:ring-primary/20';
+type EditProfileFieldConfig = {
+   name: keyof EditProfileFormValues;
+   label: string;
+   placeholder: string;
+   LeftIcon:
+      | typeof UserOutline
+      | typeof MapPin
+      | typeof SearchOutline
+      | typeof Globe
+      | typeof SimpleFacebookIcon
+      | typeof SimpleXIcon
+      | typeof SimpleLinkedInIcon
+      | typeof SimpleInstagramIcon;
+   required?: boolean;
+};
 
-function EditProfileField({
-   label,
-   placeholder,
-   value,
-   iconSrc,
-   type = 'text',
-}: EditProfileFieldProps) {
-   return (
-      <div className="flex w-full flex-col gap-2">
-         <label className="text-base font-medium leading-6 text-[#040506]">
-            {label}
-         </label>
-         <div className={fieldBaseClassName}>
-            {iconSrc ? (
-               <img
-                  src={iconSrc}
-                  alt=""
-                  className="h-6 w-6 shrink-0"
-                  aria-hidden="true"
-               />
-            ) : null}
-            <input
-               type={type}
-               defaultValue={value}
-               placeholder={placeholder}
-               className="w-full bg-transparent text-sm font-medium text-neutral-700 placeholder:text-neutral-500 focus:outline-none"
-            />
-         </div>
-      </div>
-   );
-}
+const fieldConfigs: EditProfileFieldConfig[] = [
+   {
+      name: 'bio',
+      label: 'Bio',
+      placeholder: 'Write a short bio about yourself',
+      LeftIcon: UserOutline,
+      required: true,
+   },
+   {
+      name: 'location',
+      label: 'Location',
+      placeholder: 'Select location',
+      LeftIcon: MapPin,
+      required: true,
+   },
+   {
+      name: 'learningGoal',
+      label: 'What would you like to learn?',
+      placeholder: 'Search options',
+      LeftIcon: SearchOutline,
+      required: true,
+   },
+   {
+      name: 'website',
+      label: 'Website',
+      placeholder: 'Link',
+      LeftIcon: Globe,
+   },
+   {
+      name: 'facebook',
+      label: 'Facebook',
+      placeholder: 'Link',
+      LeftIcon: SimpleFacebookIcon,
+   },
+   {
+      name: 'x',
+      label: 'X',
+      placeholder: 'Link',
+      LeftIcon: SimpleXIcon,
+   },
+   {
+      name: 'linkedIn',
+      label: 'LinkedIn',
+      placeholder: 'Link',
+      LeftIcon: SimpleLinkedInIcon,
+   },
+   {
+      name: 'instagram',
+      label: 'Instagram',
+      placeholder: 'Link',
+      LeftIcon: SimpleInstagramIcon,
+   },
+];
 
 export function EditProfileView({
    title = 'Edit Profile',
    backHref = '/home/my-profile',
    saveLabel = 'Save',
    avatarSrc = defaultAvatarSrc,
-   bio,
-   location,
-   learningGoal,
-   links,
+   defaultValues,
    onSubmit,
    onAvatarChange,
 }: EditProfileViewProps) {
+   const [profileImagePreview, setProfileImagePreview] = useState('');
+
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm<EditProfileFormValues>({
+      defaultValues: {
+         bio: '',
+         location: '',
+         learningGoal: '',
+         website: '',
+         facebook: '',
+         x: '',
+         linkedIn: '',
+         instagram: '',
+         ...defaultValues,
+      },
+   });
+
+   const profileImage = watch('profileImage');
+
+   useEffect(() => {
+      if (profileImage && profileImage.length > 0) {
+         const preview = URL.createObjectURL(profileImage[0]);
+         setProfileImagePreview(preview);
+
+         return () => {
+            URL.revokeObjectURL(preview);
+         };
+      }
+
+      setProfileImagePreview('');
+   }, [profileImage]);
+
+   const handleFormSubmit = (data: EditProfileFormValues) => {
+      onSubmit?.(data);
+   };
+
+   const setHeaderTitle = useHeaderTitleStore(state => state.setHeaderTitle);
+
+   useEffect(() => {
+      setHeaderTitle('Edit Profile');
+   }, [setHeaderTitle]);
+
    return (
-      <section className="min-h-screen bg-[#f5f6fd] px-4 pb-10 pt-1 sm:px-6">
-         <div className="mx-auto flex w-full max-w-[396px] flex-col items-center gap-6">
-            <div className="relative flex w-full items-center justify-center pt-1">
-               <Link
-                  href={backHref}
-                  aria-label="Go back"
-                  className="absolute left-0 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center"
-               >
-                  <ArrowLeft className="h-8 w-8" />
-               </Link>
-               <h1 className="text-2xl font-medium leading-9 text-neutral-900">
-                  {title}
-               </h1>
-            </div>
-
-            <div className="relative h-24 w-24 overflow-hidden rounded-full">
-               <img
-                  src={avatarSrc}
-                  alt="Profile"
-                  className="h-full w-full object-cover"
-               />
-               <label className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/65">
-                  <input
-                     type="file"
-                     className="sr-only"
-                     accept="image/*"
-                     onChange={onAvatarChange}
+      <section className="min-h-screen px-4 pb-10 pt-1 sm:px-6 md:px-8 md:pb-14 md:pt-4 xl:px-10 xl:pb-16 xl:pt-8">
+         <div className="mx-auto w-full max-w-[396px] md:max-w-2xl xl:max-w-5xl">
+            <div className="flex flex-col items-center gap-6 md:gap-8 xl:grid xl:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] xl:items-start xl:gap-10">
+               <div className="flex w-full justify-center xl:justify-start xl:pt-2">
+                  <ProfileImageUpload
+                     profileImagePreview={profileImagePreview}
+                     defaultImageSrc={avatarSrc || defaultAvatarSrc}
+                     register={register}
+                     registerOptions={{
+                        onChange: onAvatarChange,
+                     }}
+                     errors={errors}
+                     name="profileImage"
                   />
-                  <GalleryAdd
-                     className="h-6 w-6"
-                     aria-hidden="true"
-                  />
-                  <span className="sr-only">Change profile photo</span>
-               </label>
-            </div>
+               </div>
 
-            <form className="flex w-full flex-col items-start gap-5" onSubmit={onSubmit}>
-               <EditProfileField
-                  label="Bio"
-                  iconSrc={userIconSrc}
-                  value={bio}
-                  placeholder="Write a short bio about yourself"
-               />
-               <EditProfileField
-                  label="Location"
-                  iconSrc={locationIconSrc}
-                  value={location}
-                  placeholder="Select Date"
-               />
-               <EditProfileField
-                  label="What would you like to learn?"
-                  value={learningGoal}
-                  placeholder="Search options"
-               />
-               <EditProfileField
-                  label="Website"
-                  value={links?.website}
-                  placeholder="Link"
-               />
-               <EditProfileField
-                  label="Facebook"
-                  value={links?.facebook}
-                  placeholder="Link"
-               />
-               <EditProfileField label="X" value={links?.x} placeholder="Link" />
-               <EditProfileField
-                  label="LinkedIn"
-                  value={links?.linkedIn}
-                  placeholder="Link"
-               />
-               <EditProfileField
-                  label="Instagram"
-                  value={links?.instagram}
-                  placeholder="Link"
-               />
-
-               <Button
-                  type="submit"
-                  className="mt-4 h-[57px] w-full rounded-[50px] bg-[#001146] px-8 py-[18px] text-lg font-medium text-white hover:bg-[#001146]/95"
+               <form
+                  className="flex w-full flex-col items-start gap-5 md:gap-6 xl:max-w-3xl"
+                  onSubmit={handleSubmit(handleFormSubmit)}
                >
-                  {saveLabel}
-               </Button>
-            </form>
+                  {fieldConfigs.map(
+                     ({ name, label, placeholder, LeftIcon, required }) => (
+                        <div key={name} className="w-full space-y-2">
+                           <label
+                              className="block text-base font-medium leading-6 text-[#040506]"
+                              htmlFor={name}
+                           >
+                              {label}
+                           </label>
+                           <InputIconned
+                              LeftIcon={LeftIcon}
+                              register={register}
+                              registerOptions={
+                                 required
+                                    ? { required: `${label} is required` }
+                                    : undefined
+                              }
+                              name={name}
+                              input_id={name}
+                              placeholder={placeholder}
+                           />
+                           {errors[name] ? (
+                              <FormError>{errors[name]?.message}</FormError>
+                           ) : null}
+                        </div>
+                     )
+                  )}
+
+                  <Button
+                     type="submit"
+                     className="mt-4 h-[57px] w-full px-8 py-[18px] md:mt-6 xl:min-w-[180px] xl:w-auto"
+                  >
+                     Save
+                  </Button>
+               </form>
+            </div>
          </div>
       </section>
    );
@@ -181,10 +264,10 @@ export function EditProfileView({
 export default function Page() {
    return (
       <EditProfileView
-         bio=""
-         location=""
-         learningGoal=""
-         links={{
+         defaultValues={{
+            bio: '',
+            location: '',
+            learningGoal: '',
             website: '',
             facebook: '',
             x: '',

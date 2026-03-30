@@ -1,6 +1,6 @@
 // import '../globals.css';
 
-import Header from "../components/header";
+import Header from "@/components/shared/headers/header"
 
 export default function HomeLayout({
    children,
@@ -9,7 +9,7 @@ export default function HomeLayout({
 }>) {
    return (
 
-            <section className="col-span-10 grow overflow-y-auto flex-1">
+            <section className="col-span-10 grow overflow-y-auto flex-1 px-4">
                <Header />
 
                {children}

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import Header from "@/components/sections/headers/header-5";
+import Header from "@/components/shared/headers/header-5";
 import Sidebar from "@/components/admin_and_instructors/sidebar";
 import ContextProvider from "@/context";
 

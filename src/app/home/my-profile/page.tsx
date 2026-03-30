@@ -1,4 +1,5 @@
 'use client';
+
 import AchievedBadges from './components/achieved-badges';
 import type { AchievementBadgeCardProps } from './components/achievement-badge-card';
 import AchievedCertificates from './components/achieved-certificates';
@@ -22,62 +23,140 @@ const Page = () => {
       ],
    };
 
-   const achievedBadges: AchievementBadgeCardProps[] = [
+   const allAchievedBadges: AchievementBadgeCardProps[] = [
       {
+         id: 'badge-skill-mastery-2026-01-25',
          title: 'Skill Mastery',
          description:
             'For achieving high scores in assessments and demonstrating strong understanding.',
          unlockedOn: 'Unlocked on Jan 25, 2026',
+         earnedAt: '2026-01-25',
       },
       {
-         title: 'Skill Mastery',
+         id: 'badge-creative-streak-2026-01-17',
+         title: 'Creative Streak',
          description:
-            'For achieving high scores in assessments and demonstrating strong understanding.',
-         unlockedOn: 'Unlocked on Jan 25, 2026',
+            'For showing up consistently and completing design exercises across multiple sessions.',
+         unlockedOn: 'Unlocked on Jan 17, 2026',
+         earnedAt: '2026-01-17',
       },
       {
-         title: 'Skill Mastery',
+         id: 'badge-collaboration-star-2026-01-10',
+         title: 'Collaboration Star',
          description:
-            'For achieving high scores in assessments and demonstrating strong understanding.',
-         unlockedOn: 'Unlocked on Jan 25, 2026',
+            'Awarded for active participation in peer reviews and constructive team feedback.',
+         unlockedOn: 'Unlocked on Jan 10, 2026',
+         earnedAt: '2026-01-10',
       },
       {
-         title: 'Skill Mastery',
+         id: 'badge-problem-solver-2025-12-28',
+         title: 'Problem Solver',
          description:
-            'For achieving high scores in assessments and demonstrating strong understanding.',
-         unlockedOn: 'Unlocked on Jan 25, 2026',
+            'For tackling challenging assignments and submitting thoughtful, well-structured solutions.',
+         unlockedOn: 'Unlocked on Dec 28, 2025',
+         earnedAt: '2025-12-28',
       },
       {
-         title: 'Skill Mastery',
+         id: 'badge-course-finisher-2025-12-03',
+         title: 'Course Finisher',
          description:
-            'For achieving high scores in assessments and demonstrating strong understanding.',
-         unlockedOn: 'Unlocked on Jan 25, 2026',
+            'For completing a full learning track and finishing all required milestone lessons.',
+         unlockedOn: 'Unlocked on Dec 03, 2025',
+         earnedAt: '2025-12-03',
+      },
+      {
+         id: 'badge-community-voice-2025-11-18',
+         title: 'Community Voice',
+         description:
+            'Recognized for helping others in the learning community and sharing useful feedback.',
+         unlockedOn: 'Unlocked on Nov 18, 2025',
+         earnedAt: '2025-11-18',
+      },
+      {
+         id: 'badge-rising-talent-2025-10-29',
+         title: 'Rising Talent',
+         description:
+            'Given for strong early momentum and a standout first month of learning progress.',
+         unlockedOn: 'Unlocked on Oct 29, 2025',
+         earnedAt: '2025-10-29',
       },
    ];
 
-   const achievedCertificates: CertificateCardProps[] = [
+   const sortedAchievedBadges = [...allAchievedBadges].sort((a, b) => {
+      const left = a.earnedAt ? new Date(a.earnedAt).getTime() : 0;
+      const right = b.earnedAt ? new Date(b.earnedAt).getTime() : 0;
+
+      return right - left;
+   });
+
+   const latestBadgePreview = sortedAchievedBadges.slice(0, 5);
+
+   const allAchievedCertificates: CertificateCardProps[] = [
       {
+         id: 'certificate-product-design-2025-08-02',
          title: 'Product Design (UI/UX)',
          reception_date: '2nd August, 2025',
+         receivedAt: '2025-08-02',
          posterSrc:
             'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg',
       },
       {
-         title: 'Product Design (UI/UX)',
-         reception_date: '2nd August, 2025',
+         id: 'certificate-user-research-2025-07-18',
+         title: 'User Research Fundamentals',
+         reception_date: '18th July, 2025',
+         receivedAt: '2025-07-18',
+         posterSrc:
+            'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg',
+      },
+      {
+         id: 'certificate-design-systems-2025-06-30',
+         title: 'Design Systems Essentials',
+         reception_date: '30th June, 2025',
+         receivedAt: '2025-06-30',
+         posterSrc:
+            'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg',
+      },
+      {
+         id: 'certificate-ux-writing-2025-05-11',
+         title: 'UX Writing Basics',
+         reception_date: '11th May, 2025',
+         receivedAt: '2025-05-11',
          posterSrc:
             'https://res.cloudinary.com/dx5iohojj/image/upload/v1773340414/repo-images/public/assets/certificate_adjusted.jpg',
       },
    ];
+
+   const sortedAchievedCertificates = [...allAchievedCertificates].sort(
+      (a, b) => {
+         const left = a.receivedAt ? new Date(a.receivedAt).getTime() : 0;
+         const right = b.receivedAt ? new Date(b.receivedAt).getTime() : 0;
+
+         return right - left;
+      }
+   );
+
+   const latestCertificatePreview = sortedAchievedCertificates.slice(0, 5);
 
    return (
-      <section className="pt-10 px-8 w-full">
-         <div className=" grid grid-cols-1 gap-y-10 ">
+      <section className="w-full px-4 pb-12 pt-10 sm:px-6 lg:px-8">
+         <div className="grid grid-cols-1 gap-y-10 lg:gap-y-12">
             <PersonalInfo {...personalInfo} />
 
-            <AchievedBadges badges={achievedBadges} />
+            <AchievedBadges
+               badges={latestBadgePreview}
+               totalCount={allAchievedBadges.length}
+               previewLimit={5}
+               seeAllHref="/home/my-profile/achievements"
+               variant="preview"
+            />
 
-            <AchievedCertificates certificates={achievedCertificates} />
+            <AchievedCertificates
+               certificates={latestCertificatePreview}
+               totalCount={allAchievedCertificates.length}
+               previewLimit={5}
+               seeAllHref="/home/my-profile/certificates"
+               variant="preview"
+            />
          </div>
       </section>
    );

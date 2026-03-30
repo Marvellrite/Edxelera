@@ -4,54 +4,57 @@ import {
    FieldErrors,
    FieldValues,
    Path,
+   RegisterOptions,
+   get,
 } from 'react-hook-form';
 import FormError from './form-error';
 
 interface ProfileImageUploadProps<T extends FieldValues> {
    profileImagePreview: string;
+   defaultImageSrc?: string;
    register: UseFormRegister<T>;
+   registerOptions?: RegisterOptions<T, Path<T>>;
    errors: FieldErrors<T>;
    name: Path<T>;
 }
 
 const ProfileImageUpload = <T extends FieldValues>({
    profileImagePreview,
+   defaultImageSrc,
    register,
+   registerOptions,
    errors,
    name,
 }: ProfileImageUploadProps<T>) => {
+   const imageSrc = profileImagePreview || defaultImageSrc;
+   const errorMessage = get(errors, name)?.message as React.ReactNode;
+
    return (
       <div>
-         {!profileImagePreview ? (
-            <div className=" relative mx-auto bg-neutral-200 w-22 h-22 rounded-[500px] flex justify-center items-center">
-               <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340491/repo-images/public/icons/gallery-add.svg" />
-               <input
-                  title="Profile Image"
-                  className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0 hover:ring-2 hover:ring-primary rounded-lg"
-                  type="file"
-                  accept="image/*"
-                  {...register(name)}
-               />
-            </div>
-         ) : (
-            <div className=" relative mx-auto w-22 h-22 bg-neutral-200 rounded-[500px] flex justify-center items-center">
+         <div className="relative mx-auto flex h-22 w-22 items-center justify-center overflow-hidden rounded-[500px] bg-neutral-200">
+            {imageSrc ? (
                <img
-                  src={profileImagePreview}
-                  className="  block absolute object-cover w-full h-full rounded-[500px]"
+                  src={imageSrc}
+                  className="absolute block h-full w-full rounded-[500px] object-cover"
                   alt="Profile Image"
                />
-               <input
-                  title="Profile Image"
-                  className=" hover:cursor-pointer opacity-0 absolute w-full h-full top-0 start-0"
-                  type="file"
-                  accept="image/*"
-                  {...register(name)}
-               />
+            ) : null}
+
+            <div className="absolute inset-0 flex items-center justify-center bg-black/45">
+               <ReactSVG src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340491/repo-images/public/icons/gallery-add.svg" />
             </div>
-         )}
-         {errors.profileImage?.message && (
+
+            <input
+               title="Profile Image"
+               className="absolute start-0 top-0 h-full w-full cursor-pointer opacity-0"
+               type="file"
+               accept="image/*"
+               {...register(name, registerOptions)}
+            />
+         </div>
+         {errorMessage && (
             <FormError className="text-center">
-               {errors.profileImage.message as React.ReactNode}
+               {errorMessage}
             </FormError>
          )}
       </div>
