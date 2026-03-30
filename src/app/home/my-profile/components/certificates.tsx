@@ -1,14 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
-interface VideoCardProps {
-   // Define any props if needed in the future
+export interface CertificateCardProps {
    posterSrc?: string;
    title: string;
    reception_date: string;
 }
 
-const Cerificates: React.FC<VideoCardProps> = ({
+const Cerificates: React.FC<CertificateCardProps> = ({
    posterSrc,
    title,
    reception_date,

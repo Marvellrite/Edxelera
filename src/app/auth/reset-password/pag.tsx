@@ -22,8 +22,8 @@ const Page = () => {
                              height={108}
                           /></div>
 
-                 {/* <ResetPassEmailForm/> */}
-                 {/* <ResetPassOtpForm/> */}
+                 <ResetPassEmailForm/>
+                 <ResetPassOtpForm/>
                  <ResetPassChangeForm/>
                 
    

@@ -42,13 +42,13 @@ const HomeSidebar = () => {
 
   return (
     <aside
-      className={`col-span-2 hidden md:block border-r-2 border-neutral-100 h-screen px-5 text-neutral space-y-8.5 overflow-x-hidden ${
+      className={`col-span-2 hidden h-screen overflow-x-hidden border-r-2 border-neutral-100 px-5 text-neutral space-y-8.5 md:block ${
         isOpen ? "md:w-50 lg:w-67.5" : "md:w-18 lg:w-18"
-      } transition-all duration-600`}
+      } transition-[width] duration-500 ease-in-out [will-change:width]`}
     >
       <div
         className={cn(
-          " flex justify-between pt-5 gap-0 *:inline-block transition-all duration-600",
+          "flex justify-between gap-0 pt-5 *:inline-block transition-transform duration-500 ease-in-out [transform-origin:left_center] [will-change:transform]",
           isOpen ? "scale-x-100" : "scale-x-[20px]",
         )}
       >
@@ -60,15 +60,15 @@ const HomeSidebar = () => {
             width={192}
             height={47}
             className={cn(
-              "h-7.5 w-auto aspect-191/47 transition-opacity duration-200",
+              "h-7.5 w-auto aspect-191/47 transition-opacity duration-200 [will-change:opacity]",
               showCollapsedToggle ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto",
             )}
           />
         </div>
       </div>
 
-      <nav className={cn("grid gap-8 transition-transform duration-600 translate-y-0 ", isOpen && "-translate-y-14.25")}>
-        <div className={cn("origin-top scale-y-100 opacity-100 transition-all  duration-300", isOpen && "scale-y-0 opacity-0")}>
+      <nav className={cn("grid gap-8 translate-y-0 transition-transform duration-500 ease-in-out [will-change:transform]", isOpen && "-translate-y-14.25")}>
+        <div className={cn("origin-top scale-y-100 opacity-100 transition-[opacity,transform] duration-300 ease-out [will-change:transform,opacity]", isOpen && "scale-y-0 opacity-0")}>
           <button className="translate-x-1">
             <Toggle className="size-6.25" onClick={toggleSidebar} />
           </button>
@@ -77,7 +77,7 @@ const HomeSidebar = () => {
           <Link
             href={homeLinks[0].href}
             className={cn(
-              `flex gap-5 hover:cursor-pointer items-center duration-600 transition-all ${
+              `flex items-center gap-5 transition-[gap,color] duration-500 ease-out hover:cursor-pointer ${
                 pathname === homeLinks[0].href ? activeLink : ""
               }`,
               isOpen ? "gap-5" : "gap-0",
@@ -86,9 +86,14 @@ const HomeSidebar = () => {
             {React.createElement(IconsMap[pathname === homeLinks[0].href ? homeLinks[0].icon : homeLinks[0].outline], {
               width: 25,
               height: 25,
-              className: " translate-x-0.5 duration-0 ",
+              className: "translate-x-0.5 shrink-0",
             })}
-            <span className={cn("duration-600 transition-all", isOpen ? " opacity-100 delay-250" : " opacity-0 delay-0")}>
+            <span
+              className={cn(
+                "overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ease-out [will-change:opacity]",
+                isOpen ? "max-w-32 opacity-100 delay-200" : "max-w-0 opacity-0"
+              )}
+            >
               {homeLinks[0].label}
             </span>
           </Link>
@@ -98,7 +103,7 @@ const HomeSidebar = () => {
             aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
             onClick={toggleSidebar}
             className={cn(
-              "hover:cursor-pointer bg-transparent border-none p-0 transition-all duration-600",
+              "bg-transparent border-none p-0 transition-[opacity,width] duration-500 ease-out hover:cursor-pointer [will-change:opacity,width]",
               isOpen ? "opacity-100 w-6.25" : "opacity-0 w-0 pointer-events-none",
             )}
           >
@@ -110,7 +115,7 @@ const HomeSidebar = () => {
             key={link.href}
             href={link.href}
             className={cn(
-              "flex gap-5 hover:cursor-pointer items-center duration-600 transition-all ",
+              "flex items-center gap-5 transition-[gap,color] duration-500 ease-out hover:cursor-pointer",
               pathname === link.href ? activeLink : "",
               isOpen ? "gap-5" : "gap-0",
             )}
@@ -118,9 +123,14 @@ const HomeSidebar = () => {
             {React.createElement(IconsMap[pathname === link.href ? link.icon : link.outline], {
               width: 25,
               height: 25,
-              className: " translate-x-0.5 duration-0 ",
+              className: "translate-x-0.5 shrink-0",
             })}
-            <span className={cn("duration-600 transition-all text-nowrap", isOpen ? " opacity-100 delay-250" : " opacity-0 delay-0")}>
+            <span
+              className={cn(
+                "overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-300 ease-out [will-change:opacity]",
+                isOpen ? "max-w-32 opacity-100 delay-200" : "max-w-0 opacity-0"
+              )}
+            >
               {link.label}
             </span>
           </Link>

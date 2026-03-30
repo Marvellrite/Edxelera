@@ -99,7 +99,7 @@ const Page: React.FC = () => {
             {errors.password && <FormError>{errors.password.message}</FormError>}
           </div>
           <div className="mb-5 flex justify-end">
-            <Link className="hover:underline underline-offset-2" href={'/auth/reset-password'}>
+            <Link className="hover:underline underline-offset-2" href={'/auth/forgotten-password'}>
               Forgot Password?
             </Link>
           </div>
