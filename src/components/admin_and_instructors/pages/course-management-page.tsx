@@ -6,7 +6,7 @@ import { ReactSVG } from "react-svg";
 import { Search, ChevronDown, SlidersHorizontal, MinusCircle, Edit2, Trash2 } from "lucide-react";
 
 import { useSidebar } from "@/context/sidebar.context";
-import { courses } from "@/mockdata/course-management";
+import { courses } from "@/mock/course-management";
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { ArrowDownLinear, MoreCircle } from "@/components/admin_and_instructors/icons/modified";
 import CustomAlertDialog from "@/components/admin_and_instructors/features/course/custom-modal";

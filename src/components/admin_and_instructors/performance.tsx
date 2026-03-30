@@ -1,4 +1,4 @@
-import { courses } from "@/mockdata/performance";
+import { courses } from "@/mock/performance";
 
 const currencyFormatter = new Intl.NumberFormat("en-NG", {
   style: "currency",

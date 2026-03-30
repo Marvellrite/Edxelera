@@ -10,7 +10,7 @@ import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { Button } from "@/components/admin_and_instructors/ui/button";
 import { Pagination } from "@/components/common";
 import { cn } from "@/lib/utils";
-import { notificationsExpanded } from "@/mockdata/notifications";
+import { notificationsExpanded } from "@/mock/notifications";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import SearchBar from "@/components/data/nav-search-bar";
 

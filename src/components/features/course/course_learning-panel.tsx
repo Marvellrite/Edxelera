@@ -5,7 +5,7 @@ import Comment from '../community/comment';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import CourseModulesAccordion from './course_modules_accordion';
-import { COURSE_MODULE_ITEMS_LEARNING } from '@/mockdata/course/details-mockdata';
+import { COURSE_MODULE_ITEMS_LEARNING } from '@/mock/course/details-mockdata';
 import LmsVideoPlayer from './lms-video-player';
 
 const CourseLearningPanel = () => {

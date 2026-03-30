@@ -1,8 +1,8 @@
 import My_course from "@/app/home/components/my-courses/my_course";
 import { useMyCoursesActiveCategoryStore } from "@/stores";
-import all_courses_mock_data  from "@/mockdata/my-courses/all_courses";
-import completed_courses_mock_data  from "@/mockdata/my-courses/completed_course_mock_data";
-import ongoing_courses_mock_data  from "@/mockdata/my-courses/ongoing_courses_mock_data";
+import all_courses_mock_data  from "@/mock/my-courses/all_courses";
+import completed_courses_mock_data  from "@/mock/my-courses/completed_course_mock_data";
+import ongoing_courses_mock_data  from "@/mock/my-courses/ongoing_courses_mock_data";
 
 
 const CourseTabs = () => {
