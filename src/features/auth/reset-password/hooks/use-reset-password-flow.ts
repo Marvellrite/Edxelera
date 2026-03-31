@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useSyncExternalStore } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import {
@@ -11,13 +11,22 @@ import {
 } from '../reset-password-page.helpers';
 import type { ResetPasswordStep } from '../reset-password-page.types';
 
+const subscribe = () => () => undefined;
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export const useResetPasswordFlow = () => {
    const router = useRouter();
    const pathname = usePathname();
    const searchParams = useSearchParams();
+   const hasHydrated = useSyncExternalStore(
+      subscribe,
+      getClientSnapshot,
+      getServerSnapshot
+   );
 
    const flowState = useMemo(() => {
-      if (typeof window === 'undefined') {
+      if (!hasHydrated) {
          return {
             step: 'email' as ResetPasswordStep,
             email: '',
@@ -38,7 +47,7 @@ export const useResetPasswordFlow = () => {
          ...resolvedState,
          isReady: true,
       };
-   }, [searchParams]);
+   }, [hasHydrated, searchParams]);
 
    const { step, email, resetToken, isReady } = flowState;
 

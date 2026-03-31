@@ -19,7 +19,7 @@ export default function AuthLayout({
             />
             <div className="absolute w-full h-full bg-linear-to-b from-text/75 to-text/40"></div>
          </div>
-         <div className="col-span-5 h-screen w-full overflow-y-auto bg-surface bg-cover bg-no-repeat md:bg-[url('https://res.cloudinary.com/dx5iohojj/image/upload/v1773340438/repo-images/public/assets/student/auth/student-typing-computer-2.jpg')] lg:h-full lg:bg-none">
+         <div className="col-span-5 h-screen w-full overflow-y-auto bg-surface bg-cover bg-no-repeat md:bg-[url('https://res.cloudinary.com/dx5iohojj/image/upload/v1773340438/repo-images/public/assets/student/auth/student-typing-computer-2.jpg')] lg:h-full lg:bg-none relative">
             {children}
          </div>
       </section>

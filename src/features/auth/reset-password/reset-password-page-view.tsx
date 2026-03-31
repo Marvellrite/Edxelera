@@ -7,6 +7,7 @@ import ResetPassChangeForm from '@/components/auth/reset-password-change';
 import ResetPassEmailForm from '@/components/auth/reset-password-email-form';
 import ResetPassOtpForm from '@/components/auth/reset-password-otp-form';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
+import EdxeleraLoader from '@/components/ui/loading-text';
 
 import {
    AuthShell,
@@ -70,12 +71,10 @@ export default function ResetPasswordPageView() {
 
    if (!isReady) {
       return (
-         <AuthShell
-            title="Reset your password"
-            description="Preparing your password reset flow."
-         >
-            <p className="text-center text-neutral-600">Loading reset form...</p>
-         </AuthShell>
+            <EdxeleraLoader
+                     title=""
+                     showLoadingText={false}
+                  />
       );
    }
 
