@@ -114,8 +114,39 @@
   --neutral-900: #F3F3F3;
 } */
 
+html.dark,
+html[data-theme='dark'] {
+   --white: #040506;
+   --black: #ffffff;
+   --primary: rgb(0, 17, 70);
+   --primary-50: #800002;
+   --primary-100: #9f0010;
+   --primary-200: #bc141d;
+   --primary-300: #d7302d;
+   --primary-400: #f2493f;
+   --primary-500: #ff6253;
+   --primary-600: #ff7b69;
+   --primary-700: #ff9681;
+   --primary-800: #ffb19b;
+   --primary-900: #ffccb7;
+   --neutral: #2c2c2c;
+   --neutral-50: #2c2c2c;
+   --neutral-100: #494949;
+   --neutral-200: #6e6e6e;
+   --neutral-300: #939393;
+   --neutral-400: #DCDCDC;
+   --neutral-500: #dcdcdc;
+   --neutral-600: #e2e2e2;
+   --neutral-700: #e8e8e8;
+   --neutral-800: #ededed;
+   --neutral-900: #f3f3f3;
+
+   --black-rgb: 255, 255, 255;
+   --white-rgb: 4, 5, 6;
+}
+
 @media (prefers-color-scheme: dark) {
-   :root {
+   html:not([data-theme]) {
       --white: #040506;
       --black: #ffffff;
       --primary: rgb(0, 17, 70);

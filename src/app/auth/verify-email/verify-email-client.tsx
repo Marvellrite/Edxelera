@@ -62,7 +62,7 @@ const useResendCooldown = (initialSeconds = RESEND_COOLDOWN_SECONDS) => {
 
 const AuthShell = ({ children }: { children: ReactNode }) => (
   <section className="flex min-h-screen items-center justify-center py-6 sm:py-10 lg:py-16.25">
-    <div className="w-full rounded-[20px] border border-neutral-400 bg-surface px-4 py-7.5 sm:px-5 md:max-w-117">
+    <div className="w-full rounded-[20px] border border-neutral-400 bg-surface px-4 py-7.5 sm:px-5 md:max-w-117 relative">
       {children}
     </div>
   </section>

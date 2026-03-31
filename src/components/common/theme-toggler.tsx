@@ -4,12 +4,16 @@ import { Moon, Sun } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
 
 const ThemeTogglerComponent = () => {
-   const { theme, toggleTheme } = useTheme();
+   const { theme, mounted, toggleTheme } = useTheme();
    const isDark = theme === "dark";
 
    const onToggleTheme = () => {
       toggleTheme(isDark ? "light" : "dark");
    };
+
+   if (!mounted) {
+      return null;
+   }
 
    return (
       <div className="flex items-center hidden md:border-l md:border-border/60 md:pl-4 lg:flex">
