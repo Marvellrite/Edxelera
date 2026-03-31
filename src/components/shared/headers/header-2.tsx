@@ -29,7 +29,7 @@ const Header = () => {
       <header
         ref={fixedRef}
         style={fixedStyle}
-        className="bg-background/95 bg-surface-home py-5 h-fit w-full text-neutral-700 "
+        className="h-fit w-full bg-surface-home py-5 text-text-muted"
       >
 
         <div className=" space-y-7.5">
@@ -39,7 +39,7 @@ const Header = () => {
 
                     {/* Top half of the navbar */}
 
-                    <h1 className=' font-medium text-[40px] text-neutral-900'>Explore</h1>
+                    <h1 className=' font-medium text-[40px] text-text-strong'>Explore</h1>
 
                     <div className=" flex justify-end w-full gap-x-5">
                         
@@ -53,10 +53,10 @@ const Header = () => {
                             />
                 
                             <div>
-                                <p className="hidden md:flex text-neutral-600">
+                                <p className="hidden md:flex text-text-muted">
                                     {toTitleCase(greeting)}
                                 </p>
-                                <p className="font-medium text-neutral-900 ">
+                                <p className="font-medium text-text-strong ">
                                     {toTitleCase(displayName)}
                                 </p>
                             </div>

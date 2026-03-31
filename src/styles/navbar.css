@@ -6,9 +6,9 @@
     }
 
     to {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: color-mix(in srgb, var(--color-surface-foreground) 90%, transparent);
         height: 100px;
-        color: var(--color-black);
+        color: var(--color-text-default);
     }
 }
 

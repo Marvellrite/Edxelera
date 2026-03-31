@@ -16,8 +16,8 @@ const ThemeTogglerComponent = () => {
    }
 
    return (
-      <div className="flex items-center hidden md:border-l md:border-border/60 md:pl-4 lg:flex">
-         <div className="flex items-center gap-2 rounded-2xl border border-primary-200/70 bg-white/35 px-2 py-1.5 shadow-[0_6px_16px_-10px_rgba(var(--primary-bare),0.25)] backdrop-blur-md">
+      <div className="hidden items-center md:border-l md:border-border/60 md:pl-4 lg:flex">
+         <div className="flex items-center gap-2 rounded-2xl border border-primary-300/35 bg-[var(--surface-overlay)] px-2 py-1.5 shadow-[var(--shadow-soft)] backdrop-blur-md">
             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary/85">
                Theme
             </span>
@@ -28,7 +28,7 @@ const ThemeTogglerComponent = () => {
                className={`group relative h-8 w-16 rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 ${
                   isDark
                      ? "border-primary/55 bg-[linear-gradient(145deg,rgba(var(--primary-bare),0.22),rgba(77,107,255,0.18))]"
-                     : "border-primary-200/80 bg-[linear-gradient(145deg,rgba(255,255,255,0.9),rgba(218,228,255,0.72))]"
+                     : "border-primary-200/60 bg-[linear-gradient(145deg,color-mix(in_srgb,var(--surface-raised)_82%,white_18%),color-mix(in_srgb,var(--surface-tint-blue)_76%,transparent))]"
                }`}
                onClick={onToggleTheme}
                role="switch"
@@ -46,7 +46,7 @@ const ThemeTogglerComponent = () => {
                </span>
             </button>
 
-            <span className="min-w-[3rem] text-xs font-medium text-neutral-800">
+            <span className="min-w-[3rem] text-xs font-medium text-text-default">
                {isDark ? "Dark" : "Light"}
             </span>
          </div>

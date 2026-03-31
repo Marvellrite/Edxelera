@@ -9,6 +9,9 @@
   --admin-surface-subtle: var(--surface-subtle);
   --admin-surface-tint: var(--surface-tint-blue);
   --admin-surface-tint-alt: var(--surface-tint-red);
+  --admin-surface-overlay: var(--surface-overlay);
+  --admin-surface-hover: rgba(var(--white-rgb), 0.82);
+  --admin-row-hover: rgba(var(--primary-bare), 0.08);
   --admin-border: var(--border-subtle);
   --admin-border-strong: var(--border-strong);
   --admin-text-strong: var(--text-strong);
@@ -19,6 +22,15 @@
   --admin-shadow-soft: var(--shadow-card);
   --admin-shadow-elevated: var(--shadow-elevated);
   --admin-topbar-shadow: 0 12px 28px rgba(14, 28, 58, 0.06);
+  --admin-input-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.96), color-mix(in srgb, var(--admin-surface-tint) 58%, var(--admin-surface) 42%));
+  --admin-input-border: color-mix(in srgb, var(--admin-border) 86%, transparent);
+  --admin-input-focus-ring: color-mix(in srgb, var(--primary) 24%, transparent);
+  --admin-badge-neutral-bg: color-mix(in srgb, var(--admin-surface-subtle) 92%, var(--admin-surface) 8%);
+  --admin-badge-neutral-fg: var(--admin-text-muted);
+  --admin-badge-live-bg: color-mix(in srgb, var(--primary) 13%, var(--admin-surface) 87%);
+  --admin-badge-live-fg: color-mix(in srgb, var(--primary-700) 88%, var(--admin-text-strong) 12%);
+  --admin-badge-danger-bg: color-mix(in srgb, var(--secondary) 13%, var(--admin-surface) 87%);
+  --admin-badge-danger-fg: color-mix(in srgb, var(--secondary-700) 84%, var(--admin-text-strong) 16%);
 }
 
 .admin-shell {
@@ -398,7 +410,7 @@
 }
 
 .admin-data-table tbody tr:hover {
-  background: rgba(238, 244, 255, 0.6);
+  background: var(--admin-row-hover);
 }
 
 .admin-data-table tbody tr:hover td {
@@ -473,15 +485,15 @@
 
 .admin-status-badge.is-live,
 .admin-status-badge.is-active {
-  border-color: rgba(0, 17, 70, 0.12);
-  background: linear-gradient(180deg, rgba(47, 79, 255, 0.12), rgba(47, 79, 255, 0.06));
-  color: #1730a3;
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  background: var(--admin-badge-live-bg);
+  color: var(--admin-badge-live-fg);
 }
 
 .admin-status-badge.is-draft {
-  border-color: rgba(116, 129, 149, 0.24);
-  background: linear-gradient(180deg, rgba(245, 247, 250, 0.98), rgba(239, 243, 247, 0.94));
-  color: #556173;
+  border-color: color-mix(in srgb, var(--admin-text-soft) 26%, transparent);
+  background: var(--admin-badge-neutral-bg);
+  color: var(--admin-badge-neutral-fg);
 }
 
 .admin-status-badge.is-scheduled {
@@ -491,9 +503,9 @@
 }
 
 .admin-status-badge.is-suspended {
-  border-color: rgba(237, 28, 36, 0.18);
-  background: linear-gradient(180deg, rgba(237, 28, 36, 0.1), rgba(237, 28, 36, 0.06));
-  color: #ba1b21;
+  border-color: color-mix(in srgb, var(--secondary) 28%, transparent);
+  background: var(--admin-badge-danger-bg);
+  color: var(--admin-badge-danger-fg);
 }
 
 .admin-status-badge.is-success {
@@ -511,9 +523,9 @@
 
 .admin-status-badge.is-failed,
 .admin-status-badge.is-refunded {
-  border-color: rgba(237, 28, 36, 0.18);
-  background: linear-gradient(180deg, rgba(255, 205, 206, 0.96), rgba(255, 205, 206, 0.74));
-  color: #ba1b21;
+  border-color: color-mix(in srgb, var(--secondary) 28%, transparent);
+  background: color-mix(in srgb, var(--error-light) 86%, var(--admin-surface) 14%);
+  color: var(--admin-badge-danger-fg);
 }
 
 .admin-topbar-brand {
@@ -664,11 +676,10 @@
 .admin-form-textarea {
   width: 100%;
   border-radius: 0.9rem;
-  border: 1px solid rgba(201, 211, 223, 0.88);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 255, 0.96));
+  border: 1px solid var(--admin-input-border);
+  background: var(--admin-input-bg);
   color: var(--admin-text-default);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 1px 0 rgba(var(--white-rgb), 0.7);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -687,10 +698,10 @@
 
 .admin-form-input:focus,
 .admin-form-textarea:focus {
-  border-color: rgba(47, 79, 255, 0.25);
+  border-color: color-mix(in srgb, var(--primary) 40%, transparent);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.86),
-    0 0 0 3px rgba(47, 79, 255, 0.08);
+    inset 0 1px 0 rgba(var(--white-rgb), 0.78),
+    0 0 0 3px var(--admin-input-focus-ring);
 }
 
 .admin-upload-zone {
@@ -760,6 +771,151 @@
   padding-top: 1rem;
   margin-top: 0.25rem;
   border-top: 1px solid rgba(217, 224, 232, 0.72);
+}
+
+html.dark .admin-shell,
+html[data-theme='dark'] .admin-shell {
+  background:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 34%),
+    radial-gradient(circle at 0% 18%, rgba(237, 28, 36, 0.14), transparent 24%),
+    linear-gradient(180deg, color-mix(in srgb, var(--admin-page-bg) 84%, #050913 16%) 0%, var(--admin-page-bg) 100%);
+}
+
+html.dark,
+html[data-theme='dark'] {
+  --admin-page-bg: #0a1222;
+  --admin-surface: #121f36;
+  --admin-surface-subtle: #15243f;
+  --admin-surface-tint: #1a2c4f;
+  --admin-surface-tint-alt: #2f1e30;
+  --admin-surface-overlay: rgba(17, 28, 51, 0.88);
+  --admin-surface-hover: #1d2d4a;
+  --admin-row-hover: rgba(var(--primary-bare), 0.17);
+  --admin-border: #2a3d5d;
+  --admin-border-strong: #38537b;
+  --admin-text-strong: #f1f5ff;
+  --admin-text-default: #d5dff3;
+  --admin-text-muted: #a8b4cf;
+  --admin-text-soft: #8697b5;
+  --admin-shadow: 0 18px 32px rgba(2, 6, 23, 0.38);
+  --admin-shadow-soft: 0 10px 20px rgba(2, 6, 23, 0.34);
+  --admin-shadow-elevated: 0 18px 36px rgba(2, 6, 23, 0.48);
+  --admin-topbar-shadow: 0 10px 26px rgba(2, 6, 23, 0.42);
+  --admin-input-bg: linear-gradient(180deg, rgba(19, 32, 56, 0.96), rgba(16, 27, 47, 0.96));
+  --admin-input-border: rgba(56, 84, 122, 0.82);
+  --admin-input-focus-ring: rgba(var(--primary-bare), 0.24);
+  --admin-badge-neutral-bg: rgba(53, 67, 93, 0.48);
+  --admin-badge-neutral-fg: #c1cbdf;
+  --admin-badge-live-bg: rgba(var(--primary-bare), 0.22);
+  --admin-badge-live-fg: #d3deff;
+  --admin-badge-danger-bg: rgba(237, 28, 36, 0.2);
+  --admin-badge-danger-fg: #ffb6ba;
+}
+
+html.dark .admin-page-frame,
+html.dark .admin-topbar,
+html.dark .admin-panel,
+html.dark .admin-panel-subtle,
+html.dark .admin-stat-card,
+html.dark .admin-chart-surface,
+html.dark .admin-table-shell,
+html.dark .admin-form-hero,
+html.dark .admin-form-panel,
+html.dark .admin-upload-zone,
+html.dark .admin-empty-state,
+html[data-theme='dark'] .admin-page-frame,
+html[data-theme='dark'] .admin-topbar,
+html[data-theme='dark'] .admin-panel,
+html[data-theme='dark'] .admin-panel-subtle,
+html[data-theme='dark'] .admin-stat-card,
+html[data-theme='dark'] .admin-chart-surface,
+html[data-theme='dark'] .admin-table-shell,
+html[data-theme='dark'] .admin-form-hero,
+html[data-theme='dark'] .admin-form-panel,
+html[data-theme='dark'] .admin-upload-zone,
+html[data-theme='dark'] .admin-empty-state {
+  border-color: var(--admin-border);
+}
+
+html.dark .admin-topbar,
+html.dark .admin-panel,
+html.dark .admin-stat-card,
+html.dark .admin-form-hero,
+html.dark .admin-form-panel,
+html[data-theme='dark'] .admin-topbar,
+html[data-theme='dark'] .admin-panel,
+html[data-theme='dark'] .admin-stat-card,
+html[data-theme='dark'] .admin-form-hero,
+html[data-theme='dark'] .admin-form-panel {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 94%, #1e3152 6%), var(--admin-surface));
+  box-shadow: inset 0 1px 0 rgba(220, 232, 255, 0.06), var(--admin-shadow-soft);
+}
+
+html.dark .admin-chip,
+html.dark .admin-input-shell,
+html.dark .admin-icon-button:hover,
+html.dark .admin-inline-badge,
+html.dark .admin-data-table thead tr,
+html.dark .admin-data-table tbody tr:hover,
+html[data-theme='dark'] .admin-chip,
+html[data-theme='dark'] .admin-input-shell,
+html[data-theme='dark'] .admin-icon-button:hover,
+html[data-theme='dark'] .admin-inline-badge,
+html[data-theme='dark'] .admin-data-table thead tr,
+html[data-theme='dark'] .admin-data-table tbody tr:hover {
+  background: var(--admin-surface-hover);
+}
+
+html.dark .admin-chip:focus-visible,
+html.dark .admin-input-shell:focus-within,
+html[data-theme='dark'] .admin-chip:focus-visible,
+html[data-theme='dark'] .admin-input-shell:focus-within {
+  box-shadow: 0 0 0 3px rgba(var(--primary-bare), 0.2);
+}
+
+html.dark .admin-data-table tbody td,
+html.dark .admin-action-row,
+html.dark .admin-stat-card__meta,
+html.dark .admin-form-input,
+html.dark .admin-form-textarea,
+html[data-theme='dark'] .admin-data-table tbody td,
+html[data-theme='dark'] .admin-action-row,
+html[data-theme='dark'] .admin-stat-card__meta,
+html[data-theme='dark'] .admin-form-input,
+html[data-theme='dark'] .admin-form-textarea {
+  border-color: color-mix(in srgb, var(--admin-border) 82%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    --admin-page-bg: #0a1222;
+    --admin-surface: #121f36;
+    --admin-surface-subtle: #15243f;
+    --admin-surface-tint: #1a2c4f;
+    --admin-surface-tint-alt: #2f1e30;
+    --admin-surface-overlay: rgba(17, 28, 51, 0.88);
+    --admin-surface-hover: #1d2d4a;
+    --admin-row-hover: rgba(var(--primary-bare), 0.17);
+    --admin-border: #2a3d5d;
+    --admin-border-strong: #38537b;
+    --admin-text-strong: #f1f5ff;
+    --admin-text-default: #d5dff3;
+    --admin-text-muted: #a8b4cf;
+    --admin-text-soft: #8697b5;
+    --admin-shadow: 0 18px 32px rgba(2, 6, 23, 0.38);
+    --admin-shadow-soft: 0 10px 20px rgba(2, 6, 23, 0.34);
+    --admin-shadow-elevated: 0 18px 36px rgba(2, 6, 23, 0.48);
+    --admin-topbar-shadow: 0 10px 26px rgba(2, 6, 23, 0.42);
+    --admin-input-bg: linear-gradient(180deg, rgba(19, 32, 56, 0.96), rgba(16, 27, 47, 0.96));
+    --admin-input-border: rgba(56, 84, 122, 0.82);
+    --admin-input-focus-ring: rgba(var(--primary-bare), 0.24);
+    --admin-badge-neutral-bg: rgba(53, 67, 93, 0.48);
+    --admin-badge-neutral-fg: #c1cbdf;
+    --admin-badge-live-bg: rgba(var(--primary-bare), 0.22);
+    --admin-badge-live-fg: #d3deff;
+    --admin-badge-danger-bg: rgba(237, 28, 36, 0.2);
+    --admin-badge-danger-fg: #ffb6ba;
+  }
 }
 
 @media (min-width: 768px) {

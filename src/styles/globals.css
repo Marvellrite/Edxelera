@@ -59,13 +59,13 @@
    --color-border-strong: var(--border-strong);
 
    /* This Section Added my Marvel */
-   --color-primary-foreground: white;
-   --color-secondary-foreground: white;
-   --color-surface-foreground: white;
+   --color-primary-foreground: var(--hover-foreground);
+   --color-secondary-foreground: var(--hover-foreground);
+   --color-surface-foreground: var(--surface-foreground);
    --color-accent: var(--primary);
-   --color-accent-foreground: white;
-   --color-border: var(--color-neutral-100);
-   --color-input: var(--color-neutral-900);
+   --color-accent-foreground: var(--hover-foreground);
+   --color-border: var(--border-soft);
+   --color-input: var(--surface-foreground);
    --color-green: var(--green);
    --color-green-light: var(--green-light);
    --color-red: var(--red);
@@ -74,7 +74,7 @@
    --color-hover-secondary: var(--hover-secondary);
    --color-surface: var(--surface);
    --color-surface-foreground: var(--surface-foreground);
-   --color-ring: rgba(var(--primary-bare), 0.4);
+   --color-ring: var(--ring);
    --color-surface-home: var(--surface-home);
 
    /* Streak Colors */
@@ -110,8 +110,8 @@
 }
 
 body {
-   background: var(--color-white);
-   color: var(--text-default);
+   background: var(--color-surface-home);
+   color: var(--color-text-default);
    font-family: var(--font-google-sans);
 }
 

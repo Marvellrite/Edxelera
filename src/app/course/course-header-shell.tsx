@@ -1,6 +1,6 @@
 'use client';
 
-import Header from "@/components/sections/headers/header-4";
+import Header from "@/components/shared/headers/header-4";
 // import { usePathname } from "next/navigation";
 
 export default function CourseHeaderShell() {

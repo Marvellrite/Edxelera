@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Review from '@/components/features/course/review';
 import CourseModulesAccordion from '@/components/features/course/course_modules_accordion';
-import { COURSE_MODULE_ITEMS_INFO } from '@/mockdata/course/details-mockdata';
+import { COURSE_MODULE_ITEMS_INFO } from '@/mock/course/details-mockdata';
 import RelatedChips from '@/components/features/course/related-chips';
 import WhatYouWillLearn from '@/components/features/course/what-you-will-learn';
 
