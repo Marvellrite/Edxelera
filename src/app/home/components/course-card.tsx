@@ -103,17 +103,9 @@ const CourseCard: React.FC<VideoCardProps> = ({
                 {title}
               </span>
 
-              <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
                 <span className={cn("font-bold text-foreground", isCompact ? "text-base" : "text-lg")}>
                   &#8358;{formatMoney(price)}
-                </span>
-                <span
-                  className={cn(
-                    "font-medium uppercase tracking-wide text-muted-foreground",
-                    isCompact ? "text-[10px]" : "text-xs"
-                  )}
-                >
-                  Course
                 </span>
               </div>
 

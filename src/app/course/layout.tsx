@@ -16,7 +16,7 @@ export default async function CourseLayout({
     <HydrationBoundary state={dehydrate(queryClient, reactQueryDehydrateOptions)}>
       <ContextProvider>  
           <HomeLayoutContent>
-            <section className="col-span-10 flex flex-col grow flex-1  px-8 xl:px-10 py-5 max-md:px-0 max-md:py-0 max-md:-mt-2 min-h-full">
+            <section className="col-span-10 flex flex-col grow flex-1  px-8 xl:px-10 max-md:px-0 max-md:py-0 max-md:-mt-2 min-h-full">
               <CourseHeaderShell />
               <div className='grow flex '>
               {children}

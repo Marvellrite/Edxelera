@@ -11,7 +11,7 @@ import { Dialog } from "@/components/admin_and_instructors/ui/custom/dialog";
 import { Pagination } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { users } from "@/mockdata/user-management";
+import { users } from "@/mock/user-management";
 
 const roleStyles: Record<string, string> = {
   Student: "is-draft",

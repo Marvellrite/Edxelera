@@ -24,12 +24,8 @@ const Header = () => {
            const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
 
   return (
-      <div ref={anchorRef}>
-      <div aria-hidden style={{ height: spacerHeight }} />
       <header
-        ref={fixedRef}
-        style={fixedStyle}
-        className="h-fit w-full bg-surface-home py-5 text-text-muted"
+        className=" sticky top-0 z-20 h-fit w-full bg-surface-home py-5 text-text-muted"
       >
 
         <div className=" space-y-7.5">
@@ -107,7 +103,7 @@ const Header = () => {
    
 
       </header>
-      </div>
+
    );
 }
 

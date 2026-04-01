@@ -8,7 +8,7 @@ export default function MyCoursessLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <section className="col-span-10 grow overflow-y-auto flex-1 mx-auto px-4 lg:px-11.25">
+      <section className="col-span-10 grow flex-1 mx-auto px-4 lg:px-11.25">
 
          <Header />
 

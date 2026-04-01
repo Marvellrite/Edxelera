@@ -6,7 +6,6 @@ import Image from "next/image";
 import toTitleCase from "@/utils/toTitleCase";
 import { useStudentSession } from "@/hooks/useStudentSession";
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
-import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 import CartRouteButton from "@/components/features/cart/cart-route-button";
 import CourseShareButton from "@/components/features/share/course-share-button";
 import NotificationBellButton from "@/components/features/cart/notification-bell-button";
@@ -39,9 +38,6 @@ export default function HeaderTopBar({
   showbackBtn=true
 }: HeaderTopBarProps) {
   // const isLight = theme === "light";
-  const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
-
-
       const { user } = useStudentSession();
       const storeCartCount = useCartStore((state) => state.items.length);
   
@@ -54,14 +50,10 @@ export default function HeaderTopBar({
       const resolvedHeaderTitle = headerTitle ?? storedHeaderTitle;
 
   return (
-    <div ref={anchorRef}>
-      <div aria-hidden style={{ height: spacerHeight }} />
       <header
-        ref={fixedRef}
-        style={fixedStyle}
         className={[
-          "flex w-full max-w-full items-center justify-between gap-2 overflow-x-hidden",
-          "  py-5 bg-surface-home",
+          "sticky top-0 z-20 flex w-full max-w-full items-center justify-between gap-2 overflow-x-hidden",
+          "py-5 bg-surface-home",
           className,
         ].join(" ")}
       >
@@ -125,7 +117,6 @@ export default function HeaderTopBar({
         <CartRouteButton count={resolvedCartCount} />
       </div>
       </header>
-    </div>
   );
 }
 

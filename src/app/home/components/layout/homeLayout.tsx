@@ -16,7 +16,7 @@ export default function HomeLayoutContent({
    return (
       <main className="flex flex-1 h-screen overflow-y-auto  w-full max-md:flex-col bg-surface-home">
          <Sidebar />
-         <section className={cn('@container grow overflow-y-auto flex-1 duration-600 transition-all md:p-0 p-5', isOpen ? 'md:ml-0' : 'md:ml-0')}>
+         <section className={cn('@container grow overflow-y-auto flex-1 duration-600 transition-all md:p-0  lg:pt-5 p-5 pt-0', isOpen ? 'md:ml-0' : 'md:ml-0')}>
             {children}
          </section>
          <Tabs />
