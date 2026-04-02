@@ -44,7 +44,7 @@ const AchievedCertificates = ({
       subtitle ?? (variant === 'preview' ? 'Recently earned' : undefined);
 
    return (
-      <section className="space-y-3.5 rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-5 shadow-[var(--shadow-card)]">
+      <section className="space-y-3.5 rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-5 shadow-[var(--shadow-card)]">
          <div className="flex items-start justify-between gap-4">
             <div className="space-y-1">
                <p className="text-lg font-semibold text-[var(--text-strong)]">{heading}</p>

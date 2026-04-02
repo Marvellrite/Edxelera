@@ -21,17 +21,17 @@ export function ProfileSummary({
 
    return (
       <div className="space-y-5">
-         <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(150deg,var(--surface-overlay),var(--surface-tint-blue))] p-5 shadow-[var(--shadow-card)] lg:p-6">
+         <div className="rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-featured))] p-5 shadow-[var(--shadow-card)] lg:p-6">
             <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="flex size-24 items-center justify-center rounded-3xl border border-[var(--border-soft)] bg-[var(--surface-raised)] text-[var(--primary)] shadow-[var(--shadow-soft)]">
+                  <div className="flex size-24 items-center justify-center rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-elevated-2))] text-[var(--primary)] shadow-[var(--shadow-soft)]">
                      <User />
                   </div>
                   <div className="space-y-1">
                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">Learner profile</p>
                      <h1 className="text-2xl font-semibold text-[var(--text-strong)]">{name}</h1>
                      <p className="text-sm text-[var(--text-muted)]">{email}</p>
-                     <Button asChild className="mt-2 h-10 rounded-full px-4 text-sm">
+                     <Button asChild className="mt-2 h-10 rounded-full px-4 text-sm shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_24%,transparent)]">
                         <Link href={'/home/my-profile/edit-profile'}><Pencil className="size-4" /> Edit profile</Link>
                      </Button>
                   </div>
@@ -39,7 +39,7 @@ export function ProfileSummary({
 
                <div className="grid grid-cols-3 gap-2">
                   {stats.map((stat) => (
-                     <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-raised)] p-3 text-center">
+                     <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-3 text-center transition-transform duration-200 hover:-translate-y-0.5">
                         <p className="text-lg font-semibold text-[var(--text-strong)]">{stat.value}</p>
                         <p className="text-[11px] text-[var(--text-soft)]">{stat.label}</p>
                      </div>
@@ -48,7 +48,7 @@ export function ProfileSummary({
             </div>
          </div>
 
-         <div className="rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-5 shadow-[var(--shadow-card)]">
+         <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-5 shadow-[var(--shadow-card)]">
             <h2 className="text-lg font-semibold text-[var(--text-strong)]">Personal information</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
                <Info label="Date of Birth" value={dateOfBirth} />

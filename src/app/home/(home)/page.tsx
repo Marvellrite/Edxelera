@@ -18,9 +18,9 @@ const momentumStats = [
 const Page: React.FC = () => {
    return (
       <section className="relative space-y-8 overflow-hidden px-4 pb-12 pt-8 sm:px-6 lg:space-y-10 lg:px-8 lg:pt-10">
-         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_48%_at_4%_0%,color-mix(in_srgb,var(--primary)_22%,transparent),transparent),radial-gradient(52%_42%_at_95%_4%,color-mix(in_srgb,var(--secondary)_18%,transparent),transparent)]" />
+         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_48%_at_4%_0%,color-mix(in_srgb,var(--primary)_22%,transparent),transparent),radial-gradient(52%_42%_at_95%_4%,color-mix(in_srgb,var(--accent-momentum)_19%,transparent),transparent)]" />
 
-         <header className="grid gap-4 rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-overlay)] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm lg:grid-cols-[1.2fr_1fr] lg:items-end lg:p-7">
+         <header className="grid gap-4 rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm lg:grid-cols-[1.2fr_1fr] lg:items-end lg:p-7">
             <div className="space-y-4">
                <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
                   <Sparkles className="size-3.5 text-[var(--secondary)]" /> Momentum dashboard
@@ -34,7 +34,7 @@ const Page: React.FC = () => {
                   </p>
                </div>
                <div className="flex flex-wrap gap-2.5">
-                  <Button className="h-11 rounded-full px-5 text-sm font-medium">
+                  <Button className="h-11 rounded-full px-5 text-sm font-medium shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_28%,transparent)]">
                      Continue learning <ArrowRight className="size-4" />
                   </Button>
                   <Button variant="outline" className="h-11 rounded-full border-[var(--secondary-300)] px-5 text-[var(--secondary-700)] hover:bg-[var(--surface-tint-red)] dark:text-[var(--secondary-800)]">
@@ -45,7 +45,7 @@ const Page: React.FC = () => {
 
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                {momentumStats.map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-raised)] p-4 shadow-[var(--shadow-card)]">
+                  <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-0.5">
                      <p className="text-xs uppercase tracking-[0.14em] text-[var(--text-soft)]">{stat.label}</p>
                      <p className="mt-1 text-2xl font-semibold text-[var(--text-strong)]">{stat.value}</p>
                   </div>
@@ -62,7 +62,7 @@ const Page: React.FC = () => {
                      <h2 className="text-xl font-semibold text-[var(--text-strong)]">Continue learning</h2>
                      <p className="text-sm text-[var(--text-muted)]">Pick up where you left off and complete the next lesson.</p>
                   </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[var(--surface-tint-red)] px-3 py-1 text-xs font-medium text-[var(--secondary-700)]">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[var(--accent-momentum-soft)] px-3 py-1 text-xs font-medium text-[var(--accent-momentum)]">
                      <Flame className="size-3.5" /> Action now
                   </span>
                </div>
@@ -83,7 +83,7 @@ const Page: React.FC = () => {
             </div>
          </section>
 
-         <section className="rounded-3xl border border-[var(--border-featured)] bg-[var(--surface-featured)] p-4 shadow-[var(--shadow-card)] sm:p-6">
+         <section className="rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(160deg,var(--surface-featured),var(--surface-overlay))] p-4 shadow-[var(--shadow-card)] sm:p-6">
             <div className="mb-5 flex items-end justify-between gap-3">
                <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-discovery)]">Curated for you</p>
@@ -100,7 +100,7 @@ const Page: React.FC = () => {
             </div>
          </section>
 
-         <section className="rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-4 shadow-[var(--shadow-card)] sm:p-6">
+         <section className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(165deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] sm:p-6">
             <div className="mb-5 flex items-end justify-between gap-3">
                <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--secondary-600)]">Editorial history</p>

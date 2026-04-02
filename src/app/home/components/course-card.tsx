@@ -57,12 +57,12 @@ const CourseCard: React.FC<VideoCardProps> = ({
             >
                <article
                   className={cn(
-                     'group overflow-hidden border transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[var(--shadow-elevated)]',
+                     'group relative overflow-hidden border transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[var(--shadow-elevated)] before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(180deg,rgba(255,255,255,0.15),transparent_35%)] before:opacity-70',
                      isCompact
                         ? 'rounded-xl border-[var(--border-soft)] bg-[var(--surface-raised)] p-2.5'
                         : isFeatured
-                          ? 'rounded-2xl border-[var(--border-subtle)] bg-[var(--surface-overlay)] p-3.5'
-                          : 'rounded-2xl border-[var(--border-soft)] bg-[var(--surface-raised)] p-3'
+                          ? 'rounded-2xl border-[var(--border-subtle)] bg-[linear-gradient(170deg,var(--surface-overlay),var(--surface-elevated-2))] p-3.5'
+                          : 'rounded-2xl border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-3'
                   )}
                >
                   <div className={cn('relative overflow-hidden', isCompact ? 'aspect-[4/3] rounded-lg' : 'aspect-[16/9] rounded-xl')}>
