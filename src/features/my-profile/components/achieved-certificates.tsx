@@ -6,7 +6,8 @@ import SeeAllButton from '@/components/ui/see-all-btn';
 import useDragScroll from '@/hooks/useDragScroll';
 import { cn } from '@/lib/utils';
 
-import Certificates, { type CertificateCardProps } from './certificates';
+import Certificates from './certificates';
+import type {  CertificateCardProps } from '../types/achievements';
 
 type AchievedCertificatesProps = {
    certificates: CertificateCardProps[];

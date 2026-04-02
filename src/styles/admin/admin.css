@@ -22,22 +22,94 @@
   --admin-shadow-soft: var(--shadow-card);
   --admin-shadow-elevated: var(--shadow-elevated);
   --admin-topbar-shadow: 0 12px 28px rgba(14, 28, 58, 0.06);
+  --admin-shell-bg:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.05), transparent 28%),
+    radial-gradient(circle at 0% 20%, rgba(var(--secondary-bare), 0.035), transparent 18%),
+    linear-gradient(180deg, #f8fafd 0%, var(--admin-page-bg) 100%);
+  --admin-panel-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.985), rgba(248, 251, 255, 0.97));
+  --admin-panel-bg-subtle: linear-gradient(180deg, rgba(250, 252, 255, 0.98), rgba(244, 248, 253, 0.94));
+  --admin-panel-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+  --admin-topbar-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.975), rgba(250, 252, 255, 0.94));
+  --admin-topbar-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-shell-sheen: rgba(var(--white-rgb), 0.72);
+  --admin-card-bg:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.07), transparent 34%),
+    linear-gradient(180deg, rgba(var(--white-rgb), 0.99), rgba(247, 250, 255, 0.96));
+  --admin-card-bg-hover:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.09), transparent 36%),
+    linear-gradient(180deg, rgba(var(--white-rgb), 1), rgba(244, 249, 255, 0.98));
+  --admin-card-highlight: linear-gradient(135deg, rgba(var(--white-rgb), 0.18), transparent 48%);
+  --admin-card-border: color-mix(in srgb, var(--admin-border) 86%, transparent);
+  --admin-card-meta-border: color-mix(in srgb, var(--admin-border) 76%, transparent);
+  --admin-card-delta-info-bg: rgba(var(--primary-bare), 0.08);
+  --admin-card-delta-info-fg: var(--primary-700);
+  --admin-card-delta-danger-bg: rgba(var(--secondary-bare), 0.08);
+  --admin-card-delta-danger-fg: var(--secondary-700);
+  --admin-icon-surface: linear-gradient(180deg, rgba(var(--white-rgb), 0.94), rgba(238, 244, 255, 0.88));
+  --admin-icon-surface-hover: linear-gradient(180deg, rgba(var(--white-rgb), 0.98), rgba(232, 241, 255, 0.9));
+  --admin-icon-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-icon-shadow:
+    inset 0 1px 0 rgba(var(--white-rgb), 0.78),
+    0 10px 18px rgba(var(--primary-bare), 0.08);
+  --admin-icon-shadow-hover:
+    inset 0 1px 0 rgba(var(--white-rgb), 0.88),
+    0 12px 20px rgba(var(--primary-bare), 0.1);
+  --admin-chip-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.96), rgba(245, 248, 253, 0.96));
+  --admin-chip-bg-hover: linear-gradient(180deg, rgba(var(--white-rgb), 1), rgba(239, 245, 255, 0.98));
+  --admin-chip-border: color-mix(in srgb, var(--admin-border) 74%, transparent);
+  --admin-chip-border-hover: color-mix(in srgb, var(--admin-border) 92%, transparent);
+  --admin-chip-shadow: inset 0 1px 0 rgba(var(--white-rgb), 0.72);
+  --admin-chip-shadow-focus:
+    inset 0 1px 0 rgba(var(--white-rgb), 0.8),
+    0 0 0 3px rgba(var(--primary-bare), 0.12);
+  --admin-chip-dark-bg: linear-gradient(180deg, #15254f, #0f1e42);
+  --admin-chip-dark-bg-hover: linear-gradient(180deg, #192c5d, #12224c);
+  --admin-chip-dark-border: rgba(var(--primary-bare), 0.14);
+  --admin-chip-dark-border-hover: rgba(var(--primary-bare), 0.2);
   --admin-input-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.96), color-mix(in srgb, var(--admin-surface-tint) 58%, var(--admin-surface) 42%));
   --admin-input-border: color-mix(in srgb, var(--admin-border) 86%, transparent);
   --admin-input-focus-ring: color-mix(in srgb, var(--primary) 24%, transparent);
+  --admin-input-sheen: inset 0 1px 0 rgba(var(--white-rgb), 0.7);
+  --admin-table-bg: linear-gradient(180deg, rgba(250, 252, 255, 0.86), rgba(var(--white-rgb), 0.98));
+  --admin-table-head-bg: rgba(247, 249, 252, 0.98);
+  --admin-table-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-table-row-border: color-mix(in srgb, var(--admin-border) 80%, transparent);
+  --admin-table-row-hover-bg: var(--admin-row-hover);
+  --admin-empty-bg: linear-gradient(180deg, rgba(249, 251, 255, 0.92), rgba(244, 248, 253, 0.9));
+  --admin-empty-bg-hover: linear-gradient(180deg, rgba(251, 253, 255, 0.98), rgba(240, 246, 255, 0.92));
+  --admin-empty-border: rgba(183, 198, 216, 0.95);
+  --admin-upload-bg: linear-gradient(180deg, rgba(249, 251, 255, 0.94), rgba(244, 248, 253, 0.92));
+  --admin-upload-bg-hover: linear-gradient(180deg, rgba(250, 252, 255, 0.98), rgba(239, 245, 255, 0.92));
+  --admin-upload-border: rgba(183, 198, 216, 0.95);
+  --admin-upload-icon-bg: rgba(var(--primary-bare), 0.08);
+  --admin-upload-icon-fg: var(--primary-700);
+  --admin-badge-info-bg: color-mix(in srgb, var(--primary) 13%, var(--admin-surface) 87%);
+  --admin-badge-info-border: color-mix(in srgb, var(--primary) 30%, transparent);
+  --admin-badge-info-fg: color-mix(in srgb, var(--primary-700) 88%, var(--admin-text-strong) 12%);
   --admin-badge-neutral-bg: color-mix(in srgb, var(--admin-surface-subtle) 92%, var(--admin-surface) 8%);
+  --admin-badge-neutral-border: color-mix(in srgb, var(--admin-text-soft) 26%, transparent);
   --admin-badge-neutral-fg: var(--admin-text-muted);
-  --admin-badge-live-bg: color-mix(in srgb, var(--primary) 13%, var(--admin-surface) 87%);
-  --admin-badge-live-fg: color-mix(in srgb, var(--primary-700) 88%, var(--admin-text-strong) 12%);
+  --admin-badge-success-bg: linear-gradient(180deg, rgba(205, 255, 227, 0.96), rgba(205, 255, 227, 0.72));
+  --admin-badge-success-border: rgba(0, 88, 39, 0.18);
+  --admin-badge-success-fg: #005827;
   --admin-badge-danger-bg: color-mix(in srgb, var(--secondary) 13%, var(--admin-surface) 87%);
+  --admin-badge-danger-border: color-mix(in srgb, var(--secondary) 28%, transparent);
   --admin-badge-danger-fg: color-mix(in srgb, var(--secondary-700) 84%, var(--admin-text-strong) 16%);
+  --admin-avatar-ring-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.92), rgba(224, 233, 245, 0.92));
+  --admin-avatar-ring-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  --admin-inline-badge-bg: rgba(247, 249, 252, 0.98);
+  --admin-inline-badge-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-form-hero-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.98), rgba(247, 250, 255, 0.95));
+  --admin-form-panel-bg: linear-gradient(180deg, rgba(var(--white-rgb), 0.99), rgba(248, 251, 255, 0.96));
+  --admin-form-panel-border: color-mix(in srgb, var(--admin-border) 78%, transparent);
+  --admin-form-panel-shadow:
+    inset 0 1px 0 rgba(var(--white-rgb), 0.78),
+    var(--admin-shadow-soft);
+  --admin-action-row-border: color-mix(in srgb, var(--admin-border) 72%, transparent);
 }
 
 .admin-shell {
-  background:
-    radial-gradient(circle at top right, rgba(47, 79, 255, 0.05), transparent 28%),
-    radial-gradient(circle at 0% 20%, rgba(237, 28, 36, 0.035), transparent 18%),
-    linear-gradient(180deg, #f8fafd 0%, var(--admin-page-bg) 100%);
+  background: var(--admin-shell-bg);
 }
 
 .admin-page-frame {
@@ -53,16 +125,15 @@
 .admin-panel {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(201, 211, 223, 0.88);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(248, 251, 255, 0.97));
+  border: 1px solid var(--admin-panel-border);
+  background: var(--admin-panel-bg);
   box-shadow: var(--admin-shadow-soft);
 }
 
 .admin-panel-subtle {
-  background: linear-gradient(180deg, rgba(250, 252, 255, 0.98), rgba(244, 248, 253, 0.94));
-  border: 1px solid rgba(201, 211, 223, 0.78);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  background: var(--admin-panel-bg-subtle);
+  border: 1px solid var(--admin-panel-border);
+  box-shadow: inset 0 1px 0 var(--admin-shell-sheen);
 }
 
 .admin-title {
@@ -89,11 +160,10 @@
 }
 
 .admin-topbar {
-  border: 1px solid rgba(201, 211, 223, 0.78);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.975), rgba(250, 252, 255, 0.94));
+  border: 1px solid var(--admin-topbar-border);
+  background: var(--admin-topbar-bg);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 1px 0 var(--admin-shell-sheen),
     var(--admin-topbar-shadow);
   backdrop-filter: blur(10px);
 }
@@ -111,11 +181,10 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.125rem;
-  background:
-    radial-gradient(circle at top right, rgba(47, 79, 255, 0.07), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 250, 255, 0.96));
+  border: 1px solid var(--admin-card-border);
+  background: var(--admin-card-bg);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 1px 0 var(--admin-shell-sheen),
     var(--admin-shadow-soft);
 }
 
@@ -123,7 +192,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 48%);
+  background: var(--admin-card-highlight);
   pointer-events: none;
 }
 
@@ -133,8 +202,9 @@
 }
 
 .admin-stat-card:hover {
+  background: var(--admin-card-bg-hover);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 var(--admin-shell-sheen),
     var(--admin-shadow);
 }
 
@@ -158,20 +228,16 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 9999px;
-  border: 1px solid rgba(201, 211, 223, 0.82);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 244, 255, 0.88));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    0 10px 18px rgba(47, 79, 255, 0.08);
+  border: 1px solid var(--admin-icon-border);
+  background: var(--admin-icon-surface);
+  box-shadow: var(--admin-icon-shadow);
   transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .admin-stat-card:hover .admin-stat-card__icon {
   transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.88),
-    0 12px 20px rgba(47, 79, 255, 0.1);
+  background: var(--admin-icon-surface-hover);
+  box-shadow: var(--admin-icon-shadow-hover);
 }
 
 .admin-stat-card__value-row {
@@ -192,13 +258,13 @@
 }
 
 .admin-stat-card__delta.is-up {
-  background: rgba(47, 79, 255, 0.08);
-  color: var(--primary-700);
+  background: var(--admin-card-delta-info-bg);
+  color: var(--admin-card-delta-info-fg);
 }
 
 .admin-stat-card__delta.is-down {
-  background: rgba(237, 28, 36, 0.08);
-  color: var(--secondary-700);
+  background: var(--admin-card-delta-danger-bg);
+  color: var(--admin-card-delta-danger-fg);
 }
 
 .admin-stat-card__meta {
@@ -208,7 +274,7 @@
   gap: 0.75rem;
   margin-top: auto;
   padding-top: 0.875rem;
-  border-top: 1px solid rgba(217, 224, 232, 0.74);
+  border-top: 1px solid var(--admin-card-meta-border);
 }
 
 .admin-chip {
@@ -218,10 +284,9 @@
   gap: 0.5rem;
   min-height: 2.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(201, 211, 223, 0.72);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 248, 253, 0.96));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--admin-chip-border);
+  background: var(--admin-chip-bg);
+  box-shadow: var(--admin-chip-shadow);
   color: var(--admin-text-default);
   padding: 0.625rem 0.95rem;
   font-size: 0.875rem;
@@ -234,34 +299,30 @@
 }
 
 .admin-chip:hover {
-  border-color: rgba(183, 198, 216, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(239, 245, 255, 0.98));
+  border-color: var(--admin-chip-border-hover);
+  background: var(--admin-chip-bg-hover);
 }
 
 .admin-chip:focus-visible {
   outline: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 0 0 3px rgba(47, 79, 255, 0.12);
+  box-shadow: var(--admin-chip-shadow-focus);
 }
 
 .admin-chip--dark {
-  border-color: rgba(0, 17, 70, 0.14);
-  background: linear-gradient(180deg, #15254f, #0f1e42);
+  border-color: var(--admin-chip-dark-border);
+  background: var(--admin-chip-dark-bg);
   color: #fff;
   box-shadow: 0 12px 20px rgba(0, 17, 70, 0.12);
 }
 
 .admin-chip--dark:hover {
-  border-color: rgba(0, 17, 70, 0.2);
-  background: linear-gradient(180deg, #192c5d, #12224c);
+  border-color: var(--admin-chip-dark-border-hover);
+  background: var(--admin-chip-dark-bg-hover);
   color: #fff;
 }
 
 .admin-chip--ghost {
-  background:
-    linear-gradient(180deg, rgba(249, 251, 255, 0.94), rgba(244, 248, 253, 0.92));
+  background: var(--admin-panel-bg-subtle);
 }
 
 .admin-chip--compact {
@@ -276,18 +337,17 @@
   gap: 0.625rem;
   min-height: 2.75rem;
   border-radius: 9999px;
-  border: 1px solid rgba(201, 211, 223, 0.72);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 248, 253, 0.94));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--admin-input-border);
+  background: var(--admin-input-bg);
+  box-shadow: var(--admin-input-sheen);
   padding-inline: 0.875rem;
 }
 
 .admin-input-shell:focus-within {
-  border-color: rgba(47, 79, 255, 0.22);
+  border-color: color-mix(in srgb, var(--primary) 28%, transparent);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 0 0 3px rgba(47, 79, 255, 0.08);
+    inset 0 1px 0 var(--admin-shell-sheen),
+    0 0 0 3px var(--admin-input-focus-ring);
 }
 
 .admin-chart-card {
@@ -305,9 +365,8 @@
 
 .admin-chart-surface {
   border-radius: 1.125rem;
-  border: 1px solid rgba(217, 224, 232, 0.82);
-  background:
-    linear-gradient(180deg, rgba(250, 252, 255, 0.78), rgba(255, 255, 255, 0.94));
+  border: 1px solid var(--admin-table-border);
+  background: var(--admin-panel-bg-subtle);
   padding: 0.875rem;
 }
 
@@ -342,9 +401,8 @@
   gap: 0.75rem;
   min-width: 0;
   border-radius: 0.95rem;
-  border: 1px solid rgba(217, 224, 232, 0.7);
-  background:
-    linear-gradient(180deg, rgba(249, 251, 255, 0.92), rgba(244, 248, 253, 0.9));
+  border: 1px solid var(--admin-table-row-border);
+  background: var(--admin-panel-bg-subtle);
   padding: 0.75rem 0.875rem;
 }
 
@@ -365,10 +423,9 @@
 .admin-table-shell {
   overflow-x: auto;
   border-radius: 1.15rem;
-  border: 1px solid rgba(201, 211, 223, 0.82);
-  background:
-    linear-gradient(180deg, rgba(250, 252, 255, 0.86), rgba(255, 255, 255, 0.98));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--admin-table-border);
+  background: var(--admin-table-bg);
+  box-shadow: inset 0 1px 0 var(--admin-shell-sheen);
 }
 
 .admin-table-shell--spacious {
@@ -382,7 +439,7 @@
 }
 
 .admin-data-table thead tr {
-  background: rgba(247, 249, 252, 0.98);
+  background: var(--admin-table-head-bg);
 }
 
 .admin-data-table th {
@@ -399,7 +456,7 @@
 }
 
 .admin-data-table tbody td {
-  border-top: 1px solid rgba(217, 224, 232, 0.85);
+  border-top: 1px solid var(--admin-table-row-border);
 }
 
 .admin-data-table tbody tr {
@@ -410,7 +467,7 @@
 }
 
 .admin-data-table tbody tr:hover {
-  background: var(--admin-row-hover);
+  background: var(--admin-table-row-hover-bg);
 }
 
 .admin-data-table tbody tr:hover td {
@@ -448,15 +505,15 @@
 
 .admin-icon-button:hover {
   transform: translateY(-1px);
-  border-color: rgba(201, 211, 223, 0.8);
-  background: rgba(238, 244, 255, 0.92);
+  border-color: var(--admin-icon-border);
+  background: var(--admin-icon-surface-hover);
   color: var(--admin-text-strong);
 }
 
 .admin-icon-button--danger:hover {
-  border-color: rgba(237, 28, 36, 0.18);
-  background: rgba(237, 28, 36, 0.08);
-  color: var(--secondary-700);
+  border-color: var(--admin-badge-danger-border);
+  background: var(--admin-card-delta-danger-bg);
+  color: var(--admin-badge-danger-fg);
 }
 
 .admin-status-badge {
@@ -471,7 +528,7 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.04em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--admin-shell-sheen) 58%, transparent);
 }
 
 .admin-status-badge::before {
@@ -485,46 +542,46 @@
 
 .admin-status-badge.is-live,
 .admin-status-badge.is-active {
-  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
-  background: var(--admin-badge-live-bg);
-  color: var(--admin-badge-live-fg);
+  border-color: var(--admin-badge-info-border);
+  background: var(--admin-badge-info-bg);
+  color: var(--admin-badge-info-fg);
 }
 
 .admin-status-badge.is-draft {
-  border-color: color-mix(in srgb, var(--admin-text-soft) 26%, transparent);
+  border-color: var(--admin-badge-neutral-border);
   background: var(--admin-badge-neutral-bg);
   color: var(--admin-badge-neutral-fg);
 }
 
 .admin-status-badge.is-scheduled {
-  border-color: rgba(0, 17, 70, 0.16);
-  background: linear-gradient(180deg, rgba(218, 228, 255, 0.9), rgba(238, 242, 255, 0.76));
-  color: var(--primary-700);
+  border-color: var(--admin-badge-info-border);
+  background: var(--admin-badge-info-bg);
+  color: var(--admin-badge-info-fg);
 }
 
 .admin-status-badge.is-suspended {
-  border-color: color-mix(in srgb, var(--secondary) 28%, transparent);
+  border-color: var(--admin-badge-danger-border);
   background: var(--admin-badge-danger-bg);
   color: var(--admin-badge-danger-fg);
 }
 
 .admin-status-badge.is-success {
-  border-color: rgba(0, 88, 39, 0.18);
-  background: linear-gradient(180deg, rgba(205, 255, 227, 0.96), rgba(205, 255, 227, 0.72));
-  color: #005827;
+  border-color: var(--admin-badge-success-border);
+  background: var(--admin-badge-success-bg);
+  color: var(--admin-badge-success-fg);
 }
 
 .admin-status-badge.is-pending,
 .admin-status-badge.is-processing {
-  border-color: rgba(0, 17, 70, 0.16);
-  background: linear-gradient(180deg, rgba(218, 228, 255, 0.92), rgba(238, 242, 255, 0.78));
-  color: var(--primary-700);
+  border-color: var(--admin-badge-info-border);
+  background: var(--admin-badge-info-bg);
+  color: var(--admin-badge-info-fg);
 }
 
 .admin-status-badge.is-failed,
 .admin-status-badge.is-refunded {
-  border-color: color-mix(in srgb, var(--secondary) 28%, transparent);
-  background: color-mix(in srgb, var(--error-light) 86%, var(--admin-surface) 14%);
+  border-color: var(--admin-badge-danger-border);
+  background: var(--admin-badge-danger-bg);
   color: var(--admin-badge-danger-fg);
 }
 
@@ -556,9 +613,8 @@
 .admin-avatar-ring {
   border-radius: 9999px;
   padding: 0.125rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(224, 233, 245, 0.92));
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  background: var(--admin-avatar-ring-bg);
+  box-shadow: var(--admin-avatar-ring-shadow);
 }
 
 .admin-page-lead {
@@ -592,8 +648,8 @@
 }
 
 .admin-inline-badge {
-  border: 1px solid rgba(201, 211, 223, 0.82);
-  background: rgba(247, 249, 252, 0.98);
+  border: 1px solid var(--admin-inline-badge-border);
+  background: var(--admin-inline-badge-bg);
   color: var(--admin-text-default);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -601,12 +657,9 @@
 
 .admin-form-hero {
   border-radius: 1rem;
-  border: 1px solid rgba(201, 211, 223, 0.78);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 255, 0.95));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    var(--admin-shadow-soft);
+  border: 1px solid var(--admin-form-panel-border);
+  background: var(--admin-form-hero-bg);
+  box-shadow: var(--admin-form-panel-shadow);
   padding: 1rem;
 }
 
@@ -627,12 +680,9 @@
 
 .admin-form-panel {
   border-radius: 1rem;
-  border: 1px solid rgba(201, 211, 223, 0.78);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(248, 251, 255, 0.96));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    var(--admin-shadow-soft);
+  border: 1px solid var(--admin-form-panel-border);
+  background: var(--admin-form-panel-bg);
+  box-shadow: var(--admin-form-panel-shadow);
   padding: 1rem;
 }
 
@@ -679,7 +729,7 @@
   border: 1px solid var(--admin-input-border);
   background: var(--admin-input-bg);
   color: var(--admin-text-default);
-  box-shadow: inset 0 1px 0 rgba(var(--white-rgb), 0.7);
+  box-shadow: var(--admin-input-sheen);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -693,22 +743,21 @@
 
 .admin-form-input:hover,
 .admin-form-textarea:hover {
-  border-color: rgba(183, 198, 216, 0.95);
+  border-color: var(--admin-chip-border-hover);
 }
 
 .admin-form-input:focus,
 .admin-form-textarea:focus {
   border-color: color-mix(in srgb, var(--primary) 40%, transparent);
   box-shadow:
-    inset 0 1px 0 rgba(var(--white-rgb), 0.78),
+    inset 0 1px 0 var(--admin-shell-sheen),
     0 0 0 3px var(--admin-input-focus-ring);
 }
 
 .admin-upload-zone {
-  border: 1px dashed rgba(183, 198, 216, 0.95);
-  background:
-    linear-gradient(180deg, rgba(249, 251, 255, 0.94), rgba(244, 248, 253, 0.92));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  border: 1px dashed var(--admin-upload-border);
+  background: var(--admin-upload-bg);
+  box-shadow: inset 0 1px 0 var(--admin-shell-sheen);
   transition:
     border-color 180ms ease,
     background-color 180ms ease,
@@ -716,9 +765,8 @@
 }
 
 .admin-upload-zone:hover {
-  border-color: rgba(47, 79, 255, 0.22);
-  background:
-    linear-gradient(180deg, rgba(250, 252, 255, 0.98), rgba(239, 245, 255, 0.92));
+  border-color: var(--admin-badge-info-border);
+  background: var(--admin-upload-bg-hover);
 }
 
 .admin-upload-zone__icon {
@@ -728,16 +776,15 @@
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background: rgba(47, 79, 255, 0.08);
-  color: var(--primary-700);
+  background: var(--admin-upload-icon-bg);
+  color: var(--admin-upload-icon-fg);
 }
 
 .admin-empty-state {
   border-radius: 0.95rem;
-  border: 1px dashed rgba(183, 198, 216, 0.95);
-  background:
-    linear-gradient(180deg, rgba(249, 251, 255, 0.92), rgba(244, 248, 253, 0.9));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  border: 1px dashed var(--admin-empty-border);
+  background: var(--admin-empty-bg);
+  box-shadow: inset 0 1px 0 var(--admin-shell-sheen);
   transition:
     border-color 180ms ease,
     background-color 180ms ease,
@@ -745,9 +792,8 @@
 }
 
 .admin-empty-state:hover {
-  border-color: rgba(47, 79, 255, 0.18);
-  background:
-    linear-gradient(180deg, rgba(251, 253, 255, 0.98), rgba(240, 246, 255, 0.92));
+  border-color: var(--admin-badge-info-border);
+  background: var(--admin-empty-bg-hover);
 }
 
 .admin-empty-state__title {
@@ -770,15 +816,7 @@
   gap: 0.75rem;
   padding-top: 1rem;
   margin-top: 0.25rem;
-  border-top: 1px solid rgba(217, 224, 232, 0.72);
-}
-
-html.dark .admin-shell,
-html[data-theme='dark'] .admin-shell {
-  background:
-    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 34%),
-    radial-gradient(circle at 0% 18%, rgba(237, 28, 36, 0.14), transparent 24%),
-    linear-gradient(180deg, color-mix(in srgb, var(--admin-page-bg) 84%, #050913 16%) 0%, var(--admin-page-bg) 100%);
+  border-top: 1px solid var(--admin-action-row-border);
 }
 
 html.dark,
@@ -801,89 +839,90 @@ html[data-theme='dark'] {
   --admin-shadow-soft: 0 10px 20px rgba(2, 6, 23, 0.34);
   --admin-shadow-elevated: 0 18px 36px rgba(2, 6, 23, 0.48);
   --admin-topbar-shadow: 0 10px 26px rgba(2, 6, 23, 0.42);
+  --admin-shell-bg:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 34%),
+    radial-gradient(circle at 0% 18%, rgba(var(--secondary-bare), 0.14), transparent 24%),
+    linear-gradient(180deg, color-mix(in srgb, var(--admin-page-bg) 84%, #050913 16%) 0%, var(--admin-page-bg) 100%);
+  --admin-panel-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 95%, #1a2d4d 5%), var(--admin-surface));
+  --admin-panel-bg-subtle: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface-subtle) 92%, #1a2a48 8%), color-mix(in srgb, var(--admin-surface) 94%, #0d172c 6%));
+  --admin-panel-border: color-mix(in srgb, var(--admin-border) 92%, rgba(7, 12, 24, 0.18));
+  --admin-topbar-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 92%, #223556 8%), color-mix(in srgb, var(--admin-surface) 98%, #0c1527 2%));
+  --admin-topbar-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+  --admin-shell-sheen: rgba(220, 232, 255, 0.06);
+  --admin-card-bg:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.14), transparent 36%),
+    linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 94%, #1d3256 6%), color-mix(in srgb, var(--admin-surface) 98%, #101b31 2%));
+  --admin-card-bg-hover:
+    radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--admin-surface-hover) 92%, #263c62 8%), color-mix(in srgb, var(--admin-surface) 97%, #111d36 3%));
+  --admin-card-highlight: linear-gradient(135deg, rgba(220, 232, 255, 0.08), transparent 48%);
+  --admin-card-border: color-mix(in srgb, var(--admin-border) 90%, transparent);
+  --admin-card-meta-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-card-delta-info-bg: rgba(var(--primary-bare), 0.2);
+  --admin-card-delta-info-fg: #d3deff;
+  --admin-card-delta-danger-bg: rgba(var(--secondary-bare), 0.18);
+  --admin-card-delta-danger-fg: #ffb6ba;
+  --admin-icon-surface: linear-gradient(180deg, rgba(16, 27, 48, 0.96), rgba(21, 35, 61, 0.92));
+  --admin-icon-surface-hover: linear-gradient(180deg, rgba(20, 33, 58, 0.98), rgba(31, 43, 72, 0.94));
+  --admin-icon-border: color-mix(in srgb, var(--admin-border) 84%, rgba(109, 136, 185, 0.1));
+  --admin-icon-shadow:
+    inset 0 1px 0 rgba(229, 237, 255, 0.05),
+    0 12px 24px rgba(2, 6, 23, 0.28);
+  --admin-icon-shadow-hover:
+    inset 0 1px 0 rgba(229, 237, 255, 0.08),
+    0 14px 28px rgba(2, 6, 23, 0.34);
+  --admin-chip-bg: linear-gradient(180deg, rgba(19, 31, 54, 0.96), rgba(15, 26, 46, 0.96));
+  --admin-chip-bg-hover: linear-gradient(180deg, rgba(24, 38, 66, 0.98), rgba(18, 30, 54, 0.97));
+  --admin-chip-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-chip-border-hover: color-mix(in srgb, var(--admin-border-strong) 76%, transparent);
+  --admin-chip-shadow: inset 0 1px 0 rgba(229, 237, 255, 0.05);
+  --admin-chip-shadow-focus:
+    inset 0 1px 0 rgba(229, 237, 255, 0.06),
+    0 0 0 3px rgba(var(--primary-bare), 0.2);
+  --admin-chip-dark-bg: linear-gradient(180deg, #1a2e57, #132446);
+  --admin-chip-dark-bg-hover: linear-gradient(180deg, #203663, #182b53);
+  --admin-chip-dark-border: rgba(var(--primary-bare), 0.22);
+  --admin-chip-dark-border-hover: rgba(var(--primary-bare), 0.28);
   --admin-input-bg: linear-gradient(180deg, rgba(19, 32, 56, 0.96), rgba(16, 27, 47, 0.96));
   --admin-input-border: rgba(56, 84, 122, 0.82);
   --admin-input-focus-ring: rgba(var(--primary-bare), 0.24);
+  --admin-input-sheen: inset 0 1px 0 rgba(229, 237, 255, 0.05);
+  --admin-table-bg: linear-gradient(180deg, rgba(15, 25, 44, 0.96), rgba(13, 23, 40, 0.98));
+  --admin-table-head-bg: linear-gradient(180deg, rgba(24, 37, 62, 0.96), rgba(19, 31, 52, 0.95));
+  --admin-table-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+  --admin-table-row-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-table-row-hover-bg: linear-gradient(180deg, rgba(23, 37, 63, 0.94), rgba(29, 40, 68, 0.92));
+  --admin-empty-bg: linear-gradient(180deg, rgba(17, 29, 50, 0.94), rgba(14, 24, 42, 0.94));
+  --admin-empty-bg-hover: linear-gradient(180deg, rgba(20, 34, 58, 0.96), rgba(17, 28, 49, 0.95));
+  --admin-empty-border: rgba(63, 90, 130, 0.74);
+  --admin-upload-bg: linear-gradient(180deg, rgba(17, 29, 50, 0.95), rgba(14, 24, 43, 0.95));
+  --admin-upload-bg-hover: linear-gradient(180deg, rgba(21, 35, 60, 0.97), rgba(16, 28, 50, 0.96));
+  --admin-upload-border: rgba(63, 90, 130, 0.76);
+  --admin-upload-icon-bg: rgba(var(--primary-bare), 0.18);
+  --admin-upload-icon-fg: #d3deff;
+  --admin-badge-info-bg: rgba(var(--primary-bare), 0.22);
+  --admin-badge-info-border: rgba(var(--primary-bare), 0.28);
+  --admin-badge-info-fg: #d3deff;
   --admin-badge-neutral-bg: rgba(53, 67, 93, 0.48);
+  --admin-badge-neutral-border: rgba(134, 151, 181, 0.2);
   --admin-badge-neutral-fg: #c1cbdf;
-  --admin-badge-live-bg: rgba(var(--primary-bare), 0.22);
-  --admin-badge-live-fg: #d3deff;
-  --admin-badge-danger-bg: rgba(237, 28, 36, 0.2);
+  --admin-badge-success-bg: linear-gradient(180deg, rgba(18, 69, 48, 0.62), rgba(12, 46, 33, 0.5));
+  --admin-badge-success-border: rgba(76, 190, 132, 0.24);
+  --admin-badge-success-fg: #b9f1cf;
+  --admin-badge-danger-bg: rgba(var(--secondary-bare), 0.2);
+  --admin-badge-danger-border: rgba(var(--secondary-bare), 0.28);
   --admin-badge-danger-fg: #ffb6ba;
-}
-
-html.dark .admin-page-frame,
-html.dark .admin-topbar,
-html.dark .admin-panel,
-html.dark .admin-panel-subtle,
-html.dark .admin-stat-card,
-html.dark .admin-chart-surface,
-html.dark .admin-table-shell,
-html.dark .admin-form-hero,
-html.dark .admin-form-panel,
-html.dark .admin-upload-zone,
-html.dark .admin-empty-state,
-html[data-theme='dark'] .admin-page-frame,
-html[data-theme='dark'] .admin-topbar,
-html[data-theme='dark'] .admin-panel,
-html[data-theme='dark'] .admin-panel-subtle,
-html[data-theme='dark'] .admin-stat-card,
-html[data-theme='dark'] .admin-chart-surface,
-html[data-theme='dark'] .admin-table-shell,
-html[data-theme='dark'] .admin-form-hero,
-html[data-theme='dark'] .admin-form-panel,
-html[data-theme='dark'] .admin-upload-zone,
-html[data-theme='dark'] .admin-empty-state {
-  border-color: var(--admin-border);
-}
-
-html.dark .admin-topbar,
-html.dark .admin-panel,
-html.dark .admin-stat-card,
-html.dark .admin-form-hero,
-html.dark .admin-form-panel,
-html[data-theme='dark'] .admin-topbar,
-html[data-theme='dark'] .admin-panel,
-html[data-theme='dark'] .admin-stat-card,
-html[data-theme='dark'] .admin-form-hero,
-html[data-theme='dark'] .admin-form-panel {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 94%, #1e3152 6%), var(--admin-surface));
-  box-shadow: inset 0 1px 0 rgba(220, 232, 255, 0.06), var(--admin-shadow-soft);
-}
-
-html.dark .admin-chip,
-html.dark .admin-input-shell,
-html.dark .admin-icon-button:hover,
-html.dark .admin-inline-badge,
-html.dark .admin-data-table thead tr,
-html.dark .admin-data-table tbody tr:hover,
-html[data-theme='dark'] .admin-chip,
-html[data-theme='dark'] .admin-input-shell,
-html[data-theme='dark'] .admin-icon-button:hover,
-html[data-theme='dark'] .admin-inline-badge,
-html[data-theme='dark'] .admin-data-table thead tr,
-html[data-theme='dark'] .admin-data-table tbody tr:hover {
-  background: var(--admin-surface-hover);
-}
-
-html.dark .admin-chip:focus-visible,
-html.dark .admin-input-shell:focus-within,
-html[data-theme='dark'] .admin-chip:focus-visible,
-html[data-theme='dark'] .admin-input-shell:focus-within {
-  box-shadow: 0 0 0 3px rgba(var(--primary-bare), 0.2);
-}
-
-html.dark .admin-data-table tbody td,
-html.dark .admin-action-row,
-html.dark .admin-stat-card__meta,
-html.dark .admin-form-input,
-html.dark .admin-form-textarea,
-html[data-theme='dark'] .admin-data-table tbody td,
-html[data-theme='dark'] .admin-action-row,
-html[data-theme='dark'] .admin-stat-card__meta,
-html[data-theme='dark'] .admin-form-input,
-html[data-theme='dark'] .admin-form-textarea {
-  border-color: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-avatar-ring-bg: linear-gradient(180deg, rgba(24, 37, 62, 0.98), rgba(16, 28, 49, 0.96));
+  --admin-avatar-ring-shadow: 0 10px 20px rgba(2, 6, 23, 0.3);
+  --admin-inline-badge-bg: linear-gradient(180deg, rgba(22, 35, 60, 0.9), rgba(18, 29, 50, 0.9));
+  --admin-inline-badge-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+  --admin-form-hero-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 95%, #213555 5%), color-mix(in srgb, var(--admin-surface) 98%, #111a2f 2%));
+  --admin-form-panel-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 96%, #1a2d4f 4%), color-mix(in srgb, var(--admin-surface) 99%, #10192d 1%));
+  --admin-form-panel-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+  --admin-form-panel-shadow:
+    inset 0 1px 0 rgba(220, 232, 255, 0.06),
+    var(--admin-shadow-soft);
+  --admin-action-row-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -906,15 +945,90 @@ html[data-theme='dark'] .admin-form-textarea {
     --admin-shadow-soft: 0 10px 20px rgba(2, 6, 23, 0.34);
     --admin-shadow-elevated: 0 18px 36px rgba(2, 6, 23, 0.48);
     --admin-topbar-shadow: 0 10px 26px rgba(2, 6, 23, 0.42);
+    --admin-shell-bg:
+      radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 34%),
+      radial-gradient(circle at 0% 18%, rgba(var(--secondary-bare), 0.14), transparent 24%),
+      linear-gradient(180deg, color-mix(in srgb, var(--admin-page-bg) 84%, #050913 16%) 0%, var(--admin-page-bg) 100%);
+    --admin-panel-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 95%, #1a2d4d 5%), var(--admin-surface));
+    --admin-panel-bg-subtle: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface-subtle) 92%, #1a2a48 8%), color-mix(in srgb, var(--admin-surface) 94%, #0d172c 6%));
+    --admin-panel-border: color-mix(in srgb, var(--admin-border) 92%, rgba(7, 12, 24, 0.18));
+    --admin-topbar-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 92%, #223556 8%), color-mix(in srgb, var(--admin-surface) 98%, #0c1527 2%));
+    --admin-topbar-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+    --admin-shell-sheen: rgba(220, 232, 255, 0.06);
+    --admin-card-bg:
+      radial-gradient(circle at top right, rgba(var(--primary-bare), 0.14), transparent 36%),
+      linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 94%, #1d3256 6%), color-mix(in srgb, var(--admin-surface) 98%, #101b31 2%));
+    --admin-card-bg-hover:
+      radial-gradient(circle at top right, rgba(var(--primary-bare), 0.16), transparent 38%),
+      linear-gradient(180deg, color-mix(in srgb, var(--admin-surface-hover) 92%, #263c62 8%), color-mix(in srgb, var(--admin-surface) 97%, #111d36 3%));
+    --admin-card-highlight: linear-gradient(135deg, rgba(220, 232, 255, 0.08), transparent 48%);
+    --admin-card-border: color-mix(in srgb, var(--admin-border) 90%, transparent);
+    --admin-card-meta-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+    --admin-card-delta-info-bg: rgba(var(--primary-bare), 0.2);
+    --admin-card-delta-info-fg: #d3deff;
+    --admin-card-delta-danger-bg: rgba(var(--secondary-bare), 0.18);
+    --admin-card-delta-danger-fg: #ffb6ba;
+    --admin-icon-surface: linear-gradient(180deg, rgba(16, 27, 48, 0.96), rgba(21, 35, 61, 0.92));
+    --admin-icon-surface-hover: linear-gradient(180deg, rgba(20, 33, 58, 0.98), rgba(31, 43, 72, 0.94));
+    --admin-icon-border: color-mix(in srgb, var(--admin-border) 84%, rgba(109, 136, 185, 0.1));
+    --admin-icon-shadow:
+      inset 0 1px 0 rgba(229, 237, 255, 0.05),
+      0 12px 24px rgba(2, 6, 23, 0.28);
+    --admin-icon-shadow-hover:
+      inset 0 1px 0 rgba(229, 237, 255, 0.08),
+      0 14px 28px rgba(2, 6, 23, 0.34);
+    --admin-chip-bg: linear-gradient(180deg, rgba(19, 31, 54, 0.96), rgba(15, 26, 46, 0.96));
+    --admin-chip-bg-hover: linear-gradient(180deg, rgba(24, 38, 66, 0.98), rgba(18, 30, 54, 0.97));
+    --admin-chip-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+    --admin-chip-border-hover: color-mix(in srgb, var(--admin-border-strong) 76%, transparent);
+    --admin-chip-shadow: inset 0 1px 0 rgba(229, 237, 255, 0.05);
+    --admin-chip-shadow-focus:
+      inset 0 1px 0 rgba(229, 237, 255, 0.06),
+      0 0 0 3px rgba(var(--primary-bare), 0.2);
+    --admin-chip-dark-bg: linear-gradient(180deg, #1a2e57, #132446);
+    --admin-chip-dark-bg-hover: linear-gradient(180deg, #203663, #182b53);
+    --admin-chip-dark-border: rgba(var(--primary-bare), 0.22);
+    --admin-chip-dark-border-hover: rgba(var(--primary-bare), 0.28);
     --admin-input-bg: linear-gradient(180deg, rgba(19, 32, 56, 0.96), rgba(16, 27, 47, 0.96));
     --admin-input-border: rgba(56, 84, 122, 0.82);
     --admin-input-focus-ring: rgba(var(--primary-bare), 0.24);
+    --admin-input-sheen: inset 0 1px 0 rgba(229, 237, 255, 0.05);
+    --admin-table-bg: linear-gradient(180deg, rgba(15, 25, 44, 0.96), rgba(13, 23, 40, 0.98));
+    --admin-table-head-bg: linear-gradient(180deg, rgba(24, 37, 62, 0.96), rgba(19, 31, 52, 0.95));
+    --admin-table-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+    --admin-table-row-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+    --admin-table-row-hover-bg: linear-gradient(180deg, rgba(23, 37, 63, 0.94), rgba(29, 40, 68, 0.92));
+    --admin-empty-bg: linear-gradient(180deg, rgba(17, 29, 50, 0.94), rgba(14, 24, 42, 0.94));
+    --admin-empty-bg-hover: linear-gradient(180deg, rgba(20, 34, 58, 0.96), rgba(17, 28, 49, 0.95));
+    --admin-empty-border: rgba(63, 90, 130, 0.74);
+    --admin-upload-bg: linear-gradient(180deg, rgba(17, 29, 50, 0.95), rgba(14, 24, 43, 0.95));
+    --admin-upload-bg-hover: linear-gradient(180deg, rgba(21, 35, 60, 0.97), rgba(16, 28, 50, 0.96));
+    --admin-upload-border: rgba(63, 90, 130, 0.76);
+    --admin-upload-icon-bg: rgba(var(--primary-bare), 0.18);
+    --admin-upload-icon-fg: #d3deff;
+    --admin-badge-info-bg: rgba(var(--primary-bare), 0.22);
+    --admin-badge-info-border: rgba(var(--primary-bare), 0.28);
+    --admin-badge-info-fg: #d3deff;
     --admin-badge-neutral-bg: rgba(53, 67, 93, 0.48);
+    --admin-badge-neutral-border: rgba(134, 151, 181, 0.2);
     --admin-badge-neutral-fg: #c1cbdf;
-    --admin-badge-live-bg: rgba(var(--primary-bare), 0.22);
-    --admin-badge-live-fg: #d3deff;
-    --admin-badge-danger-bg: rgba(237, 28, 36, 0.2);
+    --admin-badge-success-bg: linear-gradient(180deg, rgba(18, 69, 48, 0.62), rgba(12, 46, 33, 0.5));
+    --admin-badge-success-border: rgba(76, 190, 132, 0.24);
+    --admin-badge-success-fg: #b9f1cf;
+    --admin-badge-danger-bg: rgba(var(--secondary-bare), 0.2);
+    --admin-badge-danger-border: rgba(var(--secondary-bare), 0.28);
     --admin-badge-danger-fg: #ffb6ba;
+    --admin-avatar-ring-bg: linear-gradient(180deg, rgba(24, 37, 62, 0.98), rgba(16, 28, 49, 0.96));
+    --admin-avatar-ring-shadow: 0 10px 20px rgba(2, 6, 23, 0.3);
+    --admin-inline-badge-bg: linear-gradient(180deg, rgba(22, 35, 60, 0.9), rgba(18, 29, 50, 0.9));
+    --admin-inline-badge-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
+    --admin-form-hero-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 95%, #213555 5%), color-mix(in srgb, var(--admin-surface) 98%, #111a2f 2%));
+    --admin-form-panel-bg: linear-gradient(180deg, color-mix(in srgb, var(--admin-surface) 96%, #1a2d4f 4%), color-mix(in srgb, var(--admin-surface) 99%, #10192d 1%));
+    --admin-form-panel-border: color-mix(in srgb, var(--admin-border) 88%, transparent);
+    --admin-form-panel-shadow:
+      inset 0 1px 0 rgba(220, 232, 255, 0.06),
+      var(--admin-shadow-soft);
+    --admin-action-row-border: color-mix(in srgb, var(--admin-border) 82%, transparent);
   }
 }
 

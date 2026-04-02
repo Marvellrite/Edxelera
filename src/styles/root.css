@@ -7,8 +7,7 @@
    --text-muted: #556173;
    --text-soft: #748195;
    --canvas: #ffffff;
-   --black: var(--text-default);
-   --white: var(--canvas);
+   --text-canvas: var(--canvas);
 
    --primary-bare: 0, 17, 70;
    --primary: #001146;
@@ -111,8 +110,7 @@ html[data-theme='dark'] {
    --text-muted: #a3afc8;
    --text-soft: #8392af;
    --canvas: #0c1220;
-   --black: var(--text-default);
-   --white: var(--canvas);
+   --text-canvas: var(--canvas);
 
    --primary-bare: 117, 142, 255;
    --primary: #7f97ff;
@@ -208,8 +206,7 @@ html[data-theme='dark'] {
       --text-muted: #a3afc8;
       --text-soft: #8392af;
       --canvas: #0c1220;
-      --black: var(--text-default);
-      --white: var(--canvas);
+      --text-canvas: var(--canvas);
 
       --primary-bare: 117, 142, 255;
       --primary: #7f97ff;

@@ -8,7 +8,7 @@
    /* COLORS */
    --color-*: initial;
    --color-black: var(--text-default);
-   --color-white: var(--canvas);
+   --color-white: var(--text-canvas);
    --color-primary: var(--primary);
    --color-primary-900: var(--primary-900);
    --color-primary-800: var(--primary-800);
@@ -90,8 +90,8 @@
 }
 
 body {
-   background: var(--color-white);
-   color: var(--color-black);
+   background: var(--text-canvas);
+   color: var(--text-default);
 }
 
 /*

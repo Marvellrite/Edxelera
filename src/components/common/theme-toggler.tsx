@@ -34,9 +34,11 @@ const ThemeTogglerComponent = () => {
                role="switch"
                type="button"
             >
-               <span
+              <span
                   aria-hidden
-                  className={`absolute top-0.5 flex h-7 w-7 items-center justify-center rounded-full shadow-[0_8px_16px_-10px_rgba(var(--primary-bare),0.85)] transition-transform duration-300 ${
+                  className={`absolute top-0.5 flex h-7 w-7 items-center justify-center rounded-full 
+                 shadow-[0_3px_8px_-4px_rgba(0,0,0,0.28)] 
+                  transition-transform duration-300 ${
                      isDark
                         ? "translate-x-[2.05rem] bg-primary text-white"
                         : "translate-x-0.5 bg-primary text-white"

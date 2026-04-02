@@ -11,7 +11,7 @@
 @theme inline {
    /* COLORS */
    --color-black: var(--text-default);
-   --color-white: var(--canvas);
+   --color-white: var(--text-canvas);
    --color-primary: var(--primary);
    --color-primary-900: var(--primary-900);
    --color-primary-800: var(--primary-800);
@@ -52,6 +52,7 @@
    --color-error: var(--red-400);
    --color-text-strong: var(--text-strong);
    --color-text-default: var(--text-default);
+   --color-text-canvas: var(--text-canvas);
    --color-text-muted: var(--text-muted);
    --color-text-soft: var(--text-soft);
    --color-surface-subtle: var(--surface-subtle);
@@ -77,6 +78,7 @@
    --color-surface-foreground: var(--surface-input);
    --color-ring: var(--ring);
    --color-surface-home: var(--surface-home);
+   --color-surface-overlay: var(--surface-overlay);
 
    /* Streak Colors */
    --color-streak-surface: var(--streak-surface);
