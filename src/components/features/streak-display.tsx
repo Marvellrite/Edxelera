@@ -1,52 +1,61 @@
-import React from 'react'
-import { Flash } from '../icons/modified'
-import StreakDay, { StreakProps } from '../ui/custom/streak-day'
+import React from 'react';
+import { Flame, Sparkles } from 'lucide-react';
 
-const streakData:StreakProps[] = [{
-    day:'S', status: 'active'
-}, {
-    day:'M', status: 'inactive'
-}, {
-    day:'T', status: 'active'
-}, {
-    day:'W', status: 'active'
-}, {
-    day:'T', status: 'none', isCurrentDay: true
-}, {
-    day:'F', status: 'none'
-},
-{
-    day:'S', status: 'none'
-},
-]
+const streakData = [
+   { day: 'S', active: true },
+   { day: 'M', active: false },
+   { day: 'T', active: true },
+   { day: 'W', active: true },
+   { day: 'T', active: false, current: true },
+   { day: 'F', active: false },
+   { day: 'S', active: false },
+];
 
 const StreakDisplay = () => {
-  return (
-    <div className=' grow basis-1/2 h-66'>
-        <p className=' pb-3 pt-1 text-primary '>Your Streak</p>
-        <div className=' rounded-lg bg-streak-surface h-full px-4.5 pt-13.5 pb-4'>
-            <div className='space-y-6'>
-            <div className=' flex gap-2.5 items-center'>
-                <Flash/>
-                <span className=' font-medium text-[26px]'>
-                    2 days
-                </span>
+   return (
+      <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--streak-surface),var(--surface-raised))] p-5 shadow-[var(--shadow-card)]">
+         <div className="mb-5 flex items-center justify-between gap-4">
+            <div>
+               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--secondary-600)]">Weekly streak</p>
+               <h2 className="text-xl font-semibold text-[var(--text-strong)]">You&apos;re on fire</h2>
+            </div>
+            <div className="inline-flex items-center gap-1 rounded-full bg-[var(--surface-tint-red)] px-3 py-1 text-xs font-medium text-[var(--secondary-700)]">
+               <Sparkles className="size-3.5" /> +12% this week
+            </div>
+         </div>
+
+         <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-overlay)] p-4">
+            <div className="mb-5 flex items-center gap-2.5">
+               <div className="rounded-xl bg-[var(--secondary)]/12 p-2 text-[var(--secondary-700)]">
+                  <Flame className="size-5" />
+               </div>
+               <div>
+                  <p className="text-2xl font-semibold text-[var(--text-strong)]">2 days</p>
+                  <p className="text-xs text-[var(--text-muted)]">Keep learning today to extend your streak.</p>
+               </div>
             </div>
 
-            <div className=' flex w-full justify-between'>
-                {
-                    streakData.map((_, i)=>
-                    
-                        <StreakDay key={i} {..._} />
-                    )
-                }
+            <div className="grid grid-cols-7 gap-2">
+               {streakData.map((item) => (
+                  <div key={item.day + String(item.current)} className="space-y-2 text-center">
+                     <p className="text-xs font-medium text-[var(--text-soft)]">{item.day}</p>
+                     <div
+                        className={`mx-auto h-9 w-9 rounded-xl border text-xs font-semibold ${
+                           item.active
+                              ? 'border-transparent bg-[var(--streak-fg-active)] text-[var(--streak-active-marker)] shadow-[var(--shadow-soft)]'
+                              : item.current
+                                ? 'border-[var(--secondary-400)] bg-[var(--surface-tint-red)] text-[var(--secondary-700)]'
+                                : 'border-[var(--border-soft)] bg-[var(--surface-subtle)] text-[var(--text-soft)]'
+                        } flex items-center justify-center`}
+                     >
+                        {item.active ? '✓' : item.current ? '•' : ''}
+                     </div>
+                  </div>
+               ))}
             </div>
+         </div>
+      </div>
+   );
+};
 
-            </div>
-        </div>
-
-    </div>
-  )
-}
-
-export default StreakDisplay
+export default StreakDisplay;

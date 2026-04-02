@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { ProfileLinkItem, ProfileLinksProps } from '../types/profile';
-
+import { ExternalLink } from 'lucide-react';
 
 const defaultItems: ProfileLinkItem[] = [
    { label: 'Website', value: 'newguildham.com', href: 'https://newguildham.com' },
@@ -10,49 +10,35 @@ const defaultItems: ProfileLinkItem[] = [
    { label: 'Instagram', value: 'instagram.com/newguildham', href: 'https://instagram.com/newguildham' },
 ];
 
-const ProfileLinks = ({
-   title = 'Links',
-   items = defaultItems,
-   className = '',
-}: ProfileLinksProps) => {
+const ProfileLinks = ({ title = 'Links', items = defaultItems, className = '' }: ProfileLinksProps) => {
    return (
-      <section className={cn('w-full space-y-2', className)}>
-         <p className="text-md font-normal text-primary">{title}</p>
-
-         <div className="flex w-full flex-col gap-4">
+      <section className={cn('w-full space-y-3 rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-5 shadow-[var(--shadow-card)]', className)}>
+         <p className="text-lg font-semibold text-[var(--text-strong)]">{title}</p>
+         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => {
                const content = (
                   <>
-                     <p className="text-sm font-normal text-neutral-700">
-                        {item.label}
-                     </p>
-                     <p className="text-md font-normal text-neutral-900 wrap-break-word">
-                        {item.value}
-                     </p>
+                     <p className="text-xs uppercase tracking-[0.12em] text-[var(--text-soft)]">{item.label}</p>
+                     <p className="line-clamp-1 text-sm font-medium text-[var(--text-strong)]">{item.value}</p>
                   </>
                );
 
-               return (
-                  <div
+               return item.href ? (
+                  <a
                      key={`${item.label}-${item.value}`}
-                     className="flex w-full flex-col items-start justify-center gap-0.5 rounded-lg"
+                     href={item.href}
+                     target="_blank"
+                     rel="noreferrer"
+                     className="group rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-3 transition hover:border-[var(--primary-300)] hover:bg-[var(--surface-tint-blue)]"
                   >
-                     {item.href ? (
-                        <a
-                           href={item.href}
-                           target="_blank"
-                           rel="noreferrer"
-                           className="group w-full rounded-lg transition-colors duration-200"
-                        >
-                           <div className="space-y-0.5 group-hover:opacity-90">
-                              {content}
-                           </div>
-                        </a>
-                     ) : (
-                        <div className="w-full space-y-0.5">
-                           {content}
-                        </div>
-                     )}
+                     <div className="flex items-start justify-between gap-2">
+                        <div>{content}</div>
+                        <ExternalLink className="size-3.5 text-[var(--text-soft)] group-hover:text-[var(--primary)]" />
+                     </div>
+                  </a>
+               ) : (
+                  <div key={`${item.label}-${item.value}`} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-3">
+                     {content}
                   </div>
                );
             })}
