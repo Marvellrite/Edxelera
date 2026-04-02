@@ -8,6 +8,7 @@ import React, { useState, useSyncExternalStore } from "react";
 import * as Icons from "@/components/icons/modified";
 import { Toggle } from "@/components/icons/modified";
 import { useSidebar } from "@/app/home/context/sidebar-context";
+import { useThemeStore } from "@/context/theme.context";
 import { cn } from "@/lib/utils";
 
 const homeLinks = [
@@ -23,6 +24,7 @@ const IconsMap = Icons as Record<string, React.ComponentType<{ width: number; he
 
 const HomeSidebar = () => {
   const pathname = usePathname();
+  const theme = useThemeStore((state) => state.theme);
   const activeLink = "text-primary font-bold";
   const { isOpen, toggleSidebar } = useSidebar();
   const isCollapsed = !isOpen;
@@ -33,6 +35,10 @@ const HomeSidebar = () => {
   );
   const [showToggleButton] = useState(false);
   const showCollapsedToggle = isCollapsed || showToggleButton;
+  const logoSrc =
+    theme === "dark"
+      ? "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340673/repo-images/public/images/logos/logo-light.png"
+      : "https://res.cloudinary.com/dx5iohojj/image/upload/v1773340672/repo-images/public/images/logos/logo-dark.png";
 
   if (!isHydrated) {
     return (
@@ -54,7 +60,7 @@ const HomeSidebar = () => {
       >
         <div className="relative rounded-md ">
           <Image
-            src="https://res.cloudinary.com/dx5iohojj/image/upload/v1773340672/repo-images/public/images/logos/logo-dark.png"
+            src={logoSrc}
             loading="eager"
             alt="edxelera-logo"
             width={192}

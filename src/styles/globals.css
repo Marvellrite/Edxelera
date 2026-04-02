@@ -6,11 +6,12 @@
 @import "./navbar.css";
 @import "./breakpoint.css";
 @import './root.css';
+@import './resets.css';
 
 @theme inline {
    /* COLORS */
-   --color-black: var(--black);
-   --color-white: var(--white);
+   --color-black: var(--text-default);
+   --color-white: var(--canvas);
    --color-primary: var(--primary);
    --color-primary-900: var(--primary-900);
    --color-primary-800: var(--primary-800);
@@ -61,11 +62,11 @@
    /* This Section Added my Marvel */
    --color-primary-foreground: var(--hover-foreground);
    --color-secondary-foreground: var(--hover-foreground);
-   --color-surface-foreground: var(--surface-foreground);
+   --color-surface-foreground: var(--surface-input);
    --color-accent: var(--primary);
    --color-accent-foreground: var(--hover-foreground);
    --color-border: var(--border-soft);
-   --color-input: var(--surface-foreground);
+   --color-input: var(--surface-input);
    --color-green: var(--green);
    --color-green-light: var(--green-light);
    --color-red: var(--red);
@@ -73,7 +74,7 @@
    --color-hover-primary: var(--hover-primary);
    --color-hover-secondary: var(--hover-secondary);
    --color-surface: var(--surface);
-   --color-surface-foreground: var(--surface-foreground);
+   --color-surface-foreground: var(--surface-input);
    --color-ring: var(--ring);
    --color-surface-home: var(--surface-home);
 

@@ -2,12 +2,13 @@
 
 :root {
    /* Core colors */
-   --black: #040506;
    --text-default: #040506;
    --text-strong: #0f172a;
    --text-muted: #556173;
    --text-soft: #748195;
-   --white: #ffffff;
+   --canvas: #ffffff;
+   --black: var(--text-default);
+   --white: var(--canvas);
 
    --primary-bare: 0, 17, 70;
    --primary: #001146;
@@ -65,7 +66,8 @@
    --scrollbar-color-hover: rgba(0, 0, 0, 0.381);
 
    --surface: #f3f3f3;
-   --surface-foreground: #ffffff;
+   --surface-input: #ffffff;
+   --surface-foreground: var(--surface-input);
    --surface-home: #f5f6fd;
    --surface-subtle: #f7f9fc;
    --surface-raised: #ffffff;
@@ -104,13 +106,13 @@
 
 html.dark,
 html[data-theme='dark'] {
-   --white: #0c1220;
-   --black: #edf2ff;
-
-   --text-strong: #f4f7ff;
    --text-default: #d4ddf0;
+   --text-strong: #f4f7ff;
    --text-muted: #a3afc8;
    --text-soft: #8392af;
+   --canvas: #0c1220;
+   --black: var(--text-default);
+   --white: var(--canvas);
 
    --primary-bare: 117, 142, 255;
    --primary: #7f97ff;
@@ -161,7 +163,8 @@ html[data-theme='dark'] {
    --scrollbar-color-hover: rgba(180, 196, 236, 0.44);
 
    --surface: #0e1628;
-   --surface-foreground: #121d33;
+   --surface-input: #121d33;
+   --surface-foreground: var(--surface-input);
    --surface-home: #0b1324;
    --surface-subtle: #152038;
    --surface-raised: #1a2742;
@@ -200,13 +203,13 @@ html[data-theme='dark'] {
 
 @media (prefers-color-scheme: dark) {
    html:not([data-theme]) {
-      --white: #0c1220;
-      --black: #edf2ff;
-
-      --text-strong: #f4f7ff;
       --text-default: #d4ddf0;
+      --text-strong: #f4f7ff;
       --text-muted: #a3afc8;
       --text-soft: #8392af;
+      --canvas: #0c1220;
+      --black: var(--text-default);
+      --white: var(--canvas);
 
       --primary-bare: 117, 142, 255;
       --primary: #7f97ff;
@@ -257,7 +260,8 @@ html[data-theme='dark'] {
       --scrollbar-color-hover: rgba(180, 196, 236, 0.44);
 
       --surface: #0e1628;
-      --surface-foreground: #121d33;
+      --surface-input: #121d33;
+      --surface-foreground: var(--surface-input);
       --surface-home: #0b1324;
       --surface-subtle: #152038;
       --surface-raised: #1a2742;

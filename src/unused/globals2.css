@@ -7,8 +7,8 @@
 @theme inline {
    /* COLORS */
    --color-*: initial;
-   --color-black: var(--black);
-   --color-white: var(--white);
+   --color-black: var(--text-default);
+   --color-white: var(--canvas);
    --color-primary: var(--primary);
    --color-primary-900: var(--primary-900);
    --color-primary-800: var(--primary-800);
