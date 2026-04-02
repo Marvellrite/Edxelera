@@ -1,3 +1,5 @@
+@custom-variant dark (&:where(html.dark, html.dark *, html[data-theme='dark'], html[data-theme='dark'] *));
+
 :root {
    /* Core colors */
    --black: #040506;

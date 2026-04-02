@@ -6,9 +6,8 @@ import SeeAllButton from '@/components/ui/see-all-btn';
 import useDragScroll from '@/hooks/useDragScroll';
 import { cn } from '@/lib/utils';
 
-import AchievementBadgeCard, {
-   type AchievementBadgeCardProps,
-} from './achievement-badge-card';
+import AchievementBadgeCard from './achievement-badge-card';
+import type AchievementBadgeCardProps from '../types/achievements';
 
 type AchievedBadgesProps = {
    badges: AchievementBadgeCardProps[];
