@@ -1,13 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { CertificateCardProps } from '../types/achievements';
 
-export interface CertificateCardProps {
-   id?: string;
-   receivedAt?: string;
-   posterSrc?: string;
-   title: string;
-   reception_date: string;
-}
 
 const Cerificates: React.FC<CertificateCardProps> = ({
    posterSrc,

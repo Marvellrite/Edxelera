@@ -2,7 +2,7 @@ import ContextProvider from "@/context";
 import { SidebarProvider } from "../home/context/sidebar-context";
 import HomeLayoutContent from "../home/components/layout/homeLayout";
 import ClearPendingEmailOnLoad from "../home/components/clear-pending-email-on-load";
-import Header from "@/components/sections/headers/header-4";
+import Header from "@/components/shared/headers/header-4";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getQueryClient } from "@/lib/react-query/get-query-client";
 import { reactQueryDehydrateOptions } from "@/lib/react-query/hydration";

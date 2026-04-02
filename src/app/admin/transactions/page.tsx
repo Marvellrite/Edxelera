@@ -6,7 +6,7 @@ import { Search, ChevronDown, SlidersHorizontal } from "lucide-react";
 import Overview from "@/components/admin_and_instructors/features/transaction/overview";
 import Transactions from "@/components/admin_and_instructors/features/transaction/transactions";
 import { Pagination } from "@/components/common";
-import { dashboardStats, transactions } from "@/mockdata/transactions";
+import { dashboardStats, transactions } from "@/mock/transactions";
 
 const statusOptions = ["All Statuses", "Successful", "Pending", "Failed"];
 

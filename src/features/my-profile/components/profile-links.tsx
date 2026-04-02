@@ -1,16 +1,6 @@
 import { cn } from '@/lib/utils';
+import { ProfileLinkItem, ProfileLinksProps } from '../types/profile';
 
-export type ProfileLinkItem = {
-   label: string;
-   value: string;
-   href?: string;
-};
-
-type ProfileLinksProps = {
-   title?: string;
-   items?: ProfileLinkItem[];
-   className?: string;
-};
 
 const defaultItems: ProfileLinkItem[] = [
    { label: 'Website', value: 'newguildham.com', href: 'https://newguildham.com' },
@@ -36,7 +26,7 @@ const ProfileLinks = ({
                      <p className="text-sm font-normal text-neutral-700">
                         {item.label}
                      </p>
-                     <p className="text-md font-normal text-neutral-900 break-words">
+                     <p className="text-md font-normal text-neutral-900 wrap-break-word">
                         {item.value}
                      </p>
                   </>

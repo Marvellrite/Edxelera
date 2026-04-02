@@ -1,16 +1,8 @@
 import { CalendarDays } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
+import { AchievementBadgeCardProps } from '../types/achievements';
 
-export type AchievementBadgeCardProps = {
-   id?: string;
-   earnedAt?: string;
-   title?: string;
-   description?: string;
-   unlockedOn?: string;
-   imageSrc?: string;
-   className?: string;
-};
 
 const defaultBadgeImage =
    'https://www.figma.com/api/mcp/asset/498b3f44-d47b-42ad-aff5-36c7f0851a4b';

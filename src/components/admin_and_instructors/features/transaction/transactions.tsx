@@ -1,7 +1,7 @@
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import formatMoney from "@/lib/utils/formatMoney";
 import { cn } from "@/lib/utils";
-import { Transaction } from "@/mockdata/transactions";
+import { Transaction } from "@/mock/transactions";
 
 type TransactionsProps = {
   items: Transaction[];

@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
      <header
-         className="bg-background/95 bg-surface-home px-4 py-5 h-fit w-full text-neutral-700 flex flex-col gap-6 lg:gap-0 mt-23 lg:mt-0"
+         className="bg-background/95 bg-surface-home px-4 py-5 h-fit w-full text-neutral-700 flex flex-col gap-6 lg:gap-0 mt-23 lg:mt-0 lg:sticky top-0 z-10"
       >
 
       <div className='fixed z-20 flex items-center justify-between bg-surface-home lg:static w-[calc(100vw-40px)] md:w-[calc(100vw-200px)] lg:w-full top-0 left-1/2 md:left-0  -translate-x-1/2 md:translate-x-50 lg:translate-x-0 lg:py-0 lg:px-0 py-5 px-4'>

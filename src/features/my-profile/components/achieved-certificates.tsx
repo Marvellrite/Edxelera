@@ -1,6 +1,10 @@
+'use client';
+
 import type { ReactNode } from 'react';
 
 import SeeAllButton from '@/components/ui/see-all-btn';
+import useDragScroll from '@/hooks/useDragScroll';
+import { cn } from '@/lib/utils';
 
 import Certificates, { type CertificateCardProps } from './certificates';
 
@@ -16,7 +20,7 @@ type AchievedCertificatesProps = {
 };
 
 const railClassName =
-   '-mx-1 flex gap-3 overflow-x-auto px-1 pb-3 smooth snap-x snap-proximity [scrollbar-width:thin] [scrollbar-color:var(--color-neutral-500)_var(--color-surface)] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-surface [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb:hover]:bg-neutral-600';
+   '-mx-1 flex gap-3 overflow-x-auto px-1 pb-3 smooth snap-x snap-proximity [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden';
 
 const AchievedCertificates = ({
    certificates,
@@ -28,6 +32,9 @@ const AchievedCertificates = ({
    showSeeAll = true,
    variant = 'preview',
 }: AchievedCertificatesProps) => {
+   const { dragScrollProps, isDragging, scrollRef } =
+      useDragScroll<HTMLDivElement>({ axis: 'x' });
+
    const visibleCertificates =
       variant === 'preview' ? certificates.slice(0, previewLimit) : certificates;
 
@@ -55,7 +62,14 @@ const AchievedCertificates = ({
          </div>
 
          {visibleCertificates.length > 0 ? (
-            <div className={railClassName}>
+            <div
+               ref={scrollRef}
+               {...dragScrollProps}
+               className={cn(
+                  railClassName,
+                  isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'
+               )}
+            >
                {visibleCertificates.map((certificate, index) => (
                   <Certificates
                      key={

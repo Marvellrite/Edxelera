@@ -10,7 +10,7 @@ import CustomAlertDialog from "@/components/admin_and_instructors/features/cours
 import { Badge } from "@/components/admin_and_instructors/ui/badge";
 import { Pagination } from "@/components/common";
 import { cn } from "@/lib/utils";
-import { staffMembers } from "@/mockdata/staff-management";
+import { staffMembers } from "@/mock/staff-management";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const roleStyles: Record<string, string> = {

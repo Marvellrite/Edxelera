@@ -1,22 +1,10 @@
 import { User } from "@/components/icons/modified";
-import EditProfileDialogue from "./edit_profile_dialog";
-import ProfileLinks, { type ProfileLinkItem } from "./profile-links";
+import ProfileLinks from "./profile-links";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ProfileSummaryProps, PersonalInfoProps } from "../types/profile";
 
-export type ProfileSummaryProps = {
-  name: string;
-  email: string;
-  dateOfBirth: string;
-  location: string;
-  dateJoined: string;
-  bio: string;
-};
 
-export type PersonalInfoProps = ProfileSummaryProps & {
-  linksTitle?: string;
-  links?: ProfileLinkItem[];
-};
 
 export function ProfileSummary({
   name,
@@ -30,7 +18,7 @@ export function ProfileSummary({
     <div className="space-y-3">
       <p className="font-normal text-md">Personal Information</p>
       <div className="flex flex-col items-start justify-between gap-x-3 gap-y-5 md:flex-row md:items-center">
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4 flex-col lg:flex-row self-center lg:self-auto ">
           <div className="flex size-24 items-center justify-center rounded-[100px] bg-neutral-50">
             <User />
           </div>

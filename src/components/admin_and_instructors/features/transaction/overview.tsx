@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Certificate, MoneyReceive, TeacherOutline } from "@/components/admin_and_instructors/icons/modified";
 import formatMoney from "@/lib/utils/formatMoney";
-import { DashboardStats } from "@/mockdata/transactions";
+import { DashboardStats } from "@/mock/transactions";
 import { cn } from "@/lib/utils";
 
 type OverviewProps = {

@@ -1,7 +1,7 @@
 "use client"
 import {useState} from 'react'
 import { Button } from '@/components/ui/button'
-import { QuizData } from '@/mockdata/quiz'
+import { QuizData } from '@/mock/quiz'
 import { QuizType } from '@/types/quiz'
 import { QuizAnswers } from '@/types/quiz'
 import SubmitQuizDialog from '@/components/features/course/quiz/submit-quiz-dialog'

@@ -1,11 +1,13 @@
 import * as React from "react";
 
 type UseDragScrollOptions = {
+  axis?: "x" | "y";
   dragThreshold?: number;
   ignoreInteractiveElements?: boolean;
 };
 
 export default function useDragScroll<T extends HTMLElement>({
+  axis = "y",
   dragThreshold = 4,
   ignoreInteractiveElements = true,
 }: UseDragScrollOptions = {}) {
@@ -13,7 +15,9 @@ export default function useDragScroll<T extends HTMLElement>({
   const dragStateRef = React.useRef({
     isDragging: false,
     didDrag: false,
+    startX: 0,
     startY: 0,
+    startScrollLeft: 0,
     startScrollTop: 0,
   });
   const [isDragging, setIsDragging] = React.useState(false);
@@ -39,7 +43,9 @@ export default function useDragScroll<T extends HTMLElement>({
     dragStateRef.current = {
       isDragging: true,
       didDrag: false,
+      startX: event.clientX,
       startY: event.clientY,
+      startScrollLeft: scrollElement.scrollLeft,
       startScrollTop: scrollElement.scrollTop,
     };
 
@@ -55,16 +61,23 @@ export default function useDragScroll<T extends HTMLElement>({
         return;
       }
 
+      const deltaX = event.clientX - dragStateRef.current.startX;
       const deltaY = event.clientY - dragStateRef.current.startY;
+      const delta = axis === "x" ? deltaX : deltaY;
 
-      if (Math.abs(deltaY) > dragThreshold) {
+      if (Math.abs(delta) > dragThreshold) {
         dragStateRef.current.didDrag = true;
         setIsDragging(true);
       }
 
+      if (axis === "x") {
+        scrollElement.scrollLeft = dragStateRef.current.startScrollLeft - deltaX;
+        return;
+      }
+
       scrollElement.scrollTop = dragStateRef.current.startScrollTop - deltaY;
     },
-    [dragThreshold]
+    [axis, dragThreshold]
   );
 
   const handlePointerEnd = React.useCallback((event: React.PointerEvent<T>) => {
@@ -97,7 +110,7 @@ export default function useDragScroll<T extends HTMLElement>({
       onPointerUp: handlePointerEnd,
       onPointerCancel: handlePointerEnd,
       onClickCapture: handleClickCapture,
-      style: { touchAction: "pan-y" as const },
+      style: { touchAction: axis === "x" ? ("pan-x" as const) : ("pan-y" as const) },
     },
   };
 }

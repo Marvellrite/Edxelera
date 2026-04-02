@@ -1,10 +1,13 @@
 'use client';
 
-import AchievedBadges from './components/achieved-badges';
-import type { AchievementBadgeCardProps } from './components/achievement-badge-card';
-import AchievedCertificates from './components/achieved-certificates';
-import type { CertificateCardProps } from './components/certificates';
-import PersonalInfo, { type PersonalInfoProps } from './components/personal-info';
+import AchievedBadges from '@/features/my-profile/components/achieved-badges';
+import type { AchievementBadgeCardProps } from '@/features/my-profile/types/achievements';
+import AchievedCertificates from '@/features/my-profile/components/achieved-certificates';
+import type { CertificateCardProps } from '@/features/my-profile/types/achievements'; 
+import  type {  PersonalInfoProps } from '@/features/my-profile/types/profile';
+import PersonalInfo from '@/features/my-profile/components/personal-info';
+import { useHeaderTitleStore } from '@/stores';
+import { useEffect } from 'react';
 
 const Page = () => {
    const personalInfo: PersonalInfoProps = {
@@ -136,6 +139,14 @@ const Page = () => {
    );
 
    const latestCertificatePreview = sortedAchievedCertificates.slice(0, 5);
+
+   const {setHeaderTitle} = useHeaderTitleStore()
+
+   useEffect(
+      ()=>{
+         setHeaderTitle('My Profile')
+      }, [setHeaderTitle]
+   )
 
    return (
       <section className="w-full px-4 pb-12 pt-10 sm:px-6 lg:px-8">
