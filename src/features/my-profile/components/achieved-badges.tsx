@@ -7,7 +7,7 @@ import useDragScroll from '@/hooks/useDragScroll';
 import { cn } from '@/lib/utils';
 
 import AchievementBadgeCard from './achievement-badge-card';
-import type AchievementBadgeCardProps from '../types/achievements';
+import type { AchievementBadgeCardProps } from '../types/achievements';
 
 type AchievedBadgesProps = {
    badges: AchievementBadgeCardProps[];
