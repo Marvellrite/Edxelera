@@ -20,8 +20,8 @@ const Page: React.FC = () => {
       <section className="relative space-y-8 overflow-hidden px-4 pb-12 pt-8 sm:px-6 lg:space-y-10 lg:px-8 lg:pt-10">
          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_48%_at_4%_0%,color-mix(in_srgb,var(--primary)_22%,transparent),transparent),radial-gradient(52%_42%_at_95%_4%,color-mix(in_srgb,var(--accent-momentum)_19%,transparent),transparent)]" />
 
-         <header className="grid gap-4 rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm lg:grid-cols-[1.2fr_1fr] lg:items-end lg:p-7">
-            <div className="space-y-4">
+         <header className="relative grid gap-4 overflow-hidden rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-24 before:bg-[linear-gradient(180deg,color-mix(in_srgb,var(--primary)_13%,transparent),transparent)] lg:grid-cols-[1.2fr_1fr] lg:items-end lg:p-7">
+            <div className="relative z-[1] space-y-4">
                <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
                   <Sparkles className="size-3.5 text-[var(--secondary)]" /> Momentum dashboard
                </p>
@@ -34,20 +34,20 @@ const Page: React.FC = () => {
                   </p>
                </div>
                <div className="flex flex-wrap gap-2.5">
-                  <Button className="h-11 rounded-full px-5 text-sm font-medium shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_28%,transparent)]">
+                  <Button className="h-11 rounded-full px-5 text-sm font-medium shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_28%,transparent)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_26px_color-mix(in_srgb,var(--primary)_34%,transparent)]">
                      Continue learning <ArrowRight className="size-4" />
                   </Button>
-                  <Button variant="outline" className="h-11 rounded-full border-[var(--secondary-300)] px-5 text-[var(--secondary-700)] hover:bg-[var(--surface-tint-red)] dark:text-[var(--secondary-800)]">
+                  <Button variant="outline" className="h-11 rounded-full border-[var(--secondary-300)] px-5 text-[var(--secondary-700)] transition-colors hover:bg-[var(--surface-tint-red)] dark:text-[var(--secondary-800)]">
                      Review weekly goals
                   </Button>
                </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="relative z-[1] grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                {momentumStats.map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-0.5">
-                     <p className="text-xs uppercase tracking-[0.14em] text-[var(--text-soft)]">{stat.label}</p>
-                     <p className="mt-1 text-2xl font-semibold text-[var(--text-strong)]">{stat.value}</p>
+                  <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] ring-1 ring-inset ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--border-strong)]">
+                     <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--text-soft)]">{stat.label}</p>
+                     <p className="mt-1.5 text-2xl font-semibold text-[var(--text-strong)]">{stat.value}</p>
                   </div>
                ))}
             </div>
@@ -55,7 +55,7 @@ const Page: React.FC = () => {
 
          <section className="grid gap-4 lg:grid-cols-[1.1fr_1.5fr]">
             <StreakDisplay />
-            <div className="rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-4 shadow-[var(--shadow-card)] sm:p-5">
+            <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(165deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] sm:p-5">
                <div className="mb-4 flex items-start justify-between gap-3">
                   <div>
                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary-500)]">High Priority</p>
@@ -89,7 +89,7 @@ const Page: React.FC = () => {
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-discovery)]">Curated for you</p>
                   <h3 className="text-xl font-semibold text-[var(--text-strong)]">You may also like</h3>
                </div>
-               <Button variant="ghost" className="rounded-full border border-[var(--border-featured)] px-4 text-[var(--accent-discovery)] hover:bg-[var(--accent-discovery-soft)]">
+               <Button variant="ghost" className="rounded-full border border-[var(--border-featured)] px-4 text-[var(--accent-discovery)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-discovery-soft)]">
                   See all
                </Button>
             </div>
@@ -106,7 +106,7 @@ const Page: React.FC = () => {
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--secondary-600)]">Editorial history</p>
                   <h3 className="text-xl font-semibold text-[var(--text-strong)]">Recently viewed</h3>
                </div>
-               <Button variant="ghost" className="rounded-full border border-[var(--border-soft)] px-4 text-[var(--text-muted)] hover:bg-[var(--surface-subtle)]">
+               <Button variant="ghost" className="rounded-full border border-[var(--border-soft)] px-4 text-[var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-subtle)]">
                   View archive
                </Button>
             </div>

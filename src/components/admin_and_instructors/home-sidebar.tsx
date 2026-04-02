@@ -87,7 +87,7 @@ const HomeSidebar = () => {
                 pathname === homeLinks[0].href ? activeLink : ""
               }`,
               pathname === homeLinks[0].href
-                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] shadow-[inset_3px_0_0_var(--primary)]"
+                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] text-[var(--text-strong)] shadow-[inset_3px_0_0_var(--primary),0_6px_16px_color-mix(in_srgb,var(--primary)_14%,transparent)] ring-1 ring-inset ring-[color-mix(in_srgb,var(--primary)_24%,transparent)]"
                 : "hover:bg-[var(--surface-elevated-2)]",
               isOpen ? "gap-5" : "gap-0",
             )}
@@ -127,7 +127,7 @@ const HomeSidebar = () => {
               "relative flex items-center gap-5 rounded-xl px-2 py-2 transition-[gap,color,background-color,box-shadow] duration-300 ease-out hover:cursor-pointer",
               pathname === link.href ? activeLink : "",
               pathname === link.href
-                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] shadow-[inset_3px_0_0_var(--primary)]"
+                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] text-[var(--text-strong)] shadow-[inset_3px_0_0_var(--primary),0_6px_16px_color-mix(in_srgb,var(--primary)_14%,transparent)] ring-1 ring-inset ring-[color-mix(in_srgb,var(--primary)_24%,transparent)]"
                 : "hover:bg-[var(--surface-elevated-2)]",
               isOpen ? "gap-5" : "gap-0",
             )}

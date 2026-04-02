@@ -13,18 +13,18 @@ const streakData = [
 
 const StreakDisplay = () => {
    return (
-      <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--streak-surface),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-card)]">
+      <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--streak-surface),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-card)] ring-1 ring-inset ring-white/15 transition-all duration-200 hover:shadow-[var(--shadow-elevated)]">
          <div className="mb-5 flex items-center justify-between gap-4">
             <div>
                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-momentum)]">Weekly streak</p>
                <h2 className="text-xl font-semibold text-[var(--text-strong)]">You&apos;re on fire</h2>
             </div>
-            <div className="inline-flex items-center gap-1 rounded-full bg-[var(--accent-momentum-soft)] px-3 py-1 text-xs font-medium text-[var(--accent-momentum)]">
+            <div className="inline-flex items-center gap-1 rounded-full border border-[color-mix(in_srgb,var(--accent-momentum)_35%,transparent)] bg-[var(--accent-momentum-soft)] px-3 py-1 text-xs font-medium text-[var(--accent-momentum)]">
                <Sparkles className="size-3.5" /> +12% this week
             </div>
          </div>
 
-         <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-overlay)] p-4">
+         <div className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-overlay),var(--surface-raised))] p-4">
             <div className="mb-5 flex items-center gap-2.5">
                <div className="rounded-xl bg-[var(--accent-momentum-soft)] p-2 text-[var(--accent-momentum)]">
                   <Flame className="size-5" />

@@ -57,7 +57,7 @@ const CourseCard: React.FC<VideoCardProps> = ({
             >
                <article
                   className={cn(
-                     'group relative overflow-hidden border transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[var(--shadow-elevated)] before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(180deg,rgba(255,255,255,0.15),transparent_35%)] before:opacity-70',
+                     'group relative overflow-hidden border transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-elevated)] before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(180deg,rgba(255,255,255,0.15),transparent_35%)] before:opacity-70',
                      isCompact
                         ? 'rounded-xl border-[var(--border-soft)] bg-[var(--surface-raised)] p-2.5'
                         : isFeatured
