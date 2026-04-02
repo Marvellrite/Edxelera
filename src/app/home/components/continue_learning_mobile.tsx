@@ -1,11 +1,11 @@
-'use client'
-import useEmblaCarousel from 'embla-carousel-react';
+'use client';
 
-import { useState, useEffect, FC } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { FC } from 'react';
 import VideoPoster from './video_poster';
-import { mock_data } from '../(home)/continue_learning_mock_data';
 import { Button } from '@/components/ui/button';
 import { useDotButtons } from './continue_learning_carousel/carousel_hook';
+import { cn } from '@/lib/utils';
 
 interface ContinueLearningProps {
    data: {
@@ -16,34 +16,35 @@ interface ContinueLearningProps {
 }
 
 const Continue_learning_desktop: FC<ContinueLearningProps> = ({ data }) => {
-   const [emblaRef, emblaApi] = useEmblaCarousel({
-      dragFree: true,
-   });
+   const [emblaRef, emblaApi] = useEmblaCarousel({ dragFree: true });
    const { selectedIndex, scrollSnaps, scrollTo } = useDotButtons(emblaApi!);
 
    return (
-      <div className=" basis-1/2 grow ">
-         <div className=" text-md font-normal mb-3 flex justify-between items-center">
-            <div className='text-base text-primary'>Continue learning</div>{' '}
-            <div className=" space-x-2">
-               {/* <Button className=" p-0 bg-primary w-4 h-[8px] rounded-[4px]" active/>{' '}
-               <Button className=" p-0 bg-neutral-400 h-[8px] w-[8px] rounded-[4px]" /> */}
+      <div className="flex flex-col gap-3">
+         <div ref={emblaRef} className="overflow-hidden rounded-2xl h-60">
+            <div className="flex h-full flex-nowrap gap-0">
+               {data.map((item, index) => (
+                  <VideoPoster key={index} {...item} />
+               ))}
+            </div>
+         </div>
+
+         {scrollSnaps.length > 1 && (
+            <div className="flex items-center justify-center gap-1.5 pt-0.5">
                {scrollSnaps.map((_, index) => (
                   <Button
                      key={index}
-                     className={` hover:cursor-pointer p-0 rounded-sm h-2   ${index === selectedIndex ? 'bg-primary w-4' : 'bg-neutral-400 w-2'}`}
                      onClick={() => scrollTo(index)}
+                     className={cn(
+                        'h-2 min-w-0 rounded-full p-0 transition-all duration-200',
+                        index === selectedIndex
+                           ? 'w-5 bg-primary'
+                           : 'w-2 bg-neutral-400 hover:bg-neutral-500'
+                     )}
                   />
                ))}
             </div>
-         </div>
-         <div ref={emblaRef} className=" overflow-x-hidden rounded-lg overflow-hidden">
-            <div className=" flex h-66 flex-nowrap w-full  gap-0 ">
-               {data.map((data, index) => (
-                  <VideoPoster key={index} {...data} />
-               ))}
-            </div>
-         </div>
+         )}
       </div>
    );
 };
