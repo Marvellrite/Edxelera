@@ -75,7 +75,7 @@ export function Footer() {
                 <Link href="#courses" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Explore Courses
                 </Link>
-                <Link href="#about" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
+                <Link href="/instructor/auth" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">
                   Teach on Edxelera
                 </Link>
                 <Link href="/about-us" className="block text-base text-neutral-100 hover:text-white transition-colors font-medium">

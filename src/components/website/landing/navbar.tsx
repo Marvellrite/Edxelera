@@ -82,7 +82,7 @@ export function Navbar() {
           <div className=' flex gap-6 items-center max-sm-md:hidden mr-3'>
             <Link href={'/explore'}>Explore</Link>
             <SearchInput className='text-normal placeholder:text-neutral-800' placeholder='Search'/>
-            <Link className=' pl-2 whitespace-nowrap' href={"Teach"}>Teach on Edxelera</Link>
+            <Link className=' pl-2 whitespace-nowrap' href={"/instructor/auth"}>Teach on Edxelera</Link>
           </div>
 
           {/* CTA Button */}
