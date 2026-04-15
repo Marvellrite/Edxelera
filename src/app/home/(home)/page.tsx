@@ -1,136 +1,130 @@
 'use client';
 
-import { mock_data } from './continue_learning_mock_data';
-import { mock_data as mock_data_al } from './also_like_mock_data';
-import Video_card from '../components/course-card';
-import Continue_learning_mobile from '../components/continue_learning_mobile';
-import SeeAllButton from '@/components/ui/see-all-btn';
+import { Button } from '@/components/ui/button';
+import { mock_data as continueLearningData } from './continue_learning_mock_data';
+import { mock_data as recommendations } from './also_like_mock_data';
+import { mock_data as recentlyViewed } from './recently_viewed_mock_data';
+import CourseCard from '../components/course-card';
 import StreakDisplay from '@/components/features/streak-display';
+import { ArrowRight, Flame, Sparkles } from 'lucide-react';
+import Image from 'next/image';
+
+const momentumStats = [
+   { label: 'Hours this week', value: '11.5h' },
+   { label: 'Lessons completed', value: '16' },
+   { label: 'Current streak', value: '2 days' },
+];
 
 const Page: React.FC = () => {
-   const data = mock_data;
-
    return (
-      <section className="relative overflow-hidden p-4 py-8 sm:p-6 sm:py-10 lg:p-8 lg:py-12">
-         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_10%_0%,hsl(var(--primary)/0.18),transparent),radial-gradient(90%_70%_at_100%_100%,hsl(var(--primary)/0.1),transparent)]" />
-         <div className="space-y-10">
-            {/* For Users that have started learning a course */}
-            <div className="rounded-2xl border border-primary/20 bg-background/85 p-3 shadow-[0_20px_60px_-25px_hsl(var(--primary)/0.55)] backdrop-blur-sm sm:p-4">
-               <div className="mb-4 flex items-center justify-start gap-3 sm:mb-5">
-                  <div>
-                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/70">
-                        Keep the momentum
-                     </p>
-                     <h2 className="text-xl font-semibold leading-tight text-foreground sm:text-2xl">
-                        Continue your learning journey
-                     </h2>
-                  </div>
-                  {/* <Button
-                     className="rounded-full border border-primary/20 bg-primary/10 px-4 text-primary hover:bg-primary/15"
-                     variant="ghost"
-                  >
-                     Dashboard
-                  </Button> */}
-               </div>
-               <div className="flex flex-col gap-3 lg:flex-row">
-                  <StreakDisplay />
-                  <Continue_learning_mobile data={data} />
-               </div>
-            </div>
+      <section className="relative space-y-8 overflow-hidden px-4 pb-12 pt-8 sm:px-6 lg:space-y-10 lg:px-8 lg:pt-10">
+         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_48%_at_4%_0%,color-mix(in_srgb,var(--primary)_22%,transparent),transparent),radial-gradient(52%_42%_at_95%_4%,color-mix(in_srgb,var(--accent-momentum)_19%,transparent),transparent)]" />
 
-            <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-[0_16px_50px_-30px_hsl(var(--foreground)/0.5)] sm:p-6">
-               <div className="mb-4 flex items-end justify-between gap-3 sm:mb-5">
-                  <div>
-                     <h3 className="text-lg font-semibold text-foreground sm:text-xl">
-                        You may also like
-                     </h3>
-                     <p className="text-sm text-muted-foreground">
-                        Curated picks based on your current learning activity.
-                     </p>
-                  </div>
-                  <SeeAllButton />
+         <header className="relative grid gap-4 overflow-hidden rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-elevated-2))] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-24 before:bg-[linear-gradient(180deg,color-mix(in_srgb,var(--primary)_13%,transparent),transparent)] lg:grid-cols-[1.2fr_1fr] lg:items-end lg:p-7">
+            <div className="relative z-[1] space-y-4">
+               <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                  <Sparkles className="size-3.5 text-[var(--secondary)]" /> Momentum dashboard
+               </p>
+               <div>
+                  <h1 className="text-2xl font-semibold leading-tight text-[var(--text-strong)] sm:text-3xl">
+                     Welcome back, Nkechi 👋
+                  </h1>
+                  <p className="mt-2 max-w-xl text-sm text-[var(--text-muted)] sm:text-base">
+                     You&apos;re making strong progress in Product Design. Keep your streak alive and finish your current module today.
+                  </p>
                </div>
-
-               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-                  {mock_data_al.map((data, index) => (
-                     <div
-                        key={index}
-                        className="transition-transform duration-300 ease-out hover:-translate-y-1"
-                     >
-                        <Video_card hideCta {...data} />
-                     </div>
-                  ))}
-               </div>
-            </div>
-
-            <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-[0_16px_50px_-30px_hsl(var(--foreground)/0.5)] sm:p-6">
-               <div className="mb-4 flex items-end justify-between gap-3 sm:mb-5">
-                  <div>
-                     <h3 className="text-lg font-semibold text-foreground sm:text-xl">
-                        Recently viewed courses
-                     </h3>
-                     <p className="text-sm text-muted-foreground">
-                        Jump right back into courses you explored before.
-                     </p>
-                  </div>
-                  <SeeAllButton />
-               </div>
-
-               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-                  {mock_data_al.map((data, index) => (
-                     <div
-                        key={index}
-                        className="transition-transform duration-300 ease-out hover:-translate-y-1"
-                     >
-                        <Video_card hideCta {...data} />
-                     </div>
-                  ))}
-               </div>
-            </div>
-         </div>
-
-         <>
-         {/* For Users that have not started learning a course yet */}
-         
-          {/* <div className=" space-y-9">
-            <div className=" h-[252px] bg-primary rounded-xl flex items-end">
-               <div className=" mt-auto flex justify-between items-end text-white p-6 pb-7 basis-full max-md:flex-col max-md:items-start max-md:gap-4 max-md:px-4 max-md:py-3.5">
-                  <div className=" space-y-2">
-                     <h1 className=" text-[24px] max-md:mb-1">
-                        Product Design (UI/UX)
-                     </h1>
-                     <div className=" font-bold text-md">&#8358;150,000.00</div>
-                     <div>8 weeks</div>
-                  </div>
-                  <div>
-                     <Button className="bg-white rounded-[500px] h-[47px] w-[147px] text-primary py-3 px-2.5 font-medium text-[14px]">
-                        Enroll Now
-                     </Button>
-                  </div>
-               </div>
-            </div>
-
-            <div>
-               <div className=" text-md font-normal mb-3 flex justify-between">
-                  <span>Explore our courses</span>
-                  <Button
-                     className=" rounded-[500px] text-accent"
-                     variant={'ghost'}
-                  >
-                     See all
+               <div className="flex flex-wrap gap-2.5">
+                  <Button className="h-11 rounded-full px-5 text-sm font-medium shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_28%,transparent)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_26px_color-mix(in_srgb,var(--primary)_34%,transparent)]">
+                     Continue learning <ArrowRight className="size-4" />
+                  </Button>
+                  <Button variant="outline" className="h-11 rounded-full border-[var(--secondary-300)] px-5 text-[var(--secondary-700)] transition-colors hover:bg-[var(--surface-tint-red)] dark:text-[var(--secondary-800)]">
+                     Review weekly goals
                   </Button>
                </div>
+            </div>
 
-               <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-3">
-                  {mock_data_al.map((data, index) => (
-                     <Video_card key={index} {...data} />
+            <div className="relative z-[1] grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+               {momentumStats.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] ring-1 ring-inset ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--border-strong)]">
+                     <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--text-soft)]">{stat.label}</p>
+                     <p className="mt-1.5 text-2xl font-semibold text-[var(--text-strong)]">{stat.value}</p>
+                  </div>
+               ))}
+            </div>
+         </header>
+
+         <section className="grid gap-4 lg:grid-cols-[1.1fr_1.5fr]">
+            <StreakDisplay />
+            <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(165deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] sm:p-5">
+               <div className="mb-4 flex items-start justify-between gap-3">
+                  <div>
+                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary-500)]">High Priority</p>
+                     <h2 className="text-xl font-semibold text-[var(--text-strong)]">Continue learning</h2>
+                     <p className="text-sm text-[var(--text-muted)]">Pick up where you left off and complete the next lesson.</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[var(--accent-momentum-soft)] px-3 py-1 text-xs font-medium text-[var(--accent-momentum)]">
+                     <Flame className="size-3.5" /> Action now
+                  </span>
+               </div>
+               <div className="grid gap-4 sm:grid-cols-2">
+                  {continueLearningData.map((course, index) => (
+                     <CourseCard
+                        key={`${course.title}-${index}`}
+                        _id={`continue-${index}`}
+                        posterSrc={course.posterSrc}
+                        title={course.title}
+                        duration={course.duration}
+                        price="150000"
+                        rating={4.7 - index * 0.3}
+                        variant="featured"
+                     />
                   ))}
                </div>
             </div>
-         </div>  */}
-         
-         </>
+         </section>
 
+         <section className="rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(160deg,var(--surface-featured),var(--surface-overlay))] p-4 shadow-[var(--shadow-card)] sm:p-6">
+            <div className="mb-5 flex items-end justify-between gap-3">
+               <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-discovery)]">Curated for you</p>
+                  <h3 className="text-xl font-semibold text-[var(--text-strong)]">You may also like</h3>
+               </div>
+               <Button variant="ghost" className="rounded-full border border-[var(--border-featured)] px-4 text-[var(--accent-discovery)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-discovery-soft)]">
+                  See all
+               </Button>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+               {recommendations.map((course, index) => (
+                  <CourseCard key={`${course.title}-${index}`} {...course} hideCta variant="default" />
+               ))}
+            </div>
+         </section>
+
+         <section className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(165deg,var(--surface-raised),var(--surface-subtle))] p-4 shadow-[var(--shadow-card)] sm:p-6">
+            <div className="mb-5 flex items-end justify-between gap-3">
+               <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--secondary-600)]">Editorial history</p>
+                  <h3 className="text-xl font-semibold text-[var(--text-strong)]">Recently viewed</h3>
+               </div>
+               <Button variant="ghost" className="rounded-full border border-[var(--border-soft)] px-4 text-[var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-subtle)]">
+                  View archive
+               </Button>
+            </div>
+            <div className="grid gap-3">
+               {recentlyViewed.map((course, index) => (
+                  <div key={`${course.title}-${index}`} className="flex items-center gap-3 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-3">
+                     <div className="h-16 w-24 overflow-hidden rounded-lg">
+                        <Image src={course.posterSrc} alt={course.title} width={96} height={64} className="h-full w-full object-cover" />
+                     </div>
+                     <div className="min-w-0 flex-1">
+                        <p className="line-clamp-1 text-sm font-semibold text-[var(--text-strong)]">{course.title}</p>
+                        <p className="text-xs text-[var(--text-muted)]">{course.duration} • Last viewed 2 days ago</p>
+                     </div>
+                     <Button variant="outline" className="h-9 rounded-full px-3 text-xs">Resume</Button>
+                  </div>
+               ))}
+            </div>
+         </section>
       </section>
    );
 };

@@ -25,7 +25,7 @@ const IconsMap = Icons as Record<string, React.ComponentType<{ width: number; he
 const HomeSidebar = () => {
   const pathname = usePathname();
   const theme = useThemeStore((state) => state.theme);
-  const activeLink = "text-primary font-bold";
+  const activeLink = "text-primary font-semibold";
   const { isOpen, toggleSidebar } = useSidebar();
   const isCollapsed = !isOpen;
   const isHydrated = useSyncExternalStore(
@@ -48,7 +48,7 @@ const HomeSidebar = () => {
 
   return (
     <aside
-      className={`col-span-2 hidden h-screen overflow-x-hidden border-r-2 border-neutral-100 px-5 text-neutral space-y-8.5 md:block ${
+      className={`col-span-2 hidden h-screen overflow-x-hidden border-r border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] px-5 text-neutral space-y-8.5 md:block ${
         isOpen ? "md:w-50 lg:w-67.5" : "md:w-18 lg:w-18"
       } transition-[width] duration-500 ease-in-out [will-change:width]`}
     >
@@ -83,9 +83,12 @@ const HomeSidebar = () => {
           <Link
             href={homeLinks[0].href}
             className={cn(
-              `flex items-center gap-5 transition-[gap,color] duration-500 ease-out hover:cursor-pointer ${
+              `relative flex items-center gap-5 rounded-xl px-2 py-2 transition-[gap,color,background-color,box-shadow] duration-300 ease-out hover:cursor-pointer ${
                 pathname === homeLinks[0].href ? activeLink : ""
               }`,
+              pathname === homeLinks[0].href
+                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] text-[var(--text-strong)] shadow-[inset_3px_0_0_var(--primary),0_6px_16px_color-mix(in_srgb,var(--primary)_14%,transparent)] ring-1 ring-inset ring-[color-mix(in_srgb,var(--primary)_24%,transparent)]"
+                : "hover:bg-[var(--surface-elevated-2)]",
               isOpen ? "gap-5" : "gap-0",
             )}
           >
@@ -121,8 +124,11 @@ const HomeSidebar = () => {
             key={link.href}
             href={link.href}
             className={cn(
-              "flex items-center gap-5 transition-[gap,color] duration-500 ease-out hover:cursor-pointer",
+              "relative flex items-center gap-5 rounded-xl px-2 py-2 transition-[gap,color,background-color,box-shadow] duration-300 ease-out hover:cursor-pointer",
               pathname === link.href ? activeLink : "",
+              pathname === link.href
+                ? "bg-[linear-gradient(90deg,color-mix(in_srgb,var(--primary)_18%,transparent),transparent)] text-[var(--text-strong)] shadow-[inset_3px_0_0_var(--primary),0_6px_16px_color-mix(in_srgb,var(--primary)_14%,transparent)] ring-1 ring-inset ring-[color-mix(in_srgb,var(--primary)_24%,transparent)]"
+                : "hover:bg-[var(--surface-elevated-2)]",
               isOpen ? "gap-5" : "gap-0",
             )}
           >

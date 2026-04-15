@@ -79,6 +79,16 @@
    --color-ring: var(--ring);
    --color-surface-home: var(--surface-home);
    --color-surface-overlay: var(--surface-overlay);
+   --color-surface-elevated-2: var(--surface-elevated-2);
+   --color-surface-featured: var(--surface-featured);
+   --color-surface-featured-alt: var(--surface-featured-alt);
+   --color-border-featured: var(--border-featured);
+   --color-accent-discovery: var(--accent-discovery);
+   --color-accent-discovery-soft: var(--accent-discovery-soft);
+   --color-accent-achievement: var(--accent-achievement);
+   --color-accent-achievement-soft: var(--accent-achievement-soft);
+   --color-accent-momentum: var(--accent-momentum);
+   --color-accent-momentum-soft: var(--accent-momentum-soft);
 
    /* Streak Colors */
    --color-streak-surface: var(--streak-surface);
@@ -238,4 +248,3 @@ html {
 .navHeight2{
    height: 95px
 }
-

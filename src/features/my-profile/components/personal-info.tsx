@@ -1,69 +1,81 @@
-import { User } from "@/components/icons/modified";
-import ProfileLinks from "./profile-links";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ProfileSummaryProps, PersonalInfoProps } from "../types/profile";
-
-
+import { User } from '@/components/icons/modified';
+import { Pencil } from 'lucide-react';
+import ProfileLinks from './profile-links';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ProfileSummaryProps, PersonalInfoProps } from '../types/profile';
 
 export function ProfileSummary({
-  name,
-  email,
-  dateOfBirth,
-  location,
-  dateJoined,
-  bio,
+   name,
+   email,
+   dateOfBirth,
+   location,
+   dateJoined,
+   bio,
 }: ProfileSummaryProps) {
-  return (
-    <div className="space-y-3">
-      <p className="font-normal text-md">Personal Information</p>
-      <div className="flex flex-col items-start justify-between gap-x-3 gap-y-5 md:flex-row md:items-center">
-        <div className="flex items-center gap-x-4 flex-col lg:flex-row self-center lg:self-auto ">
-          <div className="flex size-24 items-center justify-center rounded-[100px] bg-neutral-50">
-            <User />
-          </div>
-          <div>
-            <h1 className="text-[24px] font-medium">{name}</h1>
-            <span className="font-normal text-neutral-600">{email}</span>
-          </div>
-        </div>
+   const stats = [
+      { label: 'Courses completed', value: '12' },
+      { label: 'Certificates', value: '4' },
+      { label: 'Total learning hours', value: '124h' },
+   ];
 
-        <div>
-          <div className="font-normal text-neutral-600">Date of Birth</div>
-          <div className="font-normal text-base">{dateOfBirth}</div>
-        </div>
+   return (
+      <div className="space-y-5">
+         <div className="rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(145deg,var(--surface-overlay),var(--surface-featured))] p-5 shadow-[var(--shadow-card)] lg:p-6">
+            <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
+               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <div className="flex size-24 items-center justify-center rounded-3xl border border-[var(--border-featured)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-elevated-2))] text-[var(--primary)] shadow-[var(--shadow-soft)]">
+                     <User />
+                  </div>
+                  <div className="space-y-1">
+                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">Learner profile</p>
+                     <h1 className="text-2xl font-semibold text-[var(--text-strong)]">{name}</h1>
+                     <p className="text-sm text-[var(--text-muted)]">{email}</p>
+                     <Button asChild className="mt-2 h-10 rounded-full px-4 text-sm shadow-[0_8px_20px_color-mix(in_srgb,var(--primary)_24%,transparent)]">
+                        <Link href={'/home/my-profile/edit-profile'}><Pencil className="size-4" /> Edit profile</Link>
+                     </Button>
+                  </div>
+               </div>
 
-        <div>
-          <div className="font-normal text-neutral-600">Location</div>
-          <div className="font-normal text-base">{location}</div>
-        </div>
+               <div className="grid grid-cols-3 gap-2">
+                  {stats.map((stat) => (
+                     <div key={stat.label} className="rounded-2xl border border-[var(--border-soft)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-3 text-center transition-transform duration-200 hover:-translate-y-0.5">
+                        <p className="text-lg font-semibold text-[var(--text-strong)]">{stat.value}</p>
+                        <p className="text-[11px] text-[var(--text-soft)]">{stat.label}</p>
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </div>
 
-        <div>
-          <div className="font-normal text-neutral-600">Date Joined</div>
-          <div className="font-normal text-base">{dateJoined}</div>
-        </div>
+         <div className="rounded-3xl border border-[var(--border-subtle)] bg-[linear-gradient(180deg,var(--surface-raised),var(--surface-subtle))] p-5 shadow-[var(--shadow-card)]">
+            <h2 className="text-lg font-semibold text-[var(--text-strong)]">Personal information</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+               <Info label="Date of Birth" value={dateOfBirth} />
+               <Info label="Location" value={location} />
+               <Info label="Date Joined" value={dateJoined} />
+            </div>
+            <div className="mt-4 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-4">
+               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--text-soft)]">Bio</p>
+               <p className="mt-2 text-sm leading-relaxed text-[var(--text-default)]">{bio}</p>
+            </div>
+         </div>
       </div>
-      <div className="space-y-0.5">
-        <span className="font-normal text-neutral-600">Bio</span>
-        <p className="font-normal text-base">{bio}</p>
-      </div>
-      <div className=' flex justify-center md:justify-start'>
-        <Button className='text-[14px] py-3 px-6 h-11.25 w-29.75' asChild variant='outline'><Link href={'/home/my-profile/edit-profile'}>Edit Profile</Link></Button>
-      </div>
-    </div>
-  );
+   );
 }
 
-export default function PersonalInfo({
-  linksTitle,
-  links,
-  ...profileSummary
-}: PersonalInfoProps) {
-  return (
-    <div className="grid grid-cols-1 gap-y-10">
-      <ProfileSummary {...profileSummary} />
-      <ProfileLinks title={linksTitle} items={links} />
-    </div>
-  );
+const Info = ({ label, value }: { label: string; value: string }) => (
+   <div className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] p-3">
+      <p className="text-xs uppercase tracking-[0.12em] text-[var(--text-soft)]">{label}</p>
+      <p className="mt-1 text-sm font-medium text-[var(--text-strong)]">{value}</p>
+   </div>
+);
+
+export default function PersonalInfo({ linksTitle, links, ...profileSummary }: PersonalInfoProps) {
+   return (
+      <div className="grid grid-cols-1 gap-y-6">
+         <ProfileSummary {...profileSummary} />
+         <ProfileLinks title={linksTitle} items={links} />
+      </div>
+   );
 }
- 
