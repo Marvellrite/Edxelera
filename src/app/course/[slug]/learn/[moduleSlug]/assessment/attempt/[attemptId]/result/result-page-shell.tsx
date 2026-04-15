@@ -2,7 +2,6 @@
 
 import { HydrationBoundary, type DehydratedState } from "@tanstack/react-query";
 
-import Provider from "@/app/providers";
 import type { AssessmentAttemptResultParams } from "@/api/assessment";
 
 import ResultPageClient from "./result-page-client";
@@ -17,11 +16,9 @@ const ResultPageShell = ({
   params,
 }: ResultPageShellProps) => {
   return (
-    <Provider>
       <HydrationBoundary state={dehydratedState}>
         <ResultPageClient {...params} />
       </HydrationBoundary>
-    </Provider>
   );
 };
 
