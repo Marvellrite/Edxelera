@@ -1,3 +1,5 @@
+import { ResetPasswordStep, ResetPasswordStepCopy } from "./types";
+
 export const FLOW_EMAIL_KEY = 'reset-password-email';
 export const FLOW_TOKEN_KEY = 'reset-password-token';
 export const SUCCESS_TOAST_DURATION_MS = 1800;

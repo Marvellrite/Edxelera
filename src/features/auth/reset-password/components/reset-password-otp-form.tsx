@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 
 import { useResendOtp, useVerifyOtp } from '@/api/auth';
-import type { AuthResponse } from '@/api/auth/api';
 import FormError from '@/components/auth/form-error';
 import { OtpInputGroup } from '@/components/auth/otp-input-group';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import { Button } from '@/components/ui/button';
+import { maskEmail } from '../../utils';
+import { extractResetToken } from '../utils';
 
 const OTP_LENGTH = 6;
 const RESEND_COOLDOWN_SECONDS = 60;
@@ -18,20 +19,6 @@ type ResetPassOtpFormProps = {
    email: string;
    onBack?: () => void;
    onSuccess: (payload: { resetToken?: string }) => void;
-};
-
-const maskEmail = (value: string) => {
-   const [localPart = '', domain = ''] = value.split('@');
-
-   if (!localPart || !domain) {
-      return value;
-   }
-
-   if (localPart.length <= 2) {
-      return `${localPart[0] ?? '*'}***@${domain}`;
-   }
-
-   return `${localPart.slice(0, 2)}***@${domain}`;
 };
 
 const useResendCooldown = (initialSeconds = RESEND_COOLDOWN_SECONDS) => {
@@ -54,10 +41,6 @@ const useResendCooldown = (initialSeconds = RESEND_COOLDOWN_SECONDS) => {
       isActive: secondsLeft > 0,
       start: () => setSecondsLeft(initialSeconds),
    };
-};
-
-const extractResetToken = (response: AuthResponse) => {
-   return response.data?.accessToken || response.data?.refreshToken || '';
 };
 
 const ResetPassOtpForm: React.FC<ResetPassOtpFormProps> = ({

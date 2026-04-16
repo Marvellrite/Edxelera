@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { RESET_PASSWORD_LOGO } from '../constants';
 
-export const AuthShell = ({
+const AuthShell = ({
    title,
    description,
    children,
@@ -37,3 +37,5 @@ export const AuthShell = ({
       </div>
    </section>
 );
+
+export default AuthShell;
