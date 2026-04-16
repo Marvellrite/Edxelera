@@ -1,6 +1,6 @@
 import { WEB_CLIENT_HEADER } from "@/constants";
 import { AuthResponse, ForgottenPasswordPayload, ResendOtpPayload, VerifyOtpPayload } from "./types";
-import env from "@/lib/env";
+import env from "@/lib/config/client/env";
 
 // Auth API Functions
 export const authAPI = {

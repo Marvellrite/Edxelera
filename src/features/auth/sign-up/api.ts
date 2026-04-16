@@ -1,6 +1,6 @@
 import { WEB_CLIENT_HEADER } from '@/constants';
 import { SignUpSchema } from './types';
-import env from '@/lib/env'
+import env from '@/lib/config/env'
 import { AuthResponse } from '../types';
 
 // Auth API Functions

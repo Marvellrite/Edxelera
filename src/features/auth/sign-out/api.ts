@@ -1,6 +1,6 @@
 import { WEB_CLIENT_HEADER } from "@/constants";
 import { AuthResponse } from "../types";
-import env from "@/lib/env";
+import env from "@/lib/config/env";
 
 const signOutAPI = {
       signOut: async () => {

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 
-import { useResendOtp, useVerifyOtp } from '@/api/auth';
+import { useResendOtp, useVerifyOtp } from '../../hooks';
 import FormError from '@/components/auth/form-error';
 import { OtpInputGroup } from '@/components/auth/otp-input-group';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';

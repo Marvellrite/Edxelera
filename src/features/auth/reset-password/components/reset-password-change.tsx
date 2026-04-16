@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, useWatch } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { useResetPassword } from '@/api/auth';
+import { useResetPassword } from '../hooks/use-reset-password';
 import FormError from '@/components/auth/form-error';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Eye, EyeSlash, LockOutline } from '@/components/icons/modified';

@@ -2,7 +2,7 @@ import { WEB_CLIENT_HEADER } from "@/constants";
 import { AuthResponse } from "../types";
 
 // Auth API Functions
-export const authAPI = {
+export const signInAPI = {
 
 
   signIn: async (data: { email: string; password: string }) => {

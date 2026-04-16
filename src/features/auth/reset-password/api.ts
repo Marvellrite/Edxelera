@@ -1,10 +1,10 @@
 import { WEB_CLIENT_HEADER } from "@/constants";
 import { AuthResponse } from "../types";
 import { ResetPasswordPayload } from "./types";
-import env from "@/lib/env";
+import env from "@/lib/config/client/env";
 
 // Auth API Functions
-export const authAPI = {
+export const resetPasswordAPI = {
 
   resetPassword: async (data: ResetPasswordPayload) => {
     const response = await fetch(`${env.NEXT_PUBLIC_PROXY_URL}/auth/reset-password`, {

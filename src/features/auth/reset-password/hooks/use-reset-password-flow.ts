@@ -3,13 +3,9 @@
 import { useEffect, useMemo, useSyncExternalStore } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import {
-   buildStepHref,
-   FLOW_EMAIL_KEY,
-   FLOW_TOKEN_KEY,
-   resolveFlowState,
-} from '../components/reset-password-page.helpers';
-import type { ResetPasswordStep } from '../reset-password-page.types';
+import { FLOW_EMAIL_KEY, FLOW_TOKEN_KEY, } from '../constants';
+import { resolveFlowState, buildStepHref } from '../utils';
+import type { ResetPasswordStep } from '../types';
 
 const subscribe = () => () => undefined;
 const getClientSnapshot = () => true;

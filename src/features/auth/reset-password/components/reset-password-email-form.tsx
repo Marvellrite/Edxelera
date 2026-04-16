@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { useForgottenPassword } from '@/api/auth';
+import { useForgottenPassword } from '../../hooks';
 import FormError from '@/components/auth/form-error';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Sms } from '@/components/icons/modified';
