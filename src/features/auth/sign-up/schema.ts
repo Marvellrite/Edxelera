@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { getPasswordValidationError } from '@/lib/auth/password';
 
-export const signinSchema = z
+export const signUpSchema = z
    .object({
       fullname: z
          .string()
@@ -24,4 +24,4 @@ export const signinSchema = z
       message: 'Passwords do not match',
    });
 
-export type SigninSchema = z.infer<typeof signinSchema>;
+

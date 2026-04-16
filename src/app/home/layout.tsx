@@ -12,10 +12,10 @@ export default async function HomeLayout({
    children: React.ReactNode;
 }>) {
       const queryClient = getQueryClient();
-      const userId = await getAuthenticatedUserId();
-      console.log(userId)
+      // const userId = await getAuthenticatedUserId();
+      // console.log(userId)
 
-      await queryClient.prefetchQuery(UserFetchOptions.getUserDetails(userId));
+      // await queryClient.prefetchQuery(UserFetchOptions.getUserDetails(userId));
 
    return (
       <HydrationBoundary state={dehydrate(queryClient, reactQueryDehydrateOptions)}>

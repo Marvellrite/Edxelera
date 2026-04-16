@@ -1,0 +1,1 @@
+export const WEB_CLIENT_HEADER = { "x-client-type": "web" } as const;

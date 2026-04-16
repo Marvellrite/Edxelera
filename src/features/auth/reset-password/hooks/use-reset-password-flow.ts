@@ -8,7 +8,7 @@ import {
    FLOW_EMAIL_KEY,
    FLOW_TOKEN_KEY,
    resolveFlowState,
-} from '../reset-password-page.helpers';
+} from '../components/reset-password-page.helpers';
 import type { ResetPasswordStep } from '../reset-password-page.types';
 
 const subscribe = () => () => undefined;

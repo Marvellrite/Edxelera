@@ -31,3 +31,50 @@ export type EditProfileFieldConfig = {
    LeftIcon: ComponentType<IconProp>;
    required?: boolean;
 };
+
+
+export type AchievementBadgeCardProps = {
+   id?: string;
+   earnedAt?: string;
+   title?: string;
+   description?: string;
+   unlockedOn?: string;
+   imageSrc?: string;
+   className?: string;
+};
+
+export interface CertificateCardProps {
+   id?: string;
+   receivedAt?: string;
+   posterSrc?: string;
+   title: string;
+   reception_date: string;
+}
+
+
+export type ProfileSummaryProps = {
+  name: string;
+  email: string;
+  dateOfBirth: string;
+  location: string;
+  dateJoined: string;
+  bio: string;
+};
+
+export type PersonalInfoProps = ProfileSummaryProps & {
+  linksTitle?: string;
+  links?: ProfileLinkItem[];
+};
+
+
+export type ProfileLinkItem = {
+   label: string;
+   value: string;
+   href?: string;
+};
+
+export type ProfileLinksProps = {
+   title?: string;
+   items?: ProfileLinkItem[];
+   className?: string;
+};

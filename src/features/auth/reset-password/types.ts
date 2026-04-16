@@ -1,3 +1,9 @@
+export interface ResetPasswordPayload {
+  email: string;
+  token: string;
+  password: string;
+}
+
 export type ResetPasswordStep = 'email' | 'otp' | 'change';
 
 export type ResetPasswordStepCopy = {

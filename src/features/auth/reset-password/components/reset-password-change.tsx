@@ -16,6 +16,7 @@ import {
    ResetPassSchema,
    resetPassSchema,
 } from '@/schemas/reset-password.schema';
+import { handlePasswordReset } from '../utils'
 
 type ResetPassChangeFormProps = {
    email: string;
@@ -69,29 +70,6 @@ const ResetPassChangeForm: React.FC<ResetPassChangeFormProps> = ({
          );
       },
    });
-
-   const handlePasswordReset = (data: ResetPassSchema) => {
-      if (!email || !resetToken) {
-         toast.error(
-            () => (
-               <ErrorToast
-                  msg={{
-                     title: 'Error',
-                     body: 'Your reset session is missing. Please request a new verification code.',
-                  }}
-               />
-            ),
-            { closeButton: false }
-         );
-         return;
-      }
-
-      resetPassword({
-         email,
-         token: resetToken,
-         password: data.password,
-      });
-   };
 
    return (
       <>

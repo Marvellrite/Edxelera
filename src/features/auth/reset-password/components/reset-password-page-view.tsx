@@ -3,69 +3,23 @@
 import { useMemo } from 'react';
 import { toast } from 'react-toastify';
 
-import ResetPassChangeForm from '@/components/auth/reset-password-change';
-import ResetPassEmailForm from '@/components/auth/reset-password-email-form';
-import ResetPassOtpForm from '@/components/auth/reset-password-otp-form';
+import ResetPassChangeForm from '@/features/auth/reset-password/components/reset-password-change';
+import ResetPassEmailForm from '@/features/auth/reset-password/components/reset-password-email-form';
+import ResetPassOtpForm from '@/features/auth/reset-password/components/reset-password-otp-form';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import EdxeleraLoader from '@/components/ui/loading-text';
+import { handleEmailSuccess, handleOtpSuccess, handlePasswordResetSuccess } from '../utils'
 
 import {
    AuthShell,
    STEP_COPY,
    SUCCESS_TOAST_DURATION_MS,
 } from './reset-password-page.helpers';
-import { useResetPasswordFlow } from './hooks/use-reset-password-flow';
+import { useResetPasswordFlow } from '../hooks/use-reset-password-flow';
 
 export default function ResetPasswordPageView() {
    const { step, email, resetToken, isReady, moveToStep, clearFlow, router } =
       useResetPasswordFlow();
-
-   const handleEmailSuccess = ({ email: nextEmail }: { email: string }) => {
-      moveToStep('otp', { email: nextEmail, resetToken: '' });
-   };
-
-   const handleOtpSuccess = ({
-      resetToken: nextResetToken,
-   }: {
-      resetToken?: string;
-   }) => {
-      if (!nextResetToken) {
-         toast.error(
-            () => (
-               <ErrorToast
-                  msg={{
-                     title: 'Error',
-                     body: 'We could not start your reset session. Please request a new code.',
-                  }}
-               />
-            ),
-            { closeButton: false }
-         );
-         return;
-      }
-
-      moveToStep('change', { resetToken: nextResetToken });
-   };
-
-   const handlePasswordResetSuccess = () => {
-      clearFlow();
-
-      toast.success(
-         () => (
-            <SuccessToast
-               msg={{
-                  title: 'Success',
-                  body: 'Password reset successfully',
-               }}
-            />
-         ),
-         {
-            closeButton: false,
-            autoClose: SUCCESS_TOAST_DURATION_MS,
-            onClose: () => router.push('/auth'),
-         }
-      );
-   };
 
    const activeCopy = useMemo(() => STEP_COPY[step], [step]);
 
