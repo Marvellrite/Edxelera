@@ -6,7 +6,6 @@ import {
 import {
   AuthResponse,
   VerifyOtpPayload,
-  ForgottenPasswordPayload,
   ResendOtpPayload,
 } from "./types";
 import { authAPI } from "./api";
@@ -33,11 +32,4 @@ export const useResendOtp = (
   });
 };
 
-export const useForgottenPassword = (
-  options?: UseMutationOptions<AuthResponse, Error, ForgottenPasswordPayload>
-) => {
-  return useMutation({
-    mutationFn: authAPI.forgottenPassword,
-    ...options,
-  });
-};
+

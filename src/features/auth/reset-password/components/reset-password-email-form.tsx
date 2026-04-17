@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { useForgottenPassword } from '../../hooks';
+import { useForgottenPassword } from '../hooks/use-reset-password';
 import FormError from '@/components/auth/form-error';
 import { InputIconned } from '@/components/data/input-iconned';
 import { Sms } from '@/components/icons/modified';
@@ -16,6 +16,7 @@ import {
    SendPassResetSchema,
    sendPassResetSchema,
 } from '@/schemas/send-password-reset.schema';
+import { AuthResponse } from '../../types';
 
 type ResetPassEmailFormProps = {
    defaultEmail?: string;
@@ -48,7 +49,7 @@ export default function ResetPassEmailForm({
    const email = watch('email');
 
    const { mutate: forgottenPassword, isPending } = useForgottenPassword({
-      onSuccess: (data, variables) => {
+      onSuccess: (data:AuthResponse, variables) => {
          toast.success(
             () => (
                <SuccessToast

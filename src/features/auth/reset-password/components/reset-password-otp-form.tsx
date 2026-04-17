@@ -18,7 +18,7 @@ const RESEND_COOLDOWN_SECONDS = 60;
 type ResetPassOtpFormProps = {
    email: string;
    onBack?: () => void;
-   onSuccess: (payload: { resetToken?: string }) => void;
+   onSuccess: (payload: { resetToken?: string|null }) => void;
 };
 
 const useResendCooldown = (initialSeconds = RESEND_COOLDOWN_SECONDS) => {
@@ -58,7 +58,7 @@ const ResetPassOtpForm: React.FC<ResetPassOtpFormProps> = ({
 
    const { mutate: verifyOtp, isPending: isVerifying } = useVerifyOtp({
       onSuccess: (data) => {
-         const resetToken = extractResetToken(data);
+         const resetToken = extractResetToken();
 
          toast.success(
             () => (
@@ -130,7 +130,7 @@ const ResetPassOtpForm: React.FC<ResetPassOtpFormProps> = ({
 
       const otp = completeOtp.join('');
       setOtpError(null);
-      verifyOtp({ email, otp, otp_type: 'password_reset' });
+      verifyOtp({ email, otp, otp_type: 'forgotten_password' });
    };
 
    const handleResendOtp = () => {

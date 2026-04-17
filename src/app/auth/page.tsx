@@ -15,7 +15,7 @@ import { LockOutline, Sms } from '@/components/icons/modified';
 import { Eye, EyeSlash } from '@/components/icons/modified';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import { toast } from 'react-toastify';
-import { useSignIn } from '@/api/auth';
+import { useSignIn } from '@/features/auth/sign-in/hooks';
 
 const Page: React.FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);

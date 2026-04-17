@@ -16,3 +16,8 @@ export type ResetPasswordFlowState = {
    email: string;
    resetToken: string;
 };
+
+
+export interface ForgottenPasswordPayload {
+  email: string;
+}

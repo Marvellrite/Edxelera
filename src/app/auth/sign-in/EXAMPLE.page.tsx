@@ -14,7 +14,7 @@ import { Eye, EyeSlash, LockOutline, Sms } from '@/components/icons/modified';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
-import { useSignIn } from '@/api/auth';
+import { useSignIn } from '@/features/auth/sign-in/hooks';
 
 const SignInPage: React.FC = () => {
   const {

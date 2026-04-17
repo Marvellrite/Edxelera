@@ -17,6 +17,7 @@ export const viewport: Viewport = {
    viewportFit: 'auto',
 };
 
+
 export default function RootLayout({
    children,
 }: Readonly<{

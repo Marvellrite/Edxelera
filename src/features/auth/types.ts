@@ -27,10 +27,6 @@ export interface VerifyOtpPayload {
   otp_type?: string;
 }
 
-export interface ForgottenPasswordPayload {
-  email: string;
-}
-
 export interface ResendOtpPayload {
   email: string;
 }

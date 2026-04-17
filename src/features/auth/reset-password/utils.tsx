@@ -5,6 +5,7 @@ import { ResetPassSchema } from "@/schemas/reset-password.schema";
 import { AuthResponse } from "../types";
 import { toast } from "react-toastify";
 import { UseMutateFunction } from "@tanstack/react-query";
+import getCookie from "@/lib/utils/getCookie";
 
 /**
  * TYPES FOR DEPENDENCIES (cleaner than `any`)
@@ -33,7 +34,7 @@ export const handleEmailSuccess = (
 
 export const handleOtpSuccess = (
   moveToStep: MoveToStep,
-  { resetToken }: { resetToken?: string }
+  { resetToken }: { resetToken?: string|null }
 ) => {
   if (!resetToken) {
     toast.error(
@@ -172,6 +173,7 @@ export const handlePasswordReset = (
   });
 };
 
-export const extractResetToken = (response: AuthResponse) => {
-  return response.data?.accessToken || response.data?.refreshToken || "";
+export const extractResetToken = () => {
+  return getCookie('reset_token')
 };
+

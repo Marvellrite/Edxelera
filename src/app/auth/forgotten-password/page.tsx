@@ -11,7 +11,7 @@ import { Sms } from '@/components/icons/modified';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
-import { useForgottenPassword } from '@/api/auth';
+import { useForgottenPassword } from '@/features/auth/reset-password/hooks/use-reset-password';
 import { z } from 'zod';
 
 const forgottenPasswordSchema = z.object({

@@ -1,9 +1,9 @@
-import { WEB_CLIENT_HEADER } from "@/constants";
+import { WEB_CLIENT_HEADER, PROXY_URL } from "@/constants";
 import { AuthResponse } from "../types";
 
 const meAPI = {
       getMe: async () => {
-    const response = await fetch('/api/proxy/auth/me', {
+    const response = await fetch(`${PROXY_URL}/auth/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
