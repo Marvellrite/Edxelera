@@ -41,8 +41,8 @@ const Page: React.FC = () => {
       formData.append('bio', data.bio || '');
       formData.append('profileImage', data.profileImage);
 
-      const response = await fetch(`${ServerURL}/auth/signup`, {
-         method: 'POST',
+      const response = await fetch(`${ServerURL}/profile/edit`, {
+         method: 'PATCH',
          body: formData,
       });
 

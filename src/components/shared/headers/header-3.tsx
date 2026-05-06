@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Bell, SearchOutline } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
-import { useStudentSession } from "@/hooks/useStudentSession";
+import { useCurrentUserSession } from '@/features/auth/me/hooks';
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { Course_status } from "@/types/my-courses/course-status";
@@ -14,7 +14,7 @@ import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 const Header = () => {
 
-           const { user } = useStudentSession();
+           const { user } = useCurrentUserSession();
            console.log(user)
        
            const displayName = user?.fullname || 'Student';

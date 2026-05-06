@@ -6,14 +6,14 @@ import { Bell, ArrowDown, Sort,  } from "@/components/icons/modified";
 import { useTheme } from "@/hooks/useTheme";
 import { } from "@/components/icons/modified";
 import toTitleCase from "@/utils/toTitleCase";
-import { useStudentSession } from "@/hooks/useStudentSession";
+import { useCurrentUserSession } from '@/features/auth/me/hooks';
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import useFixedAnchoredElement from "@/hooks/useFixedAnchoredElement";
 
 
 const Header = () => {
 
-           const { user } = useStudentSession();
+           const { user } = useCurrentUserSession();
            const { toggleTheme } = useTheme();
            const { anchorRef, fixedRef, fixedStyle, spacerHeight } = useFixedAnchoredElement<HTMLElement>();
            console.log(user)

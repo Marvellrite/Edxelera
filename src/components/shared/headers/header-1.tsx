@@ -2,13 +2,13 @@
 
 import SearchBar from '@/components/data/nav-search-bar';
 import Image from "next/image";
-import { useStudentSession } from "@/hooks/useStudentSession";
+import { useCurrentUserSession } from '@/features/auth/me/hooks';
 import toTitleCase from "@/utils/toTitleCase";
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import NotificationBellButton from "@/components/features/cart/notification-bell-button";
 
 const Header = () => {
-    const { user } = useStudentSession();
+    const { user } = useCurrentUserSession();
     console.log(user)
 
     const displayName = user?.fullname || 'Student';

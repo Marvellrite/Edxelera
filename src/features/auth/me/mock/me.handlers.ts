@@ -8,7 +8,7 @@ const proxyUrl = env.NEXT_PUBLIC_PROXY_URL
 const meHandlers = [
 
     // Forgotten password form request
-    http.post(`${proxyUrl}/auth/me`, async()=>{
+    http.get(`${proxyUrl}/auth/me`, async()=>{
 
         const response = HttpResponse.json(successMockMeResponse)
         return response

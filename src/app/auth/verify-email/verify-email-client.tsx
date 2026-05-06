@@ -98,7 +98,7 @@ const VerifyEmailClient = ({ email }: VerifyEmailClientProps) => {
             }}
           />
         ),
-        { closeButton: false, onClose: () => router.replace('/home'), autoClose: SUCCESS_TOAST_DURATION_MS }
+        { closeButton: false, onClose: () => router.replace('/auth/onboarding'), autoClose: SUCCESS_TOAST_DURATION_MS }
       );
     },
     onError: (error) => {

@@ -17,6 +17,16 @@ import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
 import { toast } from 'react-toastify';
 import { useSignIn } from '@/features/auth/sign-in/hooks';
 
+function getSafeRedirectPath() {
+  const nextPath = new URLSearchParams(window.location.search).get('next');
+
+  if (nextPath?.startsWith('/') && !nextPath.startsWith('//')) {
+    return nextPath;
+  }
+
+  return '/home';
+}
+
 const Page: React.FC = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -35,7 +45,7 @@ const Page: React.FC = () => {
     onSuccess: (data) => {
       toast.success(
         () => <SuccessToast msg={{ title: 'Success', body: data.message || 'Login successful' }} />,
-        { closeButton: false, onClose: () => router.push('/home') }
+        { closeButton: false, onClose: () => router.replace(getSafeRedirectPath()) }
       );
     },
     onError: (error) => {

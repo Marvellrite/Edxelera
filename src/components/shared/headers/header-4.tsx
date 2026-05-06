@@ -4,7 +4,7 @@ import * as React from "react";
 import { ArrowLeft} from "@/components/icons/modified"
 import Image from "next/image";
 import toTitleCase from "@/utils/toTitleCase";
-import { useStudentSession } from "@/hooks/useStudentSession";
+import { useCurrentUserSession } from '@/features/auth/me/hooks';
 import { ThemeToggler as ThemeTogglerComponent } from "@/components/common";
 import CartRouteButton from "@/components/features/cart/cart-route-button";
 import CourseShareButton from "@/components/features/share/course-share-button";
@@ -38,7 +38,7 @@ export default function HeaderTopBar({
   showbackBtn=true
 }: HeaderTopBarProps) {
   // const isLight = theme === "light";
-      const { user } = useStudentSession();
+      const { user } = useCurrentUserSession();
       const storeCartCount = useCartStore((state) => state.items.length);
   
       const displayName = user?.fullname || 'Student';

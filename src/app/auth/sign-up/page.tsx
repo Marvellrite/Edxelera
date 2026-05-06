@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { useForm, useWatch } from 'react-hook-form';
-import { SigninSchema, signinSchema } from '@/schemas/sign-in';
+import { signUpSchema } from '@/features/auth/sign-up/schema';
+import type { SignUpSchema } from '@/features/auth/sign-up/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -15,7 +16,7 @@ import { Eye, EyeSlash, LockOutline, Sms, UserOutline } from '@/components/icons
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import { ErrorToast, SuccessToast } from '@/components/toast/toaster';
-import { useSignUp } from '@/api/auth';
+import { useSignUp } from '@/features/auth/sign-up/hooks';
 
 const SUCCESS_TOAST_DURATION_MS = 1800;
 const ERROR_TOAST_DURATION_MS = 2500;
@@ -26,8 +27,8 @@ const Page: React.FC = () => {
     handleSubmit,
     formState: { errors, touchedFields },
     control,
-  } = useForm<SigninSchema>({
-    resolver: zodResolver(signinSchema),
+  } = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       fullname: '',
       email: '',
@@ -56,7 +57,7 @@ const Page: React.FC = () => {
     },
   });
 
-  const onSubmit = (data: SigninSchema) => {
+  const onSubmit = (data: SignUpSchema) => {
     const { confirm_password: _confirmPassword, ...payload } = data;
     setPendingEmail(data.email);
     signUp(payload);
